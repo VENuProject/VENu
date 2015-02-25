@@ -1,0 +1,108 @@
+fileFormatVersion: 2
+guid: e591364197dd10d4ca1677f6ad34c2f5
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Cube_030
+    100002: Cylinder_028
+    100004: Field_Cage
+    100006: Mu_metal_shields
+    100008: PMT_004
+    100010: RACKS
+    100012: TPB_plates
+    100014: TPC_CAGE
+    100016: //RootNode
+    100018: Wireplane
+    400000: Cube_030
+    400002: Cylinder_028
+    400004: Field_Cage
+    400006: Mu_metal_shields
+    400008: PMT_004
+    400010: RACKS
+    400012: TPB_plates
+    400014: TPC_CAGE
+    400016: //RootNode
+    400018: Wireplane
+    2300000: Cube_030
+    2300002: Cylinder_028
+    2300004: Field_Cage
+    2300006: Mu_metal_shields
+    2300008: PMT_004
+    2300010: RACKS
+    2300012: TPB_plates
+    2300014: TPC_CAGE
+    2300016: Wireplane
+    3300000: Cube_030
+    3300002: Cylinder_028
+    3300004: Field_Cage
+    3300006: Mu_metal_shields
+    3300008: PMT_004
+    3300010: RACKS
+    3300012: TPB_plates
+    3300014: TPC_CAGE
+    3300016: Wireplane
+    4300000: Wireplane
+    4300002: Cube_030
+    4300004: Mu_metal_shields
+    4300006: TPB_plates
+    4300008: Field_Cage
+    4300010: RACKS
+    4300012: TPC_CAGE
+    4300014: PMT_004
+    4300016: Cylinder_028
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

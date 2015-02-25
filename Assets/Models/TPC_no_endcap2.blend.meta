@@ -1,0 +1,140 @@
+fileFormatVersion: 2
+guid: 98cf7ee52df17d440baf60616ef70a59
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Cryostat
+    100002: Cube_005
+    100004: Cylinder_001
+    100006: Cylinder_002
+    100008: Cylinder_004
+    100010: Cylinder_005
+    100012: Feedthroughs
+    100014: Feedthroughs_002
+    100016: NurbsPath_001
+    100018: NurbsPath_001_MeshPart0
+    100020: NurbsPath_001_MeshPart1
+    100022: NurbsPath_001_MeshPart2
+    100024: NurbsPath_001_MeshPart3
+    100026: NurbsPath_001_MeshPart4
+    100028: Plane_004
+    100030: Sphere_004
+    100032: //RootNode
+    400000: Cryostat
+    400002: Cube_005
+    400004: Cylinder_001
+    400006: Cylinder_002
+    400008: Cylinder_004
+    400010: Cylinder_005
+    400012: Feedthroughs
+    400014: Feedthroughs_002
+    400016: NurbsPath_001
+    400018: NurbsPath_001_MeshPart0
+    400020: NurbsPath_001_MeshPart1
+    400022: NurbsPath_001_MeshPart2
+    400024: NurbsPath_001_MeshPart3
+    400026: NurbsPath_001_MeshPart4
+    400028: Plane_004
+    400030: Sphere_004
+    400032: //RootNode
+    2300000: Cryostat
+    2300002: Cube_005
+    2300004: Cylinder_001
+    2300006: Cylinder_002
+    2300008: Cylinder_004
+    2300010: Cylinder_005
+    2300012: Feedthroughs
+    2300014: Feedthroughs_002
+    2300016: NurbsPath_001_MeshPart0
+    2300018: NurbsPath_001_MeshPart1
+    2300020: NurbsPath_001_MeshPart2
+    2300022: NurbsPath_001_MeshPart3
+    2300024: NurbsPath_001_MeshPart4
+    2300026: Plane_004
+    2300028: Sphere_004
+    3300000: Cryostat
+    3300002: Cube_005
+    3300004: Cylinder_001
+    3300006: Cylinder_002
+    3300008: Cylinder_004
+    3300010: Cylinder_005
+    3300012: Feedthroughs
+    3300014: Feedthroughs_002
+    3300016: NurbsPath_001_MeshPart0
+    3300018: NurbsPath_001_MeshPart1
+    3300020: NurbsPath_001_MeshPart2
+    3300022: NurbsPath_001_MeshPart3
+    3300024: NurbsPath_001_MeshPart4
+    3300026: Plane_004
+    3300028: Sphere_004
+    4300000: Feedthroughs
+    4300002: Cryostat
+    4300004: NurbsPath_001_MeshPart0
+    4300006: NurbsPath_001_MeshPart1
+    4300008: NurbsPath_001_MeshPart2
+    4300010: NurbsPath_001_MeshPart3
+    4300012: NurbsPath_001_MeshPart4
+    4300014: Sphere_004
+    4300016: Cylinder_001
+    4300018: Feedthroughs_002
+    4300020: Cylinder_002
+    4300022: Cube_005
+    4300024: Plane_004
+    4300026: Cylinder_004
+    4300028: Cylinder_005
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
