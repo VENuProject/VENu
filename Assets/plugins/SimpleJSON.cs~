@@ -75,6 +75,9 @@ namespace SimpleJSON
             Add("", aItem);
         }
 
+        // public virtual IEnumerable<string> Keys { get { yield break; } }
+        public virtual IEnumerable<int> Keys { get { yield break; } }
+
         public virtual JSONNode Remove(string aKey) { return null; }
         public virtual JSONNode Remove(int aIndex) { return null; }
         public virtual JSONNode Remove(JSONNode aNode) { return aNode; }
