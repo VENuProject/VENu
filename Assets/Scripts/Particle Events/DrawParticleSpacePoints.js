@@ -53,7 +53,7 @@ function Test()
     	        0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][1].AsFloat,
     	        0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][2].AsFloat);
     	sphere.transform.localScale = Vector3(0.01,0.01,0.01);
-	sphere.collider.enabled=false;
+	sphere.GetComponent.<Collider>().enabled=false;
 	spacePointsArray.Push(sphere);	
 
 	P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].ToString()  

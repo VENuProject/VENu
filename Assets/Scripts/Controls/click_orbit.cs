@@ -39,8 +39,8 @@ public class click_orbit : MonoBehaviour {
 		y1 = angles.x;
 		
 
-		if (rigidbody)
-			rigidbody.freezeRotation = true;
+		if (GetComponent<Rigidbody>())
+			GetComponent<Rigidbody>().freezeRotation = true;
 
 
 	}

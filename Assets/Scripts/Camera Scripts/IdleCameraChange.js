@@ -21,7 +21,7 @@ function Start(){
 
 
 }
-
+/*
 function Update(){
   // calculate the velocity since last Update:
   var vel: float = Vector3.Distance(transform.position, lastPos)/Time.deltaTime;
@@ -34,10 +34,10 @@ function Update(){
   
   
   if (idleTimer == 0 ){
-    cam1.camera.active = true;
-    cam2.camera.active = false;
-    cam3.camera.active = false;
-    cam4.camera.active = false;
+    cam1.GetComponent.<Camera>().active = true;
+    cam2.GetComponent.<Camera>().active = false;
+    cam3.GetComponent.<Camera>().active = false;
+    cam4.GetComponent.<Camera>().active = false;
     
     
   }
@@ -45,33 +45,34 @@ function Update(){
     var cam2clone : Camera;
     Destroy(cam2clone);
 //    cam2clone = Instantiate(cam2, transform.position(0,0,-34.68567), transform.RotateAround(0,0,0));
-    cam1.camera.active = false;
-    cam2.camera.active = true;
-    cam3.camera.active = false;
-    cam4.camera.active = false;
+    cam1.GetComponent.<Camera>().active = false;
+    cam2.GetComponent.<Camera>().active = true;
+    cam3.GetComponent.<Camera>().active = false;
+    cam4.GetComponent.<Camera>().active = false;
   	}
   else if (idleTimer < 20 && idleTimer >= 14 && (cam2.enabled == true || cam1.enabled == true)) {
     var cam3clone : Camera;
     Destroy(cam2clone);
     Destroy(cam3clone);
 //    cam3clone = Instantiate(cam3, transform.position(0,0,-34.68567), transform.RotateAround(0,0,0));
-    cam1.camera.active = false;
-    cam2.camera.active = false;
-    cam3.camera.active = true;
-    cam4.camera.active = false;
+    cam1.GetComponent.<Camera>().active = false;
+    cam2.GetComponent.<Camera>().active = false;
+    cam3.GetComponent.<Camera>().active = true;
+    cam4.GetComponent.<Camera>().active = false;
     }
   else if (idleTimer < 25 &&idleTimer >= 20 && (cam2.enabled == true || cam1.enabled == true)) {
     var cam4clone : Camera;
     Destroy(cam3clone);
     Destroy(cam4clone);
 //    cam4clone = Instantiate(cam4, transform.position(0,0,-34.68567), transform.RotateAround(0,0,0));
-    cam1.camera.active = false;
-    cam2.camera.active = false;
-    cam3.camera.active = false;
-    cam4.camera.active = true;
+    cam1.GetComponent.<Camera>().active = false;
+    cam2.GetComponent.<Camera>().active = false;
+    cam3.GetComponent.<Camera>().active = false;
+    cam4.GetComponent.<Camera>().active = true;
     }
   else if (idleTimer >= 25) {
   	idleTimer = 6;
   	}
   	
 }
+*/
