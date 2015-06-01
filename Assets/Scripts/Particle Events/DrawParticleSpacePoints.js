@@ -3,6 +3,8 @@ import SimpleJSON;
 import System.IO;
 import System.Linq;
 
+
+var dot : GameObject;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 var fileName = "test_reco_event.json";
@@ -48,13 +50,14 @@ function Test()
     P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
     for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count; key++){
-	var sphere : GameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-    	sphere.transform.position = Vector3(-0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].AsFloat,
+	 var clone : GameObject;
+	 	clone = Instantiate(dot ,transform.position, transform.rotation);
+    	clone.transform.position = Vector3(-0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].AsFloat,
     	        0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][1].AsFloat,
     	        0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][2].AsFloat);
-    	sphere.transform.localScale = Vector3(0.01,0.01,0.01);
-	sphere.GetComponent.<Collider>().enabled=false;
-	spacePointsArray.Push(sphere);	
+    	clone.transform.localScale = Vector3(0.005,0.005,0.005);
+//	clone.GetComponent.<Collider>().enabled=false;
+	spacePointsArray.Push(clone);	
 
 	P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].ToString()  
     	+ "," + N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][1].ToString()
