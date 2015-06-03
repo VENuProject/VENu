@@ -7,7 +7,7 @@ private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 private var reference = Vector3.zero;
 var fileName = "test_reco_event.json";
-var referer : GameObject; 
+var referer : Transform; 
 //private vector3 spacepoint;
 function P( aText : String)
 {

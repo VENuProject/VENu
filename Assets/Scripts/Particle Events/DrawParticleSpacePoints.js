@@ -51,8 +51,8 @@ function Test()
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
     for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count; key++){
 	 var clone : GameObject;
-	 	clone = Instantiate(dot ,transform.position, transform.rotation);
-    	clone.transform.position = Vector3(-0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].AsFloat,
+	 	clone = Instantiate(dot , transform.position, transform.rotation);
+    	clone.transform.position = transform.position + Vector3(0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].AsFloat,
     	        0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][1].AsFloat,
     	        0.01*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][2].AsFloat);
     	clone.transform.localScale = Vector3(0.005,0.005,0.005);
