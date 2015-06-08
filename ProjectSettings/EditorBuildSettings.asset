@@ -47,7 +47,9 @@ EditorBuildSettings:
     path: Assets/Sample Assets/Sample Scenes/Scenes/Third Person Character.unity
   - enabled: 0
     path: Assets/Sample Assets/Sample Scenes/Scenes/2D Character.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test_Main_Menu4.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/display.unity
+  - enabled: 1
+    path: Assets/Scenes/display_JSON.unity
