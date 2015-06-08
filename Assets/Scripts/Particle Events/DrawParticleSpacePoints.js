@@ -7,7 +7,7 @@ import System.Linq;
 var dot : GameObject;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
-var fileName = "test_reco_event.json";
+var fileName = "complicated_event.json";
 //private vector3 spacepoint;
 function P( aText : String)
 {
