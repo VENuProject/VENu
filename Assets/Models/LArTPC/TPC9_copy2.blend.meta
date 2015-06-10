@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: af67e2ec2620cec41883496f2c2a565c
+timeCreated: 1433970153
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Cryostat
+    100002: Field_Cage_002
+    100004: Flat_TPB_plate_001
+    100006: Flat_TPB_plate_005
+    100008: MMS_R3_PMT3
+    100010: New_Cathode
+    100012: New_Wire_Plane
+    100014: PMT_000
+    100016: PMT_001
+    100018: Rack5_PMT7
+    100020: RACKS_001
+    100022: Removable_Endcap
+    100024: Small_PMT_001
+    100026: Small_PMT_002
+    100028: TPB_R1_PMT1_026
+    100030: //RootNode
+    100032: TPC_Frame_001
+    400000: Cryostat
+    400002: Field_Cage_002
+    400004: Flat_TPB_plate_001
+    400006: Flat_TPB_plate_005
+    400008: MMS_R3_PMT3
+    400010: New_Cathode
+    400012: New_Wire_Plane
+    400014: PMT_000
+    400016: PMT_001
+    400018: Rack5_PMT7
+    400020: RACKS_001
+    400022: Removable_Endcap
+    400024: Small_PMT_001
+    400026: Small_PMT_002
+    400028: TPB_R1_PMT1_026
+    400030: //RootNode
+    400032: TPC_Frame_001
+    2300000: Cryostat
+    2300002: Field_Cage_002
+    2300004: Flat_TPB_plate_001
+    2300006: Flat_TPB_plate_005
+    2300008: MMS_R3_PMT3
+    2300010: New_Cathode
+    2300012: New_Wire_Plane
+    2300014: PMT_000
+    2300016: PMT_001
+    2300018: Rack5_PMT7
+    2300020: RACKS_001
+    2300022: Removable_Endcap
+    2300024: Small_PMT_001
+    2300026: Small_PMT_002
+    2300028: TPB_R1_PMT1_026
+    2300030: TPC_Frame_001
+    3300000: Cryostat
+    3300002: Field_Cage_002
+    3300004: Flat_TPB_plate_001
+    3300006: Flat_TPB_plate_005
+    3300008: MMS_R3_PMT3
+    3300010: New_Cathode
+    3300012: New_Wire_Plane
+    3300014: PMT_000
+    3300016: PMT_001
+    3300018: Rack5_PMT7
+    3300020: RACKS_001
+    3300022: Removable_Endcap
+    3300024: Small_PMT_001
+    3300026: Small_PMT_002
+    3300028: TPB_R1_PMT1_026
+    3300030: TPC_Frame_001
+    4300000: MMS_R3_PMT3
+    4300002: Small_PMT_002
+    4300004: Flat_TPB_plate_005
+    4300006: Rack5_PMT7
+    4300008: PMT_001
+    4300010: New_Wire_Plane
+    4300012: Cryostat
+    4300014: Field_Cage_002
+    4300016: TPC_Frame_001
+    4300018: Removable_Endcap
+    4300020: PMT_000
+    4300022: RACKS_001
+    4300024: Flat_TPB_plate_001
+    4300026: Small_PMT_001
+    4300028: New_Cathode
+    4300030: TPB_R1_PMT1_026
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
