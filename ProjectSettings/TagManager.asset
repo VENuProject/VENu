@@ -16,9 +16,9 @@ TagManager:
   Builtin Layer 5: UI
   Builtin Layer 6: 
   Builtin Layer 7: 
-  User Layer 8: Vehicles
-  User Layer 9: Characters
-  User Layer 10: Floor
+  User Layer 8: Menu Items
+  User Layer 9: Environment
+  User Layer 10: 
   User Layer 11: 
   User Layer 12: 
   User Layer 13: 
@@ -41,13 +41,13 @@ TagManager:
   User Layer 30: 
   User Layer 31: 
   m_SortingLayers:
-  - name: Background
-    userID: 1
-    uniqueID: 1093696345
-    locked: 0
   - name: Default
     userID: 0
     uniqueID: 0
+    locked: 0
+  - name: Background
+    userID: 1
+    uniqueID: 1093696345
     locked: 0
   - name: Foreground
     userID: 2
