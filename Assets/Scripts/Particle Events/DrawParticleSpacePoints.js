@@ -25,7 +25,7 @@ function Test()
     //var jsonString = www.data;
 
     // To read in from a file
-    var sr = new StreamReader(Application.dataPath + "/" + fileName);
+    var sr = new StreamReader(Application.streamingAssetsPath + "/" + fileName);
     var jsonString = sr.ReadToEnd();
     sr.Close();
     
