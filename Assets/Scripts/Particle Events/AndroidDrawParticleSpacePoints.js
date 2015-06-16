@@ -7,7 +7,7 @@ import System.Linq;
 var dot : GameObject;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
-var fileName = "complicated_event.json";
+public var fileName = "complicated_event.json";
 //private vector3 spacepoint;
 function P( aText : String)
 {
@@ -25,10 +25,21 @@ function Test()
     //var jsonString = www.data;
 
     // To read in from a file
-    var sr = new StreamReader(Application.streamingAssetsPath + "/" + fileName);
-    var jsonString = sr.ReadToEnd();
-    sr.Close();
     
+    var jsonString="";
+    if(Application.platform==RuntimePlatform.Android){
+    var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
+    Debug.Log(Application.platform+"\n"+url);
+    var www : WWW = new WWW(url);
+    Debug.Log("Reading URL");
+    yield www;
+    jsonString=www.text;
+    Debug.Log("Found jsonString with length:" + (jsonString.length));
+    }else{
+    var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
+    jsonString = sr.ReadToEnd();
+    sr.Close();
+    }
     
     var N = JSONNode.Parse(jsonString);
 
@@ -96,7 +107,7 @@ function Test()
 
 function Start()
 {
-	//Resources.Load("complicated_event.json");
+	//Resources.Load("complicated_event.json"); //AMCLEAN added
     Test();
 	Debug.Log("Test results:\n" + m_InGameLog);
 }
