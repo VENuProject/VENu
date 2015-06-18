@@ -3,15 +3,19 @@ using System.Collections;
 
 public class changelevel_display : MonoBehaviour {
 
-
-	public void NextLevelButton(int index)
+	public void Menu()
 	{
-				Application.LoadLevel (index);
+		Application.LoadLevel (0);
 	}
 
-	public void NextLevelButton(string display)
+	public void Event1()
 	{
-		Application.LoadLevel (display);
+			Application.LoadLevel (1);
+	}
+
+	public void Event2()
+	{
+			Application.LoadLevel (2);
 	}
 
 
