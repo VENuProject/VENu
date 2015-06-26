@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dot: {fileID: 167936, guid: ef0049775a362e64c9df4c5b54ae39ab, type: 2}
+  LoaderElement: {fileID: 0}
   fileName: muminus_reco_test.json
 --- !u!1 &70007580
 GameObject:
@@ -2716,7 +2717,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2757,6 +2758,21 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &870010815 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+  m_PrefabInternal: {fileID: 870010814}
+--- !u!114 &870010816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870010815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72470ca3c9199e54faef0b741a0d3f22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &872419709
 GameObject:
   m_ObjectHideFlags: 0
@@ -4212,6 +4228,18 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       objectReference: {fileID: 0}
+    - target: {fileID: 161362, guid: b27a3648a4138a345a9cebaab81fdbb8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 182408, guid: b27a3648a4138a345a9cebaab81fdbb8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 103520, guid: b27a3648a4138a345a9cebaab81fdbb8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b27a3648a4138a345a9cebaab81fdbb8, type: 2}
   m_IsPrefabParent: 0
@@ -5126,7 +5154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 459714, guid: ce953080c6cd74148bcc3e4a044b1b96, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: .400000006
       objectReference: {fileID: 0}
     - target: {fileID: 407712, guid: ce953080c6cd74148bcc3e4a044b1b96, type: 2}
       propertyPath: m_LocalPosition.x
@@ -7761,6 +7789,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &2114663504
 MonoBehaviour:
