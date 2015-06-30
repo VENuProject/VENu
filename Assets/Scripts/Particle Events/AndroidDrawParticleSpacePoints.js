@@ -4,15 +4,43 @@ import System.IO;
 import System.Linq;
 
 
+
 var dot : GameObject;
+var LoaderElement : GameObject = GameObject.FindGameObjectWithTag("Loader");
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
-public var fileName = "complicated_event.json";
+//var file1 : String = LoaderElement.GetComponent(LoaderScript).file1;
+//var file2 : String = LoaderElement.GetComponent(LoaderScript).file2;
+var fileName : String;
 //private vector3 spacepoint;
+function FileToLoad(loadFile : String)
+{
+	var fileName : String = loadFile;
+}
+
+
+function Awake()
+{
+	DontDestroyOnLoad(this);
+	//Loader = GameObject.FindGameObjectWithTag("Loader");
+	//Script = Loader.GetComponent(LoaderScript);
+}
 function P( aText : String)
 {
 	m_InGameLog += aText + "\n";
 }
+/*
+public function setFileName(fileName : String) //AMCLEAN add
+{
+	findScriptInGameObject("Loader","LoaderScript") = fileName;
+}
+
+public function findScriptInGameObject(objectName : String, scriptName : String) //AMCLEAN add
+{
+	return LoaderElement.GetComponent(LoaderScript).file1;
+}
+	*/
+
 
 function Test()
 {
@@ -137,7 +165,7 @@ function OnGUI()
 
 
 
-//function Update () {
+function Update () {
 
     //// Put this in your update function
     //if (Input.GetKeyDown(KeyCode.N)) {
@@ -149,4 +177,4 @@ function OnGUI()
 
     //}
 
-//}
+}
