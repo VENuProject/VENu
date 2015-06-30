@@ -4,9 +4,14 @@ This is the repository for the MicroBooNE VR project.
 
 The author of this README.md (Ben) stresses that this is one of the first GitHub repositories he has setup. Some of the instructions may not quite work. Please let him know if something's wrong!
 
+
+## Requirements
+
+You'll need to install usually the latest version of Unity (see below). You'll also need the computer graphics program Blender. 
+
 ## A word about Unity versions
 
-Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 4.6.3. 
+Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.1.1. 
 
 ## Check out the code
 
