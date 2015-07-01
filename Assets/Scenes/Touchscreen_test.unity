@@ -211,6 +211,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dot: {fileID: 167936, guid: ef0049775a362e64c9df4c5b54ae39ab, type: 2}
+  m_InGameLog: 
+  m_Position: {x: 0, y: 0}
   fileName: 
 --- !u!1 &337844538
 GameObject:
