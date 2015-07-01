@@ -416,7 +416,7 @@ GameObject:
   - 222: {fileID: 479948346}
   - 114: {fileID: 479948345}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,12 +721,23 @@ MonoBehaviour:
   m_EndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1010379449}
-        m_MethodName: FileToLoad
-        m_Mode: 5
+      - m_Target: {fileID: 1989197700}
+        m_MethodName: AssignEvent
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -736,7 +747,18 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   m_OnValueChange:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1989197700}
+        m_MethodName: AssignEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.InputField+OnChangeEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   m_SelectionColor: {r: .65882355, g: .807843149, b: 1, a: .752941191}
@@ -916,13 +938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1c6658f376568409c1291dc4f0d19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dot: {fileID: 0}
-  fileList:
-  - muminus_reco_test.json
-  - complicated_event.json
-  fileName: 
-  button1active: 0
-  button2active: 0
 --- !u!114 &960632316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,30 +992,15 @@ Prefab:
       propertyPath: fileName
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11406298, guid: b62fd079adb54704d8719b5281fd344e, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11406298, guid: b62fd079adb54704d8719b5281fd344e, type: 2}
+    - {fileID: 11459760, guid: b62fd079adb54704d8719b5281fd344e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b62fd079adb54704d8719b5281fd344e, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &1010379449 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11406298, guid: b62fd079adb54704d8719b5281fd344e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1010379448}
-  m_Script: {fileID: 11500000, guid: 97d2faed4bcb0f44294709d0071745cc, type: 3}
---- !u!1 &1010379450 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 192086, guid: b62fd079adb54704d8719b5281fd344e, type: 2}
-  m_PrefabInternal: {fileID: 1010379448}
---- !u!114 &1010379451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1010379450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23b56d28ccd708949a128e523fd78c15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1157189337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,13 +1359,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1c6658f376568409c1291dc4f0d19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dot: {fileID: 0}
-  fileList:
-  - muminus_reco_test.json
-  - complicated_event.json
-  fileName: 
-  button1active: 0
-  button2active: 0
 --- !u!114 &1533302666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,9 +1475,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11436064, guid: a94ce08a6ef2c694898740e911ba5da7, type: 2}
+      propertyPath: inputField
+      value: 
+      objectReference: {fileID: 803951550}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a94ce08a6ef2c694898740e911ba5da7, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1989197700 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11436064, guid: a94ce08a6ef2c694898740e911ba5da7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1776398867}
+  m_Script: {fileID: 11500000, guid: 23b56d28ccd708949a128e523fd78c15, type: 3}
 --- !u!1 &2130999541
 GameObject:
   m_ObjectHideFlags: 0

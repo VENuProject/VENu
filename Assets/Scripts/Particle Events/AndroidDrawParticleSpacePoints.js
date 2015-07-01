@@ -6,22 +6,26 @@ import System.Linq;
 
 
 var dot : GameObject;
-var LoaderElement : GameObject = GameObject.FindGameObjectWithTag("Loader");
+//var LoaderElement : GameObject = GameObject.FindGameObjectWithTag("Loader");
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 //var file1 : String = LoaderElement.GetComponent(LoaderScript).file1;
 //var file2 : String = LoaderElement.GetComponent(LoaderScript).file2;
 var fileName : String;
 //private vector3 spacepoint;
-function FileToLoad(loadFile : String)
-{
-	var fileName : String = loadFile;
-}
+
 
 
 function Awake()
 {
-	DontDestroyOnLoad(this);
+	if(PlayerPrefs.HasKey("File To Load"))
+	{
+		fileName = PlayerPrefs.GetString("File To Load");
+	}
+	else
+	{
+		Debug.Log("<color=red>No Event Loaded</color>");
+	}
 	//Loader = GameObject.FindGameObjectWithTag("Loader");
 	//Script = Loader.GetComponent(LoaderScript);
 }
@@ -55,15 +59,20 @@ function Test()
     // To read in from a file
     
     var jsonString="";
-    if(Application.platform==RuntimePlatform.Android){
+    
+    if(Application.platform==RuntimePlatform.Android)
+    {
     var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
     Debug.Log(Application.platform+"\n"+url);
     var www : WWW = new WWW(url);
     Debug.Log("Reading URL");
+    
     yield www;
     jsonString=www.text;
     Debug.Log("Found jsonString with length:" + (jsonString.length));
-    }else{
+    }
+    else
+    {
     var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
     jsonString = sr.ReadToEnd();
     sr.Close();
@@ -135,6 +144,7 @@ function Test()
 
 function Start()
 {
+	//fileName = PlayerPrefs.GetString("File To Load");
 	//Resources.Load("complicated_event.json"); //AMCLEAN added
     Test();
 	Debug.Log("Test results:\n" + m_InGameLog);

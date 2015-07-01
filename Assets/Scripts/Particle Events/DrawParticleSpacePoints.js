@@ -25,10 +25,24 @@ function Test()
     //var jsonString = www.data;
 
     // To read in from a file
-    var sr = new StreamReader(Application.streamingAssetsPath + "/" + fileName);
-    var jsonString = sr.ReadToEnd();
-    sr.Close();
+    var jsonString="";
+    if(Application.platform==RuntimePlatform.Android)
+    {
+    var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
+    Debug.Log(Application.platform+"\n"+url);
+    var www : WWW = new WWW(url);
+    Debug.Log("Reading URL");
     
+    yield www;
+    jsonString=www.text;
+    Debug.Log("Found jsonString with length:" + (jsonString.length));
+    }
+    else
+    {
+    var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
+    jsonString = sr.ReadToEnd();
+    sr.Close();
+    }
     
     var N = JSONNode.Parse(jsonString);
 

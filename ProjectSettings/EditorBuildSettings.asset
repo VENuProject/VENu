@@ -6,10 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/display_test_menu.unity
+    path: Assets/Scenes/Touchscreen_Menu_Test.unity
   - enabled: 1
-    path: Assets/Scenes/simple_scene.unity
-  - enabled: 1
-    path: Assets/Scenes/simple_bombomb_scene.unity
-  - enabled: 1
-    path: Assets/Scenes/complicated_scene.unity
+    path: Assets/Scenes/Touchscreen_test.unity

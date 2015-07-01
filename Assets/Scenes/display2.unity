@@ -87,7 +87,7 @@ NavMeshSettings:
     cellSize: .166666657
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &284882082
+--- !u!4 &284882082 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400034, guid: 6dd66ba82d5ebe942b2ce12599204868, type: 3}
   m_PrefabInternal: {fileID: 489294997}
@@ -612,6 +612,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!114 &545651211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,7 +681,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 59263c6055d53ec48a3ab4a087c485a1, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 59263c6055d53ec48a3ab4a087c485a1, type: 3}
       propertyPath: m_LocalScale.x
@@ -947,11 +948,11 @@ Transform:
   - {fileID: 1637970788}
   m_Father: {fileID: 1663897125}
   m_RootOrder: 0
---- !u!4 &1103521993
+--- !u!4 &1103521993 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 1ceca600a47ad4549a36c77c75b0cf31, type: 3}
   m_PrefabInternal: {fileID: 1264849713}
---- !u!4 &1116537163
+--- !u!4 &1116537163 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 59263c6055d53ec48a3ab4a087c485a1, type: 3}
   m_PrefabInternal: {fileID: 633820128}
@@ -1120,6 +1121,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1350988084
 Transform:
   m_ObjectHideFlags: 0
