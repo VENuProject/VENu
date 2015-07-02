@@ -803,8 +803,6 @@ GameObject:
   - 114: {fileID: 960632312}
   - 114: {fileID: 960632311}
   - 114: {fileID: 960632314}
-  - 114: {fileID: 960632315}
-  - 114: {fileID: 960632316}
   m_Layer: 5
   m_Name: Event 1 Button
   m_TagString: Untagged
@@ -869,15 +867,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 960632316}
-        m_MethodName: Event1
-        m_Mode: 1
+      - m_Target: {fileID: 1989197700}
+        m_MethodName: Button1Assign
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: muminus_reco_test.json
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -927,28 +925,6 @@ MonoBehaviour:
   m_PreferredHeight: 100
   m_FlexibleWidth: 0
   m_FlexibleHeight: -1
---- !u!114 &960632315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 960632309}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f1c6658f376568409c1291dc4f0d19d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &960632316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 960632309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19e765979480ab748bf7603646b394ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1010379448
 Prefab:
   m_ObjectHideFlags: 0
@@ -1272,15 +1248,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1533302666}
-        m_MethodName: Event2
-        m_Mode: 1
+      - m_Target: {fileID: 1989197700}
+        m_MethodName: Button2Assign
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: complicated_event.json
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1523,7 +1499,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -30, y: 30}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2130999543
 MonoBehaviour:
@@ -1544,7 +1520,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
+    m_NormalColor: {r: .775784492, g: .801470578, b: .335910439, a: .453000009}
     m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: 0}
@@ -1565,7 +1541,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2130999546}
-        m_MethodName: LoadScene
+        m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1590,8 +1566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1612,7 +1588,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2130999541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f00f5dc2b6c6bb4c941eee333240ae9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b11312f5d72bba498c49840ae22497c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2141468387

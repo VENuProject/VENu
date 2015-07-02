@@ -635,6 +635,11 @@ MonoBehaviour:
   smooth: 1
   minDistance: 10
   property: 
+  zoomSpd: 2
+  xSpeed: 240
+  ySpeed: 123
+  yMinLimit: -723
+  yMaxLimit: 877
 --- !u!1 &1910276033
 GameObject:
   m_ObjectHideFlags: 0

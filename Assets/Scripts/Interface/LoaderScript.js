@@ -19,3 +19,14 @@ function AssignEvent ()
 {
 	PlayerPrefs.SetString("File To Load",fileToLoad);
 }
+
+function Button1Assign(fileToLoad : String)
+{
+	PlayerPrefs.SetString("File To Load",fileToLoad);
+}
+
+
+function Button2Assign(fileToLoad : String)
+{
+	PlayerPrefs.SetString("File To Load",fileToLoad);
+}

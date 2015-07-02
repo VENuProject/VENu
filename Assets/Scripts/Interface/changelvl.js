@@ -4,7 +4,13 @@ function Start () {
 
 }
 
-function Update () {
-		if(Input.GetMouseButton(0))
-			Application.LoadLevel("display");
+function Update () 
+{
+
+}
+
+function ChangeScene()
+{
+
+			Application.LoadLevel("Touchscreen_test");
 }
