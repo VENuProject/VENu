@@ -21,6 +21,18 @@ public class SmoothLookAt : MonoBehaviour {
 	private float alpha = 1.0f;
 	private Transform _myTransform;
 
+	//AMCLEAN added:
+	public float zoomSpd = 2.0f;
+
+	public float xSpeed = 240.0f;
+	public float ySpeed = 123.0f;
+	
+	public int yMinLimit = -723;
+	public int yMaxLimit = 877;
+	
+	private float x = 0.0f;
+	private float y = 0.0f;
+
 	void Awake() {
 		_myTransform = transform;
 	}
@@ -36,6 +48,9 @@ public class SmoothLookAt : MonoBehaviour {
 		//		if(rigidbody) {
 		//			rigidbody.freezeRotation = true;
 		//		}
+		Vector3 angles = transform.eulerAngles;
+		x = angles.y;
+		y = angles.x;
 		
 	}
 	
@@ -44,6 +59,15 @@ public class SmoothLookAt : MonoBehaviour {
 		_myTransform = transform;
 
 	}
+	//AMCLEAN added:
+	public static float ClampAngle (float angle, float min, float max) {
+		if (angle < -360.0f)
+			angle += 360.0f;
+		if (angle > 360.0f)
+			angle -= 360.0f;
+		return Mathf.Clamp (angle, min, max);
+	}
+	//AMCLEAN finished adding
 	void LateUpdate() {
 		//Where the modification starts! -Alistair
 		/*
@@ -56,7 +80,18 @@ public class SmoothLookAt : MonoBehaviour {
 				}
 		*/
 				//Where the modification ends! -Alistair
+		
+
 		if(target) {
+			//AMCLEAN added:
+			x -= Input.GetAxis("Horizontal") * xSpeed * 0.02f; 
+			y += Input.GetAxis("Vertical") * ySpeed * 0.02f; 
+			
+			y = ClampAngle(y, yMinLimit, yMaxLimit); 
+			
+			minDistance -= Input.GetAxis("Fire1") *zoomSpd* 0.02f; 
+			minDistance += Input.GetAxis("Fire2") *zoomSpd* 0.02f;
+			//AMCLEAN finished adding
 			if(smooth) {
 				
 				//Look at and dampen the rotation
