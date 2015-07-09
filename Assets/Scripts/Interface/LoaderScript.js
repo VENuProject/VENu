@@ -7,7 +7,7 @@ var inputField : UnityEngine.UI.InputField;
 
 function Awake () 
 {
-	DontDestroyOnLoad(this);	
+//	DontDestroyOnLoad(this);	
 }
 
 function Update ()
