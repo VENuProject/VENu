@@ -2,6 +2,7 @@
 
 
 public var moveSpeed : float = 2.0;
+var img : GUIStyle;
 //public Transform target;
 private var targetPosition : Vector3;
 
