@@ -7,9 +7,9 @@ import System.IO;
 import System.Linq;
 
 var dot : GameObject;
+var fileName : String;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
-var fileName = "complicated_event.json";
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
@@ -30,20 +30,39 @@ function Collinear(pt1 : Vector3, pt2 : Vector3, pt3: Vector3) {
 //Places a sprite at pt1
 function PlacePoint(pt1 : Vector3) { 
     var clone : GameObject;
-    clone = Instantiate(dot , transform.position, transform.rotation);
+    clone = Instantiate(dot, transform.position, transform.rotation);
     clone.transform.position = transform.position + pt1;
-    clone.transform.localScale = Vector3(0.05,0.05,0.05);
+    clone.transform.localScale = Vector3(0.1,0.1,0.1);
 }
 
 function Draw() {
-    //Read in from a file
-    var sr = new StreamReader(Application.streamingAssetsPath + "/" + fileName);
-    var jsonString = sr.ReadToEnd();
-    sr.Close();
+
+    //Read in from a file (different paths for different platforms)
+    
+    var jsonString="";
+   
+    if (Application.platform == RuntimePlatform.Android) {
+        var url="jar:file://" + Application.dataPath + "!/assets/" + fileName;
+        Debug.Log(Application.platform + "\n" + url);
+        var www : WWW = new WWW(url);
+        Debug.Log("Reading URL");
+    
+        yield www;
+        jsonString = www.text;
+        Debug.Log("Found jsonString with length:" + (jsonString.length));
+    }
+    else {
+        var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
+        jsonString = sr.ReadToEnd();
+        sr.Close();
+    }
     
     //--------------Parameters--------------
-    //Determines whether or not collinear points are skipped for redundancy
-    var checkCollinear : boolean = false;
+    //Determines whether collinear points are skipped for redundancy (true) or if all points are drawn (false)
+    var checkCollinear : boolean = true;
+    
+    //Choose to draw the particle sprites (true) or not (false)
+    var drawParticleSprites : boolean = false;
     
     //Stores the name of the tracking algorithm to use
     var trackAlgoName : String = "recob::Tracks_costrkcc__Reco3D";
@@ -54,6 +73,7 @@ function Draw() {
     
     
     //--------------Storage Variables--------------
+    //Stores the JSON data
     var N = JSONNode.Parse(jsonString);
     
     //Get the total number of tracks
@@ -71,15 +91,14 @@ function Draw() {
     P("The first wire is: ");
     P(N["record"]["hits"]["recob::Hits_cccluster__Reco2D"][0]["wire"].ToString(""));
 
-    //Print the total number of spacepoints and tracks
-    P("Total Points: " + N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());   
+    //Print the total number of tracks
     P("Total Tracks: " + totalTracks);
     //--------------In-Game Log Output--------------
-    
      
     //Loop over tracks: Decide which points to draw, then draw points and connection lines.
     for (var i : int = 0; i < totalTracks; i++) {   
         //Create a line renderer for each track
+        
         var nil = new GameObject();
         var lr : LineRenderer;
         nil.AddComponent.<LineRenderer>();
@@ -94,7 +113,7 @@ function Draw() {
 
         //Loop over points in the track, define the first two points outside the loop as initial conditions
         var totalPoints : int = N["record"]["tracks"][trackAlgoName][i]["points"].Count;
-        lr.SetVertexCount(totalPoints);
+        //lr.SetVertexCount(totalPoints);
         
         var pt1 : Vector3 = Vector3(0.1*N["record"]["tracks"][trackAlgoName][i]["points"][0][0].AsFloat,
                                     0.1*N["record"]["tracks"][trackAlgoName][i]["points"][0][1].AsFloat,
@@ -146,12 +165,24 @@ function Draw() {
         //Draw all lines and points stored in the space point array
         for (var key : int = 0; key < spacePointsArray.Count; key++) {
             var pt : Vector3 = spacePointsArray[key];
-            PlacePoint(pt);
+            if (drawParticleSprites) {
+                PlacePoint(pt);
+            }
             lr.SetPosition(key, transform.position + pt);
         } 
     } //End loop over tracks 
     P("Drawn Points: " + drawnPoints);
 } //End Draw()
+
+function Awake() {
+    if(PlayerPrefs.HasKey("File To Load")) {
+        fileName = PlayerPrefs.GetString("File To Load");
+    }
+    else {
+        Debug.Log("<color=red>PlayerPrefs not Initialized. Using default event.</color>");
+        fileName = "complicated_event.json";
+    }
+}
 
 function Start() {
     Draw();
