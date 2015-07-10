@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: 
+  levelToLoad: Touchscreen_test
 --- !u!114 &11477076
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,6 +276,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Colors.m_HighlightedColor.g
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: levelToLoad
+      value: Touchscreen_test
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

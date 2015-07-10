@@ -5,11 +5,12 @@
 
 import System.IO;
 
-public var jsonFilesPath = "Assets/StreamingAssets";
+public var jsonFilesPath;
 public var EventButton : GameObject;
 public var ButtonsGroup : GameObject;
 
 function Start () {
+ 	jsonFilesPath = Application.streamingAssetsPath;
 	var dir = new DirectoryInfo(jsonFilesPath);
 	var filesInfo = dir.GetFiles("*.json");
 	for (file in filesInfo){
