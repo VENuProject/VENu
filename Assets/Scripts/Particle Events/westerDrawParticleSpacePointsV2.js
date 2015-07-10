@@ -57,6 +57,9 @@ function Draw() {
 
     //Choose to draw the particle sprites (true) or not (false)
     var drawParticleSprites : boolean = true;
+    
+    //Choose to draw the particle tracks (true) or not (false)
+    var drawParticleTracks : boolean = true;
 
     //Stores the name of the tracking algorithm to use
     var trackAlgoName : String = "recob::Tracks_costrkcc__Reco3D";
@@ -91,17 +94,6 @@ function Draw() {
 
     //Loop over tracks: Decide which points to draw, then draw points and connection lines.
     for (var trackIndex : int = 0; trackIndex < totalTracks; trackIndex++) {   
-        //Create a line renderer for each track
-
-        var nil = new GameObject();
-        var lr : LineRenderer;
-        nil.AddComponent.<LineRenderer>();
-        lr = nil.GetComponent.<LineRenderer>();
-        lr.useWorldSpace = false;
-        lr.material = new Material (Shader.Find("Particles/Additive"));
-        lr.SetWidth(0.1, 0.1);
-        lr.SetColors(Color.cyan, Color.green);
-
         //Stores the points to be drawn
         var spacePointsArray : Array = new Array();
 
@@ -152,18 +144,55 @@ function Draw() {
         if (checkCollinear) {
             spacePointsArray.Push(pt2);
         }
-        
-        //Ensure the line renderer expects the correct amount of points 
-        lr.SetVertexCount(spacePointsArray.Count);
         drawnPoints += spacePointsArray.Count;
         
+        
+        
         //Draw all lines and points stored in the space point array
-        for (var drawPointIndex : int = 0; drawPointIndex < spacePointsArray.Count; drawPointIndex++) {
+        for (var drawPointIndex : int = 1; drawPointIndex < spacePointsArray.Count; drawPointIndex++) {
+            //Create the endpoints of the segments
+            var prevPt : Vector3 = spacePointsArray[drawPointIndex - 1];
             var pt : Vector3 = spacePointsArray[drawPointIndex];
+
+            //Create a line renderer for each segment
+            var segmentObject = new GameObject();
+            var lr : LineRenderer;
+            var bc : BoxCollider;
+            
+            //Put the object at the midpoint of the end points
+            segmentObject.transform.position = 
+                (transform.position + pt + transform.position + prevPt) / 2.0;
+            //Make sure it's oriented correctly
+            segmentObject.transform.LookAt(transform.position + pt);
+            
+            segmentObject.AddComponent.<LineRenderer>();
+            segmentObject.AddComponent.<BoxCollider>();
+            
+            lr = segmentObject.GetComponent.<LineRenderer>();
+            lr.useWorldSpace = true;
+            lr.material = new Material (Shader.Find("Particles/Additive"));
+            lr.SetWidth(0.1, 0.1);
+            lr.SetColors(Color.cyan, Color.green); 
+            lr.SetVertexCount(2);
+            lr.SetPosition(0, transform.position + prevPt);
+            lr.SetPosition(1, transform.position + pt);
+            
+            var boxColliderOffset : float = 0.4; //height and width of box collider
+            bc = segmentObject.GetComponent.<BoxCollider>();
+            bc.center = Vector3.zero;
+            //z is the forward vector
+            bc.size.z = boxColliderOffset + Vector3.Distance(prevPt, pt);
+            bc.size.x = boxColliderOffset;
+            bc.size.y = boxColliderOffset;
+
             if (drawParticleSprites) {
                 PlacePoint(pt);
+                //Make sure the first point of each track gets drawn.
+                if (drawPointIndex == 1) {
+                    PlacePoint(prevPt);
+                }
             }
-            lr.SetPosition(drawPointIndex, transform.position + pt);
+            Debug.Log(drawPointIndex + ": " + (pt + transform.position).ToString() + (prevPt + transform.position).ToString() + segmentObject.transform.position); 
         } 
     } //End loop over tracks 
     P("Drawn Points: " + drawnPoints);
