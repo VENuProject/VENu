@@ -10,11 +10,23 @@ var dot : GameObject;
 var fileName : String;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
+//Stores the GameObjects associated with each point and their track numbers
+//Global in scope so it can be used by update functions
+var trackPointArray : Array = new Array();
+ 
+//Custom object for storing properties of track points
+class trackPoint {
+    public var trackNum : int;
+    public var obj : GameObject;
+    public function trackPoint(n : int, o : GameObject) {
+        trackNum = n;
+        obj = o;
+    }
+}
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
 }
-
 //Returns the magnitude of "uncollinearity" -> 0.0 is perfectly collinear
 function Collinear(pt1 : Vector3, pt2 : Vector3, pt3: Vector3) {
     //Determine if the points are collinear using Magnitude(AB x AC) = 0 => Collinear
@@ -62,10 +74,10 @@ function Draw() {
     var drawParticleTracks : boolean = true;
 
     //Stores the name of the tracking algorithm to use
-    var trackAlgoName : String = "recob::Tracks_costrkcc__Reco3D";
+    var trackAlgoName : String = "recob::Tracks_trackkalsps__Reco3D";
 
     //This number determines how "uncollinear" points are allowed to be (smaller => more points)
-    var threshold : float = 0.01;
+    var threshold : float = 0.06;
     //--------------Parameters--------------
 
 
@@ -128,7 +140,7 @@ function Draw() {
                 if (Collinear(pt1, pt2, vec) <= threshold) {
                     pt2 = vec;
                 }
-                else {
+                else { //Create a new segment
                     spacePointsArray.Push(pt2);
                     pt1 = pt2;
                     pt2 = vec;
@@ -145,45 +157,49 @@ function Draw() {
             spacePointsArray.Push(pt2);
         }
         drawnPoints += spacePointsArray.Count;
-        
-        
-        
+
         //Draw all lines and points stored in the space point array
         for (var drawPointIndex : int = 1; drawPointIndex < spacePointsArray.Count; drawPointIndex++) {
             //Create the endpoints of the segments
             var prevPt : Vector3 = spacePointsArray[drawPointIndex - 1];
             var pt : Vector3 = spacePointsArray[drawPointIndex];
 
-            //Create a line renderer for each segment
+            //Create a line renderer & box collider for each segment
             var segmentObject = new GameObject();
+            segmentObject.name = "track" + trackIndex.ToString();
             var lr : LineRenderer;
             var bc : BoxCollider;
+
+            //Add the trackpoint object to the array for use in other parts of the script
+            var tp : trackPoint = new trackPoint(trackIndex, segmentObject);
+            trackPointArray.Push(tp);
             
             //Put the object at the midpoint of the end points
             segmentObject.transform.position = 
                 (transform.position + pt + transform.position + prevPt) / 2.0;
             //Make sure it's oriented correctly
             segmentObject.transform.LookAt(transform.position + pt);
-            
+
             segmentObject.AddComponent.<LineRenderer>();
             segmentObject.AddComponent.<BoxCollider>();
             
             lr = segmentObject.GetComponent.<LineRenderer>();
-            lr.useWorldSpace = true;
-            lr.material = new Material (Shader.Find("Particles/Additive"));
+            lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
+            lr.material = new Material(Shader.Find("Particles/Additive"));
             lr.SetWidth(0.1, 0.1);
-            lr.SetColors(Color.cyan, Color.green); 
+            lr.SetColors(Color.blue, Color.blue); 
             lr.SetVertexCount(2);
             lr.SetPosition(0, transform.position + prevPt);
             lr.SetPosition(1, transform.position + pt);
             
             var boxColliderOffset : float = 0.4; //height and width of box collider
             bc = segmentObject.GetComponent.<BoxCollider>();
-            bc.center = Vector3.zero;
-            //z is the forward vector
-            bc.size.z = boxColliderOffset + Vector3.Distance(prevPt, pt);
+            bc.center = Vector3.zero; //Center with respect to parent gameobject
+            bc.size.z = boxColliderOffset + Vector3.Distance(prevPt, pt); //z is forward vector
             bc.size.x = boxColliderOffset;
             bc.size.y = boxColliderOffset;
+            //Add a click event to each collider
+            segmentObject.AddComponent(trackClick);
 
             if (drawParticleSprites) {
                 PlacePoint(pt);
@@ -192,8 +208,7 @@ function Draw() {
                     PlacePoint(prevPt);
                 }
             }
-            Debug.Log(drawPointIndex + ": " + (pt + transform.position).ToString() + (prevPt + transform.position).ToString() + segmentObject.transform.position); 
-        } 
+        } //End line/point drawing loop
     } //End loop over tracks 
     P("Drawn Points: " + drawnPoints);
 } //End Draw()
@@ -207,11 +222,42 @@ function Awake() {
         fileName = "complicated_event.json";
     }
 }
-
 function Start() {
-    Draw();
+    Draw(); 
 }
-
+/*
+//Here's a function for doing something based on track numbers (relies on a global int cycle)
+function cycleTracks() {
+   
+   var track : int = 0;
+   if (cycle == 0) {
+       track = 18;
+   }
+   if (cycle == 1) {
+       track = 3;
+   }
+   if (cycle == 2) {
+       track = 13;
+   }
+   if (cycle == 3) {
+       track = 10;
+       cycle = -1;
+   }
+   cycle += 1;
+   for (var i : int = 0; i < trackPointArray.Count; i++) {
+        var tp : trackPoint = trackPointArray[i];
+        var ln : LineRenderer = tp.obj.GetComponent.<LineRenderer>();
+        if (tp.trackNum == track) {
+            ln.SetColors(Color.yellow, Color.yellow);
+            ln.SetWidth(0.4,0.4);
+        }
+        else {
+            ln.SetColors(Color.cyan, Color.cyan);
+            ln.SetWidth(0.1,0.1);
+        }
+    }
+}
+*/
 function OnGUI() {
     m_Position = GUILayout.BeginScrollView(m_Position);
     GUILayout.Label(m_InGameLog);

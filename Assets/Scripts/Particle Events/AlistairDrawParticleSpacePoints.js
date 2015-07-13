@@ -65,11 +65,11 @@ function Test()
     var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
     Debug.Log(Application.platform+"\n"+url);
     var www : WWW = new WWW(url);
-    Debug.Log("Reading URL");
+ //   Debug.Log("Reading URL");
     
     yield www;
     jsonString=www.text;
-    Debug.Log("Found jsonString with length:" + (jsonString.length));
+//    Debug.Log("Found jsonString with length:" + (jsonString.length));
     }
     else
     {
@@ -79,7 +79,7 @@ function Test()
     }
     
     var N = JSONNode.Parse(jsonString);
-
+/*
     P("The event number is: ");
     P(N["record"]["header"]["event"].ToString(""));
 
@@ -90,12 +90,12 @@ function Test()
     P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][0]["xyz"][0].ToString()  
     + "," + N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][0]["xyz"][1].ToString()
     + "," + N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][0]["xyz"][2].ToString());
-
+*/
     var spacePointsArray = new Array ();
     // var spacePointsKeys = N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray();
     // Debug.Log(spacePointsKeys);
     // for (var key : String in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){	
-    P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
+    // P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
     for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count; key++){
 	 var clone : GameObject;
@@ -147,7 +147,7 @@ function Start()
 	//fileName = PlayerPrefs.GetString("File To Load");
 	//Resources.Load("complicated_event.json"); //AMCLEAN added
     Test();
-	Debug.Log("Test results:\n" + m_InGameLog);
+//	Debug.Log("Test results:\n" + m_InGameLog);
 }
 
 function OnGUI()

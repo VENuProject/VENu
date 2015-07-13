@@ -1,8 +1,9 @@
 ﻿#pragma strict
 
-
+import UnityEngine.UI;
+//import UnityEngine.
 public var moveSpeed : float = 2.0;
-var img : GUIStyle;
+//var img : GUIStyle;
 //public Transform target;
 private var targetPosition : Vector3;
 
@@ -20,6 +21,10 @@ function LateUpdate ()
  static var speed : int = 5;
  
  function Update () 
+ 
+ 
+ 
+ 
  {
  	if(Input.GetKeyDown(KeyCode.Mouse0))
  {
