@@ -1,19 +1,28 @@
 ﻿#pragma strict
 
-public var jsonFilesPath = "Assets/StreamingAssets";
-
 function LoadNext(){
-	var currentEvent = PlayerPrefs.GetString("fileToLoad");
-	var dir = new DirectoryInfo(jsonFilesPath);
+	var currentEvent = PlayerPrefs.GetString("File To Load");
+	var dir = new DirectoryInfo(Application.streamingAssetsPath);
 	var filesInfo = dir.GetFiles("*.json");
-	if(filesInfo.IndexOf(filesInfo, currentEvent) +1 == filesInfo.length){
-		//no next file!
-		Debug.Log("no next file!");
+	var currentFile = dir.GetFiles(currentEvent)[0];
+	var currentIndex = filesInfo.IndexOf(filesInfo, currentFile);
+	
+	if(currentIndex + 1 == filesInfo.length){
+		//no more files!
+		Debug.Log("No more files!");
+	}
+	else if(currentIndex == -1){
+		//don't know where we are. did File To Load not get set?
+		Debug.Log("file not found!");
+
 	}
 	else{
-		Debug.Log(filesInfo.IndexOf(filesInfo, currentEvent));
-		PlayerPrefs.SetString("fileToLoad", filesInfo[filesInfo.IndexOf(filesInfo, currentEvent) + 3].Name);
-		Debug.Log("loading file " + PlayerPrefs.GetString("fileToLoad"));
+		Debug.Log(currentIndex);
+		Debug.Log(currentEvent);
+		Debug.Log(filesInfo);
+		PlayerPrefs.SetString("File To Load", filesInfo[currentIndex + 1].Name);
+		Debug.Log("loading file " + PlayerPrefs.GetString("File To Load"));
+		//the file is loaded elsewhere. All that script needs is the name of the new file.
 	}
 	
 }
