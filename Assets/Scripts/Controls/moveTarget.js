@@ -6,6 +6,7 @@ public var moveSpeed : float = 2.0;
 //var img : GUIStyle;
 //public Transform target;
 private var targetPosition : Vector3;
+public var orthoCam : Camera;
 
 
 function Start () {
@@ -30,9 +31,9 @@ function LateUpdate ()
  {
  	var tpcPlane = new Plane(Vector3.up, transform.position);
  	var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
- 	var hitdist = 0.0;
+ 	var hitdist = 5.0;
  	
- 	if(tpcPlane.Raycast(ray, hitdist)) 
+ 	if(tpcPlane.Raycast(ray, hitdist) && Camera.main.pixelRect.Contains(Input.mousePosition)) 
  	{
  		var targetPoint = ray.GetPoint(hitdist);
  		targetPosition = ray.GetPoint(hitdist);
