@@ -10,6 +10,7 @@ var dot : GameObject;
 var fileName : String;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
+
 //Stores the GameObjects associated with each point and their track numbers
 //Global in scope so it can be used by update functions
 var trackPointArray : Array = new Array();
@@ -68,7 +69,7 @@ function Draw() {
     var trackAlgoName : String = "recob::Tracks_trackkalsps__Reco3D";
 
     //This number determines how "uncollinear" points are allowed to be (smaller => more points)
-    var threshold : float = 0.001;
+    var threshold : float = 0.005;
     //--------------Parameters--------------
 
 
@@ -97,12 +98,14 @@ function Draw() {
         //Loop over points in the track, define the first two points outside the loop as initial conditions
         var totalPoints : int = N["record"]["tracks"][trackAlgoName][trackIndex]["points"].Count;
 
-        var pt1 : Vector3 = Vector3(0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][0].AsFloat,  //x
-                                    0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][1].AsFloat,  //y
-                                   -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][2].AsFloat); //z
-        var pt2 : Vector3 = Vector3(0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][0].AsFloat,
-                                    0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][1].AsFloat,
-                                   -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][2].AsFloat);
+        var pt1 : Vector3 = Vector3(
+            0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][0].AsFloat,  //x
+            0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][1].AsFloat,  //y
+           -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][2].AsFloat); //z
+        var pt2 : Vector3 = Vector3(
+            0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][0].AsFloat,
+            0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][1].AsFloat,
+           -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][2].AsFloat);
 
         //Always draw the first spacepoint
         spacePointsArray.Push(pt1); 
@@ -115,7 +118,8 @@ function Draw() {
                -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][spacePointIndex][2].AsFloat);
 
             //If the next point is collinear, move the current endpoint to the new point without drawing anything
-            if (Collinear(pt1, pt2, vec) <= threshold) {
+            //Also always draw the final point.
+            if (Collinear(pt1, pt2, vec) <= threshold && spacePointIndex != totalPoints - 1) {
                 pt2 = vec;
             }
             else { //Create a new segment
@@ -140,6 +144,7 @@ function Draw() {
                 segmentObject.AddComponent.<BoxCollider>();
             
                 lr = segmentObject.GetComponent.<LineRenderer>();
+                lr.castShadows = false;
                 lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
                 lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
                 lr.SetWidth(0.1, 0.1);
@@ -162,8 +167,7 @@ function Draw() {
                 pt2 = vec;
             }
         }
-
-        spacePointsArray.Push(pt2);
+        
         drawnPoints += spacePointsArray.Count;
 
     } //End loop over tracks 
