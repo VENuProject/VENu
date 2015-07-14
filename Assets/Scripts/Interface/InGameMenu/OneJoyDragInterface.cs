@@ -14,8 +14,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 	private Vector3 currentPos;
 	public float mouseSensitivity;
 	public float moveSpeed;
-	
-	
+
 	void Start () {
 		
 	}
@@ -35,7 +34,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 
 	void PlayerLook (){
 
-#if !MOBILE_INPUT
+#if MOBILE_INPUT
 
 		foreach(Touch finger in Input.touches){
 			if(finger.phase == TouchPhase.Began && eventSystem.IsPointerOverGameObject(finger.fingerId) == false){
@@ -49,15 +48,18 @@ public class OneJoyDragInterface : MonoBehaviour {
 
 		foreach(int index in draggingFingers){
 			Touch finger = Input.GetTouch(index);
+
+			//horizontal rotation
 			cameraMount.transform.Rotate(
 				0, finger.deltaPosition.x * mouseSensitivity, 0);
-			
+
+			//vertical rotation
 			if(playerCamera.transform.eulerAngles.x + finger.deltaPosition.y * mouseSensitivity <= 90
 			   ||
 			   playerCamera.transform.eulerAngles.x + finger.deltaPosition.y * mouseSensitivity >= 270)
 			{
 				playerCamera.transform.Rotate(
-					finger.deltaPosition.y * mouseSensitivity, 0, 0);
+					finger.deltaPosition.y * -mouseSensitivity, 0, 0);
 			}
 		}
 

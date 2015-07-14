@@ -5,6 +5,7 @@ public class InGameMenuScript: MonoBehaviour {
 
 	private bool menuOut = false;
 	public Animator anim;
+	public string EventMenuScene;
 
 	void Start () {
 		anim.enabled = false;
@@ -23,7 +24,7 @@ public class InGameMenuScript: MonoBehaviour {
 		menuOut = !menuOut;
 	}
 
-	void EventMenuButton() {
-		Application.LoadLevel ("event_menu");
+	public void ToEventMenu() {
+		Application.LoadLevel (EventMenuScene);
 	}
 }

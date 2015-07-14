@@ -4,10 +4,13 @@ function LoadNext(){
 	var currentEvent = PlayerPrefs.GetString("File To Load");
 	var dir = new DirectoryInfo(Application.streamingAssetsPath);
 	var filesInfo = dir.GetFiles("*.json");
-	var currentFile = dir.GetFiles(currentEvent)[0];
-	var currentIndex = filesInfo.IndexOf(filesInfo, currentFile);
+	var currentIndex : int;
 	
-	if(currentIndex + 1 == filesInfo.length){
+	for(var i = 0; i < filesInfo.length; i++)
+		if(filesInfo[i].Name == currentEvent)
+			currentIndex = i;
+	
+	if(currentIndex == filesInfo.length - 1){
 		//no more files!
 		Debug.Log("No more files!");
 	}
@@ -17,11 +20,9 @@ function LoadNext(){
 
 	}
 	else{
-		Debug.Log(currentIndex);
-		Debug.Log(currentEvent);
-		Debug.Log(filesInfo);
-		PlayerPrefs.SetString("File To Load", filesInfo[currentIndex + 1].Name);
+		PlayerPrefs.SetString("File To Load", filesInfo[currentIndex +1].Name); //loaded in reverse order
 		Debug.Log("loading file " + PlayerPrefs.GetString("File To Load"));
+		Application.LoadLevel(Application.loadedLevel);
 		//the file is loaded elsewhere. All that script needs is the name of the new file.
 	}
 	
