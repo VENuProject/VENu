@@ -16,14 +16,14 @@ private var m_Position = Vector2.zero;
 var trackPointArray : Array = new Array();
  
 //Custom object for storing properties of track points
-class trackPoint {
-    public var trackNum : int;
-    public var obj : GameObject;
-    public function trackPoint(n : int, o : GameObject) {
-        trackNum = n;
-        obj = o;
-    }
-}
+//class trackPoint {
+  //  public var trackNum : int;
+  //  public var obj : GameObject;
+  //  public function trackPoint(n : int, o : GameObject) {
+   //     trackNum = n;
+   //     obj = o;
+   // }
+//}
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
@@ -94,7 +94,23 @@ function Draw() {
     for (var trackIndex : int = 0; trackIndex < totalTracks; trackIndex++) {   
         //Stores the points to be drawn
         var spacePointsArray : Array = new Array();
-
+        
+        var trackObject = new GameObject();
+        //Put this object at the origin so components are easy to add
+        trackObject.transform.position = Vector3.zero;
+        trackObject.transform.rotation = Quaternion.identity;
+        trackObject.name = "track" + trackIndex.ToString();
+        trackObject.tag = "track";
+        
+        //Add the linerenderer to this object
+        var lr : LineRenderer = trackObject.AddComponent.<LineRenderer>();
+        lr.castShadows = false;
+        lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
+        lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
+        lr.SetWidth(0.1, 0.1);
+        lr.SetColors(Color.blue, Color.blue); 
+        lr.SetVertexCount(1);
+          
         //Loop over points in the track, define the first two points outside the loop as initial conditions
         var totalPoints : int = N["record"]["tracks"][trackAlgoName][trackIndex]["points"].Count;
 
@@ -107,8 +123,11 @@ function Draw() {
             0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][1].AsFloat,
            -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][2].AsFloat);
 
+
+        
         //Always draw the first spacepoint
         spacePointsArray.Push(pt1); 
+        lr.SetPosition(0, transform.position + pt1);
 
         //Loop over the remaining points in the track
         for (var spacePointIndex : int = 2; spacePointIndex < totalPoints; spacePointIndex++) {
@@ -122,46 +141,31 @@ function Draw() {
             if (Collinear(pt1, pt2, vec) <= threshold && spacePointIndex != totalPoints - 1) {
                 pt2 = vec;
             }
-            else { //Create a new segment
+            else {
                 spacePointsArray.Push(pt2);
-                
+               
+                //Add the next segment to the line renderer
+                lr.SetVertexCount(spacePointsArray.length);
+                lr.SetPosition(spacePointsArray.length - 1, transform.position + pt2);
+                   
+                //Add a box collider around the current segment
+                //Box colliders can't be rotated, so must add it to a rotated child object
                 var segmentObject = new GameObject();
-                segmentObject.name = "track" + trackIndex.ToString();
-                var lr : LineRenderer;
-                var bc : BoxCollider;
-
-                //Add the trackpoint object to the array for use in other parts of the script
-                var tp : trackPoint = new trackPoint(trackIndex, segmentObject);
-                trackPointArray.Push(tp);
-            
-                //Put the object at the midpoint of the end points
-                segmentObject.transform.position = 
-                    (transform.position + pt1 + transform.position + pt2) / 2.0;
-                //Make sure it's oriented correctly
-                segmentObject.transform.LookAt(transform.position + pt2);
-
-                segmentObject.AddComponent.<LineRenderer>();
-                segmentObject.AddComponent.<BoxCollider>();
-            
-                lr = segmentObject.GetComponent.<LineRenderer>();
-                lr.castShadows = false;
-                lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
-                lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
-                lr.SetWidth(0.1, 0.1);
-                lr.SetColors(Color.blue, Color.blue); 
-                lr.SetVertexCount(2);
-                lr.SetPosition(0, transform.position + pt1);
-                lr.SetPosition(1, transform.position + pt2);
-            
+                //Add clicking script for selecting tracks
+                segmentObject.AddComponent(trackClick); 
+                segmentObject.name = "segment" + (spacePointsArray.length - 2).ToString();
+                segmentObject.transform.parent = trackObject.transform;
+                
+                //Put this child object at the midpoint between the current two points
+                segmentObject.transform.position = (transform.position + pt1 + transform.position + pt2) / 2.0;
+                var bc : BoxCollider;           
                 var boxColliderOffset : float = 0.4; //height and width of box collider
-                bc = segmentObject.GetComponent.<BoxCollider>();
-                bc.center = Vector3.zero; //Center with respect to parent gameobject
+                bc = segmentObject.AddComponent.<BoxCollider>();
+                bc.transform.LookAt(transform.position + pt2);
+                bc.center = Vector3.zero;
                 bc.size.z = Vector3.Distance(pt1, pt2); //z is forward vector
                 bc.size.x = boxColliderOffset;
                 bc.size.y = boxColliderOffset;
-            
-                //Add a click event to each collider
-                segmentObject.AddComponent(trackClick); 
                 
                 pt1 = pt2;
                 pt2 = vec;
