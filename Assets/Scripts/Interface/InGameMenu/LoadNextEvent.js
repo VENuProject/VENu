@@ -20,7 +20,7 @@ function LoadNext(){
 
 	}
 	else{
-		PlayerPrefs.SetString("File To Load", filesInfo[currentIndex +1].Name); //loaded in reverse order
+		PlayerPrefs.SetString("File To Load", filesInfo[currentIndex +1].Name);
 		Debug.Log("loading file " + PlayerPrefs.GetString("File To Load"));
 		Application.LoadLevel(Application.loadedLevel);
 		//the file is loaded elsewhere. All that script needs is the name of the new file.
