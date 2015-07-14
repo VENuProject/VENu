@@ -7,7 +7,7 @@ public class InGameMenuScript: MonoBehaviour {
 	public Animator anim;
 
 	void Start () {
-
+		anim.enabled = false;
 	}
 
 	void Update () {
@@ -15,6 +15,7 @@ public class InGameMenuScript: MonoBehaviour {
 	}
 
 	void SlideMenu() {
+		anim.enabled = true;
 		if (!menuOut)
 			anim.Play("InGameMenuSlideIn");
 		else 
