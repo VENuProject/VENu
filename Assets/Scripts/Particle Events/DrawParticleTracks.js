@@ -14,16 +14,6 @@ private var m_Position = Vector2.zero;
 //Stores the GameObjects associated with each point and their track numbers
 //Global in scope so it can be used by update functions
 var trackPointArray : Array = new Array();
- 
-//Custom object for storing properties of track points
-//class trackPoint {
-  //  public var trackNum : int;
-  //  public var obj : GameObject;
-  //  public function trackPoint(n : int, o : GameObject) {
-   //     trackNum = n;
-   //     obj = o;
-   // }
-//}
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
@@ -39,7 +29,7 @@ function Collinear(pt1 : Vector3, pt2 : Vector3, pt3: Vector3) {
      
     return Vector3.Distance(crossprod,Vector3.zero);  // Magnitude(AB x AC)         
 }
-
+/*
 //Places a sprite at pt1
 function PlacePoint(pt1 : Vector3) {
     var clone : GameObject;
@@ -47,8 +37,9 @@ function PlacePoint(pt1 : Vector3) {
     clone.transform.position = transform.position + pt1;
     clone.transform.localScale = Vector3(0.1,0.1,0.1);
 }
-
+*/
 function Draw() {
+
     //Read in from a file (different paths for different platforms)
     var jsonString="";
 
@@ -101,7 +92,8 @@ function Draw() {
         trackObject.transform.rotation = Quaternion.identity;
         trackObject.name = "track" + trackIndex.ToString();
         trackObject.tag = "track";
-        
+        trackPointArray.Push(trackObject);
+           
         //Add the linerenderer to this object
         var lr : LineRenderer = trackObject.AddComponent.<LineRenderer>();
         lr.castShadows = false;
@@ -188,7 +180,13 @@ function Awake() {
     }
 }
 function Start() {
-    Draw(); 
+    Draw();
+}
+function RemoveTracks() {
+    for (var i : int = 0; i < trackPointArray.length; i++) {
+        var go : GameObject = trackPointArray[i];
+        Destroy(go);
+    }
 }
 
 function OnGUI() {
