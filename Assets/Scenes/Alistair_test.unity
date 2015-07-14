@@ -221,7 +221,7 @@ GameObject:
   - 4: {fileID: 28615254}
   - 33: {fileID: 28615256}
   - 23: {fileID: 28615255}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Removable_Endcap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -717,7 +717,7 @@ Transform:
   m_LocalScale: {x: 10.3699999, y: 1, z: 2.32999992}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &268930757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,7 +2104,7 @@ GameObject:
   - 4: {fileID: 607896709}
   - 33: {fileID: 607896711}
   - 23: {fileID: 607896710}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Frame_007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3320,7 +3320,7 @@ GameObject:
   - 4: {fileID: 807165132}
   - 33: {fileID: 807165134}
   - 23: {fileID: 807165133}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cryostat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3610,8 +3610,8 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: 0
+    x: .200000003
+    y: .800000012
     width: .400000006
     height: .25
   near clip plane: .300000012
@@ -3622,7 +3622,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294965452
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3642,7 +3642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &938963878
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,7 +3728,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965192370}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -224.51535, y: -171.832138, z: -157.511459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 807165132}
@@ -3741,8 +3741,8 @@ Transform:
   - {fileID: 28615254}
   - {fileID: 1129590467}
   - {fileID: 1057112887}
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_Father: {fileID: 1854574284}
+  m_RootOrder: 1
 --- !u!95 &965192372
 Animator:
   serializedVersion: 3
@@ -3958,7 +3958,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1050427082
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,6 +5826,7 @@ GameObject:
   - 33: {fileID: 1537483754}
   - 23: {fileID: 1537483753}
   - 114: {fileID: 1537483755}
+  - 114: {fileID: 1537483756}
   m_Layer: 0
   m_Name: New_Wire_Plane
   m_TagString: Untagged
@@ -5887,6 +5888,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97d2faed4bcb0f44294709d0071745cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
+  fileName: complicated_event.json
+--- !u!114 &1537483756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1537483751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2daf186dbd4104cb08100504c81a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
@@ -6395,7 +6409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1661561206
 GameObject:
   m_ObjectHideFlags: 0
@@ -6666,7 +6680,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294965247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -6686,7 +6700,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1698697061
 GameObject:
   m_ObjectHideFlags: 0
@@ -7223,6 +7237,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2066864982}
+  - {fileID: 965192371}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!1 &1891658093

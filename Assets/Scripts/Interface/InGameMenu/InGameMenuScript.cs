@@ -24,6 +24,6 @@ public class InGameMenuScript: MonoBehaviour {
 	}
 
 	void EventMenuButton() {
-		Application.LoadLevel ("event_menu");
+		Application.LoadLevel ("MainMenu_Official");
 	}
 }
