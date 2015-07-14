@@ -17,5 +17,5 @@ function HeightControl () {
 function Update ()
 {
 	currentpos = Vector3(player.transform.localPosition.x, 0, player.transform.localPosition.z);
-	//HeightControl();	
+	HeightControl();	
 }
