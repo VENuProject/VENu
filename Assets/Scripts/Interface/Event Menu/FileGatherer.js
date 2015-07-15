@@ -4,19 +4,28 @@
 //searches StreamingAssets folder for .json files and adds buttons to the menu
 
 import System.IO;
+import UnityEngine.WWW;
 
 public var jsonFilesPath;
 public var EventButton : GameObject;
 public var ButtonsGroup : GameObject;
 
 function Start () {
- 	jsonFilesPath = Application.streamingAssetsPath;
+
+	//I don't know how Android's WWW works, and I can't find any documentation on it
+	//Maybe this will work, but I'll have to have one of you explain it to me.
+	// -Owen
+	if (Application.platform == RuntimePlatform.Android){
+		jsonFilesPath = "jar:file://" + Application.dataPath + "!/assets";
+	}
+	else jsonFilesPath = Application.streamingAssetsPath; //this works fine on iOS
+    
+ 		
 	var dir = new DirectoryInfo(jsonFilesPath);
 	var filesInfo = dir.GetFiles("*.json");
-	for (file in filesInfo){
+	for (file in filesInfo)
 		AddButton(file);
-	}
-	Debug.Log("found " + ButtonsGroup.transform.childCount + " json files");
+	Debug.Log("found " + filesInfo.Length + " json files");
 }
 
 function AddButton (file : FileInfo){
@@ -25,4 +34,6 @@ function AddButton (file : FileInfo){
 	newButton.transform.SetParent(ButtonsGroup.transform, false);
 	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = file.Name;
 	newButton.GetComponent(EventButtonScript).fileName = file.Name;
+	//custom graphics for each file?
+	//other button customization?
 }
