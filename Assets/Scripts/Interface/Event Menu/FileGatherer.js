@@ -9,6 +9,7 @@ import UnityEngine.WWW;
 public var jsonFilesPath;
 public var EventButton : GameObject;
 public var ButtonsGroup : GameObject;
+public var displayLevel : String;
 
 function Start () {
 
@@ -34,6 +35,7 @@ function AddButton (file : FileInfo){
 	newButton.transform.SetParent(ButtonsGroup.transform, false);
 	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = file.Name;
 	newButton.GetComponent(EventButtonScript).fileName = file.Name;
+	newButton.GetComponent(EventButtonScript).levelToLoad = displayLevel;
 	//custom graphics for each file?
 	//other button customization?
 }
