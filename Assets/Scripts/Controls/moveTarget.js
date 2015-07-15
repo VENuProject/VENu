@@ -43,20 +43,28 @@ function LateUpdate ()
  }
         
         var dir:Vector3 = targetPosition - transform.position;
+        var length:float = Vector3.Magnitude(dir); //AMCLEAN add
         var dist:float = dir.magnitude;
         var move:float = speed * Time.deltaTime;
  
         if(dist > move)
         {
-        transform.position += dir.normalized * move;
+        transform.position += dir.normalized * move; //AMCLEAN changed += to =
         }
         else 
         {
         transform.position = targetPosition;
         }
- 
+ //AMCLEAN added if statement
+ if (length > 0.2)
+ {
         transform.position += (targetPosition - transform.position).normalized * speed * Time.deltaTime;
- 
+ }
+ else 
+ 		{
+ 		transform.position = transform.position;
+ 		}
+ 		
  
  //AMCLEAN arrow key movement
          if (Input.GetKey (KeyCode.UpArrow)) transform.Translate (Vector3(0,1,0) * Time.deltaTime*speed);
