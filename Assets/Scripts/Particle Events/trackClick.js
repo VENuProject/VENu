@@ -10,7 +10,7 @@ function Deselect() {
     var objectCount = objects.length;
     for (var obj : GameObject in objects) {
         var ln : LineRenderer = obj.GetComponent.<LineRenderer>();
-        ln.SetColors(Color.blue, Color.blue);
+        ln.SetColors(Color.green, Color.cyan);
     }
 }
 
