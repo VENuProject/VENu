@@ -61,6 +61,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 				playerCamera.transform.Rotate(
 					finger.deltaPosition.y * -mouseSensitivity, 0, 0);
 			}
+
 		}
 
 
@@ -88,13 +89,13 @@ public class OneJoyDragInterface : MonoBehaviour {
 	
 				//vertical rotation, clamped at +- 90
 				if (playerCamera.transform.eulerAngles.x + (currentPos.y - startPos.y) * mouseSensitivity <= 90
-				    ||
+				   ||
 				    playerCamera.transform.eulerAngles.x + (currentPos.y - startPos.y) * mouseSensitivity >= 270)
 				{
 					playerCamera.transform.Rotate(
 						(currentPos.y - startPos.y) * mouseSensitivity, 0f, 0f);
 				}
-	
+
 				startPos = Input.mousePosition;
 			}
 		}

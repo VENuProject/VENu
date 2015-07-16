@@ -18,6 +18,7 @@ public class InGameMenuScript: MonoBehaviour {
 
 
 	void Start () {
+
 		me = GetComponent<RectTransform>();
 		state = menuState.isIn;
 		inPos = -(me.rect.width / 2);
