@@ -126,8 +126,8 @@ function Awake() {
         fileName = PlayerPrefs.GetString("File To Load");
     }
     else {
-        Debug.Log("<color=orange>PlayerPrefs not Initialized. Using default event.</color>");
-        fileName = "complicated_event.json";
+        Debug.Log("<color=purple>PlayerPrefs not Initialized. Using default event.</color>");
+        fileName = "prodgenie_bnb_nu_cosmic.json";
     }
 }
 

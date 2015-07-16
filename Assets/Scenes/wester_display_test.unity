@@ -2512,7 +2512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252befc499b0422fb717e96ae3ee48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dot: {fileID: 167936, guid: ef0049775a362e64c9df4c5b54ae39ab, type: 2}
   fileName: 
 --- !u!23 &666507986
 MeshRenderer:
@@ -5679,23 +5678,23 @@ Prefab:
       objectReference: {fileID: 870010815}
     - target: {fileID: 22488474, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22488474, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_AnchorMax.y
-      value: .388888866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400494, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_AnchorMin.y
-      value: .388888866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400494, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400494, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_AnchorMax.y
-      value: .388888866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22444958, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_AnchoredPosition.y
