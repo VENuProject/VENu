@@ -41,9 +41,9 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
         var totalPoints : int = N["record"]["tracks"][trackAlgoName][trackIndex]["points"].Count;
 
         var pt1 : Vector3 = Vector3(
-            0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][0].AsFloat,  //x
-            0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][1].AsFloat,  //y
-           -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][2].AsFloat); //z
+            0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][0].AsFloat,
+            0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][1].AsFloat,
+           -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][2].AsFloat);
         var pt2 : Vector3 = Vector3(
             0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][0].AsFloat,
             0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][1].AsFloat,
@@ -70,18 +70,18 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
                 pt2 = vec;
             }
         }
-        drawTracksFromArray(spacePointsArray);
+        drawTracksFromArray(trackIndex, spacePointsArray);
         drawnPoints += spacePointsArray.length;
     }
     P("Drawn Points: " + drawnPoints);
 }
 
-function drawTracksFromArray(arr : Array) {
+function drawTracksFromArray(index : int, arr : Array) {
     //Create a gameobject to hold box collider children and a line renderer
     var trackObject = new GameObject();
     trackObject.transform.position = Vector3.zero; 
     trackObject.transform.rotation = Quaternion.identity;
-    trackObject.name = "track";
+    trackObject.name = "track" + index;
     trackObject.tag = "track";
            
     //Add the linerenderer to the object
@@ -105,12 +105,14 @@ function drawTracksFromArray(arr : Array) {
         //Make a game object for each segment to store on-click behavior and a box collider
         //Put this child object at the midpoint between the current two points
         var segmentObject = new GameObject();
+        segmentObject.layer = 11;
         segmentObject.AddComponent(trackClick); 
         segmentObject.name = "segment" + i;
         segmentObject.transform.parent = trackObject.transform;
         segmentObject.transform.position = (transform.position + pt1 + transform.position + pt2) / 2.0;
         
-        var bc : BoxCollider;           
+        var bc : BoxCollider;
+//        bc.isTrigger = true;  
         var boxColliderOffset : float = 0.5; //height and width of box collider
         bc = segmentObject.AddComponent.<BoxCollider>();
         bc.transform.LookAt(transform.position + pt2);
