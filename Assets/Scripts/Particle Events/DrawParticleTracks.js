@@ -1,7 +1,6 @@
 //Script for drawing tracks
-//    The basic workflow is the following: Call ParseJSON() to generate a JSON file and set parameters,
-//    then call filterJSON to create a point array from the parsed JSON string. Lastly,
-//    call drawTracksFromArray() to draw tracks from the point array just created.
+//    Call filterJSON to create a point array from a parsed JSON string,
+//    this calls drawTracksFromArray() for each track filetered.
 
 #pragma strict
 
@@ -17,7 +16,7 @@ function P(aText : String) {
     m_InGameLog += aText + "\n";
 }
 
-//Returns the magnitude of "uncollinearity" -> 0.0 is perfectly collinear
+//Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
 function Collinear(pt1 : Vector3, pt2 : Vector3, pt3: Vector3) {
     //Determine if the points are collinear using Magnitude(AB x AC) = 0 => Collinear
     var side1 = pt2 - pt1; //AB
@@ -130,7 +129,6 @@ function Awake() {
         Debug.Log("<color=orange>PlayerPrefs not Initialized. Using default event.</color>");
         fileName = "complicated_event.json";
     }
-   
 }
 
 function Start() {
