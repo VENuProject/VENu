@@ -52,9 +52,17 @@ function OnGUI() {
     if (currentToolTipText != "") { 
         var x = Event.current.mousePosition.x; 
         var y = Event.current.mousePosition.y; 
+        if (x + 100 > Screen.width) {
+            GUI.Box(Rect(x-110,Mathf.Clamp(y+6,0,Screen.height - 160),100,160),"");
+            GUI.Label(Rect(x-105,Mathf.Clamp(y+8,0,Screen.height - 160),100,160), currentToolTipText, guiStyleBack); 
+            GUI.Label(Rect(x-106,Mathf.Clamp(y+9,0,Screen.height - 160),100,160), currentToolTipText, guiStyleFore); 
+        }
+        else {
+            GUI.Box(Rect(x+10,Mathf.Clamp(y+6,0,Screen.height - 160),100,160),"");
+            GUI.Label(Rect(x+15,Mathf.Clamp(y+8,0,Screen.height - 160),100,160), currentToolTipText, guiStyleBack); 
+            GUI.Label(Rect(x+14,Mathf.Clamp(y+9,0,Screen.height - 160),100,160), currentToolTipText, guiStyleFore); 
+        }
        
-        GUI.Label(Rect(x-49,y+21,300,60), currentToolTipText, guiStyleBack); 
-        GUI.Label(Rect(x-50,y+20,300,60), currentToolTipText, guiStyleFore); 
     } 
 } 
 
