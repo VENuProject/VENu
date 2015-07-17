@@ -10,6 +10,7 @@ TagManager:
   - Fire
   - Loader
   - track
+  - trackSelected
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Environment
   - Space Points
   - Tracks
-  - Crysotat
-  - 
+  - TracksSelected
+  - Cryostat
   - 
   - 
   - 
