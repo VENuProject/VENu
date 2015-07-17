@@ -9,7 +9,7 @@ public class ParticleDot_2 : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void LateUpdate () {
+	void Update () {
 		//transform.LookAt (Camera.main.transform.position, -Vector3.up);
 
 		//AMCLEAN testing out something....

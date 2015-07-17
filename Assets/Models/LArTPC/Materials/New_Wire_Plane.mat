@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 5
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -11,6 +11,7 @@ Material:
   m_ShaderKeywords: 
   m_LightmapFlags: 5
   m_CustomRenderQueue: -1
+  stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -18,28 +19,28 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: b0fe24d86181a5e40939c4d9d3bd96a4, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 10, y: 100}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 14ff68f7520aa4441af8ef6937a1b7c2, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 10, y: 100}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _ParallaxMap
         second:
-          m_Texture: {fileID: 2800000, guid: f0b238c9b5158814a982f0d9ea9d10ee, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 10, y: 100}
           m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
           name: _Shininess
-        second: .078125
+        second: .116999999
       data:
         first:
           name: _Parallax
@@ -48,7 +49,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: .889655232, b: 0, a: .737254918}
+        second: {r: 1, g: .682758629, b: 0, a: .134000003}
       data:
         first:
           name: _SpecColor
