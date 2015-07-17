@@ -12,7 +12,7 @@ function Deselect () {
 
 function OnMouseDown () { 
     if (gameObject.transform.parent.tag != "trackSelected") {
-        Deselect()
+        Deselect();
         var ln : LineRenderer = gameObject.transform.parent.GetComponent.<LineRenderer>();        
         ln.SetColors(Color.yellow, Color.yellow);
         gameObject.transform.parent.tag = "trackSelected";  
