@@ -2647,6 +2647,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 655740947}
+  - 114: {fileID: 655740948}
+  - 114: {fileID: 655740949}
   m_Layer: 12
   m_Name: Wire Planes
   m_TagString: Untagged
@@ -2669,6 +2671,32 @@ Transform:
   - {fileID: 1537483752}
   m_Father: {fileID: 965192371}
   m_RootOrder: 9
+--- !u!114 &655740948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655740946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa2daf186dbd4104cb08100504c81a3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
+  fileName: prodgenie_bnb_nu_cosmic.json
+--- !u!114 &655740949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 655740946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97d2faed4bcb0f44294709d0071745cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
+  fileName: prodgenie_bnb_nu_cosmic.json
 --- !u!1 &673376810
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,6 +3304,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11443552, guid: 45b0d7635ee4c214ca73a9fbfd319304, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 492211712}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 45b0d7635ee4c214ca73a9fbfd319304, type: 2}
   m_IsPrefabParent: 0

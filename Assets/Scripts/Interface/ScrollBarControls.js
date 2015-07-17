@@ -14,7 +14,7 @@ function HeightControl () {
 	player.position = currentpos + Vector3.up * scrollbar.value * 11 ;
 }
 
-function Update ()
+function LateUpdate ()
 {
 	currentpos = Vector3(player.transform.localPosition.x, 0, player.transform.localPosition.z);
 	HeightControl();	

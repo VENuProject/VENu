@@ -221,7 +221,7 @@ function Awake() {
     }
     else {
         Debug.Log("<color=orange>PlayerPrefs not Initialized. Using default event.</color>");
-        fileName = "complicated_event.json";
+        fileName = "prodgenie_bnb_nu_cosmic.json";
     }
 }
 function Start() {

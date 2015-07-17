@@ -24,6 +24,7 @@ function Awake()
 	}
 	else
 	{
+		fileName = "prodgenie_bnb_nu_cosmic.json";
 		Debug.Log("<color=red>No Event Loaded</color>");
 	}
 	//Loader = GameObject.FindGameObjectWithTag("Loader");
