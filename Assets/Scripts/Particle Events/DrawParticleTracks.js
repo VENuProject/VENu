@@ -113,7 +113,7 @@ function drawTracksFromArray(index : int, arr : Array) {
         
         var bc : BoxCollider;
 //        bc.isTrigger = true;  
-        var boxColliderOffset : float = 0.5; //height and width of box collider
+        var boxColliderOffset : float = 0.4; //height and width of box collider
         bc = segmentObject.AddComponent.<BoxCollider>();
         bc.transform.LookAt(transform.position + pt2);
         bc.center = Vector3.zero;
