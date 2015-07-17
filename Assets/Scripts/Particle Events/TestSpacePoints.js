@@ -11,18 +11,19 @@ private var m_InGameLog = "";
 private var m_Position  = Vector2.zero;
 
 var inputString : String; 
-private var _particle : String;
-private var _event    : String;
-private var _url      : String;
+static var _particle : String;
+static var _event    : String;
+static var _url      : String;
 private var _url2     : String;
 var buttonAppear = false; 
 
-//var file1 : String = LoaderElement.GetComponent(LoaderScript).file1;
-//var file2 : String = LoaderElement.GetComponent(LoaderScript).file2;
 var fileName : String;
 
 //Event counter
-var _i = 0;
+static var _i = 0;
+
+var _urlArray = new Array() ;
+
 
 function Awake()
 {
@@ -46,13 +47,18 @@ function P( aText : String)
 function Test()
 {
 
-    // To read in from the Argo web interface
-//    var url2 =  "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod_bnblike_pi0_uboone%252F1691318_0%252Fprod_bnblike_pi0_uboone_19_20150514T094525_gen_20150514T103549_g4_20150514T113214_detsim_20150514T124030_reco1.root&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
+    // Leave full url in for now because don't know how to deal with android stuff yet
     var url = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod"+_particle+"_uboone%252F"+_event+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
 
     _url2 = _url + _i.ToString()+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
 
     P("\n\n\nHold up...");
+
+    //Create array of all particles for one set of evenst
+//    for(var i=0; i<100; i++){
+//	_url2 = _url + i.ToString()+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
+//	_urlArray.Push(_url2);
+//	}
 
   //  for( var i = 0 ; i < urlArray.length; i++){
 
@@ -82,8 +88,6 @@ function Test()
     
     //    P("The event number is: ");
     //    P(N["record"]["header"]["event"].ToString(""));
-    //    P("Testing things"+ N["record"]["spacepoints"][0].ToString());
-    //    P(N["record"]["spacepoints"][0].ToString());
     //    P("The first wire is: ");
     //    P(N["record"]["spacepoints"][algoName][0]["xyz"][0].ToString("")) ;
     
@@ -122,26 +126,31 @@ function OnGUI()
 	{
 	    _particle = "_bnblike_proton"; 
 	    _event    = "1831337_" ;
+	    _i 	      = 0;
 	}
 	if (GUI.Button (Rect (60, 20, 50, 30), "Pi0")) 
 	{
 	    _particle = "_bnblike_pi0"; 
 	    _event    = "1691318_" ;
+	    _i 	      = 0;
 	}
 	if (GUI.Button (Rect (110, 20, 50, 30), "Muon")) 
 	{
 	    _particle = "_bnblike_muminus"; 
 	    _event    = "1695054_" ;
+	    _i 	      = 0;
 	}
 	if (GUI.Button (Rect (160, 20, 60, 30), "Gamma")) 
 	{
 	    _particle = "_bnblike_gamma"; 
 	    _event    = "1831485_" ;
+	    _i 	      = 0;
 	}
 	if (GUI.Button (Rect (220, 20, 60, 30), "Electron")) 
 	{
 	    _particle = "_bnblike_eminus"; 
 	    _event    = "1691317_" ;
+	    _i 	      = 0;
 	}
 
 	
@@ -165,7 +174,7 @@ function Update () {
     if(Input.GetKeyDown("up"))
     { 
 //	Application.LoadLevel(0);
-//	P("particle and event: "+_particle+", "+ _event);
+//	P("particle and event: "+_particle+", "+ _event+", "+_i);
 	_i++;
 	Test();
     }
