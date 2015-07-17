@@ -14,9 +14,10 @@ public class OneJoyDragInterface : MonoBehaviour {
 	private Vector3 currentPos;
 	public float mouseSensitivity;
 	public float moveSpeed;
+	public CharacterController me;
 
 	void Start () {
-		
+		me = GetComponent<CharacterController>();
 	}
 	
 	public void SetSensitivity(float value){
@@ -61,11 +62,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 				playerCamera.transform.Rotate(
 					finger.deltaPosition.y * -mouseSensitivity, 0, 0);
 			}
-
 		}
-
-
-
 
 #else
 
@@ -85,15 +82,15 @@ public class OneJoyDragInterface : MonoBehaviour {
 	
 				//horizontal rotation
 				cameraMount.transform.Rotate(
-					0f, -(currentPos.x - startPos.x) * mouseSensitivity, 0f);
+					0f, (currentPos.x - startPos.x) * mouseSensitivity, 0f);
 	
 				//vertical rotation, clamped at +- 90
-				if (playerCamera.transform.eulerAngles.x + (currentPos.y - startPos.y) * mouseSensitivity <= 90
+				if (playerCamera.transform.eulerAngles.x + -(currentPos.y - startPos.y) * mouseSensitivity <= 90
 				   ||
-				    playerCamera.transform.eulerAngles.x + (currentPos.y - startPos.y) * mouseSensitivity >= 270)
+				    playerCamera.transform.eulerAngles.x + -(currentPos.y - startPos.y) * mouseSensitivity >= 270)
 				{
 					playerCamera.transform.Rotate(
-						(currentPos.y - startPos.y) * mouseSensitivity, 0f, 0f);
+						-(currentPos.y - startPos.y) * mouseSensitivity, 0f, 0f);
 				}
 
 				startPos = Input.mousePosition;
@@ -104,10 +101,14 @@ public class OneJoyDragInterface : MonoBehaviour {
 	}
 
 	void PlayerMove (){
-		transform.Translate(new Vector3(
-			CrossPlatformInputManager.GetAxis("Horizontal"),
-			0,
-			CrossPlatformInputManager.GetAxis("Vertical")
-			) * moveSpeed);
+
+		Vector3 delta = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"),
+		                            0,
+		                            CrossPlatformInputManager.GetAxis("Vertical")
+		                            ) * moveSpeed;
+		delta = Quaternion.AngleAxis(cameraMount.transform.eulerAngles.y, Vector3.up) * delta;
+		me.Move(delta);
+
 	}
+
 }
