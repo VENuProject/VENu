@@ -1,13 +1,13 @@
 #pragma strict
 
-var toolTipC1Text = "";
-var toolTipC2Text = "";
-var toolTipC3Text = "";
+//var toolTipC1Text = "";
+//var toolTipC2Text = "";
+//var toolTipC3Text = "";
 private var guiStyleFore : GUIStyle; 
 private var guiStyleBack : GUIStyle;
-private var currentToolTipC1Text = "";
-private var currentToolTipC2Text = "";
-private var currentToolTipC3Text = "";
+//private var currentToolTipC1Text = "";
+//private var currentToolTipC2Text = "";
+//private var currentToolTipC3Text = "";
 
 //function OnMouseDown () {
 //    Deselect();
