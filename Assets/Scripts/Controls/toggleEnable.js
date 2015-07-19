@@ -1,20 +1,17 @@
 ﻿#pragma strict
-import UnityEngine.UI;
-
 public var tog1 : Toggle;
 function Start () {
 
 }
 
-function togDisable() 
+function togEnable () 
 {
 	if(tog1.isOn == true)
 	{
-		gameObject.SetActive(false);
+		gameObject.SetActive(true);
 	}
 	else 
 	{
-		gameObject.SetActive(true);
+		gameObject.SetActive(false);
 	}
 }
-

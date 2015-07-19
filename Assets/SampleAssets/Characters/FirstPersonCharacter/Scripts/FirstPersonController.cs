@@ -34,7 +34,7 @@ namespace UnitySampleAssets.Characters.FirstPerson
         [SerializeField] private AudioClip _landSound; // the sound played when character touches back on ground.
 
         ///////////////// non exposed privates /////////////////////////
-        private Camera _camera;
+        //private Camera _camera; AMCLEAN comment out
         private bool _jump;
         private float _yRotation;
         private CameraRefocus _cameraRefocus;
@@ -48,11 +48,14 @@ namespace UnitySampleAssets.Characters.FirstPerson
         private float _nextStep = 0f;
         private bool _jumping = false;
 
+		//AMCLEAN add
+		public Camera _camera;
+
         // Use this for initialization
         private void Start()
         {
             _characterController = GetComponent<CharacterController>();
-            _camera = Camera.main;
+           // _camera = Camera.main; AMCLEAN comment out
             _originalCameraPosition = _camera.transform.localPosition;
             _cameraRefocus = new CameraRefocus(_camera, transform, _camera.transform.localPosition);
             _fovKick.Setup(_camera);
