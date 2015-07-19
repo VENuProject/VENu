@@ -172,8 +172,9 @@ GameObject:
   - 222: {fileID: 271861882}
   - 114: {fileID: 271861881}
   - 114: {fileID: 271861883}
+  - 114: {fileID: 271861884}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Splash Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -234,7 +235,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc02e3e3204199b4dafd8650459822d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 3.5
+  delayTime: 5
+--- !u!114 &271861884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 271861879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a9c5b297021324fb4e51aa3d782a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeOutTexture: {fileID: 2800000, guid: e5c03a05003462942a2e051d1b2d6c46, type: 3}
+  fadeSpeed: .300000012
 --- !u!1 &1231993495
 GameObject:
   m_ObjectHideFlags: 0
