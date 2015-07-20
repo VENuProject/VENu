@@ -17,19 +17,7 @@ function Start () {
 	//Maybe this will work, but I'll have to have one of you explain it to me.
 	// -Owen
 	if (Application.platform == RuntimePlatform.Android){
-		var jsonFilesPath = "jar:file://" + Application.dataPath + "!/assets";
-		    var www : WWW = new WWW(jsonFilesPath); //AMCLEAN add
-   			yield www; // AMCLEAN add
-   			//jsonString=www.text;
-		/*
-		
-		    var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
-    Debug.Log(Application.platform+"\n"+url);
-    var www : WWW = new WWW(url);
-    yield www;
-    jsonString=www.text;
-		
-		*/
+		jsonFilesPath = "jar:file://" + Application.dataPath + "!/assets";
 	}
 	else jsonFilesPath = Application.streamingAssetsPath; //this works fine on iOS
     
