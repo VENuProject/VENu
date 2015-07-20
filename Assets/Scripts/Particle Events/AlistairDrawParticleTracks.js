@@ -31,7 +31,6 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
     //Stores the final number of points in the array
     var drawnPoints : int = 0;
     var totalTracks : int = N["record"]["tracks"][trackAlgoName].Count;
-    
     //Loop over tracks: Decide which points to draw, then draw points and connection lines.
     for (var trackIndex : int = 0; trackIndex < totalTracks; trackIndex++) {   
         //Stores the points to be drawn
@@ -73,7 +72,7 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
         drawTracksFromArray(trackIndex, spacePointsArray);
         drawnPoints += spacePointsArray.length;
     }
-    P("Drawn Points: " + drawnPoints);
+   // P("Drawn Points: " + drawnPoints);
 }
 
 function drawTracksFromArray(index : int, arr : Array) {
@@ -152,7 +151,7 @@ function Start() {
     
     //Filter and draw the tracks from the JSON file.
     //Parameter 2 is the filter threshold, and parameter 3 is the algorithm name found in the JSON file.
-    filterJSON(JSONNode.Parse(jsonString), 0.005, "recob::Tracks_trackkalsps__Reco3D");
+    filterJSON(JSONNode.Parse(jsonString), 0.0005, "recob::Tracks_cctrack__RecoStage1");
 }
 
 function OnGUI() {
