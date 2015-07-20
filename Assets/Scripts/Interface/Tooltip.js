@@ -34,16 +34,16 @@ public var c2 : UI.Text;
 public var c3 : UI.Text;
 
 function Start () {
-	gameObject.SetActive(false);
-	var testvals = new values("testing", 1, 2, 3, 4, 5, 6, 7, 8);
-	DispText(testvals);
+	//gameObject.SetActive(false);
+	//var testvals = new values("testing", 1, 2, 3, 4, 5, 6, 7, 8);
+	//DispText(testvals);
 }
 
 public function DispText(v : values){
 	title.text = v.name;
-	c1.text = "Phi: " + v.phi + "\n" + "Theta: " + v.theta;
-	c2.text = "Length: " + v.length + "\n" + "Range: " + v.range + "\n" + "PIDA: " + v.pida;
-	c3.text = "IDTruth: " + v.idtruth + "\n" + "Origin: " + v.origin + "\n" + "NHits: " + v.nhits;
+	c1.text = "Phi: " + v.phi + "\n" + "Theta: " + v.theta + "\n" + "Length: " + v.length;
+	c2.text = "Range: " + v.range + "\n" + "PIDA: " + v.pida + "\n" + "IDTruth: " + v.idtruth;
+	c3.text = "Origin: " + v.origin + "\n" + "NHits: " + v.nhits;
 	gameObject.SetActive(true);
 }
 

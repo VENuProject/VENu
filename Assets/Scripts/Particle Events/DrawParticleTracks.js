@@ -8,12 +8,21 @@ import SimpleJSON;
 import System.IO;
 import System.Linq;
 
+var dot : GameObject;
 var fileName : String;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
+}
+
+
+function PlacePoint(pt1 : Vector3) {
+    var clone : GameObject;
+    clone = Instantiate(dot, transform.position, transform.rotation);
+    clone.transform.position = transform.position + pt1;
+    clone.transform.localScale = Vector3(0.1,0.1,0.1);
 }
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -73,7 +82,7 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
         drawTracksFromArray(trackIndex, spacePointsArray);
         drawnPoints += spacePointsArray.length;
     }
-    P("Drawn Points: " + drawnPoints);
+    //P("Drawn Points: " + drawnPoints);
 }
 
 function drawTracksFromArray(index : int, arr : Array) {
@@ -96,11 +105,12 @@ function drawTracksFromArray(index : int, arr : Array) {
     
     lr.SetVertexCount(arr.length);
     lr.SetPosition(0, transform.position + pt0);
-    
+    PlacePoint(pt0);
     for (var i : int = 1; i < arr.length; i++) {
         var pt1 : Vector3 = arr[i - 1];
         var pt2 : Vector3 = arr[i];
         lr.SetPosition(i,  transform.position + pt2);
+        PlacePoint(pt1);
         
         //Make a game object for each segment to store on-click behavior and a box collider
         //Put this child object at the midpoint between the current two points
@@ -129,7 +139,7 @@ function Awake() {
     }
     else {
         Debug.Log("<color=purple>PlayerPrefs not Initialized. Using default event.</color>");
-        fileName = "prodgenie_bnb_nu_cosmic.json";
+        fileName = "prod_eminus_0.1-2.0GeV_isotropic.json";
     }
 }
 
@@ -151,7 +161,7 @@ function Start() {
     
     //Filter and draw the tracks from the JSON file.
     //Parameter 2 is the filter threshold, and parameter 3 is the algorithm name found in the JSON file.
-    filterJSON(JSONNode.Parse(jsonString), 0.005, "recob::Tracks_trackkalsps__Reco3D");
+    filterJSON(JSONNode.Parse(jsonString), -1, "recob::Tracks_cctrack__RecoStage1");
 }
 
 function OnGUI() {
