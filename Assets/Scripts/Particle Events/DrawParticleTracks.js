@@ -46,6 +46,17 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
         //Stores the points to be drawn
         var spacePointsArray : Array = new Array();
           
+/*
+        for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key++){
+	        var clone : GameObject;
+	 	    clone = Instantiate(dot , transform.position, transform.rotation);
+    	    clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
+    	                                                            0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
+    	                                                           -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
+    	    clone.transform.localScale = Vector3(0.05,0.05,0.05);  
+        }
+*/
+          
         //Loop over points in the track, define the first two points outside the loop as initial conditions
         var totalPoints : int = N["record"]["tracks"][trackAlgoName][trackIndex]["points"].Count;
 
@@ -99,7 +110,7 @@ function drawTracksFromArray(index : int, arr : Array) {
     lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
     lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
     lr.SetWidth(0.1, 0.1);
-    lr.SetColors(Color.green, Color.cyan); 
+    lr.SetColors(Color.cyan, Color.cyan); 
     
     var pt0 : Vector3 = arr[0];
     

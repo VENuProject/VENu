@@ -11,7 +11,7 @@ function Deselect () {
     var objectCount = objects.length;
     for (var obj : GameObject in objects) {
         var ln : LineRenderer = obj.GetComponent.<LineRenderer>();
-        ln.SetColors(Color.green, Color.cyan);
+        ln.SetColors(Color.cyan, Color.cyan);
         obj.tag = "track";
         tooltipObject.transform.SetParent(tooltipParent.transform);
     }
@@ -21,7 +21,7 @@ function OnMouseDown () {
     if (gameObject.transform.parent.tag != "trackSelected") {
         Deselect();
         var ln : LineRenderer = gameObject.transform.parent.GetComponent.<LineRenderer>();        
-        ln.SetColors(Color.yellow, Color.yellow);
+        ln.SetColors(Color.red, Color.yellow);
         gameObject.transform.parent.tag = "trackSelected";  
        // var obj = GameObject.Find("ToolTip");
         var v = values(gameObject.transform.parent.name, 
