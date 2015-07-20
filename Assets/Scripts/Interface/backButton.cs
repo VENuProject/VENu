@@ -3,7 +3,7 @@ using System.Collections;
 
 public class backButton : MonoBehaviour {
 
-	void changeLevel()
+	void changeLvl()
 	{
 		Application.LoadLevel (1);
 	}
