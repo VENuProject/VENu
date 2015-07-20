@@ -24,9 +24,9 @@ public class Joystick : MonoBehaviour , IPointerUpHandler , IPointerDownHandler 
     private CrossPlatformInputManager.VirtualAxis verticalVirtualAxis;                 // Reference to the joystick in the cross platform input
       
     void Start () { //AMCLEAN Changed OnEnable to Start
-
-        startPos = transform.position;
-        CreateVirtualAxes ();
+	
+   	    startPos = transform.position;
+        //CreateVirtualAxes ();
     }
 
     private void UpdateVirtualAxes (Vector3 value) {
@@ -96,4 +96,9 @@ public class Joystick : MonoBehaviour , IPointerUpHandler , IPointerDownHandler 
             verticalVirtualAxis.Remove();
         }
     }
+
+	void OnEnable(){
+		CreateVirtualAxes ();
+		//startPos = transform.position;
+	}
 }

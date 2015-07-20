@@ -1,15 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnitySampleAssets.CrossPlatformInput;
 
 public class ControlSwitcher : MonoBehaviour {
 	
-	public enum ControlSchemes {OneJoy, TwoJoy, Minimap};
+	public enum ControlSchemes {OneJoy, TwoJoy, Minimap, Mouse};
 	public ControlSchemes scheme;
 	public GameObject OneJoyRig;
 	public GameObject TwoJoyRig;
 	public GameObject MinimapRig;
+	public GameObject MouseRig;
+	public GameObject MoveJoy;
+	public GameObject LookJoy;
+	public GameObject HeightSlider;
+	public GameObject SwitcherButton;
 	
 	void Start () {
+
+#if !MOBILE_INPUT
+		SwitcherButton.SetActive(false);
+		scheme = ControlSchemes.Mouse;
+#endif
+
 		switch (scheme){
 		case ControlSchemes.OneJoy:
 			OneJoyMode();
@@ -19,6 +31,9 @@ public class ControlSwitcher : MonoBehaviour {
 			break;
 		case ControlSchemes.Minimap:
 			MinimapMode();
+			break;
+		case ControlSchemes.Mouse:
+			MouseMode();
 			break;
 		default:
 			Debug.Log ("This can't be happening!");
@@ -51,6 +66,10 @@ public class ControlSwitcher : MonoBehaviour {
 		TwoJoyRig.SetActive(false);
 		MinimapRig.SetActive(false);
 		OneJoyRig.SetActive(true);
+		MouseRig.SetActive(false);
+		MoveJoy.SetActive(true);
+		LookJoy.SetActive(false);
+		HeightSlider.SetActive(true);
 		scheme = ControlSchemes.OneJoy;
 	}
 	
@@ -58,6 +77,10 @@ public class ControlSwitcher : MonoBehaviour {
 		OneJoyRig.SetActive(false);
 		MinimapRig.SetActive(false);
 		TwoJoyRig.SetActive(true);
+		MouseRig.SetActive(false);
+		MoveJoy.SetActive(true);
+		LookJoy.SetActive(true);
+		HeightSlider.SetActive(true);
 		scheme = ControlSchemes.TwoJoy;
 	}
 	
@@ -65,7 +88,22 @@ public class ControlSwitcher : MonoBehaviour {
 		TwoJoyRig.SetActive(false);
 		OneJoyRig.SetActive(false);
 		MinimapRig.SetActive(true);
+		MouseRig.SetActive(false);
+		MoveJoy.SetActive(false);
+		LookJoy.SetActive(false);
+		HeightSlider.SetActive(true);
 		scheme = ControlSchemes.Minimap;
+	}
+
+	public void MouseMode(){
+		TwoJoyRig.SetActive(false);
+		MinimapRig.SetActive(false);
+		OneJoyRig.SetActive(false);
+		MouseRig.SetActive(true);
+		MoveJoy.SetActive(false);
+		LookJoy.SetActive(false);
+		HeightSlider.SetActive(true);
+		scheme = ControlSchemes.Mouse;
 	}
 	
 	public void SetSensitivity(float val){
