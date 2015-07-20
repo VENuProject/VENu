@@ -14,6 +14,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 	private Vector3 currentPos;
 	public float mouseSensitivity;
 	public float moveSpeed;
+	public float height;
 	public CharacterController me;
 
 	void Start () {
@@ -31,6 +32,12 @@ public class OneJoyDragInterface : MonoBehaviour {
 	void Update () {
 		PlayerLook();
 		PlayerMove();
+	}
+
+	void FixedUpdate(){
+		mouseSensitivity = PlayerPrefs.GetFloat("LookSensitivity");
+		moveSpeed = PlayerPrefs.GetFloat("MoveSpeed");
+		height = PlayerPrefs.GetFloat("PlayerHeight");
 	}
 
 	void PlayerLook (){
@@ -108,6 +115,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 		                            ) * moveSpeed;
 		delta = Quaternion.AngleAxis(cameraMount.transform.eulerAngles.y, Vector3.up) * delta;
 		me.Move(delta);
+		transform.Translate(0, height - transform.position.y, 0);
 
 	}
 
