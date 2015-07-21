@@ -132,7 +132,8 @@ function drawTracksFromArray(index : int, arr : Array) {
         //Put this child object at the midpoint between the current two points
         var segmentObject = new GameObject();
         segmentObject.layer = 11;
-        segmentObject.AddComponent(trackClick); 
+        segmentObject.AddComponent(trackClick);
+        segmentObject.AddComponent(ScaleColliderRelativeToCamera); 
         segmentObject.name = "segment" + i;
         segmentObject.transform.parent = trackObject.transform;
         segmentObject.transform.position = (transform.position + pt1 + transform.position + pt2) / 2.0;
