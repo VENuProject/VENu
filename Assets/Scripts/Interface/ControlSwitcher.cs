@@ -18,17 +18,7 @@ public class ControlSwitcher : MonoBehaviour {
 	void Start () {
 
 #if !MOBILE_INPUT
-		SwitcherButton.SetActive(false);
-		scheme = ControlSchemes.Mouse;
-#endif
-
 		switch (scheme){
-		case ControlSchemes.OneJoy:
-			OneJoyMode();
-			break;
-		case ControlSchemes.TwoJoy:
-			TwoJoyMode();
-			break;
 		case ControlSchemes.Minimap:
 			MinimapMode();
 			break;
@@ -36,16 +26,35 @@ public class ControlSwitcher : MonoBehaviour {
 			MouseMode();
 			break;
 		default:
-			Debug.Log ("This can't be happening!");
+			MinimapMode();
 			break;
 		}
-		
+#else
+		switch (scheme){
+		case ControlSchemes.OneJoy:
+			OneJoyMode();
+			break;
+		case ControlSchemes.TwoJoy:
+			TwoJoyMode();
+			break;
+		case ControlSchemes.Minimap:
+			MinimapMode();
+			break;
+		default:
+			MinimapMode();
+			break;
+		}
+#endif
+
 		PlayerPrefs.SetFloat("LookSensitivity", 0.1f);
 		PlayerPrefs.SetFloat("MoveSpeed", 0.2f);
 		PlayerPrefs.SetFloat("PlayerHeight", 0);
 	}
-	
+
+
 	public void ChangeScheme(){
+
+#if MOBILE_INPUT
 		switch (scheme){
 		case ControlSchemes.OneJoy:
 			TwoJoyMode();
@@ -57,9 +66,23 @@ public class ControlSwitcher : MonoBehaviour {
 			OneJoyMode();
 			break;
 		default:
-			Debug.Log ("This can't be happening!");
+			MinimapMode();
 			break;
 		}
+#else
+		switch (scheme){
+		case ControlSchemes.MouseMode:
+			MinimapMode();
+			break;
+		case ControlSchemes.Minimap:
+			MouseMode();
+			break;
+		default:
+			MinimapMode();
+			break;
+		}
+#endif
+
 	}
 	
 	public void OneJoyMode(){
