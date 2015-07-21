@@ -73,7 +73,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 
 #else
 
-		if (Input.GetMouseButtonDown(0) && eventSystem.IsPointerOverGameObject() == false){
+		if (Input.GetMouseButtonDown(1) && eventSystem.IsPointerOverGameObject() == false){
 			//start a drag
 			isDragging = true;
 			currentPos = Input.mousePosition;
@@ -81,7 +81,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 		}
 
 		if (isDragging){
-			if(Input.GetMouseButton(0) == false)
+			if(Input.GetMouseButton(1) == false)
 				isDragging = false;
 
 			else{

@@ -355,8 +355,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1215453567}
-        m_MethodName: SendMessage
-        m_Mode: 5
+        m_MethodName: LoadPrevious
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -707,6 +707,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11472232, guid: 512d5c06936d34729afe5c2f238fe876, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472232, guid: 512d5c06936d34729afe5c2f238fe876, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472232, guid: 512d5c06936d34729afe5c2f238fe876, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472232, guid: 512d5c06936d34729afe5c2f238fe876, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472232, guid: 512d5c06936d34729afe5c2f238fe876, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11472232, guid: 512d5c06936d34729afe5c2f238fe876, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1182,6 +1202,7 @@ RectTransform:
   m_Children:
   - {fileID: 191089231}
   - {fileID: 1969476582}
+  - {fileID: 1795297327}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
@@ -1501,7 +1522,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 532672042}
-  - {fileID: 1795297327}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -1915,15 +1935,15 @@ RectTransform:
   m_GameObject: {fileID: 1795297326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .480000019, y: .480000019, z: .480000019}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1190561398}
-  m_Father: {fileID: 1262589195}
-  m_RootOrder: 1
+  m_Father: {fileID: 861288593}
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 340.799988, y: -19.6799927}
-  m_SizeDelta: {x: 90, y: 178.000031}
+  m_AnchoredPosition: {x: 709.999939, y: -40.9999924}
+  m_SizeDelta: {x: 90, y: -82}
   m_Pivot: {x: 0, y: .5}
 --- !u!114 &1795297328
 MonoBehaviour:
@@ -2397,7 +2417,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22433700, guid: 91332f48d918d4627b7aef95f961b8d2, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 249.285721
+      value: 215
       objectReference: {fileID: 0}
     - target: {fileID: 124816, guid: 91332f48d918d4627b7aef95f961b8d2, type: 2}
       propertyPath: m_IsActive
@@ -2462,6 +2482,14 @@ Prefab:
     - target: {fileID: 11466298, guid: 91332f48d918d4627b7aef95f961b8d2, type: 2}
       propertyPath: m_Text
       value: Next Event
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482908, guid: 91332f48d918d4627b7aef95f961b8d2, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadNext
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482908, guid: 91332f48d918d4627b7aef95f961b8d2, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91332f48d918d4627b7aef95f961b8d2, type: 2}
