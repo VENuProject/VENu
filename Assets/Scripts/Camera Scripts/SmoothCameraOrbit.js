@@ -39,10 +39,10 @@ function Start () { var angles = transform.eulerAngles; x = angles.y; y = angles
 
 function LateUpdate () { if (target) 
 { 
-    var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity");
+    var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity") * 10;
 	if(Input.GetMouseButton(1) && Input.touchCount == 0){
-		x += Input.GetAxisRaw("Mouse X")*5;
-		y -= Input.GetAxisRaw("Mouse Y")*5;
+		x += Input.GetAxisRaw("Mouse X")*rotSpeed;
+		y -= Input.GetAxisRaw("Mouse Y")*rotSpeed;
 	}
 	else if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved){
 		x += Input.GetTouch(0).deltaPosition.x * rotSpeed;
