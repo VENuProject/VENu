@@ -10,19 +10,32 @@ var dotss : GameObject;
 private var m_InGameLog = "";
 private var m_Position  = Vector2.zero;
 
+
 var inputString : String; 
 static var _particle : String;
 static var _event    : String;
 static var _url      : String;
-private var _url2     : String;
+static var _url2     : String;
+
 var buttonAppear = false; 
+static var _reload	= true ; 
+static var _clicked   	= false;
+static var _next	= false;
+static var _previous 	= false;
+static var _clear	= false;
 
 var fileName : String;
 
 //Event counter
 static var _i = 0;
+static var _j = 0;
 
 var _urlArray = new Array() ;
+
+static var elecButton = false; 
+static var gammaButton = false; 
+
+public var MenuItemStyle : GUIStyle  ;
 
 
 function Awake()
@@ -54,43 +67,30 @@ function Test()
 
     P("\n\n\nHold up...");
 
-    //Create array of all particles for one set of evenst
-//    for(var i=0; i<100; i++){
-//	_url2 = _url + i.ToString()+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
-//	_urlArray.Push(_url2);
-//	}
-
-  //  for( var i = 0 ; i < urlArray.length; i++){
-
-        var www : WWW = new WWW(_url2) ; //urlArray[i]);
+        var www : WWW = new WWW(_url2) ; 
         //// Wait for the download to complete
         yield www;
         var jsonString = www.text;
-//        P("Saving JSON string... ") ;
-        
+//       P("Saving JSON string... ") ;
+
         if(Application.platform==RuntimePlatform.Android)
         {
-        url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
-        Debug.Log(Application.platform+"\n"+url);
-        var www2 : WWW = new WWW(url);
-        Debug.Log("Reading URL");
-        
-        yield www2;
-        jsonString=www2.text;
-    
+	    url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
+       	    Debug.Log(Application.platform+"\n"+url);
+       	    var www2 : WWW = new WWW(url);
+       	    Debug.Log("Reading URL");
+       	    
+       	    yield www2;
+       	    jsonString=www2.text;
         }
         
         var N = JSONNode.Parse(jsonString);
-        var DP = "cluster3d" ;
-        var Stage = "RecoStage1" ;
-    
         var algoName : String =  "recob::SpacePoints_cluster3d__RecoStage1" ;
     
-    //    P("The event number is: ");
-    //    P(N["record"]["header"]["event"].ToString(""));
-    //    P("The first wire is: ");
-    //    P(N["record"]["spacepoints"][algoName][0]["xyz"][0].ToString("")) ;
-    
+//        P("The event number is: ");
+//        P(N["record"]["header"]["event"].ToString(""));
+//        P("The first wire is: ");
+//        P(N["record"]["spacepoints"][algoName][0]["xyz"][0].ToString("")) ;
     
         var spacePointsArray = new Array ();
     
@@ -108,83 +108,104 @@ function Test()
 //    P("URL: ");
 //    P(_url2);
 
-//    }
+}
+
+function Update () {
+
+    if(Input.GetMouseButtonDown(0) && _clicked )
+    { 
+      buttonAppear = true; 
+      Test(); 
+    }//If you wanna enable once as soon as you first click 
+
+
+//    if(Input.GetKey("up") && _clicked )
+    if ( _clear )
+    { 
+	P("up");
+        Application.LoadLevel(Application.loadedLevel);
+	_clear = false ;
+    }
+
+    if( _next ){ //Input.GetKeyDown("down") ){
+	P("down");
+	_i++;
+	Test();
+	_next = false ;
+    }
+    else if (_previous ){
+	_i--;
+	Test() ;
+	_previous = false ;
+	}
 }
 
 function Start()
 {
-	//fileName = PlayerPrefs.GetString("File To Load");
-	//Resources.Load("complicated_event.json"); //AMCLEAN added
-    
 //	Test();
-//	Debug.Log("Test results:\n" + m_InGameLog);
 }
 
 function OnGUI()
 {
-	if (GUI.Button (Rect (10, 20, 50, 30), "Proton")) 
-	{
-	    _particle = "_bnblike_proton"; 
-	    _event    = "1831337_" ;
-	    _i 	      = 0;
-	}
-	if (GUI.Button (Rect (60, 20, 50, 30), "Pi0")) 
-	{
-	    _particle = "_bnblike_pi0"; 
-	    _event    = "1691318_" ;
-	    _i 	      = 0;
-	}
-	if (GUI.Button (Rect (110, 20, 50, 30), "Muon")) 
-	{
-	    _particle = "_bnblike_muminus"; 
-	    _event    = "1695054_" ;
-	    _i 	      = 0;
-	}
-	if (GUI.Button (Rect (160, 20, 60, 30), "Gamma")) 
-	{
-	    _particle = "_bnblike_gamma"; 
-	    _event    = "1831485_" ;
-	    _i 	      = 0;
-	}
-	if (GUI.Button (Rect (220, 20, 60, 30), "Electron")) 
-	{
-	    _particle = "_bnblike_eminus"; 
-	    _event    = "1691317_" ;
-	    _i 	      = 0;
-	}
 
-	
+//     MenuItemStyle = new GUIStyle(GUI.skin.button);
+//     MenuItemStyle.normal.textColor = Color.white;
+//     MenuItemStyle.hover.textColor  = Color.cyan;
 
-	    _url = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod"+_particle+"_uboone%252F"+_event;//+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
+//    GUIStyle myStyle = new GUIStyle(GUI.skin.brown) ;
+//    myStyle.color = Color.yellow;
+
+    if (GUI.Button (Rect (10, 20, 50, 30), "Proton")) 
+    {
+        _particle = "_bnblike_proton"; 
+        _event    = "1831337_" ;
+        _i 	      = 0;
+	GUI.color = Color.gray;
+    }
+    if (GUI.Button (Rect (60, 20, 50, 30), "Pi0")) 
+    {
+        _particle = "_bnblike_pi0"; 
+        _event    = "1691318_" ;
+        _i 	      = 0;
+	GUI.color = Color.gray;
+    }
+    if (GUI.Button (Rect (110, 20, 50, 30), "Muon")) 
+    {
+        _particle = "_bnblike_muminus"; 
+        _event    = "1695054_" ;
+        _i 	      = 0;
+	GUI.color = Color.gray;
+    }
+    if (GUI.Button (Rect (160, 20, 60, 30), "Gamma")) 
+    {
+        _particle = "_bnblike_gamma"; 
+        _event    = "1831485_" ;
+        _i 	      = 0;
+	gammaButton = true; 
+    }
+
+    if (GUI.Button (Rect (220, 20, 60, 30), "Electron")) 
+    {
+        _particle = "_bnblike_eminus"; 
+        _event    = "1691317_" ;
+        _i 	      = 0;
+	elecButton = true; 
+//	GetComponent(Button).colors.normalColor = Color.green;
+    }
+    
+    if (GUI.Button (Rect (80, 280, 40, 30), "Next")){ _next = true; }
+
+    if (GUI.Button (Rect (10, 280, 70, 30), "Previous")){ _previous = true; }
+
+    if (GUI.Button (Rect (120, 280, 70, 30), "Clear")){ _clear = true; }
+
+    if (_particle ){ _clicked = true ; }
+    
+    
+        _url = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod"+_particle+"_uboone%252F"+_event;//+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
 
 
 	m_Position = GUILayout.BeginScrollView(m_Position);
 	GUILayout.Label(m_InGameLog);
 	GUILayout.EndScrollView();
 }
-
-
-function Update () {
-    if(Input.GetMouseButtonDown(0))
-    { 
-      buttonAppear = true; 
-      Test(); 
-    }//If you wanna enable once as soon as you first click 
-
-    if(Input.GetKeyDown("up"))
-    { 
-//	Application.LoadLevel(0);
-//	P("particle and event: "+_particle+", "+ _event+", "+_i);
-	_i++;
-	Test();
-    }
-
-    //// Put this in your update function
-    //if (Input.GetKeyDown(KeyCode.N)) {
-	//private var fileName = "serve_event.cgi";
-	//var N = JSON.Parse("the_JSON_string");
-	//var Event = N["record"]["header"]["event"].AsFloat;
-    //}
-
-}
-
