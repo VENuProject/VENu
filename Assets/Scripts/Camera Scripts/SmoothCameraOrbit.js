@@ -39,25 +39,33 @@ function Start () { var angles = transform.eulerAngles; x = angles.y; y = angles
 
 function LateUpdate () { if (target) 
 { 
-	if(Input.GetButton("Fire2"))
+	var rotation : Quaternion;
+	if(Input.GetMouseButton(1) || Input.touchCount == 1)
 	{	
 	x += Input.GetAxisRaw("Mouse X")*5; 
 	y -= Input.GetAxisRaw("Mouse Y")*5;
-	}
+	
+	
 	//distance -= Input.GetAxis("Mouse Z") *zoomSpeed* 0.02;
-	distance -= Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
 
      xSmooth = Mathf.SmoothDamp(xSmooth, x, xVelocity, smoothTime);
      ySmooth = Mathf.SmoothDamp(ySmooth, y, yVelocity, smoothTime);
  
      ySmooth = ClampAngle(ySmooth, yMinLimit, yMaxLimit);
-     var rotation = Quaternion.Euler(ySmooth, xSmooth, 0);
+     rotation = Quaternion.Euler(ySmooth, xSmooth, 0);
 
     // posSmooth = Vector3.SmoothDamp(posSmooth,target.position,posVelocity,smoothTime);
  
-     posSmooth = target.position; // no follow smoothing
- 
      transform.rotation = rotation;
+     }
+     
+     else{
+     rotation = transform.rotation;
+     }
+     
+     distance -= Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
+     posSmooth = target.position; // no follow smoothing
+     
      transform.position = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
      
      
