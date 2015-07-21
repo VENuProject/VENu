@@ -13,9 +13,24 @@ public class ControlSwitcher : MonoBehaviour {
 	public GameObject MoveJoy;
 	public GameObject LookJoy;
 	public GameObject HeightSlider;
-	public GameObject SwitcherButton;
 	
 	void Start () {
+
+		GameObject dummyRig = new GameObject("dummyRig");
+		if(OneJoyRig == null)
+			OneJoyRig = dummyRig;
+		if(TwoJoyRig == null)
+			TwoJoyRig = dummyRig;
+		if(MinimapRig == null)
+			MinimapRig = dummyRig;
+		if(MouseRig == null)
+			MouseRig = dummyRig;
+		if(MoveJoy == null)
+			MoveJoy = dummyRig;
+		if(LookJoy == null)
+			LookJoy = dummyRig;
+		if(HeightSlider == null)
+			HeightSlider = dummyRig;
 
 #if !MOBILE_INPUT
 		switch (scheme){
