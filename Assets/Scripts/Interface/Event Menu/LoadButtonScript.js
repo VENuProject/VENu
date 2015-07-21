@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 	public var LoadText : GameObject;
+	public var LevelToLoad : String;
 
 function Start(){
 	LoadText.SetActive(false);
@@ -11,7 +12,7 @@ function loadEvent(){
 	if (PlayerPrefs.HasKey("File To Load")){
 		LoadText.SetActive(true);
 		Debug.Log("Loading event " + PlayerPrefs.GetString("File To Load"));
-		Application.LoadLevel("InGameMenuTest"); //replace with appropriate level?
+		Application.LoadLevel(LevelToLoad); //replace with appropriate level?
 	}
 	else{
 		Debug.Log("no file selected!");
