@@ -16,7 +16,6 @@ function Start () {
 function LateUpdate () 
 {
 
-
 }
  static var selectedId : int;
  static var speed : int = 5;

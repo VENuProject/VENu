@@ -22,7 +22,7 @@ function PlacePoint(pt1 : Vector3) {
     var clone : GameObject;
     clone = Instantiate(dot, transform.position, transform.rotation);
     clone.transform.position = transform.position + pt1;
-    clone.transform.localScale = Vector3(0.1,0.1,0.1);
+    clone.transform.localScale = Vector3(0.005,0.005,0.005);
 }
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -122,12 +122,12 @@ function drawTracksFromArray(index : int, arr : Array) {
     
     lr.SetVertexCount(arr.length);
     lr.SetPosition(0, transform.position + pt0);
-    //PlacePoint(pt0);
+    PlacePoint(pt0);
     for (var i : int = 1; i < arr.length; i++) {
         var pt1 : Vector3 = arr[i - 1];
         var pt2 : Vector3 = arr[i];
         lr.SetPosition(i,  transform.position + pt2);
-       // PlacePoint(pt2);
+        PlacePoint(pt2);
         
         //Make a game object for each segment to store on-click behavior and a box collider
         //Put this child object at the midpoint between the current two points
