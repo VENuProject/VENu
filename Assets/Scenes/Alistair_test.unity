@@ -2398,6 +2398,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
   fileName: 
+--- !u!114 &899542813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 899542809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aee66a8b947d4829ae8b075502e4ab8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dotss: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
+  inputString: 
+  buttonAppear: 0
+  fileName: 
 --- !u!1 &933025769
 GameObject:
   m_ObjectHideFlags: 0

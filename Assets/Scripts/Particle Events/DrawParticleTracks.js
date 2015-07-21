@@ -114,7 +114,7 @@ function drawTracksFromArray(index : int, arr : Array) {
     lr.castShadows = false;
     lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
     lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
-    lr.SetWidth(0.1, 0.1);
+    lr.SetWidth(0.05, 0.05);
     lr.SetColors(Color.cyan, Color.cyan); 
     lr.gameObject.layer = 11;
 

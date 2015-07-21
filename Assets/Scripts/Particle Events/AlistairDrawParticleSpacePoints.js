@@ -9,6 +9,7 @@ var dot : GameObject;
 //var LoaderElement : GameObject = GameObject.FindGameObjectWithTag("Loader");
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
+public var perc : float; 
 //var file1 : String = LoaderElement.GetComponent(LoaderScript).file1;
 //var file2 : String = LoaderElement.GetComponent(LoaderScript).file2;
 var fileName : String;
@@ -18,6 +19,8 @@ var fileName : String;
 
 function Awake()
 {
+	perc = PlayerPrefs.GetFloat("DrawPercentage");
+
 	if(PlayerPrefs.HasKey("File To Load"))
 	{
 		fileName = PlayerPrefs.GetString("File To Load");
@@ -98,7 +101,8 @@ function Test()
     // for (var key : String in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){	
     // P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
-    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key = key + 10){
+    var iter : int = 1/perc;
+    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key = key + iter){
 	 var clone : GameObject;
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
     	clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
