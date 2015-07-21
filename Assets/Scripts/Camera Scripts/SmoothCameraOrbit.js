@@ -39,38 +39,30 @@ function Start () { var angles = transform.eulerAngles; x = angles.y; y = angles
 
 function LateUpdate () { if (target) 
 { 
-	var rotation : Quaternion;
-	if(Input.GetMouseButton(1) || Input.touchCount == 1)
-	{	
-	x += Input.GetAxisRaw("Mouse X")*5; 
-	y -= Input.GetAxisRaw("Mouse Y")*5;
+    var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity");
+	if(Input.GetMouseButton(1) && Input.touchCount == 0){
+		x += Input.GetAxisRaw("Mouse X")*5;
+		y -= Input.GetAxisRaw("Mouse Y")*5;
+	}
+	else if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved){
+		x += Input.GetTouch(0).deltaPosition.x * rotSpeed;
+		y -= Input.GetTouch(0).deltaPosition.y * rotSpeed;	
+	}
+	else {
+		
+	}
 	
+	xSmooth = Mathf.SmoothDamp(xSmooth, x, xVelocity, smoothTime);
+    ySmooth = Mathf.SmoothDamp(ySmooth, y, yVelocity, smoothTime);
+    ySmooth = ClampAngle(ySmooth, yMinLimit, yMaxLimit);
+    var rotation = Quaternion.Euler(ySmooth, xSmooth, 0);
+
+    transform.rotation = rotation;
 	
-	//distance -= Input.GetAxis("Mouse Z") *zoomSpeed* 0.02;
-
-     xSmooth = Mathf.SmoothDamp(xSmooth, x, xVelocity, smoothTime);
-     ySmooth = Mathf.SmoothDamp(ySmooth, y, yVelocity, smoothTime);
- 
-     ySmooth = ClampAngle(ySmooth, yMinLimit, yMaxLimit);
-     rotation = Quaternion.Euler(ySmooth, xSmooth, 0);
-
-    // posSmooth = Vector3.SmoothDamp(posSmooth,target.position,posVelocity,smoothTime);
- 
-     transform.rotation = rotation;
-     }
-     
-     else{
-     rotation = transform.rotation;
-     }
-     
-     distance -= Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
-     posSmooth = target.position; // no follow smoothing
-     
-     transform.position = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
-     
-     
-     //AMCLEAN add
-     
+	distance -= Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
+	posSmooth = target.position;
+	
+	transform.position = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
  }
 }
 
