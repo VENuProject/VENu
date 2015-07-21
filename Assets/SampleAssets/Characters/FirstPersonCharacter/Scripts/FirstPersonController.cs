@@ -133,6 +133,7 @@ namespace UnitySampleAssets.Characters.FirstPerson
 
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
+			setHeight(PlayerPrefs.GetFloat("PlayerHeight"));
         }
 
         private void PlayJumpSound()
@@ -266,5 +267,9 @@ namespace UnitySampleAssets.Characters.FirstPerson
             body.AddForceAtPosition(_characterController.velocity*0.1f, hit.point, ForceMode.Impulse);
 
         }
+
+		public void setHeight(float val){
+			transform.position = new Vector3(transform.position.x, val, transform.position.z);
+		}
     }
 }
