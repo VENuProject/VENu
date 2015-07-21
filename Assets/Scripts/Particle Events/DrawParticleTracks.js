@@ -85,11 +85,16 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
                 pt2 = vec;
             }
             else {
-                spacePointsArray.Push(pt2);
+                if (spacePointIndex + 1 < totalPoints) {
+                    spacePointsArray.Push(pt2);
+                }
                 pt1 = pt2;
                 pt2 = vec;
             }
         }
+        //Always push the last point.
+        spacePointsArray.Push(pt2);
+
         drawTracksFromArray(trackIndex, spacePointsArray);
         drawnPoints += spacePointsArray.length;
     }
@@ -121,7 +126,7 @@ function drawTracksFromArray(index : int, arr : Array) {
         var pt1 : Vector3 = arr[i - 1];
         var pt2 : Vector3 = arr[i];
         lr.SetPosition(i,  transform.position + pt2);
-        PlacePoint(pt1);
+        PlacePoint(pt2);
         
         //Make a game object for each segment to store on-click behavior and a box collider
         //Put this child object at the midpoint between the current two points

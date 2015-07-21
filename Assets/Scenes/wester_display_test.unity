@@ -887,19 +887,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100878, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 110134, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 167242, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 167246, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11496336, guid: b57db3fb10b6efe43946c0728db2502c, type: 2}
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e252befc499b0422fb717e96ae3ee48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dot: {fileID: 167936, guid: ef0049775a362e64c9df4c5b54ae39ab, type: 2}
+  dot: {fileID: 167936, guid: 3ed73774af8534748b20e0d4f4f8b4ba, type: 2}
   fileName: 
 --- !u!1 &2114663501
 GameObject:
