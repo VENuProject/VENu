@@ -36,7 +36,7 @@ namespace UnitySampleAssets.Cameras
         {
             base.Awake();
             // Lock or unlock the cursor.
-            Screen.lockCursor = lockCursor;
+            //Screen.lockCursor = lockCursor;
         }
 
 

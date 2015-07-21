@@ -14,6 +14,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 	private Vector3 currentPos;
 	public float mouseSensitivity;
 	public float moveSpeed;
+	public float height;
 	public CharacterController me;
 
 	void Start () {
@@ -31,6 +32,12 @@ public class OneJoyDragInterface : MonoBehaviour {
 	void Update () {
 		PlayerLook();
 		PlayerMove();
+	}
+
+	void FixedUpdate(){
+		mouseSensitivity = PlayerPrefs.GetFloat("LookSensitivity");
+		moveSpeed = PlayerPrefs.GetFloat("MoveSpeed");
+		height = PlayerPrefs.GetFloat("PlayerHeight");
 	}
 
 	void PlayerLook (){
@@ -66,7 +73,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 
 #else
 
-		if (Input.GetMouseButtonDown(0) && eventSystem.IsPointerOverGameObject() == false){
+		if (Input.GetMouseButtonDown(1) && eventSystem.IsPointerOverGameObject() == false){
 			//start a drag
 			isDragging = true;
 			currentPos = Input.mousePosition;
@@ -74,7 +81,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 		}
 
 		if (isDragging){
-			if(Input.GetMouseButton(0) == false)
+			if(Input.GetMouseButton(1) == false)
 				isDragging = false;
 
 			else{
@@ -108,6 +115,7 @@ public class OneJoyDragInterface : MonoBehaviour {
 		                            ) * moveSpeed;
 		delta = Quaternion.AngleAxis(cameraMount.transform.eulerAngles.y, Vector3.up) * delta;
 		me.Move(delta);
+		transform.Translate(0, height - transform.position.y, 0);
 
 	}
 

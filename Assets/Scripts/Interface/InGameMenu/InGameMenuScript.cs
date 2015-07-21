@@ -67,17 +67,44 @@ public class InGameMenuScript: MonoBehaviour {
 			if(filesInfo[i].Name == currentEvent)
 				currentIndex = i;
 		
-		if(currentIndex == filesInfo.Length - 1){
-			//no more files!
-			Debug.Log("No more files!");
-		}
-		else if(currentIndex == -1){
+		//if(currentIndex == filesInfo.Length - 1){
+		//	//no more files!
+		//	Debug.Log("No more files!");
+		//}
+		if(currentIndex == -1){
 			//don't know where we are. did File To Load not get set?
 			Debug.Log("file not found!");
 			
 		}
 		else{
-			PlayerPrefs.SetString("File To Load", filesInfo[currentIndex +1].Name);
+			PlayerPrefs.SetString("File To Load", filesInfo[(currentIndex + 1) % filesInfo.Length].Name);
+			Debug.Log("loading file " + PlayerPrefs.GetString("File To Load"));
+			Application.LoadLevel(Application.loadedLevel);
+			//the file is loaded elsewhere. All that script needs is the name of the new file.
+		}
+	}
+
+	public void LoadPrevious(){
+		string currentEvent = PlayerPrefs.GetString("File To Load");
+		DirectoryInfo dir = new DirectoryInfo(Application.streamingAssetsPath);
+		FileInfo[] filesInfo = dir.GetFiles("*.json");
+		int currentIndex = -1;
+		
+		for(int i = 0; i < filesInfo.Length; i++)
+			if(filesInfo[i].Name == currentEvent)
+				currentIndex = i;
+		
+		//if(currentIndex == filesInfo.Length - 1){
+		//	//no more files!
+		//	Debug.Log("No more files!");
+		//}
+		if(currentIndex == -1){
+			//don't know where we are. did File To Load not get set?
+			Debug.Log("file not found!");
+			
+		}
+		else{
+			PlayerPrefs.SetString("File To Load", filesInfo[(currentIndex -1) % filesInfo.Length].Name);
 			Debug.Log("loading file " + PlayerPrefs.GetString("File To Load"));
 			Application.LoadLevel(Application.loadedLevel);
 			//the file is loaded elsewhere. All that script needs is the name of the new file.

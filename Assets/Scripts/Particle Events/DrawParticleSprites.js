@@ -7,7 +7,7 @@ import UnityEngine.UI;
 var dot : GameObject;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
-var fileName = "complicated_event.json";
+var fileName = "cprod_eminus_0.1-2.0GeV_isotropic.json";
 //private vector3 spacepoint;
 function P( aText : String)
 {
@@ -53,22 +53,22 @@ function Test()
     P(N["record"]["hits"]["recob::Hits_cccluster__Reco2D"][0]["wire"].ToString(""));
 
     P("The first spacepoint xyz is: ");
-    P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][0]["xyz"][0].ToString()  
-    + "," + N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][0]["xyz"][1].ToString()
-    + "," + N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][0]["xyz"][2].ToString());
+    P(N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][0]["xyz"][0].ToString()  
+    + "," + N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][0]["xyz"][1].ToString()
+    + "," + N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][0]["xyz"][2].ToString());
 
     var spacePointsArray = new Array ();
     // var spacePointsKeys = N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray();
     // Debug.Log(spacePointsKeys);
     // for (var key : String in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){	
-    P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
+    P(N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count.ToString());
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
-    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count; key++){
+    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key++){
 	 var clone : GameObject;
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
-    	clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].AsFloat,
-    	       0.1*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][1].AsFloat,
-    	       -0.1*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][2].AsFloat);
+    	clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
+    	       0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
+    	       -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
     	clone.transform.localScale = Vector3(0.05,0.05,0.05);
 //	clone.GetComponent.<Collider>().enabled=false;
 	spacePointsArray.Push(clone);	

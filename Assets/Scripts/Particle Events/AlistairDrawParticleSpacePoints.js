@@ -24,6 +24,7 @@ function Awake()
 	}
 	else
 	{
+		fileName = "prodgenie_bnb_nu_cosmic.json";
 		Debug.Log("<color=red>No Event Loaded</color>");
 	}
 	//Loader = GameObject.FindGameObjectWithTag("Loader");
@@ -97,13 +98,13 @@ function Test()
     // for (var key : String in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){	
     // P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
-    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count; key++){
+    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key = key + 10){
 	 var clone : GameObject;
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
-    	clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].AsFloat,
-    	       0.1*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][1].AsFloat,
-    	       -0.1*N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][2].AsFloat);
-    	clone.transform.localScale = Vector3(0.05,0.05,0.05);
+    	clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
+    	       0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
+    	       -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
+    	clone.transform.localScale = Vector3(0.005,0.005,0.005);
     	clone.gameObject.layer = 10;
     		//	clone.GetComponent.<Collider>().enabled=false;
 	spacePointsArray.Push(clone);	

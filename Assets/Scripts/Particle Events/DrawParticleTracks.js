@@ -8,12 +8,21 @@ import SimpleJSON;
 import System.IO;
 import System.Linq;
 
+var dot : GameObject;
 var fileName : String;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
+}
+
+
+function PlacePoint(pt1 : Vector3) {
+    var clone : GameObject;
+    clone = Instantiate(dot, transform.position, transform.rotation);
+    clone.transform.position = transform.position + pt1;
+    clone.transform.localScale = Vector3(0.1,0.1,0.1);
 }
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -36,6 +45,17 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
     for (var trackIndex : int = 0; trackIndex < totalTracks; trackIndex++) {   
         //Stores the points to be drawn
         var spacePointsArray : Array = new Array();
+          
+/*
+        for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key++){
+	        var clone : GameObject;
+	 	    clone = Instantiate(dot , transform.position, transform.rotation);
+    	    clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
+    	                                                            0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
+    	                                                           -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
+    	    clone.transform.localScale = Vector3(0.05,0.05,0.05);  
+        }
+*/
           
         //Loop over points in the track, define the first two points outside the loop as initial conditions
         var totalPoints : int = N["record"]["tracks"][trackAlgoName][trackIndex]["points"].Count;
@@ -65,15 +85,20 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
                 pt2 = vec;
             }
             else {
-                spacePointsArray.Push(pt2);
+                if (spacePointIndex + 1 < totalPoints) {
+                    spacePointsArray.Push(pt2);
+                }
                 pt1 = pt2;
                 pt2 = vec;
             }
         }
+        //Always push the last point.
+        spacePointsArray.Push(pt2);
+
         drawTracksFromArray(trackIndex, spacePointsArray);
         drawnPoints += spacePointsArray.length;
     }
-    P("Drawn Points: " + drawnPoints);
+    //P("Drawn Points: " + drawnPoints);
 }
 
 function drawTracksFromArray(index : int, arr : Array) {
@@ -90,30 +115,32 @@ function drawTracksFromArray(index : int, arr : Array) {
     lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
     lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
     lr.SetWidth(0.1, 0.1);
-    lr.SetColors(Color.green, Color.cyan); 
+    lr.SetColors(Color.cyan, Color.cyan); 
     
     var pt0 : Vector3 = arr[0];
     
     lr.SetVertexCount(arr.length);
     lr.SetPosition(0, transform.position + pt0);
-    
+    PlacePoint(pt0);
     for (var i : int = 1; i < arr.length; i++) {
         var pt1 : Vector3 = arr[i - 1];
         var pt2 : Vector3 = arr[i];
         lr.SetPosition(i,  transform.position + pt2);
+        PlacePoint(pt2);
         
         //Make a game object for each segment to store on-click behavior and a box collider
         //Put this child object at the midpoint between the current two points
         var segmentObject = new GameObject();
         segmentObject.layer = 11;
-        segmentObject.AddComponent(trackClick); 
+        segmentObject.AddComponent(trackClick);
+        segmentObject.AddComponent(ScaleColliderRelativeToCamera); 
         segmentObject.name = "segment" + i;
         segmentObject.transform.parent = trackObject.transform;
         segmentObject.transform.position = (transform.position + pt1 + transform.position + pt2) / 2.0;
         
         var bc : BoxCollider;
 //        bc.isTrigger = true;  
-        var boxColliderOffset : float = 0.5; //height and width of box collider
+        var boxColliderOffset : float = 0.4; //height and width of box collider
         bc = segmentObject.AddComponent.<BoxCollider>();
         bc.transform.LookAt(transform.position + pt2);
         bc.center = Vector3.zero;
@@ -129,7 +156,7 @@ function Awake() {
     }
     else {
         Debug.Log("<color=purple>PlayerPrefs not Initialized. Using default event.</color>");
-        fileName = "prodgenie_bnb_nu_cosmic.json";
+        fileName = "prod_eminus_0.1-2.0GeV_isotropic.json";
     }
 }
 
@@ -151,7 +178,7 @@ function Start() {
     
     //Filter and draw the tracks from the JSON file.
     //Parameter 2 is the filter threshold, and parameter 3 is the algorithm name found in the JSON file.
-    filterJSON(JSONNode.Parse(jsonString), 0.005, "recob::Tracks_trackkalsps__Reco3D");
+    filterJSON(JSONNode.Parse(jsonString), -1, "recob::Tracks_cctrack__RecoStage1");
 }
 
 function OnGUI() {
