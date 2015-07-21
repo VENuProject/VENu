@@ -1,5 +1,6 @@
 ﻿#pragma strict
 
+import UnityEngine.EventSystems;
 import UnityEngine.UI;
 //import UnityEngine.
 public var moveSpeed : float = 2.0;
@@ -7,10 +8,11 @@ public var moveSpeed : float = 2.0;
 //public Transform target;
 private var targetPosition : Vector3;
 public var orthoCam : Camera;
-
+public var eventSystem : EventSystem;
+public var height : float;
 
 function Start () {
-
+	
 }
 
 function LateUpdate () 
@@ -26,7 +28,7 @@ function LateUpdate ()
  
  
  {
- 	if(Input.GetKeyDown(KeyCode.Mouse0))
+ 	if(Input.GetKeyDown(KeyCode.Mouse0) && eventSystem.IsPointerOverGameObject() == false)
  {
  	var tpcPlane = new Plane(Vector3.up, transform.position);
  	var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -71,6 +73,11 @@ function LateUpdate ()
          if (Input.GetKey (KeyCode.LeftArrow)) transform.Translate (Vector3(1,0,0) * Time.deltaTime*speed);
          if (Input.GetKey (KeyCode.RightArrow)) transform.Translate (Vector3(-1,0,0) * Time.deltaTime*speed);
      
+     transform.Translate(0, height - transform.position.y, 0);
+ }
+ 
+ function FixedUpdate(){
+ 	height = PlayerPrefs.GetFloat("PlayerHeight");
  }
  
  function OnMouseDown () {
