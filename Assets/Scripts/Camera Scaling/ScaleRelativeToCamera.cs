@@ -2,6 +2,7 @@
 /// Scales object relative to camera distance.
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ScaleRelativeToCamera : MonoBehaviour 
@@ -28,7 +29,8 @@ public class ScaleRelativeToCamera : MonoBehaviour
 
 		// if no specific camera, grab the default camera
 		if (cam == null)
-			cam = Camera.main; 
+			//cam = Camera.main; AMCLEAN comment out
+			cam = GameObject.Find ("Main View").GetComponent<Camera>(); //AMCLEAN add
 	}
 	
 	// scale object relative to distance from camera plane
