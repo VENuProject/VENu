@@ -86,7 +86,7 @@ public class ControlSwitcher : MonoBehaviour {
 		}
 #else
 		switch (scheme){
-		case ControlSchemes.MouseMode:
+		case ControlSchemes.Mouse:
 			MinimapMode();
 			break;
 		case ControlSchemes.Minimap:
