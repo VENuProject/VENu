@@ -48,7 +48,7 @@ function LateUpdate () { if (target)
 		x += Input.GetAxisRaw("Mouse X")*rotSpeed;
 		y -= Input.GetAxisRaw("Mouse Y")*rotSpeed;
 	}
-	else if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && eventSystem.IsPointerOverGameObject() == false){
+	else if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && eventSystem.IsPointerOverGameObject(0) == false){
 		x += Input.GetTouch(0).deltaPosition.x * rotSpeed;
 		y -= Input.GetTouch(0).deltaPosition.y * rotSpeed;	
 	}
@@ -73,7 +73,7 @@ function LateUpdate () { if (target)
 function Update()
 {
     // If there are two touches on the device...
-    if (Input.touchCount == 2 && eventSystem.IsPointerOverGameObject() == false)
+    if (Input.touchCount == 2)
     {
         // Store both touches.
         var touchZero = Input.GetTouch(0);
