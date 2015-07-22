@@ -5,6 +5,7 @@
 
 import System.IO;
 import UnityEngine.WWW;
+import UnityEngine.UI;
 
 public var jsonFilesPath;
 public var EventButton : GameObject;
@@ -36,6 +37,16 @@ function Start () {
 			AddButton(file.Name);
 		Debug.Log("found " + filesInfo.Length + " json files");
 	}
+	
+#if MOBILE_INPUT
+	
+	ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(30f, 30f);
+	
+#else
+	
+	ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(60f, 60f);
+	
+#endif
 }
 
 function AddButton (file : String){
