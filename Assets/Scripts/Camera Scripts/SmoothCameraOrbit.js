@@ -1,5 +1,7 @@
 ﻿#pragma strict
 
+import UnityEngine.EventSystems;
+
 var target : Transform; 
 var distance = 10.0;
 var zoomSpeed = 2.0;
@@ -26,6 +28,7 @@ private var posVelocity = Vector3.zero;
 public var perspectiveZoomSpeed : float = 0.5f;        // The rate of change of the field of view in perspective mode.
 public var orthoZoomSpeed : float = 0.5f;        // The rate of change of the orthographic size in orthographic mode.
 
+public var eventSystem : EventSystem;
 
 
 @script AddComponentMenu("Camera-Control/Mouse Orbit smoothed")
@@ -40,11 +43,12 @@ function Start () { var angles = transform.eulerAngles; x = angles.y; y = angles
 function LateUpdate () { if (target) 
 { 
     var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity") * 10;
-	if(Input.GetMouseButton(1) && Input.touchCount == 0){
+    
+	if(Input.GetMouseButton(1) && Input.touchCount == 0 && eventSystem.IsPointerOverGameObject() == false){
 		x += Input.GetAxisRaw("Mouse X")*rotSpeed;
 		y -= Input.GetAxisRaw("Mouse Y")*rotSpeed;
 	}
-	else if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved){
+	else if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && eventSystem.IsPointerOverGameObject() == false){
 		x += Input.GetTouch(0).deltaPosition.x * rotSpeed;
 		y -= Input.GetTouch(0).deltaPosition.y * rotSpeed;	
 	}
@@ -69,7 +73,7 @@ function LateUpdate () { if (target)
 function Update()
 {
     // If there are two touches on the device...
-    if (Input.touchCount == 2)
+    if (Input.touchCount == 2 && eventSystem.IsPointerOverGameObject() == false)
     {
         // Store both touches.
         var touchZero = Input.GetTouch(0);
