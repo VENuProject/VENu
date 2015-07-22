@@ -103,15 +103,16 @@ function Test()
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
     var iter : int = 10/perc;
     for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key = key + iter){
-	 var clone : GameObject;
+	    var clone : GameObject;
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
-    	clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
-    	       0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
-    	       -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
+    	clone.transform.position = transform.position + Vector3(
+    	    0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
+    	    0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
+           -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
     	clone.transform.localScale = Vector3(0.005,0.005,0.005);
     	clone.gameObject.layer = 10;
     		//	clone.GetComponent.<Collider>().enabled=false;
-	spacePointsArray.Push(clone);	
+	    spacePointsArray.Push(clone);	
 
 	/*P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].ToString()  
     	+ "," + N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][1].ToString()
@@ -153,7 +154,8 @@ function Start()
 	//fileName = PlayerPrefs.GetString("File To Load");
 	//Resources.Load("complicated_event.json"); //AMCLEAN added
 	if (perc != 0) {
-    Test();
+	    Debug.Log(perc);
+        Test();
     }
 //	Debug.Log("Test results:\n" + m_InGameLog);
 }
@@ -164,23 +166,6 @@ function OnGUI()
 	GUILayout.Label(m_InGameLog);
 	GUILayout.EndScrollView();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function Update () {

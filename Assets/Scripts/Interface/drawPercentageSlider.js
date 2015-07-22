@@ -12,7 +12,6 @@ function Start ()
 function Update()
 {
 	perc = scrollbar.value;
-	
 }
 
 function changePerc () 
