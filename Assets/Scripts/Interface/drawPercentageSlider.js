@@ -17,5 +17,5 @@ function Update()
 
 function changePerc () 
 {
-	PlayerPrefs.SetFloat("DrawPercentage",perc);
+	PlayerPrefs.SetInt("DrawPercentage",perc);
 }

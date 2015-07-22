@@ -7,5 +7,5 @@ var txtBox : Text;
 
 
 function Update () {
-	txtBox.GetComponent.<Text>().text = Mathf.Floor(100 * sb.value) + "%";
+	txtBox.GetComponent.<Text>().text = (10 * sb.value) + "%";
 }
