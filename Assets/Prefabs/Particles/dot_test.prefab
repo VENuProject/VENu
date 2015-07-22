@@ -55,9 +55,9 @@ MonoBehaviour:
   cam: {fileID: 0}
   objectScale: 1
   maxScale: 5
-  minScale: 1
-  minDist: 6
-  maxDist: 12
+  minScale: .5
+  minDist: 3
+  maxDist: 20
 --- !u!212 &21267560
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -102,7 +102,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minScale
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: objectScale
@@ -111,6 +111,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: maxScale
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minDist
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxDist
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
