@@ -7,7 +7,7 @@ using System.Collections;
 
 public class ScaleRelativeToCamera : MonoBehaviour 
 {
-	public Camera cam; 
+//	public Camera cam;
 	public float objectScale = 1.0f; 
 
 	//Make sure the object is never bigger or smaller than these factors
@@ -27,17 +27,18 @@ public class ScaleRelativeToCamera : MonoBehaviour
 		// record initial scale, use this as a basis
 		initialScale = transform.localScale; 
 
-		// if no specific camera, grab the default camera
-		if (cam == null)
-			//cam = Camera.main; AMCLEAN comment out
-			cam = GameObject.Find ("Main View").GetComponent<Camera>(); //AMCLEAN add
+//		// if no specific camera, grab the default camera
+//		if (cam == null)
+//			//cam = Camera.main; AMCLEAN comment out
+//			cam = GameObject.Find ("Main View").GetComponent<Camera>(); //AMCLEAN add
 	}
 	
 	// scale object relative to distance from camera plane
 	void Update () 
 	{
-		Plane plane = new Plane(cam.transform.forward, cam.transform.position); 
-		float dist = plane.GetDistanceToPoint(transform.position);
+		//This works, and fixes lag when switching controls
+		float dist = Vector3.Distance(transform.position, Camera.main.transform.position);
+
 		float distFactor = Mathf.Clamp01((dist - minDist) / (maxDist - minDist));
 
 		Vector3 newScale = initialScale * (((maxScale - minScale) * distFactor) + minScale); //Mathf.Clamp(dist * objectScale, minScale, maxScale);
