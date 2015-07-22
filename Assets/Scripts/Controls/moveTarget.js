@@ -28,7 +28,9 @@ function LateUpdate ()
  
  
  {
- 	if(Input.GetKeyDown(KeyCode.Mouse0) && eventSystem.IsPointerOverGameObject() == false)
+ 	if(Input.GetKeyDown(KeyCode.Mouse0)
+ 		&& orthoCam.pixelRect.Contains(Input.mousePosition)
+ 		 && eventSystem.IsPointerOverGameObject() == false)
  {
  	var tpcPlane = new Plane(Vector3.up, transform.position);
  	var ray = orthoCam.ScreenPointToRay(Input.mousePosition);

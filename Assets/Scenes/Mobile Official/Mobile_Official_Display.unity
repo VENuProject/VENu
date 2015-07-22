@@ -307,7 +307,7 @@ GameObject:
   - 92: {fileID: 87042974}
   m_Layer: 0
   m_Name: Ortho Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -341,11 +341,11 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .200000003
+    x: .300000012
     y: .800000012
-    width: .5
-    height: .899999976
-  near clip plane: 6
+    width: .400000006
+    height: .600000024
+  near clip plane: 2
   far clip plane: 50
   field of view: 60
   orthographic: 1
@@ -2523,7 +2523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
-  perc: .00999999978
+  perc: 0
   fileName: 
 --- !u!1 &933025769
 GameObject:
@@ -2819,7 +2819,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22480688, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 113
       objectReference: {fileID: 0}
     - target: {fileID: 22480688, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_AnchorMin.x
@@ -2931,15 +2931,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22408194, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 24
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 22408194, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -14
+      value: .500007629
       objectReference: {fileID: 0}
     - target: {fileID: 22408194, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 85
+      value: .0999984741
       objectReference: {fileID: 0}
     - target: {fileID: 11409198, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_ChildForceExpandHeight
@@ -2947,7 +2947,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11409198, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_Padding.m_Top
-      value: 24
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 11409198, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_Padding.m_Left
@@ -2956,6 +2956,80 @@ Prefab:
     - target: {fileID: 11409198, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
       propertyPath: m_Padding.m_Right
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469052, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469052, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469052, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469052, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_Text
+      value: 'New Text
+
+        New Text
+
+        New Text
+
+        New Text'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469052, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463300, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11463300, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462258, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11462258, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492542, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11409198, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_ChildAlignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22408194, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -1.69999695
+      objectReference: {fileID: 0}
+    - target: {fileID: 22463122, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22463122, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22408194, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: .50666666
+      objectReference: {fileID: 0}
+    - target: {fileID: 22408194, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: .743699133
+      objectReference: {fileID: 0}
+    - target: {fileID: 22408194, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: .0155555559
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2566033dc61c84123a6dbf02f6656d26, type: 2}
@@ -5423,7 +5497,7 @@ GameObject:
   - 114: {fileID: 2077503596}
   m_Layer: 0
   m_Name: Main View
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
