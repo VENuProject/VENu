@@ -2947,6 +2947,7 @@ MonoBehaviour:
   smoothTime: .300000012
   perspectiveZoomSpeed: .5
   orthoZoomSpeed: .5
+  eventSystem: {fileID: 0}
 --- !u!81 &1878349826
 AudioListener:
   m_ObjectHideFlags: 0

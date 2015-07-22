@@ -13,8 +13,6 @@ function Update()
 {
 	perc = scrollbar.value;
 	
-		Debug.Log(perc);
-	
 }
 
 function changePerc () 
