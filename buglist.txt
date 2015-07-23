@@ -35,6 +35,6 @@ From 7/23
 - Tracks should only highlight on tap, not on drag
 - Menu tab doesn’t block minimap clicks
 - Zoom sensitivity is too high
-o Menu buttons are still too big
++ Menu buttons are still too big [FIXED by Owen]
 - Trackbar slider doesn’t go to zero even when “0%” is displayed (it still works normally though)
 - Settings aren't saved when returning back to the main menu.
