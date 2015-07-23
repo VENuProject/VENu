@@ -4,6 +4,15 @@
 This is a list of known bugs/odd behaviors that we should fix. 
 Please update this file (following the same convention) when these issues are addressed or new bugs are found.
 
+The convention is: Add '-' in front of bugs. This changes to a '+' when the bug is fixed (allows for quick scanning).
+Add a note at the end of the bug line with '[FIXED by <name>]'.
+If you are feeling especially kind, consider adding a 'o' in front of bugs you are working on so others do not also 
+start working on these. Including your name will allow people to find you if they have questions. E.g.:
+
+o Clicking on a track deletes the source code [Thomas]
+
+Remember, this bug list doesn't help anyone unless it's kept up-to-date!
+
 From 7/22
 + Switching controls creates lag [FIXED by Owen]
 + Particle dot sprites lose their scaling in different control schemes 
