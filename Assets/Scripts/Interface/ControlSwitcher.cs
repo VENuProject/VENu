@@ -100,6 +100,48 @@ public class ControlSwitcher : MonoBehaviour {
 
 	}
 	
+	public void NextScheme(){
+		int newScheme = (int)scheme + 1;
+#if MOBILE_INPUT
+		if (newScheme == 3)
+			newScheme = 0;
+#else
+		if (newScheme == 4)
+			newScheme = 2;
+#endif
+		SetScheme(newScheme);
+	}
+
+
+	public void PrevScheme(){
+		int newScheme = (int)scheme - 1;
+		#if MOBILE_INPUT
+		if (newScheme == -1)
+			newScheme = 2;
+		#else
+		if (newScheme == 1)
+			newScheme = 3;
+		#endif
+		SetScheme(newScheme);
+	}
+
+	public void SetScheme(int newScheme){
+		switch(newScheme){
+		case 0:
+			OneJoyMode();
+			break;
+		case 1:
+			TwoJoyMode();
+			break;
+		case 2:
+			MinimapMode();
+			break;
+		case 3:
+			MouseMode();
+			break;
+		}
+	}
+
 	public void OneJoyMode(){
 		TwoJoyRig.SetActive(false);
 		MinimapRig.SetActive(false);
