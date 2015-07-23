@@ -18,13 +18,13 @@ From 7/22
 + Particle dot sprites lose their scaling in different control schemes 
   (I think this happens because the camera changes, and the script doesn't 
   use the new camera as a reference anymore) [FIXED by Owen]
-- In-game menu is too big on mobile devices
++ In-game menu is too big on mobile devices [FIXED by Owen
 - Tooltip scaling can be improved
 + Clicking on the in-game menu will rotate the camera [FIXED by Owen]
 - Users can click outside of the mini map range and the camera will be moved outside the detector
 + Draw precision slider on the main menu should display whole-number percentages 
   (0% - 50%) instead of floating point numbers. [FIXED by Thomas]
-- Event button size on the main menu is too small on mobile devices [FIXED by Owen]
++ Event button size on the main menu is too small on mobile devices [FIXED by Owen]
 + The height slider no longer moves the user to the top of the detector 
   (I suspect this was done to make sure the camera isn’t rotated outside, 
   but it would be good if we found a better way to do this) [FIXED by Owen]
@@ -35,6 +35,6 @@ From 7/23
 - Tracks should only highlight on tap, not on drag
 - Menu tab doesn’t block minimap clicks
 - Zoom sensitivity is too high
-- Menu buttons are still too big
+o Menu buttons are still too big
 - Trackbar slider doesn’t go to zero even when “0%” is displayed (it still works normally though)
 - Settings aren't saved when returning back to the main menu.
