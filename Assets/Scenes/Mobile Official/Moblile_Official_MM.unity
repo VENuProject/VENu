@@ -2125,9 +2125,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2083108998}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 100
   m_WholeNumbers: 1
-  m_Value: 10
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3255,10 +3255,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1091553263}
   m_RootOrder: 0
-  m_AnchorMin: {x: .790000021, y: .0500000007}
-  m_AnchorMax: {x: .975000024, y: .649999976}
-  m_AnchoredPosition: {x: 0, y: -2.19345093e-05}
-  m_SizeDelta: {x: 0, y: 4.38690186e-05}
+  m_AnchorMin: {x: .790000021, y: 0}
+  m_AnchorMax: {x: 1, y: .600000024}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1355852057
 MonoBehaviour:
@@ -3275,12 +3275,12 @@ MonoBehaviour:
   m_Color: {r: .882352948, g: .882352948, b: .882352948, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: 063b89798aafa7645be3b36c2eb9a9f1, type: 3}
-    m_FontSize: 14
+    m_FontSize: 28
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
