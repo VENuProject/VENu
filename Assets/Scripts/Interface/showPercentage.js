@@ -7,7 +7,7 @@ var txtBox : Text;
 
 
 function Update () {
-	txtBox.GetComponent.<Text>().text = (10 * sb.value) + "%";
+	txtBox.GetComponent.<Text>().text = (1 * sb.value) + "%";
 	var perc : int = sb.value;
 	PlayerPrefs.SetInt("DrawPercentage",perc);
 }

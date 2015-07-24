@@ -101,7 +101,7 @@ function Test()
     // for (var key : String in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){	
     // P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
-    var iter : int = 10/perc;
+    var iter : int = 1/perc;
     for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key = key + iter){
 	    var clone : GameObject;
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
