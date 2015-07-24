@@ -30,7 +30,7 @@ public class InGameMenuScript: MonoBehaviour {
 		}
 #else
 		me.sizeDelta = new Vector2(120, me.rect.height);
-		foreach(LayoutElement child in transform.GetComponentsInChildren(LayoutElement)){
+		foreach(LayoutElement child in transform.GetComponentsInChildren<LayoutElement>()){
 			child.minHeight = 20;
 		}
 #endif
