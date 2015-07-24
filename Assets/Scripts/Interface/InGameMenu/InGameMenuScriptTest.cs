@@ -25,9 +25,9 @@ public class InGameMenuScriptTest: MonoBehaviour {
 		me = GetComponent<RectTransform>();
 		
 		#if MOBILE_INPUT
-		me.sizeDelta = new Vector2(320, me.sizeDelta.y);
+		me.sizeDelta = new Vector2(360, me.sizeDelta.y);
 		foreach(LayoutElement child in buttonsGroup.GetComponentsInChildren<LayoutElement>()){
-			child.minHeight = 70;
+			child.minHeight = 75;
 		}
 		#else
 		me.sizeDelta = new Vector2(320, me.sizeDelta.y);
