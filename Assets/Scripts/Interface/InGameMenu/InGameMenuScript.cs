@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
+using UnityEngine.UI;
 
 
 public class InGameMenuScript: MonoBehaviour {
@@ -15,11 +16,25 @@ public class InGameMenuScript: MonoBehaviour {
 	private float startTime;
 	private RectTransform me;
 	const float slideSpeed = 3;
+	public RectTransform buttonsGroup;
 
 
 	void Start () {
 
 		me = GetComponent<RectTransform>();
+
+#if MOBILE_INPUT
+		me.sizeDelta = new Vector2(80, me.sizeDelta.y);
+		foreach(LayoutElement child in buttonsGroup.GetComponentsInChildren<LayoutElement>()){
+			child.minHeight = 12;
+		}
+#else
+		me.sizeDelta = new Vector2(120, me.rect.height);
+		foreach(LayoutElement child in transform.GetComponentsInChildren<LayoutElement>()){
+			child.minHeight = 20;
+		}
+#endif
+
 		state = menuState.isIn;
 		inPos = -(me.rect.width / 2);
 		outPos = (me.rect.width / 2);

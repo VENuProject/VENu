@@ -1,8 +1,5 @@
 ﻿#pragma strict
 
-//Attached to event menu canvas
-//searches StreamingAssets folder for .json files and adds buttons to the menu
-
 import System.IO;
 import UnityEngine.WWW;
 import UnityEngine.UI;
@@ -40,13 +37,16 @@ function Start () {
 	
 #if MOBILE_INPUT
 	
-	ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(30f, 30f);
+	ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(120f, 120f);
+	ButtonsGroup.GetComponent(GridLayoutGroup).spacing = Vector2(8, 8);
 	
 #else
 	
-	ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(60f, 60f);
+	ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(75f, 75f);
+	ButtonsGroup.GetComponent(GridLayoutGroup).spacing = Vector2(8, 8);
 	
 #endif
+	
 }
 
 function AddButton (file : String){

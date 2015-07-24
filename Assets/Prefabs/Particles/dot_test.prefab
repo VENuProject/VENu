@@ -9,8 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 424498}
   - 212: {fileID: 21267560}
-  - 114: {fileID: 11471318}
   - 114: {fileID: 11414732}
+  - 114: {fileID: 11498908}
   m_Layer: 0
   m_Name: dot_test
   m_TagString: Untagged
@@ -41,17 +41,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180a07377c1b04b468dbbfd6fcf3b275, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11471318
+--- !u!114 &11498908
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 123130}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 39acc1e6611454d0fa338406dbc0529b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  objectScale: 1
+  maxScale: 5
+  minScale: .5
+  minDist: 3
+  maxDist: 20
 --- !u!212 &21267560
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -90,6 +96,30 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 71a13144c7e76db4db70102f832f487e,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minScale
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: objectScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minDist
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxDist
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 123130}

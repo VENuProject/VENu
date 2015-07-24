@@ -9,6 +9,7 @@ var dot : GameObject;
 //var LoaderElement : GameObject = GameObject.FindGameObjectWithTag("Loader");
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
+public var perc : int; 
 //var file1 : String = LoaderElement.GetComponent(LoaderScript).file1;
 //var file2 : String = LoaderElement.GetComponent(LoaderScript).file2;
 var fileName : String;
@@ -18,6 +19,8 @@ var fileName : String;
 
 function Awake()
 {
+	perc = PlayerPrefs.GetInt("DrawPercentage");
+
 	if(PlayerPrefs.HasKey("File To Load"))
 	{
 		fileName = PlayerPrefs.GetString("File To Load");
@@ -98,16 +101,18 @@ function Test()
     // for (var key : String in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){	
     // P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
-    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key = key + 10){
-	 var clone : GameObject;
+    var iter : int = 1/perc;
+    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key = key + iter){
+	    var clone : GameObject;
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
-    	clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
-    	       0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
-    	       -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
+    	clone.transform.position = transform.position + Vector3(
+    	    0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
+    	    0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
+           -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
     	clone.transform.localScale = Vector3(0.005,0.005,0.005);
     	clone.gameObject.layer = 10;
     		//	clone.GetComponent.<Collider>().enabled=false;
-	spacePointsArray.Push(clone);	
+	    spacePointsArray.Push(clone);	
 
 	/*P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][0].ToString()  
     	+ "," + N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"][key]["xyz"][1].ToString()
@@ -148,7 +153,10 @@ function Start()
 {
 	//fileName = PlayerPrefs.GetString("File To Load");
 	//Resources.Load("complicated_event.json"); //AMCLEAN added
-    Test();
+	if (perc != 0) {
+	    Debug.Log(perc);
+        Test();
+    }
 //	Debug.Log("Test results:\n" + m_InGameLog);
 }
 
@@ -158,23 +166,6 @@ function OnGUI()
 	GUILayout.Label(m_InGameLog);
 	GUILayout.EndScrollView();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function Update () {

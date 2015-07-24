@@ -29,6 +29,7 @@ function OnMouseDown () {
             9.9, 9.9, 9.9, 9.9);
         tooltipObject.SendMessage("DispText", v);
         tooltipObject.transform.position.x = Screen.width / 2.0;
+        tooltipObject.transform.position.y = tooltipObject.GetComponent(RectTransform).rect.height / 2;
         tooltipObject.transform.SetParent(myCanvas.transform);
     }
     else {

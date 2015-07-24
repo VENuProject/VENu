@@ -1,7 +1,5 @@
 ﻿#pragma strict
 
-import UnityEngine.EventSystems;
-
 var target : Transform; 
 var distance = 10.0;
 var zoomSpeed = 2.0;
@@ -28,12 +26,14 @@ private var posVelocity = Vector3.zero;
 public var perspectiveZoomSpeed : float = 0.5f;        // The rate of change of the field of view in perspective mode.
 public var orthoZoomSpeed : float = 0.5f;        // The rate of change of the orthographic size in orthographic mode.
 
-public var eventSystem : EventSystem;
 
 
 @script AddComponentMenu("Camera-Control/Mouse Orbit smoothed")
 
-function Start () { var angles = transform.eulerAngles; x = angles.y; y = angles.x;
+function Start () { 
+	var angles = transform.eulerAngles; 
+	x = angles.y; 
+	y = angles.x;
 
  // Make the rigid body not change rotation
  if (GetComponent.<Rigidbody>())
@@ -42,13 +42,12 @@ function Start () { var angles = transform.eulerAngles; x = angles.y; y = angles
 
 function LateUpdate () { if (target) 
 { 
-    var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity") * 10;
-    
-	if(Input.GetMouseButton(1) && Input.touchCount == 0 && eventSystem.IsPointerOverGameObject() == false){
-		x += Input.GetAxisRaw("Mouse X")*rotSpeed;
-		y -= Input.GetAxisRaw("Mouse Y")*rotSpeed;
+	var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity");
+	if(Input.GetMouseButton(1) && Input.touchCount == 0){
+		x += Input.GetAxisRaw("Mouse X")*5;
+		y -= Input.GetAxisRaw("Mouse Y")*5;
 	}
-	else if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved && eventSystem.IsPointerOverGameObject(0) == false){
+	else if(Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved){
 		x += Input.GetTouch(0).deltaPosition.x * rotSpeed;
 		y -= Input.GetTouch(0).deltaPosition.y * rotSpeed;	
 	}

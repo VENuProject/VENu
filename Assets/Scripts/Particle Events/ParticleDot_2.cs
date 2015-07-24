@@ -10,18 +10,9 @@ public class ParticleDot_2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		//transform.LookAt (Camera.main.transform.position, -Vector3.up);
 
-		//AMCLEAN testing out something....
-
-		if (GameObject.Find ("Main View") == true)
-		{ 
-		transform.LookAt(GameObject.Find("Main View").transform.position, -Vector3.up); 
-		}
-		else 
-		{
-		transform.LookAt(Camera.main.transform.position, -Vector3.up);
-		}
-
+		//This works, and fixes the lag when switching controls.
+		//-Owen
+		transform.LookAt(Camera.main.transform, -Vector3.up);
 }
 }

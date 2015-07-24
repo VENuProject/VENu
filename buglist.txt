@@ -1,0 +1,40 @@
+--------------
+-- BUG LIST --
+--------------
+This is a list of known bugs/odd behaviors that we should fix. 
+Please update this file (following the same convention) when these issues are addressed or new bugs are found.
+
+The convention is: Add '-' in front of bugs. This changes to a '+' when the bug is fixed (allows for quick scanning).
+Add a note at the end of the bug line with '[FIXED by <name>]'.
+If you are feeling especially kind, consider adding a 'o' in front of bugs you are working on so others do not also 
+start working on these. Including your name will allow people to find you if they have questions. E.g.:
+
+o Clicking on a track deletes the source code [Thomas]
+
+Remember, this bug list doesn't help anyone unless it's kept up-to-date!
+
+From 7/22
++ Switching controls creates lag [FIXED by Owen]
++ Particle dot sprites lose their scaling in different control schemes 
+  (I think this happens because the camera changes, and the script doesn't 
+  use the new camera as a reference anymore) [FIXED by Owen]
++ In-game menu is too big on mobile devices [FIXED by Owen
+- Tooltip scaling can be improved
++ Clicking on the in-game menu will rotate the camera [FIXED by Owen]
+- Users can click outside of the mini map range and the camera will be moved outside the detector
++ Draw precision slider on the main menu should display whole-number percentages 
+  (0% - 50%) instead of floating point numbers. [FIXED by Thomas]
++ Event button size on the main menu is too small on mobile devices [FIXED by Owen]
++ The height slider no longer moves the user to the top of the detector 
+  (I suspect this was done to make sure the camera isn’t rotated outside, 
+  but it would be good if we found a better way to do this) [FIXED by Owen]
+
+From 7/23
+- Tooltip draws on top of in-game menu
+- Joysticks/slider don’t block track clicks/camera positioning
+- Tracks should only highlight on tap, not on drag
+- Menu tab doesn’t block minimap clicks
+- Zoom sensitivity is too high
++ Menu buttons are still too big [FIXED by Owen]
++ Trackbar slider doesn’t go to zero even when “0%” is displayed (it still works normally though) [FIXED by Owen]
+- Settings aren't saved when returning back to the main menu.

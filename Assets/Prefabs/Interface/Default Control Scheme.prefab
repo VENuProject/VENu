@@ -423,6 +423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   orthoCam: {fileID: 2076136}
+  eventSystem: {fileID: 0}
+  height: 0
 --- !u!124 &12424028
 Behaviour:
   m_ObjectHideFlags: 1

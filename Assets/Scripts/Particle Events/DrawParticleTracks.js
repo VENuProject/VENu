@@ -22,7 +22,7 @@ function PlacePoint(pt1 : Vector3) {
     var clone : GameObject;
     clone = Instantiate(dot, transform.position, transform.rotation);
     clone.transform.position = transform.position + pt1;
-    clone.transform.localScale = Vector3(0.1,0.1,0.1);
+    clone.transform.localScale = Vector3(0.005,0.005,0.005);
 }
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -114,9 +114,10 @@ function drawTracksFromArray(index : int, arr : Array) {
     lr.castShadows = false;
     lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
     lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
-    lr.SetWidth(0.1, 0.1);
+    lr.SetWidth(0.05, 0.05);
     lr.SetColors(Color.cyan, Color.cyan); 
-    
+    lr.gameObject.layer = 11;
+
     var pt0 : Vector3 = arr[0];
     
     lr.SetVertexCount(arr.length);
@@ -133,7 +134,7 @@ function drawTracksFromArray(index : int, arr : Array) {
         var segmentObject = new GameObject();
         segmentObject.layer = 11;
         segmentObject.AddComponent(trackClick);
-        segmentObject.AddComponent(ScaleColliderRelativeToCamera); 
+//        segmentObject.AddComponent(ScaleColliderRelativeToCamera); 
         segmentObject.name = "segment" + i;
         segmentObject.transform.parent = trackObject.transform;
         segmentObject.transform.position = (transform.position + pt1 + transform.position + pt2) / 2.0;

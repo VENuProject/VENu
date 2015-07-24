@@ -13,22 +13,27 @@ public class ControlSwitcher : MonoBehaviour {
 	public GameObject MoveJoy;
 	public GameObject LookJoy;
 	public GameObject HeightSlider;
-	public GameObject SwitcherButton;
 	
 	void Start () {
 
-#if !MOBILE_INPUT
-		SwitcherButton.SetActive(false);
-		scheme = ControlSchemes.Mouse;
-#endif
+		GameObject dummyRig = new GameObject("dummyRig");
+		if(OneJoyRig == null)
+			OneJoyRig = dummyRig;
+		if(TwoJoyRig == null)
+			TwoJoyRig = dummyRig;
+		if(MinimapRig == null)
+			MinimapRig = dummyRig;
+		if(MouseRig == null)
+			MouseRig = dummyRig;
+		if(MoveJoy == null)
+			MoveJoy = dummyRig;
+		if(LookJoy == null)
+			LookJoy = dummyRig;
+		if(HeightSlider == null)
+			HeightSlider = dummyRig;
 
+#if !MOBILE_INPUT
 		switch (scheme){
-		case ControlSchemes.OneJoy:
-			OneJoyMode();
-			break;
-		case ControlSchemes.TwoJoy:
-			TwoJoyMode();
-			break;
 		case ControlSchemes.Minimap:
 			MinimapMode();
 			break;
@@ -36,16 +41,35 @@ public class ControlSwitcher : MonoBehaviour {
 			MouseMode();
 			break;
 		default:
-			Debug.Log ("This can't be happening!");
+			MinimapMode();
 			break;
 		}
-		
+#else
+		switch (scheme){
+		case ControlSchemes.OneJoy:
+			OneJoyMode();
+			break;
+		case ControlSchemes.TwoJoy:
+			TwoJoyMode();
+			break;
+		case ControlSchemes.Minimap:
+			MinimapMode();
+			break;
+		default:
+			MinimapMode();
+			break;
+		}
+#endif
+
 		PlayerPrefs.SetFloat("LookSensitivity", 0.1f);
 		PlayerPrefs.SetFloat("MoveSpeed", 0.2f);
 		PlayerPrefs.SetFloat("PlayerHeight", 0);
 	}
-	
+
+
 	public void ChangeScheme(){
+
+#if MOBILE_INPUT
 		switch (scheme){
 		case ControlSchemes.OneJoy:
 			TwoJoyMode();
@@ -57,11 +81,67 @@ public class ControlSwitcher : MonoBehaviour {
 			OneJoyMode();
 			break;
 		default:
-			Debug.Log ("This can't be happening!");
+			MinimapMode();
+			break;
+		}
+#else
+		switch (scheme){
+		case ControlSchemes.Mouse:
+			MinimapMode();
+			break;
+		case ControlSchemes.Minimap:
+			MouseMode();
+			break;
+		default:
+			MinimapMode();
+			break;
+		}
+#endif
+
+	}
+	
+	public void NextScheme(){
+		int newScheme = (int)scheme + 1;
+#if MOBILE_INPUT
+		if (newScheme == 3)
+			newScheme = 0;
+#else
+		if (newScheme == 4)
+			newScheme = 2;
+#endif
+		SetScheme(newScheme);
+	}
+
+
+	public void PrevScheme(){
+		int newScheme = (int)scheme - 1;
+		#if MOBILE_INPUT
+		if (newScheme == -1)
+			newScheme = 2;
+		#else
+		if (newScheme == 1)
+			newScheme = 3;
+		#endif
+		SetScheme(newScheme);
+	}
+
+	public void SetScheme(int newScheme){
+		switch(newScheme){
+		case 0:
+			OneJoyMode();
+			break;
+		case 1:
+			TwoJoyMode();
+			break;
+		case 2:
+			MinimapMode();
+			break;
+		case 3:
+			MouseMode();
 			break;
 		}
 	}
-	
+
 	public void OneJoyMode(){
 		TwoJoyRig.SetActive(false);
 		MinimapRig.SetActive(false);
