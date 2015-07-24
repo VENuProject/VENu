@@ -47,4 +47,9 @@ public class MainMenuScript : MonoBehaviour {
 		HidePanels();
 		exitPanel.SetActive(true);
 	}
+
+	public void ARMode(){
+		//load AR scene
+		//Application.LoadLevel();
+	}
 }
