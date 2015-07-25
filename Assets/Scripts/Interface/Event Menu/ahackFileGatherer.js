@@ -42,12 +42,12 @@ function Start () {
 
 		var k = 0; 
 		//Loop through particle/event arrays 
-		for(var i = 0; i< partArray.length; i++) {
-		    _url = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod"+partArray[i]+"_uboone%252F"+evtArray[i];
+		for(var i = 0; i< _partArray.length; i++) {
+		    _url = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod"+_partArray[i]+"_uboone%252F"+_evtArray[i];
 
 		    //Add 5 url-events per particle 
 		    for(var j = 0; j < 5; j++ ){
-			_url2 = _url + evtNArray[k+j].ToString()+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
+			_url2 = _url + _evtNArray[k+j].ToString()+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
 			_urlArray.Push(_url2) ;
 			}
 		    //Keep track of location in evtNArray ;
