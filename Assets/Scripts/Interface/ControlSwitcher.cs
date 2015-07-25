@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnitySampleAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
 public class ControlSwitcher : MonoBehaviour {
 	
@@ -13,8 +14,12 @@ public class ControlSwitcher : MonoBehaviour {
 	public GameObject MoveJoy;
 	public GameObject LookJoy;
 	public GameObject HeightSlider;
+	public GameObject uiLabel;
 	
 	void Start () {
+
+		Physics.IgnoreLayerCollision(0, 11);
+		Physics.IgnoreLayerCollision(0, 12);
 
 		GameObject dummyRig = new GameObject("dummyRig");
 		if(OneJoyRig == null)
@@ -31,6 +36,8 @@ public class ControlSwitcher : MonoBehaviour {
 			LookJoy = dummyRig;
 		if(HeightSlider == null)
 			HeightSlider = dummyRig;
+		if(uiLabel == null)
+			uiLabel = dummyRig;
 
 #if !MOBILE_INPUT
 		switch (scheme){
@@ -150,6 +157,7 @@ public class ControlSwitcher : MonoBehaviour {
 		MoveJoy.SetActive(true);
 		LookJoy.SetActive(false);
 		HeightSlider.SetActive(true);
+		uiLabel.GetComponent<Text>().text = "One Joy";
 		scheme = ControlSchemes.OneJoy;
 	}
 	
@@ -161,6 +169,7 @@ public class ControlSwitcher : MonoBehaviour {
 		MoveJoy.SetActive(true);
 		LookJoy.SetActive(true);
 		HeightSlider.SetActive(true);
+		uiLabel.GetComponent<Text>().text = "Two Joy";
 		scheme = ControlSchemes.TwoJoy;
 	}
 	
@@ -172,6 +181,7 @@ public class ControlSwitcher : MonoBehaviour {
 		MoveJoy.SetActive(false);
 		LookJoy.SetActive(false);
 		HeightSlider.SetActive(true);
+		uiLabel.GetComponent<Text>().text = "Minimap";
 		scheme = ControlSchemes.Minimap;
 	}
 
@@ -183,6 +193,7 @@ public class ControlSwitcher : MonoBehaviour {
 		MoveJoy.SetActive(false);
 		LookJoy.SetActive(false);
 		HeightSlider.SetActive(true);
+		uiLabel.GetComponent<Text>().text = "W A S D";
 		scheme = ControlSchemes.Mouse;
 	}
 	

@@ -204,7 +204,8 @@ namespace UnitySampleAssets.Characters.FirstPerson
             _isWalking = !Input.GetKey(KeyCode.LeftShift);
 #endif
             // set the desired speed to be walking or running
-            speed = _isWalking ? walkSpeed : runSpeed;
+            //speed = _isWalking ? walkSpeed : runSpeed;
+			speed = PlayerPrefs.GetFloat("MoveSpeed") * 10;
             _input = new Vector2(horizontal, vertical);
 
             // normalize input if it exceeds 1 in combined length:
@@ -255,18 +256,18 @@ namespace UnitySampleAssets.Characters.FirstPerson
 
         }
 
-        private void OnControllerColliderHit(ControllerColliderHit hit)
-        {
-            Rigidbody body = hit.collider.attachedRigidbody;
-            if (body == null || body.isKinematic)
-                return;
-
-            //dont move the rigidbody if the character is on top of it
-            if (_collisionFlags == CollisionFlags.CollidedBelow) return;
-
-            body.AddForceAtPosition(_characterController.velocity*0.1f, hit.point, ForceMode.Impulse);
-
-        }
+//        private void OnControllerColliderHit(ControllerColliderHit hit)
+//        {
+//            Rigidbody body = hit.collider.attachedRigidbody;
+//            if (body == null || body.isKinematic)
+//                return;
+//
+//            //dont move the rigidbody if the character is on top of it
+//            if (_collisionFlags == CollisionFlags.CollidedBelow) return;
+//
+//            body.AddForceAtPosition(_characterController.velocity*0.1f, hit.point, ForceMode.Impulse);
+//
+//        }
 
 		public void setHeight(float val){
 			transform.position = new Vector3(transform.position.x, val, transform.position.z);

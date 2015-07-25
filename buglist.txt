@@ -33,7 +33,7 @@ From 7/23
 - Tooltip draws on top of in-game menu
 - Joysticks/slider don’t block track clicks/camera positioning
 - Tracks should only highlight on tap, not on drag
-- Menu tab doesn’t block minimap clicks
++ Menu tab doesn’t block minimap clicks [FIXED by Owen]
 - Zoom sensitivity is too high
 + Menu buttons are still too big [FIXED by Owen]
 + Trackbar slider doesn’t go to zero even when “0%” is displayed (it still works normally though) [FIXED by Owen]
