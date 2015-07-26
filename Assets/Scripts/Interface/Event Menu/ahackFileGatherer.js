@@ -13,15 +13,15 @@ public var ButtonsGroup : GameObject;
 public var displayLevel : String;
 
 var _urlArray = new Array() ;
-var _partArray= ("_bnblike_electron","_bnblike_pi0","_bnblike_proton","_bnblike_muminus","_bnb_like_gamma") ; //new Array() ;
-var _evtArray = ("1691317_"         ,"1691318_"    ,"1831337_"       ,"1695054_"        ,"1831485_"       ) ;   
+var _partArray = new Array("_bnblike_electron","_bnblike_pi0","_bnblike_proton","_bnblike_muminus","_bnb_like_gamma") ; //new Array() ; AMCLEAN added new Array(...)
+var _evtArray = new Array("1691317_"         ,"1691318_"    ,"1831337_"       ,"1695054_"        ,"1831485_"       ) ;   //AMCLEAN added new Array(...)
 
 //Make evtNArray the carrier of the event numbers for each particle.  Let's add 5 events per particle for now
 //Some events online are empty, so the below were selected specifically as filled events for corresponding particles
-var _evtNArray= (0,2,3,4,5,	      0,1,2,3,4,     1,3,4,5,6,	       0,1,3,4,5,        0,2,3,4,5        ) ; 
+var _evtNArray= new Array(0,2,3,4,5,	      0,1,2,3,4,     1,3,4,5,6,	       0,1,3,4,5,        0,2,3,4,5        ) ; 
 
 //Keep button and part array separate for now for future ease of adding particles that don't begin with "bnb_like" to partArray
-var _buttonArray = ("electron"      ,"pi0"          ,"proton"         ,"muminus"	,"gamma"          ) ;
+var _buttonArray = new Array("electron"      ,"pi0"          ,"proton"         ,"muminus"	,"gamma"          ) ;
 
 function Start () {
 
@@ -43,11 +43,11 @@ function Start () {
 		var k = 0; 
 		//Loop through particle/event arrays 
 		for(var i = 0; i< _partArray.length; i++) {
-		    _url = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod"+_partArray[i]+"_uboone%252F"+_evtArray[i];
+		    var _url = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod"+_partArray[i]+"_uboone%252F"+_evtArray[i];
 
 		    //Add 5 url-events per particle 
 		    for(var j = 0; j < 5; j++ ){
-			_url2 = _url + _evtNArray[k+j].ToString()+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
+			var _url2 = _url + _evtNArray[k+j].ToString()+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
 			_urlArray.Push(_url2) ;
 			}
 		    //Keep track of location in evtNArray ;
