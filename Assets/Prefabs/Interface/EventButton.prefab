@@ -30,6 +30,7 @@ GameObject:
   - 114: {fileID: 11416664}
   - 114: {fileID: 11433854}
   - 114: {fileID: 11490542}
+  - 114: {fileID: 11491698}
   m_Layer: 5
   m_Name: EventButton
   m_TagString: Untagged
@@ -167,6 +168,19 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
+--- !u!114 &11491698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449385022f0644a379b945a3c2093bec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: 
+  levelToLoad: 
 --- !u!222 &22207632
 CanvasRenderer:
   m_ObjectHideFlags: 1
