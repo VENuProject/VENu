@@ -12,16 +12,22 @@ public var EventButton : GameObject;
 public var ButtonsGroup : GameObject;
 public var displayLevel : String;
 
+static var _event    : String;
+static var _url      : String;
+static var _url2     : String;
+
 var _urlArray = new Array() ;
-var _partArray= ("_bnblike_electron","_bnblike_pi0","_bnblike_proton","_bnblike_muminus","_bnb_like_gamma") ; //new Array() ;
-var _evtArray = ("1691317_"         ,"1691318_"    ,"1831337_"       ,"1695054_"        ,"1831485_"       ) ;   
+var _partArray = new Array( ["_bnblike_electron","_bnblike_pi0","_bnblike_proton","_bnblike_muminus","_bnb_like_gamma"])  ; //new Array() ;
+var _evtArray = new Array (["1691317_"         ,"1691318_"    ,"1831337_"       ,"1695054_"        ,"1831485_"      ] ) ;   
+//var _evtArray : String[] = ("1691317_"         ,"1691318_"    ,"1831337_"       ,"1695054_"        ,"1831485_"       ) ;   
 
 //Make evtNArray the carrier of the event numbers for each particle.  Let's add 5 events per particle for now
 //Some events online are empty, so the below were selected specifically as filled events for corresponding particles
-var _evtNArray= (0,2,3,4,5,	      0,1,2,3,4,     1,3,4,5,6,	       0,1,3,4,5,        0,2,3,4,5        ) ; 
+var _evtNArray= new Array ([0,2,3,4,5,	      0,1,2,3,4,     1,3,4,5,6,	       0,1,3,4,5,        0,2,3,4,5        ]) ; 
 
 //Keep button and part array separate for now for future ease of adding particles that don't begin with "bnb_like" to partArray
-var _buttonArray = ("electron"      ,"pi0"          ,"proton"         ,"muminus"	,"gamma"          ) ;
+var _buttonArray = new Array(["electron"      ,"pi0"          ,"proton"         ,"muminus"	,"gamma"          ]) ;
+//var _buttonArray : String[] = ("electron"      ,"pi0"          ,"proton"         ,"muminus"	,"gamma"          ) ;
 
 function Start () {
 
