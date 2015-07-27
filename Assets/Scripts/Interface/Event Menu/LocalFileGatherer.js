@@ -30,8 +30,16 @@ function Start () {
     	
 		var dir = new DirectoryInfo(jsonFilesPath);
 		var filesInfo = dir.GetFiles("*.json");
-		for (file in filesInfo)
-			AddButton(file.Name);
+		for (file in filesInfo) {
+		    var words = file.Name.Split("_"[0]);
+		    var btnText : String;
+		    for (word in words) {
+		        if (!word.Contains(".json")) {
+		            btnText += word + "\n";
+		        }
+		    }
+			AddButton(btnText);
+	    }
 		Debug.Log("found " + filesInfo.Length + " json files");
 	}
 	
