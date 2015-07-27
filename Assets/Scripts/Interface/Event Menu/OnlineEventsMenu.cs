@@ -7,8 +7,8 @@ public class OnlineEventsMenu : MonoBehaviour {
     public string displayLevel;
     public GameObject EventButton;
     public GameObject buttonsGroup;
-    string url1 = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod";
-    string[] url2Array = new string[]{"_bnblike_electron", "_bnblike_pi0", "_bnblike_proton", "_bnblike_muminus", "_bnb_like_gamma"};
+    string url1 = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252F";
+    string[] url2Array = new string[]{"prod_bnblike_electron", "prod_bnblike_pi0", "prod_bnblike_proton", "prod_bnblike_muminus", "prod_bnb_like_gamma"};
     string url3 = "_uboone%252F";
     string[] url4Array = new string[]{"1691317_", "1691318_", "1831337_", "1695054_", "1831485_"};
     int[][] url5Array = {new int[]{0,2,3,4,5}, new int[]{0,1,2,3,4}, new int[]{1,3,4,5,6}, new int[]{0,1,3,4,5}, new int[]{0,2,3,4,5}};
@@ -90,13 +90,10 @@ public class OnlineEventsMenu : MonoBehaviour {
         newButton.transform.SetParent(buttonsGroup.transform, false);
         newButton.SendMessage("SetData", file);
         newButton.SendMessage("SetLevelToLoad", displayLevel);
-        string[] words = file.Split("_"[0]);
-        string btnText = string.Empty;
-        foreach (string word in words) {
-            if (!word.Contains(".json")) {
-                btnText += word + "\n";
-            }
-        }
-        newButton.SendMessage("SetText", btnText);
+        string[] btntxt = file.Split(new string[]{url1, url3, url6}, System.StringSplitOptions.RemoveEmptyEntries);
+        string txt = string.Empty;
+        foreach(string t in btntxt)
+            txt += t;
+        newButton.SendMessage("SetText", txt);
     }
 }
