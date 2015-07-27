@@ -27,10 +27,10 @@ public class MainMenuScript : MonoBehaviour {
 		settingsPanel.SetActive(false);
 		aboutPanel.SetActive(false);
 		exitPanel.SetActive(false);
-		electronPanel.SetActive(false);
-		pi0Panel.SetActive(false);
-		muminusPanel.SetActive(false);
-		gammaPanel.SetActive(false);
+//		electronPanel.SetActive(false);
+//		pi0Panel.SetActive(false);
+//		muminusPanel.SetActive(false);
+//		gammaPanel.SetActive(false);
 	}
 
 	public void ShowSavedEvents(){
