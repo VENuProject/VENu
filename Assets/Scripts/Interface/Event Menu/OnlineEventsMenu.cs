@@ -24,8 +24,8 @@ public class OnlineEventsMenu : MonoBehaviour {
         
         #else
         
-        buttonsGroup.GetComponent<GridLayoutGroup>().cellSize = new Vector2(75f, 75f);
-        buttonsGroup.GetComponent<GridLayoutGroup>().spacing = new Vector2(8, 8);
+        ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(75f, 75f);
+        ButtonsGroup.GetComponent(GridLayoutGroup).spacing = Vector2(8, 8);
         
         #endif
 
