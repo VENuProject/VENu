@@ -40,4 +40,4 @@ From 7/23
 - Settings aren't saved when returning back to the main menu.
 
 From 7/27
-- Event buttons shouldn't have ".json" in their text as this is already implied.
++ Event buttons shouldn't have ".json" in their text as this is already implied. [FIXED by Thomas]
