@@ -603,6 +603,10 @@ MonoBehaviour:
   settingsPanel: {fileID: 804579396}
   aboutPanel: {fileID: 239342467}
   exitPanel: {fileID: 703383182}
+  electronPanel: {fileID: 0}
+  pi0Panel: {fileID: 0}
+  muminusPanel: {fileID: 0}
+  gammaPanel: {fileID: 0}
 --- !u!224 &226179393
 RectTransform:
   m_ObjectHideFlags: 0
