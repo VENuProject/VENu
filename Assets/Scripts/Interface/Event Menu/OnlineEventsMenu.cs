@@ -1,17 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using System.Collections.Generic;
-
 
 public class OnlineEventsMenu : MonoBehaviour {
 
-	public GameObject electronPanel;
-	public GameObject pi0Panel;
-	public GameObject protonPanel;
-	public GameObject muminusPanel;
-	public GameObject gammaPanel;
-
+    public string displayLevel;
+    public GameObject EventButton;
     public GameObject buttonsGroup;
     string url1 = "http://argo-microboone.fnal.gov/server/serve_event.cgi?entry=0&filename=%252Fpnfs%252Fuboone%252Fscratch%252Fuboonepro%252Fmcc6.0%252Fv04_06_01%252Freco1%252Fprod";
     string[] url2Array = new string[]{"_bnblike_electron", "_bnblike_pi0", "_bnblike_proton", "_bnblike_muminus", "_bnb_like_gamma"};
@@ -22,6 +16,19 @@ public class OnlineEventsMenu : MonoBehaviour {
     string[][] buttons;
 	
 	void Start(){
+
+        #if MOBILE_INPUT
+        
+        buttonsGroup.GetComponent<GridLayoutGroup>().cellSize = new Vector2(120f, 120f);
+        buttonsGroup.GetComponent<GridLayoutGroup>().spacing = new Vector2(8, 8);
+        
+        #else
+        
+        ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(75f, 75f);
+        ButtonsGroup.GetComponent(GridLayoutGroup).spacing = Vector2(8, 8);
+        
+        #endif
+
         buttons = new string[url2Array.Length][];
         for(int particle = 0; particle < url2Array.Length; particle++){
             string[] partButtons = new string[url5Array[particle].Length];
@@ -44,41 +51,52 @@ public class OnlineEventsMenu : MonoBehaviour {
 
     void ClearButtons(){
         for(int i=0; i<buttonsGroup.transform.childCount; i++)
-            Destroy(buttonsGroup.transform.GetChild(i));
+            Destroy(buttonsGroup.transform.GetChild(i).gameObject);
     }
 	
 	public void ShowElectronEvents(){
         ClearButtons();
         foreach(string file in buttons[0])
-            AddButton("abutton", file);
+            AddButton(file);
 	}
 	
 	public void ShowPi0Events(){
         ClearButtons();
         foreach(string file in buttons[1])
-            AddButton("abutton", file);
+            AddButton(file);
 	}
 
 	public void ShowProtonEvents(){
         ClearButtons();
         foreach(string file in buttons[2])
-            AddButton("abutton", file);
+            AddButton(file);
 	}
 	
 	public void ShowMuminusEvents(){
         ClearButtons();
         foreach(string file in buttons[3])
-            AddButton("abutton", file);
+            AddButton(file);
 	}
 	
 	public void ShowGammaEvents(){
         ClearButtons();
         foreach(string file in buttons[4])
-            AddButton("abutton", file);
+            AddButton(file);
 	}
 
-    void AddButton(string Text, string FileName){
-        Debug.Log ("adding a button");
+    void AddButton (string file){
+        GameObject newButton;
+        newButton = Instantiate(EventButton);
+        newButton.transform.SetParent(buttonsGroup.transform, false);
+        newButton.SendMessage("SetData", file);
+        newButton.SendMessage("SetLevelToLoad", displayLevel);
+        string[] words = file.Split("_"[0]);
+        string btnText = string.Empty;
+        foreach (string word in words) {
+            if (!word.Contains(".json")) {
+                btnText += word + "\n";
+            }
+        }
+        newButton.SendMessage("SetText", btnText);
     }
-
 }
