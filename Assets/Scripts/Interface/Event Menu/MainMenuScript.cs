@@ -83,6 +83,6 @@ public class MainMenuScript : MonoBehaviour {
 	}
 	public void ARMode(){
 		//load AR scene
-		//Application.LoadLevel();
+		Application.LoadLevel(3);
 	}
 }

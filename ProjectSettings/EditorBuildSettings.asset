@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Splash_Screen.unity
   - enabled: 0
-    path: Assets/Scenes/Mobile Official/Moblile_Official_MM.unity
+    path: Assets/Scenes/Mobile Official/Moblie_Official_MM.unity
   - enabled: 0
     path: Assets/Scenes/Standalone Official/Standalone_Official_MM.unity
   - enabled: 0
@@ -23,5 +23,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Mobile Official/Mobile_Official_MM.unity
   - enabled: 0
     path: Assets/Scenes/Mobile Official/Mobile_Official_Display.unity
+  - enabled: 0
+    path: Assets/Scenes/Mobile Official/Mobile_Official_AR.unity
   - enabled: 1
-    path: Assets/Scenes/AR_test.unity
+    path: Assets/Scenes/Standalone Official/Standalone_Official_MM.unity
