@@ -357,9 +357,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   EventMenuScene: Mobile_Official_MM
   buttonsGroup: {fileID: 1954213355}
   slideButton: {fileID: 1000892267}
+=======
+>>>>>>> FETCH_HEAD
 =======
 >>>>>>> FETCH_HEAD
 --- !u!114 &115896001
@@ -423,6 +426,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756a2110539ae47bc8d01a9bc05f195c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
+=======
 >>>>>>> FETCH_HEAD
 --- !u!1001 &120756846
 Prefab:
