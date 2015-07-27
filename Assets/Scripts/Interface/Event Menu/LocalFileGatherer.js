@@ -19,10 +19,10 @@ function Start () {
 
 		//until I can get this working on android, hardcoded for now
 
-		AddButton("prod_bnblike_proton_uboone.json");
-		AddButton("prod_eminus_0.1-2.0GeV_isotropic.json");
-		AddButton("prod_eminus_0.5-5.0GeV_25degf_uboone.json");
-		AddButton("prodgenie_bnb_intrinsic_nue_uboone.json");
+		AddButton("Owen hard-coded this!", "prod_bnblike_proton_uboone.json");
+		AddButton("Owen hard-coded this!", "prod_eminus_0.1-2.0GeV_isotropic.json");
+		AddButton("Owen hard-coded this!", "prod_eminus_0.5-5.0GeV_25degf_uboone.json");
+		AddButton("Owen hard-coded this!", "prodgenie_bnb_intrinsic_nue_uboone.json");
 	}
 	else {
 	
@@ -38,7 +38,7 @@ function Start () {
 		            btnText += word + "\n";
 		        }
 		    }
-			AddButton(btnText);
+			AddButton(btnText, file.Name);
 	    }
 		Debug.Log("found " + filesInfo.Length + " json files");
 	}
@@ -57,11 +57,11 @@ function Start () {
 	
 }
 
-function AddButton (file : String){
+function AddButton (text : String, file : String){
 	var newButton : GameObject;
 	newButton = Instantiate(EventButton);
 	newButton.transform.SetParent(ButtonsGroup.transform, false);
-	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = file;
+	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = text;
 	newButton.GetComponent(EventButtonScript).fileName = file;
 	newButton.GetComponent(EventButtonScript).levelToLoad = displayLevel;
 	//custom graphics for each file?
