@@ -163,18 +163,32 @@ function Awake() {
 
 function Start() {
     //Read in from a file (different paths for different platforms)
-    var jsonString="";
-
-    if (Application.platform == RuntimePlatform.Android) {
-        var url="jar:file://" + Application.dataPath + "!/assets/" + fileName;
-        var www : WWW = new WWW(url);
-        yield www;
-        jsonString = www.text;
+     var jsonString="";
+    //Check if the fileName is a url or a path
+    if (fileName.Contains("http")) {
+        var fileURL : WWW = new WWW(fileName) ; 
+        //// Wait for the download to complete
+        yield fileURL;
+        jsonString = fileURL.text;
     }
     else {
-        var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
-        jsonString = sr.ReadToEnd();
-        sr.Close();
+	    if(Application.platform==RuntimePlatform.Android)
+	    {
+	    var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
+	    Debug.Log(Application.platform+"\n"+url);
+	    var www : WWW = new WWW(url);
+	 //   Debug.Log("Reading URL");
+	    
+	    yield www;
+	    jsonString=www.text;
+	//    Debug.Log("Found jsonString with length:" + (jsonString.length));
+	    }
+	    else
+	    {
+	    var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
+	    jsonString = sr.ReadToEnd();
+	    sr.Close();
+	    }
     }
     
     //Filter and draw the tracks from the JSON file.
