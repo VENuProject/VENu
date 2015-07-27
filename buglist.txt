@@ -38,3 +38,6 @@ From 7/23
 + Menu buttons are still too big [FIXED by Owen]
 + Trackbar slider doesn’t go to zero even when “0%” is displayed (it still works normally though) [FIXED by Owen]
 - Settings aren't saved when returning back to the main menu.
+
+From 7/27
+- Event buttons shouldn't have ".json" in their text as this is already implied.
