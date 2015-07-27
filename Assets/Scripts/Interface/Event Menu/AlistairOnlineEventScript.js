@@ -47,7 +47,7 @@ function Start ()
 		    for(var j = 0; j < 5; j++ ){
 			var _url2 = _url + _evtNArray[k+j].ToString()+"%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
 			_urlArray.Push(_url2) ;
-			/*
+	/*		
 			if (i == 0)
 			{
 				addElectronButton(_evtNArray[j]);
@@ -70,7 +70,7 @@ function Start ()
 			}
 			else
 			{
-				return();
+				return;
 			}
 			*/
 		    //Keep track of location in evtNArray ;
@@ -79,7 +79,7 @@ function Start ()
 		    //AddButton(_buttonArray[i]) ;
 		    //AMCLEAN add
 
-		    
+		    i = i+1;
 		   // AddButton(_evtNArray[i]);
 		    }
 		
@@ -90,6 +90,11 @@ function Start ()
 //		for (file in filesInfo)
 //			AddButton(file.Name);
 //		Debug.Log("found " + filesInfo.Length + " json files");
+/*	for (url in _urlArray)
+	{
+		addElectronButton(_url.Name);
+	}
+	*/
 	
 	
 #if MOBILE_INPUT
@@ -109,56 +114,57 @@ function Start ()
 #endif
 }
 /*
-function addElectronButton(_url : String)
+function addElectronButton(_url2 : String)
 	{
 	var newButton : GameObject;
 	newButton = Instantiate(EventButton);
 	newButton.transform.SetParent(electronsButtonsGroup.transform, false);
-	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url;
-	newButton.GetComponent(EventButtonScript).fileName = _url;
+	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url2;
+	newButton.GetComponent(EventButtonScript).fileName = _url2;
 	newButton.GetComponent(EventButtonScript).levelToLoad = displayLevel;
 	}
 	
-function addPi0Button(_url : String)	
+function addPi0Button(_url2 : String)	
 	{
 	var newButton : GameObject;
 	newButton = Instantiate(EventButton);
 	newButton.transform.SetParent(pi0ButtonsGroup.transform, false);
-	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url;
-	newButton.GetComponent(EventButtonScript).fileName = _url;
+	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url2;
+	newButton.GetComponent(EventButtonScript).fileName = _url2;
 	newButton.GetComponent(EventButtonScript).levelToLoad = displayLevel;
 	}
 	
-function addProtonButton(_url : String)	
+function addProtonButton(_url2 : String)	
 	{
 	var newButton : GameObject;
 	newButton = Instantiate(EventButton);
 	newButton.transform.SetParent(protonButtonsGroup.transform, false);
-	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url;
-	newButton.GetComponent(EventButtonScript).fileName = _url;
+	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url2;
+	newButton.GetComponent(EventButtonScript).fileName = _url2;
 	newButton.GetComponent(EventButtonScript).levelToLoad = displayLevel;
 	}
 	
-function addMuminusButton(_url : String)
+function addMuminusButton(_url2 : String)
 	{
 	var newButton : GameObject;
 	newButton = Instantiate(EventButton);
 	newButton.transform.SetParent(muminusButtonsGroup.transform, false);
-	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url;
-	newButton.GetComponent(EventButtonScript).fileName = _url;
+	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url2;
+	newButton.GetComponent(EventButtonScript).fileName = _url2;
 	newButton.GetComponent(EventButtonScript).levelToLoad = displayLevel;
 	}
 	
-function addGammaButton(_url : String)
+function addGammaButton(_url2 : String)
 	{
 	var newButton : GameObject;
 	newButton = Instantiate(EventButton);
 	newButton.transform.SetParent(gammaButtonsGroup.transform, false);
-	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url;
-	newButton.GetComponent(EventButtonScript).fileName = _url;
+	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = _url2;
+	newButton.GetComponent(EventButtonScript).fileName = _url2;
 	newButton.GetComponent(EventButtonScript).levelToLoad = displayLevel;
 	}
 	//custom graphics for each file?
 	//other button customization?
-*/
+	*/
+
 }

@@ -1,0 +1,143 @@
+fileFormatVersion: 2
+guid: 6752ea079210d7c4bb4ed8a32d7b8ac4
+timeCreated: 1437970229
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Cathode
+    100002: Cryostat
+    100004: Feedthroughs
+    100006: Feedthroughs2
+    100008: Field_Cage
+    100010: Flat_TPB_plate
+    100012: Large_PMTs
+    100014: MMSs
+    100016: Racks
+    100018: Removable_Endcap
+    100020: Small_PMTs
+    100022: TPB_plates
+    100024: //RootNode
+    100026: TPC_frame
+    100028: Wire_Plane
+    400000: Cathode
+    400002: Cryostat
+    400004: Feedthroughs
+    400006: Feedthroughs2
+    400008: Field_Cage
+    400010: Flat_TPB_plate
+    400012: Large_PMTs
+    400014: MMSs
+    400016: Racks
+    400018: Removable_Endcap
+    400020: Small_PMTs
+    400022: TPB_plates
+    400024: //RootNode
+    400026: TPC_frame
+    400028: Wire_Plane
+    2300000: Cathode
+    2300002: Cryostat
+    2300004: Feedthroughs
+    2300006: Feedthroughs2
+    2300008: Field_Cage
+    2300010: Flat_TPB_plate
+    2300012: Large_PMTs
+    2300014: MMSs
+    2300016: Racks
+    2300018: Removable_Endcap
+    2300020: Small_PMTs
+    2300022: TPB_plates
+    2300024: TPC_frame
+    2300026: Wire_Plane
+    3300000: Cathode
+    3300002: Cryostat
+    3300004: Feedthroughs
+    3300006: Feedthroughs2
+    3300008: Field_Cage
+    3300010: Flat_TPB_plate
+    3300012: Large_PMTs
+    3300014: MMSs
+    3300016: Racks
+    3300018: Removable_Endcap
+    3300020: Small_PMTs
+    3300022: TPB_plates
+    3300024: TPC_frame
+    3300026: Wire_Plane
+    4300000: TPC_frame
+    4300002: MMSs
+    4300004: Small_PMTs
+    4300006: Flat_TPB_plate
+    4300008: Large_PMTs
+    4300010: Wire_Plane
+    4300012: Field_Cage
+    4300014: Racks
+    4300016: Cathode
+    4300018: TPB_plates
+    4300020: Cryostat
+    4300022: Feedthroughs
+    4300024: Feedthroughs2
+    4300026: Removable_Endcap
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
