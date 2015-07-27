@@ -11,7 +11,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Display_Official_Old.unity
   - enabled: 0
     path: Assets/Scenes/wester_display_test.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Splash_Screen.unity
   - enabled: 0
     path: Assets/Scenes/Mobile Official/Moblie_Official_MM_OLD.unity
@@ -19,9 +19,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Standalone Official/Standalone_Official_MM.unity
   - enabled: 0
     path: Assets/Scenes/Standalone Official/Standalone_Official_display.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mobile Official/Mobile_Official_MM.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mobile Official/Mobile_Official_Display.unity
   - enabled: 0
     path: Assets/Scenes/Mobile Official/Mobile_Official_AR.unity
