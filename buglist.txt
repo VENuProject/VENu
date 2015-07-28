@@ -15,7 +15,7 @@ Remember, this bug list doesn't help anyone unless it's kept up-to-date!
 
 From 7/22
 + Switching controls creates lag [FIXED by Owen]
-+ Particle dot sprites lose their scaling in different control schemes 
++ Particle dot sprites lose their scaling in different control schemes
   (I think this happens because the camera changes, and the script doesn't 
   use the new camera as a reference anymore) [FIXED by Owen]
 + In-game menu is too big on mobile devices [FIXED by Owen
@@ -30,7 +30,7 @@ From 7/22
   but it would be good if we found a better way to do this) [FIXED by Owen]
 
 From 7/23
-- Tooltip draws on top of in-game menu
++ Tooltip draws on top of in-game menu [FIXED by Owen]
 - Joysticks/slider don’t block track clicks/camera positioning
 - Tracks should only highlight on tap, not on drag
 + Menu tab doesn’t block minimap clicks [FIXED by Owen]

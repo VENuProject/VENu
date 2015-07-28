@@ -165,6 +165,14 @@ function Start() {
     //Read in from a file (different paths for different platforms)
     var jsonString="";
 
+//Check if the fileName is a url or a path
+    if (fileName.Contains("http")) {
+        var fileURL : WWW = new WWW(fileName) ; 
+        //// Wait for the download to complete
+        yield fileURL;
+        jsonString = fileURL.text;
+       }
+    else{
     if (Application.platform == RuntimePlatform.Android) {
         var url="jar:file://" + Application.dataPath + "!/assets/" + fileName;
         var www : WWW = new WWW(url);
@@ -175,6 +183,7 @@ function Start() {
         var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
         jsonString = sr.ReadToEnd();
         sr.Close();
+    }
     }
     
     //Filter and draw the tracks from the JSON file.
