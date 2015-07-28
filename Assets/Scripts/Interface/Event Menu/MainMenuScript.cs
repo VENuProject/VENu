@@ -9,11 +9,6 @@ public class MainMenuScript : MonoBehaviour {
 	public GameObject settingsPanel;
 	public GameObject aboutPanel;
 	public GameObject exitPanel;
-	//AMCLEAN add
-	public GameObject electronPanel;
-	public GameObject pi0Panel;
-	public GameObject muminusPanel;
-	public GameObject gammaPanel;
 
 
 	void Start(){
@@ -27,10 +22,6 @@ public class MainMenuScript : MonoBehaviour {
 		settingsPanel.SetActive(false);
 		aboutPanel.SetActive(false);
 		exitPanel.SetActive(false);
-//		electronPanel.SetActive(false);
-//		pi0Panel.SetActive(false);
-//		muminusPanel.SetActive(false);
-//		gammaPanel.SetActive(false);
 	}
 
 	public void ShowSavedEvents(){
@@ -58,29 +49,6 @@ public class MainMenuScript : MonoBehaviour {
 		exitPanel.SetActive(true);
 	}
 
-	public void ShowElectronEvents(){
-		HidePanels ();
-		ShowWebEvents ();
-		electronPanel.SetActive (true);
-	}
-
-	public void ShowPi0Events(){
-		HidePanels ();
-		ShowWebEvents ();
-		pi0Panel.SetActive (true);
-	}
-
-	public void ShowMuminusEvents(){
-		HidePanels ();
-		ShowWebEvents ();
-		muminusPanel.SetActive (true);
-	}
-
-	public void ShowGammaEvents(){
-		HidePanels ();
-		ShowWebEvents ();
-		gammaPanel.SetActive (true);
-	}
 	public void ARMode(){
 		//load AR scene
 		Application.LoadLevel(3);

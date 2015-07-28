@@ -37,7 +37,9 @@ function Start () {
 		        if (!word.Contains(".json")) {
 		            btnText += word + "\n";
 		        }
+                
 		    }
+            btnText = btnText.Substring(0, btnText.Length - 1);
 			AddButton(btnText, file.Name);
 	    }
 		Debug.Log("found " + filesInfo.Length + " json files");

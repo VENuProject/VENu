@@ -37,7 +37,8 @@ public class OnlineEventsMenu : MonoBehaviour {
             }
             buttons[particle] = partButtons;
         }
-        Debug.Log(buttons.Length);
+
+        ShowElectronEvents();
 
 	}
 
