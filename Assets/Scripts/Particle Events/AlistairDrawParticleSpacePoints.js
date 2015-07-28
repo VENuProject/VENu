@@ -10,6 +10,7 @@ var dot : GameObject;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 public var perc : int; 
+var spacePointAlgoName : String = "recob::SpacePoints_pandoraCosmicKHit_RecoStage2";
 //var file1 : String = LoaderElement.GetComponent(LoaderScript).file1;
 //var file2 : String = LoaderElement.GetComponent(LoaderScript).file2;
 var fileName : String;
@@ -111,13 +112,13 @@ function Test()
     // P(N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Count.ToString());
     // for (var key in N["record"]["spacepoints"]["recob::SpacePoints_spacepointfinder__Reco3D"].Keys.ToArray()){
     var iter : int = 100/perc;
-    for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key = key + iter){
+    for(var key : int = 0; key < N["record"]["spacepoints"][spacePointAlgoName].Count; key = key + iter){
 	    var clone : GameObject;
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
     	clone.transform.position = transform.position + Vector3(
-    	    0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
-    	    0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
-           -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
+    	    0.1*N["record"]["spacepoints"][spacePointAlgoName][key]["xyz"][0].AsFloat,
+    	    0.1*N["record"]["spacepoints"][spacePointAlgoName][key]["xyz"][1].AsFloat,
+           -0.1*N["record"]["spacepoints"][spacePointAlgoName][key]["xyz"][2].AsFloat);
     	clone.transform.localScale = Vector3(0.005,0.005,0.005);
     	clone.gameObject.layer = 10;
     		//	clone.GetComponent.<Collider>().enabled=false;
