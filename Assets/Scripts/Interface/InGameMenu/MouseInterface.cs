@@ -26,7 +26,7 @@ public class MouseInterface : MonoBehaviour {
 
 	void FixedUpdate(){
 		mouseSensitivity = PlayerPrefs.GetFloat("LookSensitivity");
-		moveSpeed = PlayerPrefs.GetFloat("MoveSpeed");
+		moveSpeed = PlayerPrefs.GetFloat("MoveSpeed") / 2;
 		height = PlayerPrefs.GetFloat("PlayerHeight");
 	}
 
