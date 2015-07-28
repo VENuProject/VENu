@@ -12,7 +12,7 @@ public class ScaleRelativeToCamera : MonoBehaviour
 
 	//Make sure the object is never bigger or smaller than these factors
 	public float maxScale = 5.0f;
-	public float minScale = 0.5f;
+	public float minScale = 1f;
 
 	//These control when the max scale and min scale are reached
 	//e.g. max scale at distance of 12, min scale at distance of 3 opposed to raw scaling on distance.
