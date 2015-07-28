@@ -3590,7 +3590,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11458734, guid: 174fcef2217628f4a94612ee7c67c7a9, type: 2}
       propertyPath: scheme
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11458734, guid: 174fcef2217628f4a94612ee7c67c7a9, type: 2}
       propertyPath: uiLabel
