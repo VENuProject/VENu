@@ -3687,7 +3687,7 @@ MonoBehaviour:
     Kim, Illinois Math and Science Academy (USA - IL)\nMatt Bass, Oxford University
     (UK)\nSean Ngo, Illinois Math and Science Academy (USA - IL)\nThomas Wester, University
     of Chicago (USA - IL)\nOwen Crawford, Bradley University (USA - IL) \nAriana Hackenburg,
-    Yale (USA - CT)\n\nFermilab (USA - IL)"
+    Yale (USA - CT)"
 --- !u!222 &919792573
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4362,7 +4362,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1022833882}
   m_Direction: 2
   m_Value: 1
-  m_Size: .331485391
+  m_Size: .337541372
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
