@@ -1590,27 +1590,27 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11489902, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_MaxValue
-      value: .100000001
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11489902, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_MinValue
-      value: .00999999978
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 22410570, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .111111112
       objectReference: {fileID: 0}
     - target: {fileID: 22400440, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: .111111112
       objectReference: {fileID: 0}
     - target: {fileID: 22400440, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .111111112
       objectReference: {fileID: 0}
     - target: {fileID: 11489902, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_Value
-      value: .00999999978
+      value: .400000006
       objectReference: {fileID: 0}
     - target: {fileID: 11488024, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_Enabled
