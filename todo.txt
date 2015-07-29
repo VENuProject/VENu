@@ -13,6 +13,7 @@ Here are some (small) features we still want to implement or change before v1.0:
 8. Fix UI scaling between versions (menus are too big in standalone version).
 9. Get the damn threading code already.
 10. Fix all the known bugs
+11. Deal with events that don’t use the regular algorithm. Maybe add an algorithm choice in settings?
 
 --------------
 -- BUG LIST --
