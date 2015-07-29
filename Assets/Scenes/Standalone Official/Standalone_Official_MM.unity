@@ -3628,7 +3628,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .00999999978, y: .00999999978}
   m_AnchorMax: {x: .939999998, y: .99000001}
-  m_AnchoredPosition: {x: 0, y: 3.96443176}
+  m_AnchoredPosition: {x: 0, y: 3.75927734}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: 1}
 --- !u!114 &919792572
@@ -3657,30 +3657,31 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "I. What is VENu?\nVENu enables users to view particle detector events in
-    3D. Currently, VENu is only compatible with the MicroBooNE detector.\nVENu is
-    intended to be versatile and therefore works on desktop and mobile devices, with
-    support for augmented and virtually reality modes already in development.\n\nII.
-    Use\nTo view an event, click on either the 'Saved Events' or 'Online Events' buttons
-    on the main menu to bring up the event tabs.\nOnce in an event tab, click on any
-    of the event buttons in the tab to automatically load the event.\n- Saved events
-    are a compilation of events pre-loaded with VENu.\n- Online events are downloaded
-    from the MicroBooNE server.\n\nYou can also change options from the 'Settings'
-    tab on the main menu. The 'Particle Density' slider controls the percentage of
-    spacepoints drawn.\nIf VENu appears choppy or slow, try lowering this slider to
-    improve performance.\n\nOnce VENu has completed loading and processing the selected
-    event, you can move around the detector with any of the three control schemes
-    included.\nControl schemes can be switched from the in-game menu which is accessible
-    from the upper-left corner of the screen.\n\n1. The first control scheme uses
-    a top-down map to place the viewing position. Clicking on this map will move the
-    camera to the clicked point.\nThe view can then be oriented by dragging on the
-    screen.\n\n2. 'One Joy' mode allows the user to move in a plane with the joystick
-    drawn on-screen. The camera can be moved by dragging on the screen.\n\n3. 'Two
-    Joy' mode is the same as 'One Joy' mode, except the camera is now controlled with
-    a second joystick.\n\nIn all control schemes, the height of the camera can be
-    changed via the slider on the right side of the screen.\n\nOnce comfortable with
-    VENu's control schemes, simply open up the in-game menu and select \"next event\"
-    or \"previous event\" to cycle through the other available events.\n\nIII. Team\nVENu
+  m_Text: "<size=22><b>I. What is VENu?</b></size>\nVENu enables users to view particle
+    detector events in 3D. Currently, VENu is only compatible with the MicroBooNE
+    detector.\nVENu is intended to be versatile and therefore works on desktop and
+    mobile devices, with support for augmented and virtually reality modes already
+    in development.\n\n<size=22><b>II. Use</b></size>\nTo view an event, click on
+    either the 'Saved Events' or 'Online Events' buttons on the main menu to bring
+    up the event tabs.\nOnce in an event tab, click on any of the event buttons in
+    the tab to automatically load the event.\n- Saved events are a compilation of
+    events pre-loaded with VENu.\n- Online events are downloaded from the MicroBooNE
+    server.\n\nYou can also change options from the 'Settings' tab on the main menu.
+    The 'Particle Density' slider controls the percentage of spacepoints drawn.\nIf
+    VENu appears choppy or slow, try lowering this slider to improve performance.\n\nOnce
+    VENu has completed loading and processing the selected event, you can move around
+    the detector with any of the three control schemes included.\nControl schemes
+    can be switched from the in-game menu which is accessible from the upper-left
+    corner of the screen.\n\n1. The first control scheme uses a top-down map to place
+    the viewing position. Clicking on this map will move the camera to the clicked
+    point.\nThe view can then be oriented by dragging on the screen.\n\n2. 'One Joy'
+    mode allows the user to move in a plane with the joystick drawn on-screen. The
+    camera can be moved by dragging on the screen.\n\n3. 'Two Joy' mode is the same
+    as 'One Joy' mode, except the camera is now controlled with a second joystick.\n\nIn
+    all control schemes, the height of the camera can be changed via the slider on
+    the right side of the screen.\n\nOnce comfortable with VENu's control schemes,
+    simply open up the in-game menu and select \"next event\" or \"previous event\"
+    to cycle through the other available events.\n\n<size=22><b>III. Team</b></size>\nVENu
     was created by the following students from their corresponding institutions:\nAlistair
     McLean, New Mexico State University (USA - NM)\nBen Carls, Fermilab (USA - IL)\nGene
     Kim, Illinois Math and Science Academy (USA - IL)\nMatt Bass, Oxford University
@@ -4361,7 +4362,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1022833882}
   m_Direction: 2
   m_Value: 1
-  m_Size: .34332031
+  m_Size: .329927683
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
