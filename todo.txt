@@ -1,4 +1,20 @@
 --------------
+--   TODO   --
+--------------
+Here are some (small) features we still want to implement or change before v1.0:
+
+1. Scale track collider boxes with camera distance so that it's easier to click on tracks close up.
+2. Implement the new DrawSpacePoint.js script and fix the settings panel to have particle density settings 0, low, medium, high.
+3. Possibly add a way to rotate the detector in AR mode.
+4. AR mode should scale tracks correctly.
+5. Clean out the old code & assets, and establish a naming convention for files and variables.
+6. After step (5) is completed, add documentation so that the next group of people to work on this has a point of reference.
+7. Get at least some of the track information in (origin, nhits, length).
+8. Fix UI scaling between versions (menus are too big in standalone version).
+9. Get the damn threading code already.
+10. Fix all the known bugs
+
+--------------
 -- BUG LIST --
 --------------
 This is a list of known bugs/odd behaviors that we should fix. 
@@ -19,7 +35,7 @@ From 7/22
   (I think this happens because the camera changes, and the script doesn't 
   use the new camera as a reference anymore) [FIXED by Owen]
 + In-game menu is too big on mobile devices [FIXED by Owen
-- Tooltip scaling can be improved
++ Tooltip scaling can be improved [FIXED by Owen]
 + Clicking on the in-game menu will rotate the camera [FIXED by Owen]
 - Users can click outside of the mini map range and the camera will be moved outside the detector
 + Draw precision slider on the main menu should display whole-number percentages 
@@ -34,7 +50,7 @@ From 7/23
 - Joysticks/slider don’t block track clicks/camera positioning
 - Tracks should only highlight on tap, not on drag
 + Menu tab doesn’t block minimap clicks [FIXED by Owen]
-- Zoom sensitivity is too high
++ Zoom sensitivity is too high [FIXED by Owen]
 + Menu buttons are still too big [FIXED by Owen]
 + Trackbar slider doesn’t go to zero even when “0%” is displayed (it still works normally though) [FIXED by Owen]
 - Settings aren't saved when returning back to the main menu.
