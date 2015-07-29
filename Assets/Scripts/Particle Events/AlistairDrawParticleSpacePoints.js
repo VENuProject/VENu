@@ -10,7 +10,7 @@ var dot : GameObject;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 public var perc : int; 
-var spacePointAlgoName : String = "recob::SpacePoints_pandoraCosmicKHit_RecoStage2";
+var spacePointAlgoName : String = "recob::SpacePoints_cluster3d__RecoStage1";
 //var file1 : String = LoaderElement.GetComponent(LoaderScript).file1;
 //var file2 : String = LoaderElement.GetComponent(LoaderScript).file2;
 var fileName : String;
