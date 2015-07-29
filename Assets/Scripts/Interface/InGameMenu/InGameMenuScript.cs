@@ -74,7 +74,7 @@ public class InGameMenuScript: MonoBehaviour {
 	}
 	
 	public void ToEventMenu() {
-		Application.LoadLevel (EventMenuScene);
+		Application.LoadLevel(EventMenuScene);
 	}
 	
 	public void LoadNext(){
