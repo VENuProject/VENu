@@ -55,8 +55,8 @@ MonoBehaviour:
   objectScale: 1
   maxScale: 5
   minScale: .5
-  minDist: 6
-  maxDist: 20
+  minDist: 3
+  maxDist: 18
 --- !u!212 &21267560
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -113,11 +113,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minDist
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxDist
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
