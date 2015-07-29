@@ -22,7 +22,7 @@ var fileName : String;
 
 function Awake()
 {
-	perc = PlayerPrefs.GetInt("DrawPercentage");
+	//perc = PlayerPrefs.GetInt("DrawPercentage");
 
 	if(PlayerPrefs.HasKey("File To Load"))
 	{
@@ -96,10 +96,10 @@ function DrawSpacePoints()
 
 function Start()
 {
-	if (perc != 0) {
-	    Debug.Log(perc);
-        DrawSpacePoints();
-    }
+//	if (perc != 0) {
+//	    Debug.Log(perc);
+//        DrawSpacePoints();
+//    }
 }
 
 function OnGUI()
