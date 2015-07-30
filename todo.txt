@@ -7,7 +7,7 @@ Here are some (small) features we still want to implement or change before v1.0:
 [x] 2. Implement the new DrawSpacePoint.js script and fix the settings panel to have particle density settings 0, low, medium, high.
 [ ] 3. Possibly add a way to rotate the detector in AR mode.
 [ ] 4. AR mode should scale tracks correctly.
-[ ] 5. Clean out the old code & assets, and establish a naming convention for files and variables.
+[x] 5. Clean out the old code & assets, and establish a naming convention for files and variables.
 [ ] 6. After step (5) is completed, add documentation so that the next group of people to work on this has a point of reference.
 [ ] 7. Get at least some of the track information in (origin, nhits, length).
 [ ] 8. Fix UI scaling between versions (menus are too big in standalone version).
