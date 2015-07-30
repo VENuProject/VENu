@@ -1,6 +1,6 @@
 #pragma strict
 
-import Tooltip;
+import tooltip;
 
 var tooltipObject : GameObject;
 var tooltipParent : GameObject;
