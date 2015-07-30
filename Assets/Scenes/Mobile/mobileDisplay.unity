@@ -364,7 +364,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &115895998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,7 +1863,7 @@ Transform:
   m_Children:
   - {fileID: 204319131}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &892044047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1953,7 @@ RectTransform:
   - {fileID: 115895999}
   - {fileID: 1543008917}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3443,7 +3443,7 @@ Transform:
   - {fileID: 2077503601}
   - {fileID: 492211712}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!95 &1490643719
 Animator:
   serializedVersion: 3
@@ -4380,6 +4380,38 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &1971186148 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100028, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
+  m_PrefabInternal: {fileID: 1971186147}
+--- !u!114 &1971186149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971186148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e252befc499b0422fb717e96ae3ee48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
+  fileName: 
+--- !u!114 &1971186150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971186148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d9c2d94cae2c4e8c90fcf4e473a955b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
+  max_points: 0
+  spacePointAlgoName: recob::SpacePoints_pandoraCosmicKHit_RecoStage2
+  fileName: 
 --- !u!1001 &2025680448
 Prefab:
   m_ObjectHideFlags: 0
