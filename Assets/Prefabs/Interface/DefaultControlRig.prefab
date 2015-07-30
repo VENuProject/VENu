@@ -13,7 +13,7 @@ GameObject:
   - 92: {fileID: 9278844}
   m_Layer: 0
   m_Name: Ortho Camera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ GameObject:
   - 4: {fileID: 467344}
   - 95: {fileID: 9509774}
   m_Layer: 0
-  m_Name: Default Control Scheme
+  m_Name: DefaultControlRig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ GameObject:
   - 114: {fileID: 11414462}
   m_Layer: 0
   m_Name: Main View
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,7 +234,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294959103
+    m_Bits: 4294950911
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -255,11 +255,11 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .200000003
+    x: .300000012
     y: .800000012
-    width: .5
-    height: .899999976
-  near clip plane: 6
+    width: .400000006
+    height: .600000024
+  near clip plane: 2
   far clip plane: 50
   field of view: 60
   orthographic: 1
@@ -399,6 +399,7 @@ MonoBehaviour:
   smoothTime: .300000012
   perspectiveZoomSpeed: .5
   orthoZoomSpeed: .5
+  eventSystem: {fileID: 0}
 --- !u!114 &11418966
 MonoBehaviour:
   m_ObjectHideFlags: 1
