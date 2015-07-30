@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class OpenEventFile : MonoBehaviour {
+public class openEventFile : MonoBehaviour {
 
 	void Start () 
 	{

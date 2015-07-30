@@ -14,15 +14,15 @@ import System.IO;
 import System.Linq;
 
 var dot : GameObject;
+var maxPoints : float;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
-public var max_points : int; 
 var spacePointAlgoName : String = "recob::SpacePoints_pandoraCosmicKHit_RecoStage2";
 var fileName : String;
 
 function Awake()
 {
-	//perc = PlayerPrefs.GetInt("DrawPercentage");
+	maxPoints = PlayerPrefs.GetFloat("maxSpacePoints");
 
 	if(PlayerPrefs.HasKey("File To Load"))
 	{
@@ -73,8 +73,7 @@ function DrawSpacePoints()
     var totalPts = N["record"]["spacepoints"][spacePointAlgoName].Count;
     
     //Calculate the proper iterator so that certain points can be skipped (for performance reasons)
-    var float_max_points : float = max_points;
-    var iter : float = totalPts / float_max_points;
+    var iter : float = totalPts / maxPoints;
     //If the event has fewer points than the maximum number allowed, draw all of them.
     if (iter < 1.0) {
         iter = 1.0;

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 
-public class MouseInterface : MonoBehaviour {
+public class mouseInterface : MonoBehaviour {
 
 	public GameObject cameraMount;
 	public GameObject playerCamera;

@@ -4,7 +4,7 @@ using System.IO;
 using UnityEngine.UI;
 
 
-public class InGameMenuScript: MonoBehaviour {
+public class inGameMenuScript: MonoBehaviour {
 	
 	public string EventMenuScene;
 	

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Fading : MonoBehaviour {
+public class fading : MonoBehaviour {
 	public Texture2D fadeOutTexture;
 	public float fadeSpeed = 0.3f;
 	

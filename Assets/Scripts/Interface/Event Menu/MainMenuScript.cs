@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class MainMenuScript : MonoBehaviour {
+public class mainMenuScript : MonoBehaviour {
 
 	public GameObject savedEventPanel;
 	public GameObject webEventPanel;

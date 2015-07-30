@@ -3,7 +3,7 @@ using System.Collections;
 using UnitySampleAssets.CrossPlatformInput;
 using UnityEngine.UI;
 
-public class ControlSwitcher : MonoBehaviour {
+public class controlSwitcher : MonoBehaviour {
 	
 	public enum ControlSchemes {OneJoy, TwoJoy, Minimap, Mouse};
 	public ControlSchemes scheme;

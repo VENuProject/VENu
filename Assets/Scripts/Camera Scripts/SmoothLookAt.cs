@@ -10,7 +10,7 @@ using System.Collections;
 ///Looks at a target
 ///</summary>
 [AddComponentMenu("Camera-Control/Smooth Look At CS")]
-public class SmoothLookAt : MonoBehaviour {
+public class smoothLookAt : MonoBehaviour {
 	public Transform target;		//an Object to lock on to
 	public float damping = 6.0f;	//to control the rotation 
 	public bool smooth = true;

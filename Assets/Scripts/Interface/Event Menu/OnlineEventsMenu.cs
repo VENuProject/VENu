@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class OnlineEventsMenu : MonoBehaviour {
+public class onlineEventsMenu : MonoBehaviour {
 
     public string displayLevel;
     public GameObject EventButton;

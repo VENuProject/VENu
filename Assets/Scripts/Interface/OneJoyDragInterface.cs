@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using UnitySampleAssets.CrossPlatformInput;
 
-public class OneJoyDragInterface : MonoBehaviour {
+public class oneJoyDragInterface : MonoBehaviour {
 
 	public GameObject cameraMount;
 	public GameObject playerCamera;

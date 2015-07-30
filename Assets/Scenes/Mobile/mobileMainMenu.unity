@@ -2516,8 +2516,7 @@ RectTransform:
 --- !u!114 &443493706
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11469488, guid: a3b657e02c85c724f9e5bb1c95fb459a,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 443493704}
   m_Enabled: 1
@@ -2525,6 +2524,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a0b33d564c994f99b33071179956643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  savedEventPanel: {fileID: 1297922059}
+  webEventPanel: {fileID: 308887628}
+  settingsPanel: {fileID: 686836097}
+  aboutPanel: {fileID: 186838238}
+  exitPanel: {fileID: 1441059746}
 --- !u!114 &443493707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4087,7 +4091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df20c61872ec448cbb26ccd16bd183c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  density: 0
   txt: {fileID: 1317190918}
 --- !u!114 &1016387224
 MonoBehaviour:
