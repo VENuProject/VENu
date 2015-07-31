@@ -8,7 +8,6 @@ var loadingText : GameObject;
 
 function Start () {
 
-	Debug.Log(Time.time);
 	if(PlayerPrefs.HasKey("File To Load") && PlayerPrefs.GetString("File To Load") != "") {
         fileName = PlayerPrefs.GetString("File To Load");
     }
@@ -45,7 +44,6 @@ function Start () {
     }
     
     var node = JSONNode.Parse(jsonString);
-    Debug.Log(Time.time);
     GetComponent(DrawTracks).drawTracks(node);
     GetComponent(DrawSpacePoints).drawPoints(node);
     
