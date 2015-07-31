@@ -154,43 +154,47 @@ function drawTracksFromArray(index : int, arr : Array) {
 
 function Awake() {
 	trackAlgoName = PlayerPrefs.GetString("trackAlgorithm");
-    if(PlayerPrefs.HasKey("File To Load") && PlayerPrefs.GetString("File To Load") != "") {
-        fileName = PlayerPrefs.GetString("File To Load");
-    }
-    else {
-        Debug.Log("<color=purple>PlayerPrefs not Initialized. Using default event.</color>");
-        fileName = "prod_eminus_0.1-2.0GeV_isotropic.json";
-    }
+//    if(PlayerPrefs.HasKey("File To Load") && PlayerPrefs.GetString("File To Load") != "") {
+//        fileName = PlayerPrefs.GetString("File To Load");
+//    }
+//    else {
+//        Debug.Log("<color=purple>PlayerPrefs not Initialized. Using default event.</color>");
+//        fileName = "prod_eminus_0.1-2.0GeV_isotropic.json";
+//    }
 }
 
-function Start() {
-    //Read in from a file (different paths for different platforms)
-    var jsonString="";
+//function Start() {
+//    //Read in from a file (different paths for different platforms)
+//    var jsonString="";
+//
+////Check if the fileName is a url or a path
+//    if (fileName.Contains("http")) {
+//        var fileURL : WWW = new WWW(fileName) ; 
+//        //// Wait for the download to complete
+//        yield fileURL;
+//        jsonString = fileURL.text;
+//       }
+//    else{
+//    if (Application.platform == RuntimePlatform.Android) {
+//        var url="jar:file://" + Application.dataPath + "!/assets/" + fileName;
+//        var www : WWW = new WWW(url);
+//        yield www;
+//        jsonString = www.text;
+//    }
+//    else {
+//        var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
+//        jsonString = sr.ReadToEnd();
+//        sr.Close();
+//    }
+//    }
+//    
+//    //Filter and draw the tracks from the JSON file.
+//    //Parameter 2 is the filter threshold, and parameter 3 is the algorithm name found in the JSON file.
+//    filterJSON(JSONNode.Parse(jsonString), -1, trackAlgoName); //"recob::Tracks_cctrack__RecoStage1");
+//}
 
-//Check if the fileName is a url or a path
-    if (fileName.Contains("http")) {
-        var fileURL : WWW = new WWW(fileName) ; 
-        //// Wait for the download to complete
-        yield fileURL;
-        jsonString = fileURL.text;
-       }
-    else{
-    if (Application.platform == RuntimePlatform.Android) {
-        var url="jar:file://" + Application.dataPath + "!/assets/" + fileName;
-        var www : WWW = new WWW(url);
-        yield www;
-        jsonString = www.text;
-    }
-    else {
-        var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
-        jsonString = sr.ReadToEnd();
-        sr.Close();
-    }
-    }
-    
-    //Filter and draw the tracks from the JSON file.
-    //Parameter 2 is the filter threshold, and parameter 3 is the algorithm name found in the JSON file.
-    filterJSON(JSONNode.Parse(jsonString), -1, trackAlgoName); //"recob::Tracks_cctrack__RecoStage1");
+public function drawTracks(node : JSONNode){
+	filterJSON(node, -1, trackAlgoName);
 }
 
 function OnGUI() {

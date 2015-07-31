@@ -508,19 +508,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -420
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMin.x
@@ -528,7 +528,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.x
@@ -536,7 +536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_Pivot.x
@@ -4408,6 +4408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
   fileName: 
+  trackAlgoName: 
 --- !u!114 &1971186150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4422,6 +4423,18 @@ MonoBehaviour:
   dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
   maxPoints: 0
   spacePointAlgoName: recob::SpacePoints_pandoraCosmicKHit_RecoStage2
+  fileName: 
+--- !u!114 &1971186152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971186148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15740e82f824e411a8e58ccbb414dfe5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   fileName: 
 --- !u!1001 &2025680448
 Prefab:
@@ -4464,19 +4477,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -345
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMin.x
@@ -4484,7 +4497,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.x
@@ -4492,7 +4505,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22414640, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_Pivot.x

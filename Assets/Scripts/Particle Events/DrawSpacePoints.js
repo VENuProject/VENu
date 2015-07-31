@@ -40,35 +40,35 @@ function P( aText : String)
 	m_InGameLog += aText + "\n";
 }
 
-function DrawSpacePoints()
+function DrawSpacePoints(N : JSONNode)
 {
-    var jsonString="";
-    
-    //Check if the fileName is a url or a path
-    if (fileName.Contains("http")) {
-        var fileURL : WWW = new WWW(fileName) ; 
-        //// Wait for the download to complete
-        yield fileURL;
-        jsonString = fileURL.text;
-        Debug.Log("Made it here");
-    }
-    else{
-        if(Application.platform==RuntimePlatform.Android)
-        {
-            var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
-            Debug.Log(Application.platform+"\n"+url);
-            var www : WWW = new WWW(url);
-            yield www;
-            jsonString=www.text;
-        }
-        else
-        {
-            var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
-            jsonString = sr.ReadToEnd();
-            sr.Close();
-        }
-    }
-    var N = JSONNode.Parse(jsonString);
+//    var jsonString="";
+//    
+//    //Check if the fileName is a url or a path
+//    if (fileName.Contains("http")) {
+//        var fileURL : WWW = new WWW(fileName) ; 
+//        //// Wait for the download to complete
+//        yield fileURL;
+//        jsonString = fileURL.text;
+//        Debug.Log("Made it here");
+//    }
+//    else{
+//        if(Application.platform==RuntimePlatform.Android)
+//        {
+//            var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
+//            Debug.Log(Application.platform+"\n"+url);
+//            var www : WWW = new WWW(url);
+//            yield www;
+//            jsonString=www.text;
+//        }
+//        else
+//        {
+//            var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
+//            jsonString = sr.ReadToEnd();
+//            sr.Close();
+//        }
+//    }
+//    var N = JSONNode.Parse(jsonString);
 
     var spacePointsArray = new Array ();
     var totalPts = N["record"]["spacepoints"][spacePointAlgoName].Count;
@@ -97,8 +97,14 @@ function DrawSpacePoints()
 
 function Start()
 {
+//	if(maxPoints != 0){
+//		DrawSpacePoints();
+//	}
+}
+
+public function drawPoints(node : JSONNode){
 	if(maxPoints != 0){
-		DrawSpacePoints();
+		DrawSpacePoints(node);
 	}
 }
 
