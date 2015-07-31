@@ -22,7 +22,8 @@ var fileName : String;
 
 function Awake()
 {
-	maxPoints = PlayerPrefs.GetFloat("maxSpacePoints");
+	maxPoints = PlayerPrefs.GetInt("maxSpacePoints");
+	spacePointAlgoName = PlayerPrefs.GetString("pointAlgorithm");
 
 	if(PlayerPrefs.HasKey("File To Load"))
 	{
@@ -91,14 +92,14 @@ function DrawSpacePoints()
     	clone.gameObject.layer = 10;
 	    spacePointsArray.Push(clone);	
     }
+    Debug.Log(spacePointsArray.length);
 }
 
 function Start()
 {
-//	if (perc != 0) {
-//	    Debug.Log(perc);
-//        DrawSpacePoints();
-//    }
+	if(maxPoints != 0){
+		DrawSpacePoints();
+	}
 }
 
 function OnGUI()

@@ -12,6 +12,7 @@ var dot : GameObject;
 var fileName : String;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
+var trackAlgoName : String;
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
@@ -152,6 +153,7 @@ function drawTracksFromArray(index : int, arr : Array) {
 }
 
 function Awake() {
+	trackAlgoName = PlayerPrefs.GetString("trackAlgorithm");
     if(PlayerPrefs.HasKey("File To Load") && PlayerPrefs.GetString("File To Load") != "") {
         fileName = PlayerPrefs.GetString("File To Load");
     }
@@ -188,7 +190,7 @@ function Start() {
     
     //Filter and draw the tracks from the JSON file.
     //Parameter 2 is the filter threshold, and parameter 3 is the algorithm name found in the JSON file.
-    filterJSON(JSONNode.Parse(jsonString), -1, "recob::Tracks_cctrack__RecoStage1");
+    filterJSON(JSONNode.Parse(jsonString), -1, trackAlgoName); //"recob::Tracks_cctrack__RecoStage1");
 }
 
 function OnGUI() {

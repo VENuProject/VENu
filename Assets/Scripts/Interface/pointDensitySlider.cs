@@ -13,33 +13,60 @@ public class pointDensitySlider : MonoBehaviour {
 
 	int density;
 	public Text txt;
+	public Slider slide;
+	public const int lowPoints = 500;
+	public const int medPoints = 1500;
+	public const int highPoints = 3000;
 
 	void Start () {
+		if(slide == null)
+			slide = GetComponent<Slider>();
+
+		if(PlayerPrefs.GetInt("maxSpacePoints") != null){
+			int max = PlayerPrefs.GetInt("maxSpacePoints");
+			switch(max){
+			case 0:
+				slide.value = 0;
+				break;
+			case lowPoints:
+				slide.value = 1;
+				break;
+			case medPoints:
+				slide.value = 2;
+				break;
+			case highPoints:
+				slide.value = 3;
+				break;
+			default:
+				slide.value = 2;
+				break;
+			}
+		}
 		UpdateDensity();
 	}
 
 	public void UpdateDensity(){
-		density = (int)GetComponent<Slider>().value;
+		density = (int)slide.value;
 		switch(density){
 		case 0:
 			txt.text = "None";
-			PlayerPrefs.SetFloat("maxSpacePoints", 0f);
+			PlayerPrefs.SetInt("maxSpacePoints", 0);
 			break;
 		case 1:
 			txt.text = "Low";
-			PlayerPrefs.SetFloat("maxSpacePoints", 500f);
+			PlayerPrefs.SetInt("maxSpacePoints", lowPoints);
 			break;
 		case 2:
 			txt.text = "Medium";
-			PlayerPrefs.SetFloat("maxSpacePoints", 1500f);
+			PlayerPrefs.SetInt("maxSpacePoints", medPoints);
 			break;
 		case 3:
 			txt.text = "High";
-			PlayerPrefs.SetFloat("maxSpacePoints", 3000f);
+			PlayerPrefs.SetInt("maxSpacePoints", highPoints);
 			break;
 		default:
 			txt.text = "???";
-			PlayerPrefs.SetFloat("maxSpacePoints", 0f);
+			PlayerPrefs.SetInt("maxSpacePoints", 0);
 			break;
 		}
 	}
