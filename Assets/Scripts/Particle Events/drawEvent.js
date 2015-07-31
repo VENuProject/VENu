@@ -1,8 +1,10 @@
 ﻿#pragma strict
 
 import SimpleJSON;
+import UnityEngine.UI;
 
 var fileName : String;
+var loadingText : GameObject;
 
 function Start () {
 
@@ -19,11 +21,15 @@ function Start () {
 
 	//Check if the fileName is a url or a path
     if (fileName.Contains("http")) {
+    	
         var fileURL : WWW = new WWW(fileName) ; 
         //// Wait for the download to complete
+        loadingText.SetActive(true);
         yield fileURL;
         jsonString = fileURL.text;
-       }
+        loadingText.SetActive(false);
+        
+    }
     else{
     	if (Application.platform == RuntimePlatform.Android) {
     	    var url="jar:file://" + Application.dataPath + "!/assets/" + fileName;
