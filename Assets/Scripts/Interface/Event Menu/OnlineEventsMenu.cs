@@ -42,7 +42,6 @@ public class onlineEventsMenu : MonoBehaviour {
             }
             buttons[particle] = partButtons;
 		}
-        //ShowElectronEvents();
 		argoTest = new WWW(argoTestUrl);
 		timeTestStarted = Time.time;
 		isConnected = false;
@@ -61,6 +60,7 @@ public class onlineEventsMenu : MonoBehaviour {
 					Debug.Log ("connected to Argo!");
 					disconnectPanel.SetActive(false);
 					connectedPanel.SetActive(true);
+					ShowElectronEvents();
 				}
 			}
 			else{
