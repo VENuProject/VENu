@@ -14,19 +14,24 @@ public class onlineEventsMenu : MonoBehaviour {
     int[][] url5Array = {new int[]{0,2,3,4,5}, new int[]{0,1,2,3,4}, new int[]{1,3,4,5,6}, new int[]{0,1,3,4,5}, new int[]{0,2,3,4,5}};
     string url6 = "%252Fprod_*&options=_NoPreSpill_NoPostSpill__NORAW__NOCAL_";
     string[][] buttons;
+
+	WWW argoTest;
+	public string argoTestUrl;
+	public float argoTimeout;
+	float timeTestStarted;
+	bool isTrying;
+	bool isConnected;
+	public GameObject connectedPanel;
+	public GameObject disconnectPanel;
 	
 	void Start(){
 
         #if MOBILE_INPUT
-        
         buttonsGroup.GetComponent<GridLayoutGroup>().cellSize = new Vector2(120f, 120f);
         buttonsGroup.GetComponent<GridLayoutGroup>().spacing = new Vector2(8, 8);
-        
         #else
-        
         buttonsGroup.GetComponent<GridLayoutGroup>().cellSize = new Vector2(75f, 75f);
         buttonsGroup.GetComponent<GridLayoutGroup>().spacing = new Vector2(8, 8);
-        
         #endif
 
         buttons = new string[url2Array.Length][];
@@ -36,19 +41,34 @@ public class onlineEventsMenu : MonoBehaviour {
                 partButtons[evn] =  url1 + url2Array[particle] + url3 + url4Array[particle] + url5Array[particle][evn] + url6 ;
             }
             buttons[particle] = partButtons;
-        }
-
-        ShowElectronEvents();
-
+		}
+        //ShowElectronEvents();
+		argoTest = new WWW(argoTestUrl);
+		timeTestStarted = Time.time;
+		isConnected = false;
+		isTrying = true;
+		disconnectPanel.SetActive(true);
+		connectedPanel.SetActive(false);
+		Debug.Log ("Trying to reach Argo...");
 	}
 
-//	void HidePanels(){
-//		electronPanel.SetActive(false);
-//		pi0Panel.SetActive(false);
-//		protonPanel.SetActive(false);
-//		muminusPanel.SetActive(false);
-//		gammaPanel.SetActive(false);
-//	}
+	void FixedUpdate(){
+		if(isTrying){
+			if(Time.time - timeTestStarted <= argoTimeout){
+				if(argoTest.isDone && string.IsNullOrEmpty(argoTest.error)){
+					isConnected = true;
+					isTrying = false;
+					Debug.Log ("connected to Argo!");
+					disconnectPanel.SetActive(false);
+					connectedPanel.SetActive(true);
+				}
+			}
+			else{
+				isTrying = false;
+				Debug.Log("Argo timed out!");
+			}
+		}
+	}
 
     void ClearButtons(){
         for(int i=0; i<buttonsGroup.transform.childCount; i++)
@@ -89,7 +109,7 @@ public class onlineEventsMenu : MonoBehaviour {
         GameObject newButton;
         newButton = Instantiate(EventButton);
         newButton.transform.SetParent(buttonsGroup.transform, false);
-        newButton.SendMessage("SetData", file);
+          newButton.SendMessage("SetData", file);
         newButton.SendMessage("SetLevelToLoad", displayLevel);
         string[] btntxt = file.Split(new string[]{url1, url3, url6}, System.StringSplitOptions.RemoveEmptyEntries);
         string txt = string.Empty;
