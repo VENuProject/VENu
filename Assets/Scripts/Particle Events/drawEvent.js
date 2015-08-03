@@ -44,8 +44,8 @@ function Start () {
     }
     
     var node = JSONNode.Parse(jsonString);
-    GetComponent(DrawTracks).drawTracks(node);
-    GetComponent(DrawSpacePoints).drawPoints(node);
+    GetComponent(drawTracks).drawTracks(node);
+    GetComponent(drawSpacePoints).drawPoints(node);
     
 }
 

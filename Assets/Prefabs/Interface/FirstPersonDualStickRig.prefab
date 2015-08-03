@@ -358,7 +358,7 @@ MonoBehaviour:
   m_MinValue: -.699999988
   m_MaxValue: 1.10000002
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: .0700000003
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -778,7 +778,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Value
+      value: .0700000003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 134984}

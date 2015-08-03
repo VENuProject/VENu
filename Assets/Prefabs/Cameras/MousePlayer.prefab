@@ -116,11 +116,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 136400}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f741b1a4140bd43c2bd95ce702996fa7, type: 3}
+  m_Script: {fileID: 11500000, guid: da0d7c312adf7436a99b88b944aa2ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMount: {fileID: 136400}
-  playerCamera: {fileID: 174170}
+  playerCamera: {fileID: 0}
   mouseSensitivity: 0
   moveSpeed: 0
   height: 0
@@ -155,7 +155,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: cameraMount
+      value: 
+      objectReference: {fileID: 136400}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 136400}
