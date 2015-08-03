@@ -36,10 +36,22 @@ function OnMouseDown () {
 }
 
 function getInfo () {
-    var nHits : int = gameObject.transform.parent.childCount + 1;
-    var origin : Vector3 = gameObject.transform.parent.GetChild(0).position;
+    var nHits : int = gameObject.transform.parent.childCount;
+    //var origin : Vector3 = gameObject.transform.parent.GetChild(0).position;
+    var length : float = 0f;
     
-    var v = values(gameObject.transform.parent.name, 0f, 0f, 0f, 0f, 0f, 0f, origin.ToString(), nHits);
+    var seg : GameObject = gameObject.transform.parent.GetChild(0).gameObject;
+    var bc = seg.GetComponent.<BoxCollider>();
+     
+    //origin = seg.transform.position + (seg.transform.rotation.eulerAngles * bc.size.z / 2f);
+    
+    for (var i : int = 0; i < nHits; i++) {
+        seg = gameObject.transform.parent.GetChild(i).gameObject;
+        bc = seg.GetComponent.<BoxCollider>();
+        length += bc.size.z;
+    }
+    
+    var v = values(gameObject.transform.parent.name, 0f, 0f, Mathf.Round(length * 100) / 100, 0f, 0f, 0f, origin.ToString(), nHits + 1);
     
     return v;
     
