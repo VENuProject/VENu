@@ -41,4 +41,4 @@ From 7/23
 + Settings aren't saved when returning back to the main menu. [FIXED by Owen]
 
 From 8/3
-- Dragging down to rotate the camera up in minimap mode is not locked between values, so users have to drag up a bunch of times before the camera will move down again.
++ Dragging down to rotate the camera up in minimap mode is not locked between values, so users have to drag up a bunch of times before the camera will move down again. [FIXED by Thomas]
