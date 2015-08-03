@@ -14,6 +14,7 @@ Here are some (small) features we still want to implement or change before v1.0:
 [ ] 9. Get the damn threading code already.
 [ ] 10. Fix all the known bugs
 [x] 11. Deal with events that don’t use the regular algorithm. Maybe add an algorithm choice in settings?
+[ ] 12. Fix Android hard-coded elements.
 
 --------------
 -- BUG LIST --
