@@ -55,7 +55,9 @@ function LateUpdate () { if (target)
 	else {
 		
 	}
-	
+	//Make sure y doesn't repeatedly add to itself.
+	y = Mathf.Clamp(y, yMinLimit, yMaxLimit);
+
 	xSmooth = Mathf.SmoothDamp(xSmooth, x, xVelocity, smoothTime);
     ySmooth = Mathf.SmoothDamp(ySmooth, y, yVelocity, smoothTime);
     ySmooth = ClampAngle(ySmooth, yMinLimit, yMaxLimit);
@@ -67,6 +69,7 @@ function LateUpdate () { if (target)
 	posSmooth = target.position;
 	
 	transform.position = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
+	
  }
 }
 

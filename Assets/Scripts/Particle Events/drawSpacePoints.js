@@ -92,7 +92,7 @@ function DrawSpacePoints(N : JSONNode)
     	clone.gameObject.layer = 10;
 	    spacePointsArray.Push(clone);	
     }
-    Debug.Log(spacePointsArray.length);
+  
 }
 
 function Start()
