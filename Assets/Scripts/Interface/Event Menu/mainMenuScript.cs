@@ -10,8 +10,17 @@ public class mainMenuScript : MonoBehaviour {
 	public GameObject aboutPanel;
 	public GameObject exitPanel;
 
+	public GameObject buttonPanel;
+	public GameObject ARButton;
+
 
 	void Start(){
+
+#if MOBILE_INPUT
+		ARButton.SetActive(true);
+#else
+		ARButton.SetActive(false);
+#endif
 		HidePanels();
 		ShowSavedEvents();
 	}

@@ -2590,6 +2590,8 @@ MonoBehaviour:
   settingsPanel: {fileID: 686836097}
   aboutPanel: {fileID: 186838238}
   exitPanel: {fileID: 1441059746}
+  buttonPanel: {fileID: 1987703485}
+  ARButton: {fileID: 1268548582}
 --- !u!114 &443493707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7412,7 +7414,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1595871472}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
