@@ -24,9 +24,7 @@ function OnMouseDown () {
         ln.SetColors(Color.red, Color.yellow);
         gameObject.transform.parent.tag = "trackSelected";  
        // var obj = GameObject.Find("ToolTip");
-        var v = values(gameObject.transform.parent.name, 
-            9.9, 9.9, 9.9, 9.9, 
-            9.9, 9.9, 9.9, 9.9);
+        var v = getInfo();
         tooltipObject.SendMessage("DispText", v);
         tooltipObject.transform.position.x = Screen.width / 2.0;
         tooltipObject.transform.position.y = tooltipObject.GetComponent(RectTransform).rect.height / 2;
@@ -35,6 +33,16 @@ function OnMouseDown () {
     else {
         Deselect();
     }
+}
+
+function getInfo () {
+    var nHits : int = gameObject.transform.parent.childCount;
+    var origin : Vector3 = gameObject.transform.parent.GetChild(0).position;
+    
+    var v = values(gameObject.transform.parent.name, 0f, 0f, 0f, 0f, 0f, 0f, origin.ToString(), nHits);
+    
+    return v;
+    
 }
 
 function Update () {

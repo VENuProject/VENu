@@ -42,6 +42,8 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
     var drawnPoints : int = 0;
     var totalTracks : int = N["record"]["tracks"][trackAlgoName].Count;
     
+    Debug.Log("Made it!");
+    
     //Loop over tracks: Decide which points to draw, then draw points and connection lines.
     for (var trackIndex : int = 0; trackIndex < totalTracks; trackIndex++) {   
         //Stores the points to be drawn
@@ -194,7 +196,7 @@ function Awake() {
 //}
 
 public function drawTracks(node : JSONNode){
-	filterJSON(node, -1, trackAlgoName);
+    filterJSON(node, -1, trackAlgoName);
 }
 
 function OnGUI() {

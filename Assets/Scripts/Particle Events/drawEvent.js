@@ -1,4 +1,9 @@
-﻿#pragma strict
+﻿//  ----------------
+//  - drawEvent.js -
+//  ----------------
+//  Parses the JSON files and then calls the drawTracks and drawSpacepoint scripts.
+
+#pragma strict
 
 import SimpleJSON;
 import UnityEngine.UI;
@@ -44,6 +49,7 @@ function Start () {
     }
     
     var node = JSONNode.Parse(jsonString);
+    //Call the draw functions in the other scripts
     GetComponent(drawTracks).drawTracks(node);
     GetComponent(drawSpacePoints).drawPoints(node);
     
