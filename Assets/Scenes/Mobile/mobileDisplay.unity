@@ -4451,6 +4451,14 @@ Prefab:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
   m_IsPrefabParent: 0
@@ -4487,6 +4495,10 @@ MonoBehaviour:
   maxPoints: 0
   spacePointAlgoName: recob::SpacePoints_pandoraCosmicKHit_RecoStage2
   fileName: 
+--- !u!1 &1971186151 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100026, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
+  m_PrefabInternal: {fileID: 1971186147}
 --- !u!114 &1971186152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4500,6 +4512,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: 
   loadingText: {fileID: 1362983925}
+--- !u!1 &1971186153 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100008, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
+  m_PrefabInternal: {fileID: 1971186147}
+--- !u!1 &1971186154 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100006, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
+  m_PrefabInternal: {fileID: 1971186147}
+--- !u!1 &1971186155 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: 6752ea079210d7c4bb4ed8a32d7b8ac4, type: 3}
+  m_PrefabInternal: {fileID: 1971186147}
+--- !u!114 &1971186156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1971186151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8029cda08d96e4528ae19783ab25ff4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldCage: {fileID: 1971186153}
+  feedthrough1: {fileID: 1971186155}
+  feedthrough2: {fileID: 1971186154}
 --- !u!1001 &2025680448
 Prefab:
   m_ObjectHideFlags: 0
@@ -5451,7 +5489,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 175586, guid: 18597f2f5de62c34ca17b142d8f0ae54, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22442612, guid: 18597f2f5de62c34ca17b142d8f0ae54, type: 2}
       propertyPath: m_AnchorMin.x
