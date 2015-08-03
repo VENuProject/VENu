@@ -73,7 +73,7 @@ function LateUpdate () { if (target)
 function Update()
 {
     // If there are two touches on the device...
-    if (Input.touchCount == 2)
+    if (Input.touchCount == 2 && eventSystem.IsPointerOverGameObject(0) == false && eventSystem.IsPointerOverGameObject(1) == false)
     {
         // Store both touches.
         var touchZero = Input.GetTouch(0);
