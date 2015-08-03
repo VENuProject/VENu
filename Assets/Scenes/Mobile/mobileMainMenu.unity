@@ -282,26 +282,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor:
-      r: 1
-      g: 1
-      b: 1
-      a: 1
-    m_HighlightedColor:
-      r: .960784316
-      g: .960784316
-      b: .960784316
-      a: 1
-    m_PressedColor:
-      r: .784313738
-      g: .784313738
-      b: .784313738
-      a: 1
-    m_DisabledColor:
-      r: .784313738
-      g: .784313738
-      b: .784313738
-      a: .501960814
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:
@@ -323,7 +307,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: 556e697479456e67696e652e55492e5363726f6c6c6261722b5363726f6c6c4576656e742c20556e697479456e67696e652e55492c2056657273696f6e3d312e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d6e756c6c
+    m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &99634740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5220,26 +5205,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor:
-      r: 1
-      g: 1
-      b: 1
-      a: 1
-    m_HighlightedColor:
-      r: .960784316
-      g: .960784316
-      b: .960784316
-      a: 1
-    m_PressedColor:
-      r: .784313738
-      g: .784313738
-      b: .784313738
-      a: 1
-    m_DisabledColor:
-      r: .784313738
-      g: .784313738
-      b: .784313738
-      a: .501960814
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:
@@ -5261,7 +5230,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: 556e697479456e67696e652e55492e5363726f6c6c6261722b5363726f6c6c4576656e742c20556e697479456e67696e652e55492c2056657273696f6e3d312e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d6e756c6c
+    m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1192336825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7361,26 +7331,10 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor:
-      r: 1
-      g: 1
-      b: 1
-      a: 1
-    m_HighlightedColor:
-      r: .960784316
-      g: .960784316
-      b: .960784316
-      a: 1
-    m_PressedColor:
-      r: .784313738
-      g: .784313738
-      b: .784313738
-      a: 1
-    m_DisabledColor:
-      r: .784313738
-      g: .784313738
-      b: .784313738
-      a: .501960814
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
+    m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
   m_SpriteState:
@@ -7396,13 +7350,14 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1595871472}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: 556e697479456e67696e652e55492e5363726f6c6c6261722b5363726f6c6c4576656e742c20556e697479456e67696e652e55492c2056657273696f6e3d312e302e302e302c2043756c747572653d6e65757472616c2c205075626c69634b6579546f6b656e3d6e756c6c
+    m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1595871472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7614,7 +7569,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 245.979996, y: 231.839996}
+  m_AnchoredPosition: {x: -112, y: 204.089996}
   m_SizeDelta: {x: 289, y: 101.790001}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1656647664
@@ -7630,7 +7585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 074ae192a8e8446e4b7befb8223a2b2e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f655691d0230d4468acc468c428b865f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
