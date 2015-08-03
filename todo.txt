@@ -9,7 +9,7 @@ Here are some (small) features we still want to implement or change before v1.0:
 [ ] 4. AR mode should scale tracks correctly.
 [x] 5. Clean out the old code & assets, and establish a naming convention for files and variables.
 [ ] 6. After step (5) is completed, add documentation so that the next group of people to work on this has a point of reference.
-[ ] 7. Get at least some of the track information in (origin, nhits, length).
+[x] 7. Get at least some of the track information in (origin, nhits, length).
 [ ] 8. Fix UI scaling between versions (menus are too big in standalone version).
 [ ] 9. Get the damn threading code already.
 [ ] 10. Fix all the known bugs
@@ -37,4 +37,7 @@ From 7/22
 From 7/23
 - Joysticks/slider don’t block track clicks/camera positioning
 - Tracks should only highlight on tap, not on drag
-- Settings aren't saved when returning back to the main menu.
++ Settings aren't saved when returning back to the main menu. [FIXED by Owen]
+
+From 8/3
+- Dragging down to rotate the camera up in minimap mode is not locked between values, so users have to drag up a bunch of times before the camera will move down again.
