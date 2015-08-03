@@ -54,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectScale: 1
   maxScale: 5
-  minScale: .5
+  minScale: .800000012
   minDist: 6
   maxDist: 18
 --- !u!212 &21267560
@@ -101,7 +101,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: minScale
-      value: .5
+      value: .800000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: objectScale
