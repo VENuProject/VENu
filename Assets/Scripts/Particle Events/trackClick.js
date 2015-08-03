@@ -36,7 +36,7 @@ function OnMouseDown () {
 }
 
 function getInfo () {
-    var nHits : int = gameObject.transform.parent.childCount;
+    var nHits : int = gameObject.transform.parent.childCount + 1;
     var origin : Vector3 = gameObject.transform.parent.GetChild(0).position;
     
     var v = values(gameObject.transform.parent.name, 0f, 0f, 0f, 0f, 0f, 0f, origin.ToString(), nHits);
