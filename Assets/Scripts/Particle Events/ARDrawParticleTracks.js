@@ -11,6 +11,7 @@ import UnityEngine.UI;
 
 var dot : GameObject;
 var fileName : String;
+var parnt : GameObject;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 public var slidr : Slider;
@@ -72,6 +73,7 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
             0.1*scalingFactor*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][1].AsFloat,
            -0.1*scalingFactor*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][2].AsFloat);
               
+            
         //Always include the first point
         spacePointsArray.Push(pt1); 
    
@@ -120,7 +122,7 @@ function drawTracksFromArray(index : int, arr : Array) {
     lr.SetWidth(0.05, 0.05);
     lr.SetColors(Color.cyan, Color.cyan); 
     lr.gameObject.layer = 11;
-
+	lr.transform.parent = parnt.transform;
     var pt0 : Vector3 = arr[0];
     
     lr.SetVertexCount(arr.length);
