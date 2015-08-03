@@ -11,11 +11,11 @@ public class values {
 	public var range : float;
 	public var pida : float;
 	public var idtruth : float;
-	public var origin : float;
-	public var nhits : float;
+	public var origin : String;
+	public var nhits : int;
 	
 	public function values(name:String, phi:float, theta:float, length:float, 
-			range:float, pida:float, idtruth:float, origin:float, nhits:float){
+			range:float, pida:float, idtruth:float, origin:String, nhits:int){
 		this.name = name;
 		this.phi = phi;
 		this.theta = theta;
@@ -41,9 +41,12 @@ function Start () {
 
 public function DispText(v : values){
 	title.text = v.name;
-	c1.text = "Phi: " + v.phi + "\n" + "Theta: " + v.theta + "\n" + "Length: " + v.length;
-	c2.text = "Range: " + v.range + "\n" + "PIDA: " + v.pida + "\n" + "IDTruth: " + v.idtruth;
-	c3.text = "Origin: " + v.origin + "\n" + "NHits: " + v.nhits;
+	c1.text = "Hits: " + v.nhits + "\n" + "Origin: " + v.origin.ToString() + "\n" + "Length: " + v.length + "[m]";
+	c2.text = "";
+	c3.text = "";
+	//c1.text = "Phi: " + v.phi + "\n" + "Theta: " + v.theta + "\n" + "Length: " + v.length;
+	//c2.text = "Range: " + v.range + "\n" + "PIDA: " + v.pida + "\n" + "IDTruth: " + v.idtruth;
+	//c3.text = "Origin: " + v.origin + "\n" + "NHits: " + v.nhits;
 	gameObject.SetActive(true);
 }
 
