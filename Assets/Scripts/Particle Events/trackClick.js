@@ -37,13 +37,16 @@ function OnMouseDown () {
 
 function getInfo () {
     var nHits : int = gameObject.transform.parent.childCount;
-    //var origin : Vector3 = gameObject.transform.parent.GetChild(0).position;
+    var origin : Vector3 = gameObject.transform.parent.GetChild(0).position;
     var length : float = 0f;
     
     var seg : GameObject = gameObject.transform.parent.GetChild(0).gameObject;
     var bc = seg.GetComponent.<BoxCollider>();
+    
+    var unitRotation : Vector3 = Vector3.Normalize(seg.transform.rotation.eulerAngles);
      
-    //origin = seg.transform.position + (seg.transform.rotation.eulerAngles * bc.size.z / 2f);
+    origin -= seg.transform.forward *  bc.size.z / 2f;
+    //seg.transform.position - (unitRotation * bc.size.z / 2f);
     
     for (var i : int = 0; i < nHits; i++) {
         seg = gameObject.transform.parent.GetChild(i).gameObject;

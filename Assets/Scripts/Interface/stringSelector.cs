@@ -12,9 +12,22 @@ public class stringSelector : MonoBehaviour {
 	void Start () {
 		updateString();
 	}
-	
+
+	string parseAlgo(string algo) {
+
+		string newAlgo = "";
+
+		string[] words = algo.Split(new char[] {'_'}, System.StringSplitOptions.RemoveEmptyEntries);
+		for (int i = 1; i < words.Length; i++) {
+			newAlgo += words[i] + "\n";
+		}
+		newAlgo = newAlgo.Remove(newAlgo.Length - 1);
+
+		return newAlgo;
+	}
+
 	void updateString(){
-		display.text = items[currentItem];
+		display.text = parseAlgo(items[currentItem]);
 		PlayerPrefs.SetString(playerPrefsString, items[currentItem]);
 	}
 
