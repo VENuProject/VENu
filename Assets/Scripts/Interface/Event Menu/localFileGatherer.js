@@ -19,10 +19,11 @@ function Start () {
 
 		//until I can get this working on android, hardcoded for now
 
-		AddButton("prod" + "\n" + "bnblike" + "\n" + "proton" + "\n" + "uboone", "prod_bnblike_proton_uboone.json");
-        AddButton("prod" + "\n" + "eminus" + "\n" + "0.1-2.0GeV" + "\n" + "isotropic", "prod_eminus_0.1-2.0GeV_isotropic.json");
-        AddButton("prod" + "\n" + "eminus" + "\n" + "0.5-5.0GeV" + "\n" + "5degf" + "\n" + "uboone", "prod_eminus_0.5-5.0GeV_25degf_uboone.json");
-        AddButton("prodgenie" + "\n" + "bnb" + "\n" + "intrinsic" + "\n" + "nue" + "\n" + "uboone", "prodgenie_bnb_intrinsic_nue_uboone.json");
+//		AddButton("prod" + "\n" + "bnblike" + "\n" + "proton" + "\n" + "uboone", "prod_bnblike_proton_uboone.json");
+//        AddButton("prod" + "\n" + "eminus" + "\n" + "0.1-2.0GeV" + "\n" + "isotropic", "prod_eminus_0.1-2.0GeV_isotropic.json");
+//        AddButton("prod" + "\n" + "eminus" + "\n" + "0.5-5.0GeV" + "\n" + "5degf" + "\n" + "uboone", "prod_eminus_0.5-5.0GeV_25degf_uboone.json");
+//        AddButton("prodgenie" + "\n" + "bnb" + "\n" + "intrinsic" + "\n" + "nue" + "\n" + "uboone", "prodgenie_bnb_intrinsic_nue_uboone.json");
+		AddButton("prod_bnblike_proton_uboone.json", 2);
 	}
 	else {
 	
@@ -31,16 +32,18 @@ function Start () {
 		var dir = new DirectoryInfo(jsonFilesPath);
 		var filesInfo = dir.GetFiles("*.json");
 		for (file in filesInfo) {
-		    var words = file.Name.Split("_"[0]);
-		    var btnText : String;
-		    for (word in words) {
-		        if (!word.Contains(".json")) {
-		            btnText += word + "\n";
-		        }
-                
-		    }
-            btnText = btnText.Substring(0, btnText.Length - 1);
-			AddButton(btnText, file.Name);
+//		    var words = file.Name.Split("_"[0]);
+//		    var btnText : String;
+//		    for (word in words) {
+//		        if (!word.Contains(".json")) {
+//		            btnText += word + "\n";
+//		        }
+//                
+//		    }
+            //btnText = btnText.Substring(0, btnText.Length - 1);
+			//AddButton(btnText, file.Name);
+			AddButton(file.Name, file.Length / 1000000f);
+			
 	    }
 		Debug.Log("found " + filesInfo.Length + " json files");
 	}
@@ -59,13 +62,18 @@ function Start () {
 	
 }
 
-function AddButton (text : String, file : String){
+function AddButton (file : String, size : float){
+	
 	var newButton : GameObject;
-	newButton = Instantiate(EventButton);
-	newButton.transform.SetParent(ButtonsGroup.transform, false);
-	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = text;
-	newButton.GetComponent(eventButtonScript).fileName = file;
-	newButton.GetComponent(eventButtonScript).levelToLoad = displayLevel;
-	//custom graphics for each file?
-	//other button customization?
+    newButton = Instantiate(EventButton);
+    newButton.transform.SetParent(ButtonsGroup.transform, false);
+    newButton.SendMessage("SetData", file);
+    newButton.SendMessage("SetLevelToLoad", displayLevel);
+    var words = file.Split("_"[0]);
+    var btnText : String;
+    for (word in words)
+        if (!word.Contains(".json"))
+            btnText += word + "\n";
+    newButton.SendMessage("SetText", btnText);
+	newButton.SendMessage("SetFileSize", size);
 }

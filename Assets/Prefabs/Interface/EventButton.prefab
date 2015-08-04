@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 7fd6489c46f4cb54ca29dc66bd9e86df, type: 3}
+  m_Color: {r: .268166065, g: .279288173, b: .29411763, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 869a7ef6a773244c28f58cc81ce4fa47, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: 
   levelToLoad: 
+  sizeMax: 8
 --- !u!222 &22207632
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -257,6 +258,91 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_FontData.m_Alignment
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 869a7ef6a773244c28f58cc81ce4fa47,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Color.r
+      value: .268166065
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.g
+      value: .279288173
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.b
+      value: .29411763
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sizeMin
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sizeMax
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: smallColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: smallColor.g
+      value: .279411793
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: smallColor.b
+      value: .0597362965
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: smallColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: medColor.r
+      value: .41911763
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: medColor.g
+      value: .407555759
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: medColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: medColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: largeColor.r
+      value: .345588207
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: largeColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: largeColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: largeColor.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

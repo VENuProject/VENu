@@ -78,43 +78,45 @@ public class onlineEventsMenu : MonoBehaviour {
 	public void ShowElectronEvents(){
         ClearButtons();
         foreach(string file in buttons[0])
-            AddButton(file);
+            AddButton(file, 0);
 	}
 	
 	public void ShowPi0Events(){
         ClearButtons();
         foreach(string file in buttons[1])
-            AddButton(file);
+            AddButton(file, 0);
 	}
 
 	public void ShowProtonEvents(){
         ClearButtons();
         foreach(string file in buttons[2])
-            AddButton(file);
+            AddButton(file, 0);
 	}
 	
 	public void ShowMuminusEvents(){
         ClearButtons();
         foreach(string file in buttons[3])
-            AddButton(file);
+            AddButton(file, 0);
 	}
 	
 	public void ShowGammaEvents(){
         ClearButtons();
         foreach(string file in buttons[4])
-            AddButton(file);
+            AddButton(file, 0);
 	}
 
-    void AddButton (string file){
+    void AddButton (string file, float size){
         GameObject newButton;
         newButton = Instantiate(EventButton);
         newButton.transform.SetParent(buttonsGroup.transform, false);
-          newButton.SendMessage("SetData", file);
+        newButton.SendMessage("SetData", file);
         newButton.SendMessage("SetLevelToLoad", displayLevel);
         string[] btntxt = file.Split(new string[]{url1, url3, url6}, System.StringSplitOptions.RemoveEmptyEntries);
         string txt = string.Empty;
         foreach(string t in btntxt)
             txt += t;
         newButton.SendMessage("SetText", txt);
-    }
+		newButton.SendMessage("SetFileSize", size);
+    }	
+	
 }

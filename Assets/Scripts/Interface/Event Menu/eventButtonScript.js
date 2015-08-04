@@ -4,6 +4,11 @@ import UnityEngine.UI;
 
 var fileName : String;
 public var levelToLoad : String;
+//public var sizeMin : float;
+public var sizeMax : float;
+//public var smallColor : Color;
+//public var medColor : Color;
+//public var largeColor : Color;
 
 public function OnClick(){
 
@@ -23,5 +28,18 @@ public function SetLevelToLoad(level : String){
 
 public function SetText(txt : String){
     GetComponentInChildren(Text).text = txt;
+}
+
+public function SetFileSize(size : float){
+//	if(size <= sizeMin)
+//		GetComponent(Button).image.color = smallColor;
+//	else if(size >= sizeMax)
+//		GetComponent(Button).image.color = largeColor;
+//	else
+//		GetComponent(Button).image.color = medColor;
+	if(size > sizeMax){
+		gameObject.SetActive(false);
+	}
+
 }
 
