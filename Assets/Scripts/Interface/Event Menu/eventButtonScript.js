@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 import UnityEngine.UI;
-import UnityEngine.iOS;
+//import UnityEngine.iOS;
 var fileName : String;
 public var levelToLoad : String;
 //public var sizeMin : float;
@@ -9,23 +9,23 @@ public var sizeMax : float;
 //public var smallColor : Color;
 //public var medColor : Color;
 //public var largeColor : Color;
-var oldDevices  : ArrayList = new ArrayList([DeviceGeneration.iPhone, DeviceGeneration.iPhone3G, DeviceGeneration.iPhone3GS, 
+//var oldDevices  : ArrayList = new ArrayList([DeviceGeneration.iPhone, DeviceGeneration.iPhone3G, DeviceGeneration.iPhone3GS, 
 	DeviceGeneration.iPhone4, DeviceGeneration.iPhone4S]);
 
 function Start(){
 	sizeMax = 10f;
-#if UNITY_IOS
-	if(Application.platform == RuntimePlatform.IPhonePlayer){
-		if(oldDevices.Contains(Device.generation)){
-			sizeMax = 6f;
-		}
-	}
-	else{
-		sizeMax = 10f;
-	}
-#else
-
-#endif
+//#if UNITY_IOS
+//	if(Application.platform == RuntimePlatform.IPhonePlayer){
+//		if(oldDevices.Contains(Device.generation)){
+//			sizeMax = 6f;
+//		}
+//	}
+//	else{
+//		sizeMax = 10f;
+//	}
+//#else
+//
+//#endif
 	
 }
 
