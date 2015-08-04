@@ -122,7 +122,6 @@ function drawTracksFromArray(index : int, arr : Array) {
     lr.SetWidth(0.05, 0.05);
     lr.SetColors(Color.cyan, Color.cyan); 
     lr.gameObject.layer = 11;
-	lr.transform.parent = parnt.transform;
     var pt0 : Vector3 = arr[0];
     
     lr.SetVertexCount(arr.length);
