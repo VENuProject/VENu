@@ -24,6 +24,9 @@ function Start () {
 //        AddButton("prod" + "\n" + "eminus" + "\n" + "0.5-5.0GeV" + "\n" + "5degf" + "\n" + "uboone", "prod_eminus_0.5-5.0GeV_25degf_uboone.json");
 //        AddButton("prodgenie" + "\n" + "bnb" + "\n" + "intrinsic" + "\n" + "nue" + "\n" + "uboone", "prodgenie_bnb_intrinsic_nue_uboone.json");
 		AddButton("prod_bnblike_proton_uboone.json", 2);
+		AddButton("prod_eminus_0.1-2.0GeV_isotropic.json", 2);
+		AddButton("prod_eminus_0.5-5.0GeV_25degf_uboone.json", 2);
+		AddButton("prodgenie_bnb_intrinsic_nue_uboone.json", 2);
 	}
 	else {
 	
