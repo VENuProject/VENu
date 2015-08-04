@@ -13,6 +13,8 @@ var oldDevices  : ArrayList = new ArrayList([DeviceGeneration.iPhone, DeviceGene
 	DeviceGeneration.iPhone4, DeviceGeneration.iPhone4S]);
 
 function Start(){
+	sizeMax = 10f;
+#if UNITY_IOS
 	if(Application.platform == RuntimePlatform.IPhonePlayer){
 		if(oldDevices.Contains(Device.generation)){
 			sizeMax = 6f;
@@ -21,6 +23,10 @@ function Start(){
 	else{
 		sizeMax = 10f;
 	}
+#else
+
+#endif
+	
 }
 
 public function OnClick(){
