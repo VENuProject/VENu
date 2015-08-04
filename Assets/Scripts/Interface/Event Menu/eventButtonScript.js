@@ -2,8 +2,6 @@
 
 import UnityEngine.UI;
 import UnityEngine.iOS;
-import UnityEditor.ArrayUtility;
-
 var fileName : String;
 public var levelToLoad : String;
 //public var sizeMin : float;
@@ -11,12 +9,12 @@ public var sizeMax : float;
 //public var smallColor : Color;
 //public var medColor : Color;
 //public var largeColor : Color;
-var oldDevices = [DeviceGeneration.iPhone, DeviceGeneration.iPhone3G, DeviceGeneration.iPhone3GS, 
-	DeviceGeneration.iPhone4, DeviceGeneration.iPhone4S];
+var oldDevices  : ArrayList = new ArrayList([DeviceGeneration.iPhone, DeviceGeneration.iPhone3G, DeviceGeneration.iPhone3GS, 
+	DeviceGeneration.iPhone4, DeviceGeneration.iPhone4S]);
 
 function Start(){
 	if(Application.platform == RuntimePlatform.IPhonePlayer){
-		if(ArrayUtility.Contains(oldDevices, Device.generation)){
+		if(oldDevices.Contains(Device.generation)){
 			sizeMax = 6f;
 		}
 	}
