@@ -1,6 +1,8 @@
 ﻿#pragma strict
 
 import UnityEngine.UI;
+import UnityEngine.iOS;
+import UnityEditor.ArrayUtility;
 
 var fileName : String;
 public var levelToLoad : String;
@@ -9,9 +11,21 @@ public var sizeMax : float;
 //public var smallColor : Color;
 //public var medColor : Color;
 //public var largeColor : Color;
+var oldDevices = [DeviceGeneration.iPhone, DeviceGeneration.iPhone3G, DeviceGeneration.iPhone3GS, 
+	DeviceGeneration.iPhone4, DeviceGeneration.iPhone4S];
+
+function Start(){
+	if(Application.platform == RuntimePlatform.IPhonePlayer){
+		if(ArrayUtility.Contains(oldDevices, Device.generation)){
+			sizeMax = 6f;
+		}
+	}
+	else{
+		sizeMax = 10f;
+	}
+}
 
 public function OnClick(){
-
 	//choose the .json file to be loaded
 	PlayerPrefs.SetString("File To Load", fileName);
 	Debug.Log("Loading event " + PlayerPrefs.GetString("File To Load"));

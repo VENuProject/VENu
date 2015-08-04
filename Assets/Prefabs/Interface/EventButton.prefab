@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .268166065, g: .279288173, b: .29411763, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Sprite: {fileID: 21300000, guid: 869a7ef6a773244c28f58cc81ce4fa47, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -77,7 +77,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: .292928189, g: .302891761, b: .316176474, a: 1}
     m_HighlightedColor: {r: .820385814, g: 1, b: .713235259, a: .533999979}
     m_PressedColor: {r: .862069011, g: 1, b: 0, a: .525490224}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
@@ -167,7 +167,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: 
   levelToLoad: 
-  sizeMax: 8
+  sizeMax: 10
+  oldDevices: 010000000200000003000000080000000b000000
 --- !u!222 &22207632
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -266,27 +267,27 @@ Prefab:
         type: 3}
     - target: {fileID: 0}
       propertyPath: m_Color.r
-      value: .268166065
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.g
-      value: .279288173
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Color.b
-      value: .29411763
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_NormalColor.r
-      value: 1
+      value: .292928189
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_NormalColor.g
-      value: 1
+      value: .302891761
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_NormalColor.b
-      value: 1
+      value: .316176474
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: sizeMin
@@ -294,7 +295,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: sizeMax
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: smallColor.r

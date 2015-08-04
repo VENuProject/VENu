@@ -74,6 +74,7 @@ function AddButton (file : String, size : float){
     for (word in words)
         if (!word.Contains(".json"))
             btnText += word + "\n";
+    btnText = btnText.Substring(0, btnText.Length - 1);
     newButton.SendMessage("SetText", btnText);
 	newButton.SendMessage("SetFileSize", size);
 }
