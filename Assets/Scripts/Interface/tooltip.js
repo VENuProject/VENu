@@ -41,7 +41,7 @@ function Start () {
 
 public function DispText(v : values){
 	title.text = v.name;
-	c1.text = "Hits: " + v.nhits + "\n" + "Origin: " + v.origin.ToString() + "\n" + "Length: " + v.length + "[m]";
+	c1.text = "Hits: " + v.nhits + "\n" + "Origin: " + v.origin.ToString() + "\n" + "Length: " + v.length * 0.1 + "[m]"; //AMCLEAN added v.length * 0.1 because we're in decimeters
 	c2.text = "";
 	c3.text = "";
 	//c1.text = "Phi: " + v.phi + "\n" + "Theta: " + v.theta + "\n" + "Length: " + v.length;
