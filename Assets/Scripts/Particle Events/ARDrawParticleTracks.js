@@ -15,7 +15,7 @@ var parnt : GameObject;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 public var slidr : Slider;
-public var scalingFactor : float = 0.4*slidr.value;
+public var scalingFactor : float; //= 0.4f * slidr.value;
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
@@ -168,6 +168,7 @@ function Awake() {
 
 function Start() {
     //Read in from a file (different paths for different platforms)
+    scalingFactor = 0.4f * slidr.value;
     var jsonString="";
 
 //Check if the fileName is a url or a path
