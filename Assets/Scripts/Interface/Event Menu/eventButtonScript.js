@@ -10,7 +10,7 @@ public var sizeMax : float;
 //public var medColor : Color;
 //public var largeColor : Color;
 //var oldDevices  : ArrayList = new ArrayList([DeviceGeneration.iPhone, DeviceGeneration.iPhone3G, DeviceGeneration.iPhone3GS, 
-	DeviceGeneration.iPhone4, DeviceGeneration.iPhone4S]);
+//	DeviceGeneration.iPhone4, DeviceGeneration.iPhone4S]);
 
 function Start(){
 	sizeMax = 10f;
