@@ -10,7 +10,7 @@ public var ButtonsGroup : GameObject;
 public var displayLevel : String;
 
 public var CategoryPrefab : GameObject;
-public var categories : GameObject;
+public var categoriesGroup : GameObject; 
 
 function Start () {
 
@@ -39,17 +39,17 @@ function Start () {
     	var lessThan2MB : GameObject;
         lessThan2MB = Instantiate(CategoryPrefab);
         lessThan2MB.GetComponentInChildren(Text).text = "Under 2MB";
-        lessThan2MB.transform.SetParent(categories.transform, false);
+        lessThan2MB.transform.SetParent(categoriesGroup.transform, false);
         
         var between2and6MB : GameObject;
         between2and6MB = Instantiate(CategoryPrefab);
         between2and6MB.GetComponentInChildren(Text).text = "2 - 6MB";
-        between2and6MB.transform.SetParent(categories.transform, false);
+        between2and6MB.transform.SetParent(categoriesGroup.transform, false);
         
         var moreThan6MB : GameObject;
         moreThan6MB = Instantiate(CategoryPrefab);
         moreThan6MB.GetComponentInChildren(Text).text = "6+MB";
-        moreThan6MB.transform.SetParent(categories.transform, false);
+        moreThan6MB.transform.SetParent(categoriesGroup.transform, false);
         
         // Stashed changes
 		var dir = new DirectoryInfo(jsonFilesPath);
