@@ -35,7 +35,7 @@ function Start () {
 	
 		jsonFilesPath = Application.streamingAssetsPath; //this works fine on iOS
            	
-    	//Make some categories
+    	//Make some categories, hardcoded for now, until we have other categories to sort on.
     	var lessThan2MB : GameObject;
         lessThan2MB = Instantiate(CategoryPrefab);
         lessThan2MB.GetComponentInChildren(Text).text = "Under 2MB";

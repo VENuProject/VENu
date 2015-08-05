@@ -48,6 +48,7 @@ public class onlineEventsMenu : MonoBehaviour {
 		isTrying = true;
 		disconnectPanel.SetActive(true);
 		connectedPanel.SetActive(false);
+		disconnectPanel.GetComponentInChildren<Text>().text = "Connecting to the ARGO web interface...";
 		Debug.Log ("Trying to reach Argo...");
 	}
 
@@ -65,6 +66,8 @@ public class onlineEventsMenu : MonoBehaviour {
 			}
 			else{
 				isTrying = false;
+				disconnectPanel.GetComponentInChildren<Text>().text = "Failed to connect to the ARGO web interface. " +
+					"Check your internet connection, or check back later if ARGO is offline.";
 				Debug.Log("Argo timed out!");
 			}
 		}
