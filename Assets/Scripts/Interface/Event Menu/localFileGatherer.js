@@ -9,6 +9,9 @@ public var EventButton : GameObject;
 public var ButtonsGroup : GameObject;
 public var displayLevel : String;
 
+//public var CategoryPrefab : GameObject;
+//public var categories : GameObject[];
+
 function Start () {
 
 	if (Application.platform == RuntimePlatform.Android){
@@ -80,4 +83,6 @@ function AddButton (file : String, size : float){
     btnText = btnText.Substring(0, btnText.Length - 1);
     newButton.SendMessage("SetText", btnText);
 	newButton.SendMessage("SetFileSize", size);
+	
+	
 }
