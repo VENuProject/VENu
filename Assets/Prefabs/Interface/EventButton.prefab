@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: .784313738}
   m_Sprite: {fileID: 21300000, guid: 869a7ef6a773244c28f58cc81ce4fa47, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
@@ -77,9 +77,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: .292928189, g: .302891761, b: .316176474, a: 1}
-    m_HighlightedColor: {r: 0, g: .298039228, b: .592156887, a: 1}
-    m_PressedColor: {r: .725490212, g: .278431386, b: 0, a: 1}
+    m_NormalColor: {r: 0, g: .298039228, b: .592156887, a: 1}
+    m_HighlightedColor: {r: .725490212, g: .278431386, b: 0, a: 1}
+    m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
@@ -278,15 +278,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_NormalColor.r
-      value: .292928189
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_NormalColor.g
-      value: .302891761
+      value: .298039228
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_NormalColor.b
-      value: .316176474
+      value: .592156887
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: sizeMin
@@ -346,19 +346,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_PressedColor.r
-      value: .725490212
+      value: .784313738
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0
+      value: .725490212
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_HighlightedColor.g
-      value: .298039228
+      value: .278431386
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_HighlightedColor.b
-      value: .592156887
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_PressedColor.a
@@ -366,15 +366,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_PressedColor.b
-      value: 0
+      value: .784313738
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_PressedColor.g
-      value: .278431386
+      value: .784313738
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Colors.m_HighlightedColor.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Color.a
+      value: .784313738
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
