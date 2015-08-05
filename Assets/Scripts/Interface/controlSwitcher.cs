@@ -15,9 +15,27 @@ public class controlSwitcher : MonoBehaviour {
 	public GameObject LookJoy;
 	public GameObject HeightSlider;
 	public GameObject uiLabel;
-	
+	public GameObject inGameMenu;
+	public GameObject minimapOrthoCamera;
+	public bool uiShown;
+
+#if !MOBILE_INPUT
+	void Update(){
+		if(Input.GetKeyDown(KeyCode.H)){
+			uiShown = !uiShown;
+			inGameMenu.SetActive(uiShown);
+			minimapOrthoCamera.SetActive(uiShown);
+			MoveJoy.SetActive(uiShown && (scheme == ControlSchemes.OneJoy || scheme == ControlSchemes.TwoJoy));
+			LookJoy.SetActive(uiShown && (scheme == ControlSchemes.TwoJoy));
+			HeightSlider.SetActive(uiShown);
+			minimapOrthoCamera.SetActive(uiShown);
+		}
+	}
+#endif
+
 	void Start () {
 
+		uiShown = true;
 		Physics.IgnoreLayerCollision(0, 11);
 		Physics.IgnoreLayerCollision(0, 12);
 
