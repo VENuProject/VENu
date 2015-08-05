@@ -4414,10 +4414,10 @@ MonoBehaviour:
     event\" or \"previous event\" to cycle through the other available events.\n\n<size=24><b>III.
     Team</b></size>\nVENu was created by the following students and post docs from
     their corresponding institutions:\nAlistair McLean, New Mexico State University
-    (USA - NM)\nBen Carls, Fermilab (USA - IL)\nGene Kim, Illinois Math and Science
-    Academy (USA - IL)\nMatt Bass, Oxford University (UK)\nSean Ngo, Illinois Math
-    and Science Academy (USA - IL)\nThomas Wester, University of Chicago (USA - IL)\nOwen
-    Crawford, Bradley University (USA - IL) \nAriana Hackenburg, Yale (USA - CT)\n\nFermilab
+    (USA - NM)\nThomas Wester, University of Chicago (USA - IL)\nOwen Crawford, Bradley
+    University (USA - IL) \nBen Carls, Fermilab (USA - IL)\nGene Kim, Illinois Math
+    and Science Academy (USA - IL)\nMatt Bass, Oxford University (UK)\nSean Ngo, Illinois
+    Math and Science Academy (USA - IL)\n\nAriana Hackenburg, Yale (USA - CT)\n\nFermilab
     (USA - IL)"
 --- !u!222 &919792573
 CanvasRenderer:
