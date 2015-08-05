@@ -115,7 +115,12 @@ public class onlineEventsMenu : MonoBehaviour {
         string txt = string.Empty;
         foreach(string t in btntxt)
             txt += t;
-        newButton.SendMessage("SetText", txt);
+		string[] words = txt.Split(new string[]{"_"}, System.StringSplitOptions.RemoveEmptyEntries);
+		string newTxt = string.Empty;
+		foreach (string s in words)
+				newTxt += s + "\n";
+		newTxt = newTxt.Substring(0, newTxt.Length - 1);
+        newButton.SendMessage("SetText", newTxt);
 		newButton.SendMessage("SetFileSize", size);
     }	
 	
