@@ -38,7 +38,8 @@ From 7/22
 - Users can click outside of the mini map range and the camera will be moved outside the detector
 
 From 7/23
-- Joysticks/slider don’t block track clicks/camera positioning
++ Joysticks/slider don’t block track clicks [FIXED by Thomas]
+- Joysticks/slider don't block camera positioning
 - Tracks should only highlight on tap, not on drag
 
 From 8/5
