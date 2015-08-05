@@ -6271,7 +6271,7 @@ MonoBehaviour:
   ButtonsGroup: {fileID: 1428008374}
   displayLevel: mobileDisplay
   CategoryPrefab: {fileID: 196672, guid: 4ce3bb807fa144c7a94d7d110dcb8b7f, type: 2}
-  categories: {fileID: 829572581}
+  categoriesGroup: {fileID: 829572581}
 --- !u!114 &1297922062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7514,7 +7514,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1595871472}
   m_HandleRect: {fileID: 889614188}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
