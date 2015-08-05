@@ -28,7 +28,6 @@ public class controlSwitcher : MonoBehaviour {
 			MoveJoy.SetActive(uiShown && (scheme == ControlSchemes.OneJoy || scheme == ControlSchemes.TwoJoy));
 			LookJoy.SetActive(uiShown && (scheme == ControlSchemes.TwoJoy));
 			HeightSlider.SetActive(uiShown);
-			minimapOrthoCamera.SetActive(uiShown);
 		}
 	}
 #endif
