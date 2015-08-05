@@ -22,14 +22,19 @@ function Start () {
 
 		//until I can get this working on android, hardcoded for now
 
+        var androidCategory : GameObject;
+        androidCategory = Instantiate(CategoryPrefab);
+        androidCategory.GetComponentInChildren(Text).text = "Android Events";
+        androidCategory.transform.SetParent(categoriesGroup.transform, false);
+
 //		AddButton("prod" + "\n" + "bnblike" + "\n" + "proton" + "\n" + "uboone", "prod_bnblike_proton_uboone.json");
 //        AddButton("prod" + "\n" + "eminus" + "\n" + "0.1-2.0GeV" + "\n" + "isotropic", "prod_eminus_0.1-2.0GeV_isotropic.json");
 //        AddButton("prod" + "\n" + "eminus" + "\n" + "0.5-5.0GeV" + "\n" + "5degf" + "\n" + "uboone", "prod_eminus_0.5-5.0GeV_25degf_uboone.json");
 //        AddButton("prodgenie" + "\n" + "bnb" + "\n" + "intrinsic" + "\n" + "nue" + "\n" + "uboone", "prodgenie_bnb_intrinsic_nue_uboone.json");
-//		AddButton("prod_bnblike_proton_uboone.json", 2);
-//		AddButton("prod_eminus_0.1-2.0GeV_isotropic.json", 2);
-//		AddButton("prod_eminus_0.5-5.0GeV_25degf_uboone.json", 2);
-//		AddButton("prodgenie_bnb_intrinsic_nue_uboone.json", 2);
+		AddButton("prod_bnblike_proton_uboone.json", 2, androidCategory);
+		AddButton("prod_eminus_0.1-2.0GeV_isotropic.json", 2, androidCategory);
+		AddButton("prod_eminus_0.5-5.0GeV_25degf_uboone.json", 2, androidCategory);
+		AddButton("prodgenie_bnb_intrinsic_nue_uboone.json", 2, androidCategory);
 	}
 	else {
 	
