@@ -1,7 +1,7 @@
 --------------
 --   TODO   --
 --------------
-Here are some (small) features we still want to implement or change before v1.0:
+Here are some (small) features we still want to implement or change before v1.0 (Tentative release: 8/7/2015)
 
 [ ] 1. Scale track collider boxes with camera distance so that it's easier to click on tracks close up.
 [x] 2. Implement the new DrawSpacePoint.js script and fix the settings panel to have particle density settings 0, low, medium, high.
@@ -16,6 +16,8 @@ Here are some (small) features we still want to implement or change before v1.0:
 [x] 11. Deal with events that don’t use the regular algorithm. Maybe add an algorithm choice in settings?
 [x] 12. Fix Android hard-coded elements.
 [ ] 13. Remove need for hard-coded elements.
+[ ] 14. Redesign the splash page.
+[ ] 15. Remove Next/Previous buttons.
 
 --------------
 -- BUG LIST --
@@ -35,11 +37,20 @@ Remember, this bug list doesn't help anyone unless it's kept up-to-date!
 From 7/22
 - Users can click outside of the mini map range and the camera will be moved outside the detector
 
-
 From 7/23
 - Joysticks/slider don’t block track clicks/camera positioning
 - Tracks should only highlight on tap, not on drag
-+ Settings aren't saved when returning back to the main menu. [FIXED by Owen]
 
-From 8/3
-+ Dragging down to rotate the camera up in minimap mode is not locked between values, so users have to drag up a bunch of times before the camera will move down again. [FIXED by Thomas]
+From 8/5
+- Algorithms aren't saved when returning back to the main menu
+- Camera on minimap clips oddly when changing the up/down rotation
+- Minimap is still interactable, even when hidden, tooltips don't hide with the other hidden elements
+
+----------------
+-- THE FUTURE --
+----------------
+These are some of our stretch goals discussed at the end of Summer 2015
+
+1. Virtual Reality: Oculus Rift, Google Cardboard.
+2. Animated events: Spacepoint drift & track repositioning.
+3. Revamp the online event menu with a file browser or hierarchy instead of hard-coded links.
