@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: .292928189, g: .302891761, b: .316176474, a: 1}
-    m_HighlightedColor: {r: .820385814, g: 1, b: .713235259, a: .533999979}
-    m_PressedColor: {r: .862069011, g: 1, b: 0, a: .525490224}
+    m_HighlightedColor: {r: 0, g: .298039228, b: .592156887, a: 1}
+    m_PressedColor: {r: .725490212, g: .278431386, b: 0, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
     m_FadeDuration: .100000001
@@ -168,7 +168,6 @@ MonoBehaviour:
   fileName: 
   levelToLoad: 
   sizeMax: 10
-  oldDevices: 010000000200000003000000080000000b000000
 --- !u!222 &22207632
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -343,6 +342,38 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: largeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_PressedColor.r
+      value: .725490212
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_HighlightedColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_HighlightedColor.g
+      value: .298039228
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_HighlightedColor.b
+      value: .592156887
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_PressedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_PressedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_PressedColor.g
+      value: .278431386
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Colors.m_HighlightedColor.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
