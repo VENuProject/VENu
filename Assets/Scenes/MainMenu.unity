@@ -4295,33 +4295,33 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "<size=24><b>I. What is VENu?</b></size>\nVENu is a multi-platform interactable
     event display that was built for the MicroBooNE detector using the Unity game
-    engine.\n\n\n<size=24><b>II. Use</b></size>\nTo view an event, click on either
-    the 'Saved Events' or 'Online Events' buttons on the main menu to bring up the
-    event tabs.\nOnce in an event tab, click on any of the event buttons in the tab
-    to automatically load the event.\n- Saved events are a compilation of events pre-loaded
-    with VENu.\n- Online events are downloaded from the MicroBooNE server.\n\nYou
-    can also change options from the 'Settings' tab on the main menu. The 'Particle
-    Density' slider controls the percentage of spacepoints drawn.\nIf VENu appears
-    choppy or slow, try lowering this slider to improve performance.\n\nOnce VENu
-    has completed loading and processing the selected event, you can move around the
-    detector with any of the three control schemes included.\nControl schemes can
-    be switched from the in-game menu which is accessible from the upper-left corner
-    of the screen.\n\n1. The first control scheme uses a top-down map to place the
-    viewing position. Clicking on this map will move the camera to the clicked point.\nThe
-    view can then be oriented by dragging on the screen.\n\n2. 'One Joy' mode allows
-    the user to move in a plane with the joystick drawn on-screen. The camera can
-    be moved by dragging on the screen.\n\n3. 'Two Joy' mode is the same as 'One Joy'
-    mode, except the camera is now controlled with a second joystick.\n\nIn all control
-    schemes, the height of the camera can be changed via the slider on the right side
-    of the screen.\n\nOnce comfortable with VENu's control schemes, simply open up
-    the in-game menu and select \"next event\" or \"previous event\" to cycle through
-    the other available events.\n\n<size=24><b>III. Team</b></size>\nVENu was created
-    by the following students and post docs from their corresponding institutions:\nAlistair
-    McLean, New Mexico State University (USA - NM)\nBen Carls, Fermilab (USA - IL)\nGene
-    Kim, Illinois Math and Science Academy (USA - IL)\nMatt Bass, Oxford University
-    (UK)\nSean Ngo, Illinois Math and Science Academy (USA - IL)\nThomas Wester, University
-    of Chicago (USA - IL)\nOwen Crawford, Bradley University (USA - IL) \nAriana Hackenburg,
-    Yale (USA - CT)\n\nFermilab (USA - IL)"
+    engine.\n\n<size=24><b>II. Use</b></size>\nTo view an event, click on either the
+    'Saved Events' or 'Online Events' buttons on the main menu to bring up the event
+    tabs.\nOnce in an event tab, click on any of the event buttons in the tab to automatically
+    load the event.\n- Saved events are a compilation of events pre-loaded with VENu.\n-
+    Online events are downloaded from the MicroBooNE server.\n\nYou can also change
+    options from the 'Settings' tab on the main menu. The 'Particle Density' slider
+    controls the percentage of spacepoints drawn.\nIf VENu appears choppy or slow,
+    try lowering this slider to improve performance.\n\nOnce VENu has completed loading
+    and processing the selected event, you can move around the detector with any of
+    the three control schemes included.\nControl schemes can be switched from the
+    in-game menu which is accessible from the upper-left corner of the screen.\n\n1.
+    The first control scheme uses a top-down map to place the viewing position. Clicking
+    on this map will move the camera to the clicked point.\nThe view can then be oriented
+    by dragging on the screen.\n\n2. 'One Joy' mode allows the user to move in a plane
+    with the joystick drawn on-screen. The camera can be moved by dragging on the
+    screen.\n\n3. 'Two Joy' mode is the same as 'One Joy' mode, except the camera
+    is now controlled with a second joystick.\n\nIn all control schemes, the height
+    of the camera can be changed via the slider on the right side of the screen.\n\nOnce
+    comfortable with VENu's control schemes, simply open up the in-game menu and select
+    \"next event\" or \"previous event\" to cycle through the other available events.\n\n<size=24><b>III.
+    Team</b></size>\nVENu was created by the following students and post docs from
+    their corresponding institutions:\nAlistair McLean, New Mexico State University
+    (USA - NM)\nBen Carls, Fermilab (USA - IL)\nGene Kim, Illinois Math and Science
+    Academy (USA - IL)\nMatt Bass, Oxford University (UK)\nSean Ngo, Illinois Math
+    and Science Academy (USA - IL)\nThomas Wester, University of Chicago (USA - IL)\nOwen
+    Crawford, Bradley University (USA - IL) \nAriana Hackenburg, Yale (USA - CT)\n\nFermilab
+    (USA - IL)"
 --- !u!222 &919792573
 CanvasRenderer:
   m_ObjectHideFlags: 0
