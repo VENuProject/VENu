@@ -34,10 +34,24 @@ function Start () {
 	else {
 	
 		jsonFilesPath = Application.streamingAssetsPath; //this works fine on iOS
-    	var newCategory : GameObject;
-        newCategory = Instantiate(CategoryPrefab);
-        newCategory.GetComponentInChildren(Text).text = "test";
-        newCategory.transform.SetParent(categories.transform, false);
+           	
+    	//Make some categories
+    	var lessThan2MB : GameObject;
+        lessThan2MB = Instantiate(CategoryPrefab);
+        lessThan2MB.GetComponentInChildren(Text).text = "Under 2MB";
+        lessThan2MB.transform.SetParent(categories.transform, false);
+        
+        var between2and6MB : GameObject;
+        between2and6MB = Instantiate(CategoryPrefab);
+        between2and6MB.GetComponentInChildren(Text).text = "2 - 6MB";
+        between2and6MB.transform.SetParent(categories.transform, false);
+        
+        var moreThan6MB : GameObject;
+        moreThan6MB = Instantiate(CategoryPrefab);
+        moreThan6MB.GetComponentInChildren(Text).text = "6+MB";
+        moreThan6MB.transform.SetParent(categories.transform, false);
+        
+        // Stashed changes
 		var dir = new DirectoryInfo(jsonFilesPath);
 		var filesInfo = dir.GetFiles("*.json");
 		for (file in filesInfo) {
@@ -49,9 +63,19 @@ function Start () {
 //		        }
 //                
 //		    }
+            var cat : GameObject;
+            if (file.Length / 1000000f < 2f) {
+                cat = lessThan2MB;
+            }
+            else if (file.Length / 1000000f > 2f && file.Length / 1000000f < 6f) {
+                cat = between2and6MB;
+            }
+            else {
+                cat = moreThan6MB;
+            }
             //btnText = btnText.Substring(0, btnText.Length - 1);
 			//AddButton(btnText, file.Name);
-			AddButton(file.Name, file.Length / 1000000f, newCategory);
+			AddButton(file.Name, file.Length / 1000000f, cat);
 			
 	    }
 		Debug.Log("found " + filesInfo.Length + " json files");
