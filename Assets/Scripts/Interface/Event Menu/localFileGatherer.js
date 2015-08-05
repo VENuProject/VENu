@@ -37,7 +37,7 @@ function Start () {
     	var newCategory : GameObject;
         newCategory = Instantiate(CategoryPrefab);
         newCategory.GetComponentInChildren(Text).text = "test";
-        newCategory.transform.SetParent(categories.transform);
+        newCategory.transform.SetParent(categories.transform, false);
 		var dir = new DirectoryInfo(jsonFilesPath);
 		var filesInfo = dir.GetFiles("*.json");
 		for (file in filesInfo) {
