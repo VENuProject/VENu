@@ -3,8 +3,8 @@
 import tooltip;
 
 var tooltipObject : GameObject;
-var tooltipParent : GameObject;
-var myCanvas : GameObject;
+//var tooltipParent : GameObject;
+//var myCanvas : GameObject;
 
 function Deselect () {
     var objects = GameObject.FindGameObjectsWithTag("trackSelected");
@@ -13,7 +13,8 @@ function Deselect () {
         var ln : LineRenderer = obj.GetComponent.<LineRenderer>();
         ln.SetColors(Color.cyan, Color.cyan);
         obj.tag = "track";
-        tooltipObject.transform.SetParent(tooltipParent.transform);
+        //tooltipObject.transform.SetParent(tooltipParent.transform);
+        tooltipObject.SetActive(false);
     }
 }
 
@@ -21,15 +22,16 @@ function OnMouseDown () {
     if(!EventSystems.EventSystem.current.IsPointerOverGameObject()) {
         if (gameObject.transform.parent.tag != "trackSelected") {
             Deselect();
+            tooltipObject.SetActive(true);
             var ln : LineRenderer = gameObject.transform.parent.GetComponent.<LineRenderer>();        
             ln.SetColors(Color.red, Color.yellow);
             gameObject.transform.parent.tag = "trackSelected";  
            // var obj = GameObject.Find("ToolTip");
             var v = getInfo();
             tooltipObject.SendMessage("DispText", v);
-            tooltipObject.transform.position.x = Screen.width / 2.0;
-            tooltipObject.transform.position.y = tooltipObject.GetComponent(RectTransform).rect.height / 2;
-            tooltipObject.transform.SetParent(myCanvas.transform);
+            //tooltipObject.transform.position.x = Screen.width / 2.0;
+            //tooltipObject.transform.position.y = tooltipObject.GetComponent(RectTransform).rect.height / 2;
+            //tooltipObject.transform.SetParent(myCanvas.transform);
         }
         else {
             Deselect();
@@ -66,8 +68,12 @@ function Update () {
 
 }
 
+function SetTooltipRef(tt : GameObject){
+	tooltipObject = tt;
+}
+
 function Start() { 
-    tooltipObject = GameObject.Find("ToolTip");
-    tooltipParent = GameObject.Find("TooltipParent");
-    myCanvas = GameObject.Find("Canvas");
+    //tooltipObject = GameObject.Find("ToolTip");
+    //tooltipParent = GameObject.Find("TooltipParent");
+    //myCanvas = GameObject.Find("Canvas");
 }

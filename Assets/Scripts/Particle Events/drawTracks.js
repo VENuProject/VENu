@@ -13,6 +13,7 @@ var fileName : String;
 private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 var trackAlgoName : String;
+public var tooltip : GameObject;
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
@@ -135,6 +136,7 @@ function drawTracksFromArray(index : int, arr : Array) {
         var segmentObject = new GameObject();
         segmentObject.layer = 11;
         segmentObject.AddComponent(trackClick);
+        segmentObject.SendMessage("SetTooltipRef", tooltip);
 //        segmentObject.AddComponent(ScaleColliderRelativeToCamera); 
         segmentObject.name = "segment" + i;
         segmentObject.transform.parent = trackObject.transform;

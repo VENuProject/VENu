@@ -17,6 +17,8 @@ public class controlSwitcher : MonoBehaviour {
 	public GameObject uiLabel;
 	public GameObject inGameMenu;
 	public GameObject minimapOrthoCamera;
+	public GameObject tooltip;
+	public bool ttVisible;
 	public bool uiShown;
 
 #if !MOBILE_INPUT
@@ -28,6 +30,10 @@ public class controlSwitcher : MonoBehaviour {
 			MoveJoy.SetActive(uiShown && (scheme == ControlSchemes.OneJoy || scheme == ControlSchemes.TwoJoy));
 			LookJoy.SetActive(uiShown && (scheme == ControlSchemes.TwoJoy));
 			HeightSlider.SetActive(uiShown);
+			if(!uiShown)
+				ttVisible = tooltip.activeInHierarchy;
+			tooltip.SetActive(uiShown && ttVisible);
+
 		}
 	}
 #endif
