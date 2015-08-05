@@ -9,8 +9,8 @@ public var EventButton : GameObject;
 public var ButtonsGroup : GameObject;
 public var displayLevel : String;
 
-//public var CategoryPrefab : GameObject;
-//public var categories : GameObject[];
+public var CategoryPrefab : GameObject;
+public var categories : GameObject;
 
 function Start () {
 
@@ -26,15 +26,18 @@ function Start () {
 //        AddButton("prod" + "\n" + "eminus" + "\n" + "0.1-2.0GeV" + "\n" + "isotropic", "prod_eminus_0.1-2.0GeV_isotropic.json");
 //        AddButton("prod" + "\n" + "eminus" + "\n" + "0.5-5.0GeV" + "\n" + "5degf" + "\n" + "uboone", "prod_eminus_0.5-5.0GeV_25degf_uboone.json");
 //        AddButton("prodgenie" + "\n" + "bnb" + "\n" + "intrinsic" + "\n" + "nue" + "\n" + "uboone", "prodgenie_bnb_intrinsic_nue_uboone.json");
-		AddButton("prod_bnblike_proton_uboone.json", 2);
-		AddButton("prod_eminus_0.1-2.0GeV_isotropic.json", 2);
-		AddButton("prod_eminus_0.5-5.0GeV_25degf_uboone.json", 2);
-		AddButton("prodgenie_bnb_intrinsic_nue_uboone.json", 2);
+//		AddButton("prod_bnblike_proton_uboone.json", 2);
+//		AddButton("prod_eminus_0.1-2.0GeV_isotropic.json", 2);
+//		AddButton("prod_eminus_0.5-5.0GeV_25degf_uboone.json", 2);
+//		AddButton("prodgenie_bnb_intrinsic_nue_uboone.json", 2);
 	}
 	else {
 	
 		jsonFilesPath = Application.streamingAssetsPath; //this works fine on iOS
-    	
+    	var newCategory : GameObject;
+        newCategory = Instantiate(CategoryPrefab);
+        newCategory.GetComponentInChildren(Text).text = "test";
+        newCategory.transform.SetParent(categories.transform);
 		var dir = new DirectoryInfo(jsonFilesPath);
 		var filesInfo = dir.GetFiles("*.json");
 		for (file in filesInfo) {
@@ -48,7 +51,7 @@ function Start () {
 //		    }
             //btnText = btnText.Substring(0, btnText.Length - 1);
 			//AddButton(btnText, file.Name);
-			AddButton(file.Name, file.Length / 1000000f);
+			AddButton(file.Name, file.Length / 1000000f, newCategory);
 			
 	    }
 		Debug.Log("found " + filesInfo.Length + " json files");
@@ -68,11 +71,15 @@ function Start () {
 	
 }
 
-function AddButton (file : String, size : float){
+function AddCategory (title : String) {
+    
+}
+
+function AddButton (file : String, size : float, cat : GameObject){
 	
 	var newButton : GameObject;
     newButton = Instantiate(EventButton);
-    newButton.transform.SetParent(ButtonsGroup.transform, false);
+    newButton.transform.SetParent(cat.transform, false);
     newButton.SendMessage("SetData", file);
     newButton.SendMessage("SetLevelToLoad", displayLevel);
     var words = file.Split("_"[0]);
