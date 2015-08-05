@@ -111,17 +111,21 @@ public class onlineEventsMenu : MonoBehaviour {
         newButton.transform.SetParent(buttonsGroup.transform, false);
         newButton.SendMessage("SetData", file);
         newButton.SendMessage("SetLevelToLoad", displayLevel);
-        string[] btntxt = file.Split(new string[]{url1, url3, url6}, System.StringSplitOptions.RemoveEmptyEntries);
-        string txt = string.Empty;
-        foreach(string t in btntxt)
-            txt += t;
-		string[] words = txt.Split(new string[]{"_"}, System.StringSplitOptions.RemoveEmptyEntries);
-		string newTxt = string.Empty;
-		foreach (string s in words)
-				newTxt += s + "\n";
-		newTxt = newTxt.Substring(0, newTxt.Length - 1);
-        newButton.SendMessage("SetText", newTxt);
+        newButton.SendMessage("SetText", formatBtnText(file));
 		newButton.SendMessage("SetFileSize", size);
     }	
+
+	string formatBtnText (string raw) {
+		string[] btntxt = raw.Split(new string[]{url1, url3, url6}, System.StringSplitOptions.RemoveEmptyEntries);
+		string txt = string.Empty;
+		foreach(string t in btntxt) {
+			string[] words = t.Split(new string[]{"_"}, System.StringSplitOptions.RemoveEmptyEntries);
+		    foreach (string s in words) {
+		    	txt += s + "\n";
+			}
+		}
+		txt = txt.Substring(0, txt.Length - 1);
+		return txt;
+	}
 	
 }
