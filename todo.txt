@@ -16,7 +16,7 @@ Here are some (small) features we still want to implement or change before v1.0 
 [x] 11. Deal with events that don’t use the regular algorithm. Maybe add an algorithm choice in settings?
 [x] 12. Fix Android hard-coded elements.
 [ ] 13. Remove need for hard-coded elements.
-[ ] 14. Redesign the splash page.
+[x] 14. Redesign the splash page.
 [x] 15. Remove Next/Previous buttons.
 
 --------------
@@ -38,14 +38,12 @@ From 7/22
 - Users can click outside of the mini map range and the camera will be moved outside the detector
 
 From 7/23
-+ Joysticks/slider don’t block track clicks in standalone versions [FIXED by Thomas]
 - Joysticks/slider don't block camera positioning in all versions/track clicks on mobile
 - Tracks should only highlight on tap, not on drag
 
 From 8/5
 - Algorithms aren't saved when returning back to the main menu
 - Camera on minimap clips oddly when changing the up/down rotation
-+ Minimap is still interactable, even when hidden, tooltips don't hide with the other hidden elements
 
 ----------------
 -- THE FUTURE --
