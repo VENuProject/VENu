@@ -6,7 +6,7 @@ Here are some (small) features we still want to implement or change before v1.0 
 [ ] 1. Scale track collider boxes with camera distance so that it's easier to click on tracks close up.
 [x] 2. Implement the new DrawSpacePoint.js script and fix the settings panel to have particle density settings 0, low, medium, high.
 [ ] 3. Possibly add a way to rotate the detector in AR mode.
-[ ] 4. AR mode should scale tracks correctly.
+[-] 4. AR mode should scale tracks correctly. [Feature cancelled for v1.0]
 [x] 5. Clean out the old code & assets, and establish a naming convention for files and variables.
 [x] 6. After step (5) is completed, add documentation so that the next group of people to work on this has a point of reference.
 [x] 7. Get at least some of the track information in (origin, nhits, length).
@@ -16,7 +16,7 @@ Here are some (small) features we still want to implement or change before v1.0 
 [x] 11. Deal with events that don’t use the regular algorithm. Maybe add an algorithm choice in settings?
 [x] 12. Fix Android hard-coded elements.
 [ ] 13. Remove need for hard-coded elements.
-[ ] 14. Redesign the splash page.
+[x] 14. Redesign the splash page.
 [x] 15. Remove Next/Previous buttons.
 
 --------------
@@ -38,14 +38,12 @@ From 7/22
 - Users can click outside of the mini map range and the camera will be moved outside the detector
 
 From 7/23
-+ Joysticks/slider don’t block track clicks in standalone versions [FIXED by Thomas]
 - Joysticks/slider don't block camera positioning in all versions/track clicks on mobile
 - Tracks should only highlight on tap, not on drag
 
 From 8/5
-- Algorithms aren't saved when returning back to the main menu
++ Algorithms aren't saved when returning back to the main menu [FIXED by Thomas]
 - Camera on minimap clips oddly when changing the up/down rotation
-+ Minimap is still interactable, even when hidden, tooltips don't hide with the other hidden elements
 
 ----------------
 -- THE FUTURE --

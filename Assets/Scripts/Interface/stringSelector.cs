@@ -10,7 +10,13 @@ public class stringSelector : MonoBehaviour {
 	public int currentItem;
 
 	void Start () {
-		updateString();
+		if (PlayerPrefs.HasKey(playerPrefsString)) {
+			updateString(PlayerPrefs.GetString(playerPrefsString));
+		}
+		else {
+			currentItem = 0;
+			updateString(items[currentItem]);
+		}
 	}
 
 	string parseAlgo(string algo) {
@@ -26,22 +32,22 @@ public class stringSelector : MonoBehaviour {
 		return newAlgo;
 	}
 
-	void updateString(){
-		display.text = parseAlgo(items[currentItem]);
-		PlayerPrefs.SetString(playerPrefsString, items[currentItem]);
+	void updateString(string algo){
+		display.text = parseAlgo(algo); //items[currentItem]);
+		PlayerPrefs.SetString(playerPrefsString, algo); //items[currentItem]);
 	}
 
 	public void NextItem(){
 		currentItem++;
 		if(currentItem >= items.Length)
 			currentItem = 0;
-		updateString();
+		updateString(items[currentItem]);
 	}
 
 	public void PrevItem(){
 		currentItem--;
 		if(currentItem < 0)
 			currentItem = items.Length - 1;
-		updateString();
+		updateString(items[currentItem]);
 	}
 }

@@ -1,3 +1,5 @@
+//I don't think we're using this
+/*
 using UnityEngine;
 using UnitySampleAssets.CrossPlatformInput;
 #if UNITY_EDITOR
@@ -42,16 +44,21 @@ namespace UnitySampleAssets.Cameras
 
         protected void Update()
         {
+			Debug.Log ("I'm useful!");
             HandleRotationMovement();
             if (lockCursor && Input.GetMouseButtonUp(0))
             {
                 Screen.lockCursor = lockCursor;
+				//Cursor.lockState = CursorLockMode.Locked;
+				//Cursor.visible = false;
             }
         }
 
         private void OnDisable()
         {
             Screen.lockCursor = false;
+			//Cursor.lockState = CursorLockMode.None;
+			//Cursor.visible = true;
         }
 
         protected override void FollowTarget(float deltaTime)
@@ -105,3 +112,4 @@ namespace UnitySampleAssets.Cameras
         }
     }
 }
+*/
