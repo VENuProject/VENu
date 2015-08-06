@@ -11,6 +11,12 @@ public class stringSelector : MonoBehaviour {
 
 	void Start () {
 		if (PlayerPrefs.HasKey(playerPrefsString)) {
+			for (int i = 0; i < items.Length; i++) {
+				if (items[i] == PlayerPrefs.GetString(playerPrefsString)) {
+					currentItem = i;
+					break;
+				}
+			}
 			updateString(PlayerPrefs.GetString(playerPrefsString));
 		}
 		else {
