@@ -29,6 +29,7 @@ public var perspectiveZoomSpeed : float = 0.5f;        // The rate of change of 
 public var orthoZoomSpeed : float = 0.5f;        // The rate of change of the orthographic size in orthographic mode.
 
 public var eventSystem : EventSystem;
+public var cameraIcon : GameObject;
 
 
 @script AddComponentMenu("Camera-Control/Mouse Orbit smoothed")
@@ -70,6 +71,7 @@ function LateUpdate () { if (target)
 	
 	transform.position = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
 	
+	cameraIcon.transform.eulerAngles = new Vector3(90, cameraIcon.transform.eulerAngles.y, cameraIcon.transform.eulerAngles.z);
  }
 }
 
