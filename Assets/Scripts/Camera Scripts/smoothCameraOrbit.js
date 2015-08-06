@@ -8,6 +8,7 @@ import UnityEngine.EventSystems;
 
 var target : Transform; 
 var distance = 10.0;
+var maxDistance = 20.0;
 var zoomSpeed = 2.0;
 
 var xSpeed = 250.0; 
@@ -71,6 +72,7 @@ function LateUpdate () { if (target)
     transform.rotation = rotation;
 	
 	distance -= Input.GetAxis("Mouse ScrollWheel")*zoomSpeed;
+	distance = Mathf.Clamp(distance, -maxDistance, maxDistance);
 	posSmooth = target.position;
 	
 	transform.position = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
