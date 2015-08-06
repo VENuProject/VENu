@@ -44,7 +44,7 @@ function LateUpdate () { if (target)
 { 
     var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity") * 10;
     
-	if(Input.GetMouseButton(1) && Input.touchCount == 0 && eventSystem.IsPointerOverGameObject() == false){
+	if(Input.GetMouseButton(0) && Input.touchCount == 0 && eventSystem.IsPointerOverGameObject() == false){
 		x += Input.GetAxisRaw("Mouse X")*rotSpeed;
 		y -= Input.GetAxisRaw("Mouse Y")*rotSpeed;
 	}

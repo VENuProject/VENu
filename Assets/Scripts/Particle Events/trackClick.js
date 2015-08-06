@@ -18,8 +18,8 @@ function Deselect () {
     }
 }
 
-function OnMouseDown () { 
-    if(!EventSystems.EventSystem.current.IsPointerOverGameObject()) {
+function OnMouseOver () { 
+    if(Input.GetMouseButtonDown(1) && !EventSystems.EventSystem.current.IsPointerOverGameObject()) {
         if (gameObject.transform.parent.tag != "trackSelected") {
             Deselect();
             tooltipObject.SetActive(true);
