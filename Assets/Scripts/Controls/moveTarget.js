@@ -66,7 +66,8 @@ function LateUpdate ()
  }
  else 
  		{
- 		transform.position = transform.position;
+ 		//Do nothing...
+ 		//transform.position = transform.position;
  		}
  		
  

@@ -22,7 +22,7 @@ public class pointDensitySlider : MonoBehaviour {
 		if(slide == null)
 			slide = GetComponent<Slider>();
 
-		if(PlayerPrefs.GetInt("maxSpacePoints") != null){
+		if(PlayerPrefs.HasKey("maxSpacePoints")){
 			int max = PlayerPrefs.GetInt("maxSpacePoints");
 			switch(max){
 			case 0:

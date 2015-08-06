@@ -20,7 +20,7 @@ public class onlineEventsMenu : MonoBehaviour {
 	public float argoTimeout;
 	float timeTestStarted;
 	bool isTrying;
-	bool isConnected;
+	//bool isConnected; //Not used
 	public GameObject connectedPanel;
 	public GameObject disconnectPanel;
 	
@@ -44,7 +44,7 @@ public class onlineEventsMenu : MonoBehaviour {
 		}
 		argoTest = new WWW(argoTestUrl);
 		timeTestStarted = Time.time;
-		isConnected = false;
+		//isConnected = false;
 		isTrying = true;
 		disconnectPanel.SetActive(true);
 		connectedPanel.SetActive(false);
@@ -56,7 +56,7 @@ public class onlineEventsMenu : MonoBehaviour {
 		if(isTrying){
 			if(Time.time - timeTestStarted <= argoTimeout){
 				if(argoTest.isDone && string.IsNullOrEmpty(argoTest.error)){
-					isConnected = true;
+					//isConnected = true;
 					isTrying = false;
 					Debug.Log ("connected to Argo!");
 					disconnectPanel.SetActive(false);

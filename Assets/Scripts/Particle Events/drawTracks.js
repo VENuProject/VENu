@@ -113,7 +113,6 @@ function drawTracksFromArray(index : int, arr : Array) {
            
     //Add the linerenderer to the object
     var lr : LineRenderer = trackObject.AddComponent.<LineRenderer>();
-    lr.castShadows = false;
     lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
     lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
     lr.SetWidth(0.05, 0.05);

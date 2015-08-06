@@ -22,8 +22,8 @@ public class mapMoveTarget : MonoBehaviour {
 			Touch touch = Input.GetTouch(0);
 			
 			if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved ) {
-				Ray ray = Camera.main.ScreenPointToRay(touch.position);
-				RaycastHit2D hit;
+				//Ray ray = Camera.main.ScreenPointToRay(touch.position);
+				//RaycastHit2D hit;
 				//if(Physics.Raycast(ray, out hit
 				// If the finger is on the screen, move the object smoothly to the touch position
 				Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));                
