@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿//onlineEventsMenu.js
+//Written by: Owen Crawford
+//Handles event buttons and event button categories for online JSON files.
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 

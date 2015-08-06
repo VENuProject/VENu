@@ -1,4 +1,8 @@
-﻿#pragma strict
+﻿//localFileGatherer.js
+//Written by: Owen Crawford, Thomas Wester
+//Handles event buttons and event button categories for offline (StreamingAssets) JSON files.
+
+#pragma strict
 
 import System.IO;
 import UnityEngine.WWW;

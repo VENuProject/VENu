@@ -1,6 +1,7 @@
 //Script for drawing tracks
 //    Call filterJSON to create a point array from a parsed JSON string,
 //    this calls drawTracksFromArray() for each track filetered.
+//Written by Thomas Wester
 
 #pragma strict
 
@@ -155,6 +156,10 @@ function drawTracksFromArray(index : int, arr : Array) {
 
 function Awake() {
 	trackAlgoName = PlayerPrefs.GetString("trackAlgorithm");
+	//-------------------------------------------------------
+	//--- Loading/parsing is now handled by parseEvent.js ---
+	//-------------------------------------------------------
+	
 //    if(PlayerPrefs.HasKey("File To Load") && PlayerPrefs.GetString("File To Load") != "") {
 //        fileName = PlayerPrefs.GetString("File To Load");
 //    }

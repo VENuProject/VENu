@@ -1,6 +1,7 @@
 ﻿//Script for drawing tracks
 //    Call filterJSON to create a point array from a parsed JSON string,
 //    this calls drawTracksFromArray() for each track filetered.
+//Somewhat experimental. We wanted to draw tracks in the AR environment but it did not work as well as we hoped.
 
 #pragma strict
 
