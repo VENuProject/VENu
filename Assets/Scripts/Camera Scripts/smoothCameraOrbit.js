@@ -78,6 +78,7 @@ function LateUpdate () { if (target)
 	transform.position = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
 	
 	cameraIcon.transform.eulerAngles = new Vector3(90, cameraIcon.transform.eulerAngles.y, cameraIcon.transform.eulerAngles.z);
+	cameraIcon.transform.position = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);
  }
 }
 
