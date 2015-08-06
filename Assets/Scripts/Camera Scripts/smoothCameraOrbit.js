@@ -1,4 +1,8 @@
-﻿#pragma strict
+﻿//smoothCameraOrbit.js
+//Written by Alistair Maclean, Owen Crawford
+//Purpose: Handles the minimap orbiting camera position.
+
+#pragma strict
 
 import UnityEngine.EventSystems;
 

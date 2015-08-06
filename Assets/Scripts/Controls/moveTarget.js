@@ -1,4 +1,8 @@
-﻿#pragma strict
+﻿//moveTarget.js
+//Written by Alistair Maclean
+//Purpose: Handles clicking on the minimap.
+
+#pragma strict
 
 import UnityEngine.EventSystems;
 import UnityEngine.UI;

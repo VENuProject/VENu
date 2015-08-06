@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿//stringSelector.cs
+//Written by Owen Crawford, Thomas Wester
+//Purpose: Controls the track and spacepoint algorithm selectors in the settings panel.
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -10,7 +14,9 @@ public class stringSelector : MonoBehaviour {
 	public int currentItem;
 
 	void Start () {
+		//Make sure the settings panel remembers the settings the user entered.
 		if (PlayerPrefs.HasKey(playerPrefsString)) {
+			//Get the index of the playerpref string
 			for (int i = 0; i < items.Length; i++) {
 				if (items[i] == PlayerPrefs.GetString(playerPrefsString)) {
 					currentItem = i;
