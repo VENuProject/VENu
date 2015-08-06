@@ -21,6 +21,9 @@ public class controlSwitcher : MonoBehaviour {
 	public bool ttVisible;
 	public bool uiShown;
 
+	public Slider moveSpeedSlider;
+	public Slider lookSpeedSlider;
+
 #if !MOBILE_INPUT
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.H)){
@@ -39,6 +42,9 @@ public class controlSwitcher : MonoBehaviour {
 #endif
 
 	void Start () {
+
+		SetMoveSpeed(moveSpeedSlider.value);
+		SetSensitivity(lookSpeedSlider.value);
 
 		uiShown = true;
 		Physics.IgnoreLayerCollision(0, 11);
