@@ -20,7 +20,6 @@ function P(aText : String) {
     m_InGameLog += aText + "\n";
 }
 
-
 function PlacePoint(pt1 : Vector3) {
     var clone : GameObject;
     clone = Instantiate(dot, transform.position, transform.rotation);
@@ -46,19 +45,8 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
     
     //Loop over tracks: Decide which points to draw, then draw points and connection lines.
     for (var trackIndex : int = 0; trackIndex < totalTracks; trackIndex++) {   
-        //Stores the points to be drawn
+        //Stores the endpoints of each track segment to be drawn
         var spacePointsArray : Array = new Array();
-          
-/*
-        for(var key : int = 0; key < N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"].Count; key++){
-	        var clone : GameObject;
-	 	    clone = Instantiate(dot , transform.position, transform.rotation);
-    	    clone.transform.position = transform.position + Vector3(0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][0].AsFloat,
-    	                                                            0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][1].AsFloat,
-    	                                                           -0.1*N["record"]["spacepoints"]["recob::SpacePoints_cluster3d__RecoStage1"][key]["xyz"][2].AsFloat);
-    	    clone.transform.localScale = Vector3(0.05,0.05,0.05);  
-        }
-*/
           
         //Loop over points in the track, define the first two points outside the loop as initial conditions
         var totalPoints : int = N["record"]["tracks"][trackAlgoName][trackIndex]["points"].Count;
@@ -76,6 +64,7 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
         spacePointsArray.Push(pt1); 
    
         //Loop over the remaining points in the track
+        //Default value is -1f, so the collinearity will never be checked (i.e., all points are drawn for each track)
         for (var spacePointIndex : int = 2; spacePointIndex < totalPoints; spacePointIndex++) {
             var vec : Vector3 = Vector3(
                 0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][spacePointIndex][0].AsFloat,
@@ -95,13 +84,15 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
                 pt2 = vec;
             }
         }
-        //Always push the last point.
+        
+        //Always push the last point. There might be an off-by-one error here because I think it's possible for
+        //this last point to get added twice because of the above loop. Not a huge problem though.
         spacePointsArray.Push(pt2);
 
         drawTracksFromArray(trackIndex, spacePointsArray);
         drawnPoints += spacePointsArray.length;
     }
-    //P("Drawn Points: " + drawnPoints);
+    //P("Drawn Points: " + drawnPoints); //For debugging. Shows the number of endpoints.
 }
 
 function drawTracksFromArray(index : int, arr : Array) {
@@ -137,13 +128,13 @@ function drawTracksFromArray(index : int, arr : Array) {
         segmentObject.layer = 11;
         segmentObject.AddComponent(trackClick);
         segmentObject.SendMessage("SetTooltipRef", tooltip);
-//        segmentObject.AddComponent(ScaleColliderRelativeToCamera); 
+        //Wasn't able to get this working. Meant to scale collider boxes with camera distance.
+        //segmentObject.AddComponent(ScaleColliderRelativeToCamera); 
         segmentObject.name = "segment" + i;
         segmentObject.transform.parent = trackObject.transform;
         segmentObject.transform.position = (transform.position + pt1 + transform.position + pt2) / 2.0;
         
         var bc : BoxCollider;
-//        bc.isTrigger = true;  
         var boxColliderOffset : float = 0.4; //height and width of box collider
         bc = segmentObject.AddComponent.<BoxCollider>();
         bc.transform.LookAt(transform.position + pt2);
@@ -159,48 +150,17 @@ function Awake() {
 	//-------------------------------------------------------
 	//--- Loading/parsing is now handled by parseEvent.js ---
 	//-------------------------------------------------------
-	
-//    if(PlayerPrefs.HasKey("File To Load") && PlayerPrefs.GetString("File To Load") != "") {
-//        fileName = PlayerPrefs.GetString("File To Load");
-//    }
-//    else {
-//        Debug.Log("<color=purple>PlayerPrefs not Initialized. Using default event.</color>");
-//        fileName = "prod_eminus_0.1-2.0GeV_isotropic.json";
-//    }
 }
 
-//function Start() {
-//    //Read in from a file (different paths for different platforms)
-//    var jsonString="";
-//
-////Check if the fileName is a url or a path
-//    if (fileName.Contains("http")) {
-//        var fileURL : WWW = new WWW(fileName) ; 
-//        //// Wait for the download to complete
-//        yield fileURL;
-//        jsonString = fileURL.text;
-//       }
-//    else{
-//    if (Application.platform == RuntimePlatform.Android) {
-//        var url="jar:file://" + Application.dataPath + "!/assets/" + fileName;
-//        var www : WWW = new WWW(url);
-//        yield www;
-//        jsonString = www.text;
-//    }
-//    else {
-//        var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
-//        jsonString = sr.ReadToEnd();
-//        sr.Close();
-//    }
-//    }
-//    
-//    //Filter and draw the tracks from the JSON file.
-//    //Parameter 2 is the filter threshold, and parameter 3 is the algorithm name found in the JSON file.
-//    filterJSON(JSONNode.Parse(jsonString), -1, trackAlgoName); //"recob::Tracks_cctrack__RecoStage1");
-//}
+function Start() {
+
+}
 
 public function drawTracks(node : JSONNode){
-    filterJSON(node, -1, trackAlgoName);
+    //Changing the second argument to a positive value forces tracks to only draw points deemed "uncollinear"
+    //This was used when we tried to reduce the number of points drawn in tracks, but it really pales in 
+    //in comparison to the number of spacepoints drawn, so we are just drawing all of the points in each track.
+    filterJSON(node, -1f, trackAlgoName);
 }
 
 function OnGUI() {
