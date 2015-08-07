@@ -42,47 +42,23 @@ function P( aText : String)
 
 function DrawSpacePoints(N : JSONNode)
 {
-//    var jsonString="";
-//    
-//    //Check if the fileName is a url or a path
-//    if (fileName.Contains("http")) {
-//        var fileURL : WWW = new WWW(fileName) ; 
-//        //// Wait for the download to complete
-//        yield fileURL;
-//        jsonString = fileURL.text;
-//        Debug.Log("Made it here");
-//    }
-//    else{
-//        if(Application.platform==RuntimePlatform.Android)
-//        {
-//            var url="jar:file://" + Application.dataPath + "!/assets/"+ fileName;
-//            Debug.Log(Application.platform+"\n"+url);
-//            var www : WWW = new WWW(url);
-//            yield www;
-//            jsonString=www.text;
-//        }
-//        else
-//        {
-//            var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
-//            jsonString = sr.ReadToEnd();
-//            sr.Close();
-//        }
-//    }
-//    var N = JSONNode.Parse(jsonString);
-
     var spacePointsArray = new Array ();
     var totalPts = N["record"]["spacepoints"][spacePointAlgoName].Count;
     
     //Calculate the proper iterator so that certain points can be skipped (for performance reasons)
     var iter : float = totalPts / maxPoints;
+    
     //If the event has fewer points than the maximum number allowed, draw all of them.
     if (iter < 1.0) {
         iter = 1.0;
     }
+    
     for(var key : float = 0.0; key < totalPts; key += iter){
 	    var clone : GameObject;
+	    
 	    //Round the loop variable here (to get an index) to minimize rounding error in the loop.
 	    var roundKey : int = Mathf.Round(key);
+	    
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
     	clone.transform.position = transform.position + Vector3(
     	    0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"][0].AsFloat,
@@ -92,17 +68,15 @@ function DrawSpacePoints(N : JSONNode)
     	clone.gameObject.layer = 10;
 	    spacePointsArray.Push(clone);	
     }
-  
 }
 
-function Start()
+function Start() 
 {
-//	if(maxPoints != 0){
-//		DrawSpacePoints();
-//	}
+
 }
 
-public function drawPoints(node : JSONNode){
+public function drawPoints(node : JSONNode)
+{
 	if(maxPoints != 0){
 		DrawSpacePoints(node);
 	}
@@ -116,6 +90,7 @@ function OnGUI()
 }
 
 
-function Update () {
+function Update () 
+{
 
 }

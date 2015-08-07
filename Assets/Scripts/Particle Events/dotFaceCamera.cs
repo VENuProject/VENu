@@ -1,18 +1,16 @@
-﻿using UnityEngine;
+﻿//dotFaceCamera.cs
+//Written by Alistair Maclean
+//Force the sprite to always look at the main camera to give 2D sprites a 3D appearance.
+using UnityEngine;
 using System.Collections;
 
 public class dotFaceCamera : MonoBehaviour {
-	//public Camera cam;
-	// Use this for initialization
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-		//This works, and fixes the lag when switching controls.
-		//-Owen
+	void Update () {
+		//Warning: If there's no main camera, you'll get a bunch of errors, and performance will tank.
 		transform.LookAt(Camera.main.transform, -Vector3.up);
-}
+	}
 }
