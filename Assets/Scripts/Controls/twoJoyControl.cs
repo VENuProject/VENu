@@ -24,8 +24,8 @@ public class twoJoyControl : MonoBehaviour {
 
 	void Update () {
 
-		cameraMount.transform.Rotate(0, CrossPlatformInputManager.GetAxis("HorizontalLook") * 2 * lookSensitivity * horizLookMultiplier, 0);
-		float xDelta = CrossPlatformInputManager.GetAxis("VerticalLook") * lookSensitivity * 2;
+		cameraMount.transform.Rotate(0, CrossPlatformInputManager.GetAxis("HorizontalLook") * 5 * lookSensitivity * horizLookMultiplier, 0);
+		float xDelta = CrossPlatformInputManager.GetAxis("VerticalLook") * lookSensitivity * 5;
 		float newXrot = myCamera.transform.eulerAngles.x - xDelta;
 		if(newXrot <= 90 || newXrot > 270)
 			myCamera.transform.Rotate( -xDelta, 0, 0);

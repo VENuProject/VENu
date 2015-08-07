@@ -37,6 +37,7 @@ public var orthoZoomSpeed : float = 0.5f;        // The rate of change of the or
 public var eventSystem : EventSystem;
 public var cameraIcon : GameObject;
 
+var rotSpeedMult : float;
 
 @script AddComponentMenu("Camera-Control/Mouse Orbit smoothed")
 
@@ -45,13 +46,19 @@ function Start () { var angles = transform.eulerAngles; x = angles.y; y = angles
  // Make the rigid body not change rotation
  if (GetComponent.<Rigidbody>())
      GetComponent.<Rigidbody>().freezeRotation = true;
+     
+#if MOBILE_INPUT
+	rotSpeedMult = 8;
+#else
+	rotSpeedMult = 20;
+#endif
 }
 
 function LateUpdate () { if (target) 
 { 
-    var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity") * 10;
+    var rotSpeed : float = PlayerPrefs.GetFloat("LookSensitivity") * rotSpeedMult;
     
-	if(Input.GetMouseButton(0) && Input.touchCount == 0 && eventSystem.IsPointerOverGameObject() == false){
+	if(Input.GetMouseButton(0) && eventSystem.IsPointerOverGameObject() == false){
 		x += Input.GetAxisRaw("Mouse X")*rotSpeed;
 		y -= Input.GetAxisRaw("Mouse Y")*rotSpeed;
 	}
