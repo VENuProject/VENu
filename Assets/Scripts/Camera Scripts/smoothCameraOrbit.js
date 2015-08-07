@@ -6,6 +6,7 @@
 
 import UnityEngine.EventSystems;
 
+//Change these values in the inspector
 var target : Transform; 
 var distance = 10.0;
 var maxDistance = 20.0;
@@ -14,7 +15,7 @@ var zoomSpeed = 2.0;
 var xSpeed = 250.0; 
 var ySpeed = 120.0;
 
-var yMinLimit = -20; 
+var yMinLimit = -80; 
 var yMaxLimit = 80;
 
 private var x = 0.0; 
@@ -66,7 +67,7 @@ function LateUpdate () { if (target)
 
 	xSmooth = Mathf.SmoothDamp(xSmooth, x, xVelocity, smoothTime);
     ySmooth = Mathf.SmoothDamp(ySmooth, y, yVelocity, smoothTime);
-    ySmooth = ClampAngle(ySmooth, yMinLimit, yMaxLimit);
+    //ySmooth = ClampAngle(ySmooth, yMinLimit, yMaxLimit);
     var rotation = Quaternion.Euler(ySmooth, xSmooth, 0);
 
     transform.rotation = rotation;
