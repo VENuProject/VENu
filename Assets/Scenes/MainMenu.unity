@@ -7515,7 +7515,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1595871472}
   m_HandleRect: {fileID: 889614188}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -7750,7 +7750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: f655691d0230d4468acc468c428b865f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81d990d192e75eb4c9ec506f23cb6ca2, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
