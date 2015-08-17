@@ -67,10 +67,9 @@ function getInfo () {
         length += bc.size.z;
     }
     
-    //Capitalize the first letter of the track name, and add a space between the number. E.g. "track0" -> "Track 0"
+    //Capitalize the first letter of the track name, and add a space between the number. E.g. "track0" -> "Track0"
     var name : String = gameObject.transform.parent.name;
-    name = name.Substring(0, 1).ToUpper() + name.Substring(1, name.Length - 2) + " " 
-        + name.Substring(name.Length - 1, 1);
+    name = name.Substring(0, 1).ToUpper() + name.Substring(1, name.Length - 1);
     
     var v = values(name, 0f, 0f, Mathf.Round(length * 100) / 100, 0f, 0f, 0f, origin.ToString(), nHits + 1);
     
