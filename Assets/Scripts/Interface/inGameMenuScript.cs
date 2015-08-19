@@ -63,9 +63,9 @@ public class inGameMenuScript: MonoBehaviour {
 	public void SlideMenu() {
 		if(state == menuState.isIn){
 			state = menuState.slidingOut;
-			slideButton.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, 180);
+			slideButton.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, 0); //AMCLEAN changed (0,0,180) to (0,0,0)
 			startTime = Time.time;
-		}
+		}	
 		else if(state == menuState.isOut){
 			state = menuState.slidingIn;
 			slideButton.GetComponent<RectTransform>().eulerAngles = new Vector3(0, 0, 0);
