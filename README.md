@@ -11,7 +11,13 @@ You'll need to install usually the latest version of Unity (see below). You'll a
 
 ## A word about Unity versions
 
-Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.1.1. 
+Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.1.1f.
+
+[Thomas Wester] I have tested the project in Unity 5.2 without success. The problem seems to be the Vuforia libraries currently in this repository: Xcode (required to build for iOS) cannot find them if the project is exported from Unity 5.2, so unless you want to update all of those yourself, I would stay away from the latest versions of Unity, or you could try your luck building for a different platform (although iOS is an important one to have working).
+
+Unity 5.1.1f can be downloaded here: https://unity3d.com/get-unity/download/archive
+
+Additional notes: Unity relies on a system of linked scripts and gameobjects. Some of these will save and be uploaded to git without a problem, but do not be surprised if you pull the repository, open it in Unity and find "missing referenced script/object" warnings. You will have to drag the appropriate script or prefab back to the corresponding field in the editor. Again, this is a side effect of using git with Unity--certain settings aren't always saved, so be careful!
 
 ## Check out the code
 
@@ -24,6 +30,10 @@ This will create a directory with the Unity project in it. To periodically updat
     git pull origin master
 
 ## Committing to the repository 
+
+[Thomas Wester] We would ideally like to have the master branch of VENu always working. This means work done on VENu should, by default, go to the Development branch so that testing can be done there and then can be merged into the master branch later once the development branch is stable. You can switch branches using:
+
+    git checkout Development
 
 In order to commit changes to the repository, you need to get a GitHub account. Secondly, email Ben and give him your GitHub username. He will add you as a contributor and you will be able to make commits. If you have only changed existing files, you can commit to your local git repository with:
 
