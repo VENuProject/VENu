@@ -4,6 +4,9 @@ This is the repository for the MicroBooNE VR project.
 
 The author of this README.md (Ben) stresses that this is one of the first GitHub repositories he has setup. Some of the instructions may not quite work. Please let him know if something's wrong!
 
+## A Note about This Branch
+
+[Thomas Wester] I'm using this branch to test out some things that may or may not be good ideas. If I come up with anything good, I'll add it to the Development branch.
 
 ## Requirements
 
