@@ -12,14 +12,16 @@ public class mainMenuScript : MonoBehaviour {
 
 	public GameObject buttonPanel;
 	public GameObject ARButton;
-
+	public GameObject exitButton;
 
 	void Start(){
 
 #if MOBILE_INPUT
 		ARButton.SetActive(true);
+		exitButton.SetActive(false);
 #else
 		ARButton.SetActive(false);
+		exitButton.SetActive(true);
 #endif
 		HidePanels();
 		ShowSavedEvents();
