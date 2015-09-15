@@ -71,7 +71,7 @@ function LateUpdate ()
  else 
  		{
  		//Do nothing...
- 		//transform.position = transform.position;
+ 		
  		}
  		//keep the target inside the detector
  transform.position.x = Mathf.Clamp (transform.position.x, -10, 10);
