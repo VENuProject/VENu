@@ -83,7 +83,11 @@ function LateUpdate () { if (target)
 	distance = Mathf.Clamp(distance, -maxDistance, maxDistance);
 	posSmooth = target.position;
 	
-	transform.position = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
+	var newPos : Vector3 = rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
+	//These clamps will ensure the camera doesn't fly out of the cryostat
+	newPos.x = Mathf.Clamp(newPos.x, -10, 10);
+	newPos.z = Mathf.Clamp(newPos.z, -50, 50);
+	transform.position = newPos; //rotation * Vector3(0.0, 0.0, -distance) + posSmooth;
 	
 	cameraIcon.transform.eulerAngles = new Vector3(90, cameraIcon.transform.eulerAngles.y, cameraIcon.transform.eulerAngles.z);
 	cameraIcon.transform.position = new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z);

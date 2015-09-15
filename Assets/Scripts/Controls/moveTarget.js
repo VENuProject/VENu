@@ -73,8 +73,9 @@ function LateUpdate ()
  		//Do nothing...
  		//transform.position = transform.position;
  		}
- 		
- 
+ 		//keep the target inside the detector
+ transform.position.x = Mathf.Clamp (transform.position.x, -10, 10);
+ transform.position.z = Mathf.Clamp (transform.position.z, -50, 50);
  //AMCLEAN arrow key movement
          if (Input.GetKey (KeyCode.UpArrow)) transform.Translate (Vector3(0,1,0) * Time.deltaTime*speed);
          if (Input.GetKey (KeyCode.DownArrow)) transform.Translate (Vector3(0,-1,0) * Time.deltaTime*speed);
