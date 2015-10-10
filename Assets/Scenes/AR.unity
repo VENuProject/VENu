@@ -1976,11 +1976,11 @@ Prefab:
       objectReference: {fileID: 436668301}
     - target: {fileID: 22410570, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22400440, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22434992, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMin.y
@@ -2068,15 +2068,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22410570, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .111111112
       objectReference: {fileID: 0}
     - target: {fileID: 22400440, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: .111111112
       objectReference: {fileID: 0}
     - target: {fileID: 22400440, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .111111112
       objectReference: {fileID: 0}
     - target: {fileID: 11489902, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
       propertyPath: m_Value
@@ -2118,6 +2118,11 @@ Prefab:
       propertyPath: EventMenuScene
       value: MainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 11429610, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ec9cb084933df4c4da80162c221d4190,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 11488024, guid: 97a59e124b93ea342be39db905e8417b, type: 2}
     - {fileID: 11486304, guid: 97a59e124b93ea342be39db905e8417b, type: 2}

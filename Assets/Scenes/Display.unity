@@ -544,23 +544,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432896, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .444444448
       objectReference: {fileID: 0}
     - target: {fileID: 22432896, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22417574, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: .444444448
       objectReference: {fileID: 0}
     - target: {fileID: 22417574, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .444444448
       objectReference: {fileID: 0}
     - target: {fileID: 22417574, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 109920, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_Name
@@ -2082,7 +2082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: ba0276874edad7d4093bb5361d3daecc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec9cb084933df4c4da80162c221d4190, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4661,23 +4661,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22432896, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22432896, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22417574, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22417574, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 22417574, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 109920, guid: eab4e84dabbf443ff843573e4662a321, type: 2}
       propertyPath: m_Name
@@ -5131,6 +5131,7 @@ MonoBehaviour:
   orthoZoomSpeed: .5
   eventSystem: {fileID: 358929443}
   cameraIcon: {fileID: 1431297617}
+  rotSpeedMult: 0
 --- !u!81 &2077503597
 AudioListener:
   m_ObjectHideFlags: 0
