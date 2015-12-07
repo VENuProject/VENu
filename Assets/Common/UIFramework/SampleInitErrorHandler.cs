@@ -33,7 +33,7 @@ public class SampleInitErrorHandler : MonoBehaviour
     private GUIStyle mErrorOkButton;
     private ErrorData mCurrentError;
     private AppManager mManager;
-    QCARUnity.InitError mErrorcode;
+    VuforiaUnity.InitError mErrorcode;
 
     #region PRIVATE_MEMBER_VARIABLES
 
@@ -102,7 +102,7 @@ public class SampleInitErrorHandler : MonoBehaviour
 
     private void DrawPopUp()
     {
-        if (mErrorcode == QCARUnity.InitError.INIT_LICENSE_ERROR_NO_NETWORK_TRANSIENT)
+        if (mErrorcode == VuforiaUnity.InitError.INIT_LICENSE_ERROR_NO_NETWORK_TRANSIENT)
         {
             if (GUI.Button(new Rect(35, 185, 100, 40), "Close", mErrorOkButton))
             {
@@ -132,21 +132,21 @@ public class SampleInitErrorHandler : MonoBehaviour
         
     }
 
-    public void SetErrorCode(QCARUnity.InitError errorCode)
+    public void SetErrorCode(VuforiaUnity.InitError errorCode)
     {
         mCurrentError = new ErrorData();
-        mCurrentError.Title = "QCAR Initialization Error";
+        mCurrentError.Title = "Vuforia Initialization Error";
         mCurrentError.Text = "";
-        Debug.LogError("QCAR initialization failed: " + errorCode);
+        Debug.LogError("Vuforia initialization failed: " + errorCode);
         mErrorcode = errorCode;
         switch (errorCode)
         {
-            case QCARUnity.InitError.INIT_LICENSE_ERROR_MISSING_KEY:
+            case VuforiaUnity.InitError.INIT_LICENSE_ERROR_MISSING_KEY:
                 mCurrentError.Text =
                       "Vuforia App key is missing. Please get a valid key, by logging into your account at developer.vuforia.com and creating a new project ";
                 break;
 #if (UNITY_IPHONE || UNITY_IOS)
-            case QCARUnity.InitError.INIT_NO_CAMERA_ACCESS:
+            case VuforiaUnity.InitError.INIT_NO_CAMERA_ACCESS:
                  mCurrentError.Text = 
                     "Camera Access was denied to this App. \n" + 
                     "When running on iOS8 devices, \n" + 
@@ -155,30 +155,30 @@ public class SampleInitErrorHandler : MonoBehaviour
                     "Settings > Privacy > Camera > [This App Name] and switch it ON.";
                 break;
 #endif
-            case QCARUnity.InitError.INIT_LICENSE_ERROR_INVALID_KEY:
+            case VuforiaUnity.InitError.INIT_LICENSE_ERROR_INVALID_KEY:
                 mCurrentError.Text =
                       " Invalid Key used. Please make sure you are using a valid Vuforia App Key";
 
                 break;
 
-            case QCARUnity.InitError.INIT_LICENSE_ERROR_NO_NETWORK_TRANSIENT:
+            case VuforiaUnity.InitError.INIT_LICENSE_ERROR_NO_NETWORK_TRANSIENT:
                 mCurrentError.Text =
                       "Unable to contact server. Please try again later.";
 
                 break;
 
-            case QCARUnity.InitError.INIT_LICENSE_ERROR_NO_NETWORK_PERMANENT:
+            case VuforiaUnity.InitError.INIT_LICENSE_ERROR_NO_NETWORK_PERMANENT:
                 mCurrentError.Text =
                       "No network available. Please make sure you are connected to the Internet.";
 
                 break;
 
-            case QCARUnity.InitError.INIT_LICENSE_ERROR_CANCELED_KEY:
+            case VuforiaUnity.InitError.INIT_LICENSE_ERROR_CANCELED_KEY:
                 mCurrentError.Text = "This app license key has been canceled and may no longer be used. Please get a new license key";
                 break;
 
-            case QCARUnity.InitError.INIT_ERROR:
-                mCurrentError.Text = "Failed to initialize QCAR.";
+            case VuforiaUnity.InitError.INIT_ERROR:
+                mCurrentError.Text = "Failed to initialize Vuforia.";
                 break;
         }
     }

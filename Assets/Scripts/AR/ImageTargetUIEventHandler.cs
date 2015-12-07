@@ -65,12 +65,12 @@ public class ImageTargetUIEventHandler : ISampleAppUIEventHandler {
         this.View.mCloseButton.TappedOn         += OnTappedOnCloseButton;
         this.View.mAboutLabel.TappedOn          += OnTappedOnAboutButton;
 
-        // register qcar started callback
-        QCARAbstractBehaviour qcarBehaviour = (QCARAbstractBehaviour)FindObjectOfType(typeof(QCARAbstractBehaviour));
-        if (qcarBehaviour)
+        // register Vuforia started callback
+        VuforiaAbstractBehaviour VuforiaBehaviour = (VuforiaAbstractBehaviour)FindObjectOfType(typeof(VuforiaAbstractBehaviour));
+        if (VuforiaBehaviour)
         { 
-            qcarBehaviour.RegisterQCARStartedCallback(EnableContinuousAutoFocus);
-            qcarBehaviour.RegisterOnPauseCallback(OnPause);
+            VuforiaBehaviour.RegisterVuforiaStartedCallback(EnableContinuousAutoFocus);
+            VuforiaBehaviour.RegisterOnPauseCallback(OnPause);
         }
     }
     
@@ -85,12 +85,12 @@ public class ImageTargetUIEventHandler : ISampleAppUIEventHandler {
         this.View.mAboutLabel.TappedOn          -= OnTappedOnAboutButton;
         sExtendedTrackingIsEnabled = false;
 
-        // unregister qcar started callback
-        QCARAbstractBehaviour qcarBehaviour = (QCARAbstractBehaviour)FindObjectOfType(typeof(QCARAbstractBehaviour));
-        if (qcarBehaviour)
+        // unregister Vuforia started callback
+        VuforiaAbstractBehaviour VuforiaBehaviour = (VuforiaAbstractBehaviour)FindObjectOfType(typeof(VuforiaAbstractBehaviour));
+        if (VuforiaBehaviour)
         {
-            qcarBehaviour.UnregisterQCARStartedCallback(EnableContinuousAutoFocus);
-            qcarBehaviour.UnregisterOnPauseCallback(OnPause);
+            VuforiaBehaviour.UnregisterVuforiaStartedCallback(EnableContinuousAutoFocus);
+            VuforiaBehaviour.UnregisterOnPauseCallback(OnPause);
         }
 
         this.View.UnLoadView();

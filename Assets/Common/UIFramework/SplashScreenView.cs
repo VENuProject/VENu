@@ -48,7 +48,7 @@ public class SplashScreenView : ISampleAppUIView
         if(!tf)
             return;
         
-        if (QCARRuntimeUtilities.IsPlayMode() && (mWindowsPlayModeTexture != null))
+        if (VuforiaRuntimeUtilities.IsPlayMode() && (mWindowsPlayModeTexture != null))
         {
             GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), mWindowsPlayModeTexture);
         }

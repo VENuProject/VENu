@@ -12,7 +12,7 @@ All Rights Reserved.
 #if UNITY_VERSION>434
 
 // Exported methods for native rendering callback
-extern "C" void UnityRenderEvent(int marker);
+extern "C" void VuforiaRenderEvent(int marker);
 
 #endif
 
@@ -32,7 +32,7 @@ extern "C" void UnityRenderEvent(int marker);
 // Unity native rendering callback plugin mechanism is only supported 
 // from version 4.5 onwards
 #if UNITY_VERSION>434
-	UnityRegisterRenderingPlugin(NULL, &UnityRenderEvent);
+	UnityRegisterRenderingPlugin(NULL, &VuforiaRenderEvent);
 #endif
 }
 @end

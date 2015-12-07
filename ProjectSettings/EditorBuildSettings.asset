@@ -12,11 +12,11 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Standalone/standaloneDisplay.unity
   - enabled: 0
-    path: Assets/Scenes/Mobile/mobileMainMenu.unity
-  - enabled: 0
     path: Assets/Scenes/Mobile/mobileDisplay.unity
   - enabled: 0
     path: Assets/Scenes/Mobile/mobileAR.unity
+  - enabled: 0
+    path: Assets/Scenes/Mobile/mobileMainMenu.unity
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
   - enabled: 1

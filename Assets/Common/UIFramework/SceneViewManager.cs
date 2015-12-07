@@ -26,10 +26,10 @@ public class SceneViewManager : MonoBehaviour {
         }
 
         // Check for an initialization error on start.
-        QCARAbstractBehaviour qcarBehaviour = (QCARAbstractBehaviour)FindObjectOfType(typeof(QCARAbstractBehaviour));
-        if (qcarBehaviour)
+        VuforiaAbstractBehaviour vuforiaBehaviour = (VuforiaAbstractBehaviour)FindObjectOfType(typeof(VuforiaAbstractBehaviour));
+        if (vuforiaBehaviour)
         {
-            qcarBehaviour.RegisterQCARInitErrorCallback(OnQCARInitializationError);
+            vuforiaBehaviour.RegisterVuforiaInitErrorCallback(OnVuforiaInitializationError);
         }
     }
 
@@ -50,10 +50,10 @@ public class SceneViewManager : MonoBehaviour {
 
     void OnDestroy()
     {
-        QCARAbstractBehaviour qcarBehaviour = (QCARAbstractBehaviour)FindObjectOfType(typeof(QCARAbstractBehaviour));
-        if (qcarBehaviour)
+        VuforiaAbstractBehaviour vuforiaBehaviour = (VuforiaAbstractBehaviour)FindObjectOfType(typeof(VuforiaAbstractBehaviour));
+        if (vuforiaBehaviour)
         {
-            qcarBehaviour.UnregisterQCARInitErrorCallback(OnQCARInitializationError);
+            vuforiaBehaviour.UnregisterVuforiaInitErrorCallback(OnVuforiaInitializationError);
         }
 
         mAppManager.DeInitManager();
@@ -71,9 +71,9 @@ public class SceneViewManager : MonoBehaviour {
         }
     }
 
-    public void OnQCARInitializationError(QCARUnity.InitError initError)
+    public void OnVuforiaInitializationError(VuforiaUnity.InitError initError)
     {
-        if (initError != QCARUnity.InitError.INIT_SUCCESS)
+        if (initError != VuforiaUnity.InitError.INIT_SUCCESS)
         {
             mErrorOccurred = true;
             mPopUpMsg.SetErrorCode(initError);
