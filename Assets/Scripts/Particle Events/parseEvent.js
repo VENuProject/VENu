@@ -23,17 +23,15 @@ function Start () {
         fileName = "prod_eminus_0.1-2.0GeV_isotropic.json";
     }
     
-    if(PlayerPrefs.HasKey("EventSource")) {
-        if (PlayerPrefs.GetString("EventSource") == "local") {
-          //Enable next/previous event buttons
-          nextEventButton.SetActive(true);
-          prevEventButton.SetActive(true);
-        }
-        else {
-          //Disable next/previous event buttons
-          nextEventButton.SetActive(false);
-          prevEventButton.SetActive(false);
-        }
+    if (PlayerPrefs.HasKey("EventSource") && PlayerPrefs.GetString("EventSource") == "local") {
+        //Enable next/previous event buttons
+        nextEventButton.SetActive(true);
+        prevEventButton.SetActive(true);
+    }
+    else {
+        //Disable next/previous event buttons
+        nextEventButton.SetActive(false);
+        prevEventButton.SetActive(false);
     }
 
 	var jsonString="";
