@@ -15,7 +15,8 @@ public class mainMenuScript : MonoBehaviour {
 
 
 	void Start(){
-
+		//Default: Local event type. This is changed when 'Online Events' button is pressed.
+		PlayerPrefs.SetString("EventSource", "local");
 #if MOBILE_INPUT
 		ARButton.SetActive(true);
 #else
@@ -34,12 +35,14 @@ public class mainMenuScript : MonoBehaviour {
 	}
 
 	public void ShowSavedEvents(){
+		//Make sure the game scene knows which set of events are being loaded
 		PlayerPrefs.SetString("EventSource", "local");
 		HidePanels();
 		savedEventPanel.SetActive(true);
 	}
 
 	public void ShowWebEvents(){
+		//Make sure the game scene knows which set of events are being loaded
 		PlayerPrefs.SetString("EventSource", "web");
 		HidePanels();
 		webEventPanel.SetActive(true);
