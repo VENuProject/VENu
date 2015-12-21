@@ -34,11 +34,13 @@ public class mainMenuScript : MonoBehaviour {
 	}
 
 	public void ShowSavedEvents(){
+		PlayerPrefs.SetString("EventSource", "local");
 		HidePanels();
 		savedEventPanel.SetActive(true);
 	}
 
 	public void ShowWebEvents(){
+		PlayerPrefs.SetString("EventSource", "web");
 		HidePanels();
 		webEventPanel.SetActive(true);
 	}

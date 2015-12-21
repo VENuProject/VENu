@@ -10,6 +10,8 @@ import UnityEngine.UI;
 
 var fileName : String;
 var loadingText : GameObject;
+var nextEventButton : GameObject;
+var prevEventButton : GameObject;
 
 function Start () {
 
@@ -19,6 +21,19 @@ function Start () {
     else {
         Debug.Log("<color=purple>PlayerPrefs not Initialized. Using default event.</color>");
         fileName = "prod_eminus_0.1-2.0GeV_isotropic.json";
+    }
+    
+    if(PlayerPrefs.HasKey("EventSource")) {
+        if (PlayerPrefs.GetString("EventSource") == "local") {
+          //Enable next/previous event buttons
+          nextEventButton.SetActive(true);
+          prevEventButton.SetActive(true);
+        }
+        else {
+          //Disable next/previous event buttons
+          nextEventButton.SetActive(false);
+          prevEventButton.SetActive(false);
+        }
     }
 
 	var jsonString="";
@@ -50,8 +65,8 @@ function Start () {
     
     var node = JSONNode.Parse(jsonString);
     //Call the draw functions in the other scripts
-    GetComponent(drawTracks).drawTracks(node);
+        GetComponent(drawTracks).drawTracks(node);
     GetComponent(drawSpacePoints).drawPoints(node);
-    
+   
 }
 
