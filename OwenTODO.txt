@@ -3,12 +3,15 @@ New TODO
 - - - -
 A list of things I’ve noticed that I’d like to see changed/improved.
 Not all are necessary and not in order of importance.
+-: WIP
++: done
 
-1. Make the event buttons look nicer - maybe find a new way to display names?
-2. Review the events we have to make sure they’re pretty
-3. Add a few more events of various sizes
-4. Would be nice to merge the various camera controls, so the view doesn’t jump around when switching. Do we really need a separate object for each?
-5. Minimap mode isn’t affected by MoveSpeed slider
-6. Minimap mode rotation speed is very slow. Increase slider values?
-7. Pretty up ingame menu.
-8. Will we need a demo mode of some sort, with certain features disabled?
+[ ]1. Make the event buttons look nicer - maybe find a new way to display names?
+[ ]2. Review the events we have to make sure they’re pretty
+[ ]3. Add a few more events of various sizes
+[ ]4. Would be nice to merge the various camera controls, so the view doesn’t jump around when switching. Do we really need a separate object for each?
+[+]5. Minimap mode isn’t affected by MoveSpeed slider
+[ ]6. Minimap mode rotation speed is very slow. Increase slider values?
+[+]7. Pretty up ingame menu.
+[ ]8. Will we need a demo mode of some sort, with certain features disabled?
+
