@@ -7,6 +7,7 @@
 import System.IO;
 import UnityEngine.WWW;
 import UnityEngine.UI;
+import UnityEngine.Sprite;
 
 public var jsonFilesPath;
 public var EventButton : GameObject;
@@ -14,7 +15,8 @@ public var ButtonsGroup : GameObject;
 public var displayLevel : String;
 
 public var CategoryPrefab : GameObject;
-public var categoriesGroup : GameObject; 
+public var categoriesGroup : GameObject;
+public var localFileImage : Sprite;
 
 function Start () {
 
@@ -122,6 +124,7 @@ function AddButton (file : String, size : float, cat : GameObject){
             btnText += word + "\n";
     btnText = btnText.Substring(0, btnText.Length - 1);
     newButton.SendMessage("SetText", btnText);
+    newButton.SendMessage("SetImage", localFileImage);;
 	newButton.SendMessage("SetFileSize", size);
 	
 	
