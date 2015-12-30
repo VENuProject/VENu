@@ -7583,6 +7583,7 @@ MonoBehaviour:
   argoTimeout: 10
   connectedPanel: {fileID: 2067613322}
   disconnectPanel: {fileID: 690144699}
+  webEventImage: {fileID: 21300000, guid: 12c7dd2e87eff4f009cd134e6e21f778, type: 3}
 --- !u!1 &1334334804
 GameObject:
   m_ObjectHideFlags: 0
