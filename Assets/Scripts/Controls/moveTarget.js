@@ -24,7 +24,7 @@ function LateUpdate ()
 
 }
  static var selectedId : int;
- static var speed : int = 5;
+ static var speed : float = 5;
  
  function Update () 
  
@@ -87,6 +87,7 @@ function LateUpdate ()
  
  function FixedUpdate(){
  	height = PlayerPrefs.GetFloat("PlayerHeight");
+ 	speed = PlayerPrefs.GetFloat("MoveSpeed") * 6; //Using 6 to scale appropriately to MoveSpeed slider values -Owen
  }
  
  function OnMouseDown () {

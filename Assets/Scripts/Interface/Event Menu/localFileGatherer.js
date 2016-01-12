@@ -7,6 +7,7 @@
 import System.IO;
 import UnityEngine.WWW;
 import UnityEngine.UI;
+import UnityEngine.Sprite;
 
 public var jsonFilesPath;
 public var EventButton : GameObject;
@@ -14,7 +15,8 @@ public var ButtonsGroup : GameObject;
 public var displayLevel : String;
 
 public var CategoryPrefab : GameObject;
-public var categoriesGroup : GameObject; 
+public var categoriesGroup : GameObject;
+public var localFileImage : Sprite;
 
 function Start () {
 
@@ -73,15 +75,16 @@ function Start () {
 //                
 //		    }
             var cat : GameObject;
-            if (file.Length / 1000000f < 2f) {
+            if (file.Length / 1000000f <= 2f) {
                 cat = lessThan2MB;
             }
-            else if (file.Length / 1000000f > 2f && file.Length / 1000000f < 6f) {
+            else if (file.Length / 1000000f > 2f && file.Length / 1000000f <= 6f) {
                 cat = between2and6MB;
             }
             else {
                 cat = moreThan6MB;
             }
+            Debug.Log("Cat: " + cat.GetComponentInChildren(Text).text);
             //btnText = btnText.Substring(0, btnText.Length - 1);
 			//AddButton(btnText, file.Name);
 			AddButton(file.Name, file.Length / 1000000f, cat);
@@ -122,7 +125,8 @@ function AddButton (file : String, size : float, cat : GameObject){
             btnText += word + "\n";
     btnText = btnText.Substring(0, btnText.Length - 1);
     newButton.SendMessage("SetText", btnText);
+    newButton.SendMessage("SetImage", localFileImage);;
 	newButton.SendMessage("SetFileSize", size);
-	
+	newButton.SetActive(true);
 	
 }

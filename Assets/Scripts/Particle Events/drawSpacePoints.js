@@ -19,6 +19,7 @@ private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 var spacePointAlgoName : String = "recob::SpacePoints_pandoraCosmicKHit_RecoStage2";
 var fileName : String;
+public var pointParent : GameObject;
 
 function Awake()
 {
@@ -42,6 +43,7 @@ function P( aText : String)
 
 function DrawSpacePoints(N : JSONNode)
 {
+	//spacePointsArray seems to be unused -Owen
     var spacePointsArray = new Array ();
     var totalPts = N["record"]["spacepoints"][spacePointAlgoName].Count;
     
@@ -66,6 +68,7 @@ function DrawSpacePoints(N : JSONNode)
            -0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"][2].AsFloat);
     	clone.transform.localScale = Vector3(0.005,0.005,0.005);
     	clone.gameObject.layer = 10;
+    	clone.transform.SetParent(pointParent.transform);
 	    spacePointsArray.Push(clone);	
     }
 }
@@ -79,6 +82,15 @@ public function drawPoints(node : JSONNode)
 {
 	if(maxPoints != 0){
 		DrawSpacePoints(node);
+	}
+}
+
+public function togglePoints(){
+	if(pointParent.activeInHierarchy){
+		pointParent.SetActive(false);
+	}
+	else{
+		pointParent.SetActive(true);
 	}
 }
 

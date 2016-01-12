@@ -27,6 +27,7 @@ public class onlineEventsMenu : MonoBehaviour {
 	//bool isConnected; //Not used
 	public GameObject connectedPanel;
 	public GameObject disconnectPanel;
+	public Sprite webEventImage;
 	
 	void Start(){
 
@@ -120,6 +121,7 @@ public class onlineEventsMenu : MonoBehaviour {
         newButton.SendMessage("SetLevelToLoad", displayLevel);
         newButton.SendMessage("SetText", formatBtnText(file));
 		newButton.SendMessage("SetFileSize", size);
+		newButton.SendMessage("SetImage", webEventImage);
     }	
 
 	string formatBtnText (string raw) {

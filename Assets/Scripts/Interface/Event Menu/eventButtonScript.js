@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
 import UnityEngine.UI;
+import UnityEngine.Sprite;
 //import UnityEngine.iOS;
 var fileName : String;
 public var levelToLoad : String;
@@ -61,3 +62,6 @@ public function SetFileSize(size : float){
 
 }
 
+public function SetImage(image : Sprite){
+	GetComponentInChildren(Image).overrideSprite = image;
+}
