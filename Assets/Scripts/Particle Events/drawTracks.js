@@ -15,6 +15,7 @@ private var m_InGameLog = "";
 private var m_Position = Vector2.zero;
 var trackAlgoName : String;
 public var tooltip : GameObject;
+public var trackParent : GameObject;
 
 function P(aText : String) {
     m_InGameLog += aText + "\n";
@@ -25,6 +26,7 @@ function PlacePoint(pt1 : Vector3) {
     clone = Instantiate(dot, transform.position, transform.rotation);
     clone.transform.position = transform.position + pt1;
     clone.transform.localScale = Vector3(0.005,0.005,0.005);
+    clone.transform.SetParent(trackParent.transform);
 }
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -102,6 +104,7 @@ function drawTracksFromArray(index : int, arr : Array) {
     trackObject.transform.rotation = Quaternion.identity;
     trackObject.name = "track" + index;
     trackObject.tag = "track";
+    trackObject.transform.parent = trackParent.transform;
            
     //Add the linerenderer to the object
     var lr : LineRenderer = trackObject.AddComponent.<LineRenderer>();
@@ -154,6 +157,15 @@ function Awake() {
 
 function Start() {
 
+}
+
+public function toggleTracks(){
+	if(trackParent.activeInHierarchy){
+		trackParent.SetActive(false);
+	}
+	else{
+		trackParent.SetActive(true);
+	}
 }
 
 public function drawTracks(node : JSONNode){
