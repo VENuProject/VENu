@@ -81,7 +81,7 @@ function AddButton (file : String){
 	var newButton : GameObject;
 	newButton = Instantiate(EventButton);
 	newButton.transform.SetParent(ButtonsGroup.transform, false);
-	newButton.GetComponentInChildren(UnityEngine.UI.Text).text = file;
+	newButton.GetComponentInChildren(UnityEngine.UI.Text,true).text = file;
 	newButton.GetComponent(eventButtonScript).fileName = file;
 	newButton.GetComponent(eventButtonScript).levelToLoad = displayLevel;
 	//custom graphics for each file?

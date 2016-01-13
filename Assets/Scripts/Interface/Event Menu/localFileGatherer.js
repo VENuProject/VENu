@@ -30,7 +30,8 @@ function Start () {
 
         var androidCategory : GameObject;
         androidCategory = Instantiate(CategoryPrefab);
-        androidCategory.GetComponentInChildren(Text).text = "Android Events";
+        // androidCategory.GetComponentInChildren(Text).text = "Android Events";
+        androidCategory.GetComponent(Text).text = "Android Events";
         androidCategory.transform.SetParent(categoriesGroup.transform, false);
 
 //		AddButton("prod" + "\n" + "bnblike" + "\n" + "proton" + "\n" + "uboone", "prod_bnblike_proton_uboone.json");
@@ -44,22 +45,25 @@ function Start () {
 	}
 	else {
 	
-		jsonFilesPath = Application.streamingAssetsPath; //this works fine on iOS
+		jsonFilesPath = Application.streamingAssetsPath; //this works fine on iOS 
            	
     	//Make some categories, hardcoded for now, until we have other categories to sort on.
     	var lessThan2MB : GameObject;
         lessThan2MB = Instantiate(CategoryPrefab);
-        lessThan2MB.GetComponentInChildren(Text).text = "Small Events";
+        // lessThan2MB.GetComponent(Text).text = "Small Events";
+        lessThan2MB.GetComponentInChildren(Text,true).text = "Small Events";
         lessThan2MB.transform.SetParent(categoriesGroup.transform, false);
         
         var between2and6MB : GameObject;
         between2and6MB = Instantiate(CategoryPrefab);
-        between2and6MB.GetComponentInChildren(Text).text = "Medium Events";
+        // between2and6MB.GetComponentInChildren(Text).text = "Medium Events";
+        between2and6MB.GetComponentInChildren(Text,true).text = "Medium Events";
         between2and6MB.transform.SetParent(categoriesGroup.transform, false);
         
         var moreThan6MB : GameObject;
         moreThan6MB = Instantiate(CategoryPrefab);
-        moreThan6MB.GetComponentInChildren(Text).text = "Large Events";
+        // moreThan6MB.GetComponentInChildren(Text).text = "Large Events";
+        moreThan6MB.GetComponentInChildren(Text,true).text = "Large Events";
         moreThan6MB.transform.SetParent(categoriesGroup.transform, false);
         
         // Stashed changes
