@@ -43,6 +43,22 @@ public class controlSwitcher : MonoBehaviour {
 
 	void Start () {
 
+		if(PlayerPrefs.HasKey("LookSensitivity"))
+			lookSpeedSlider.value = PlayerPrefs.GetFloat("LookSensitivity");
+		else
+			lookSpeedSlider.value = 0.4f;
+//			PlayerPrefs.SetFloat("LookSensitivity", 0.2f);
+
+		if(PlayerPrefs.HasKey("MoveSpeed"))
+			moveSpeedSlider.value = PlayerPrefs.GetFloat("MoveSpeed");
+		else
+			moveSpeedSlider.value = 0.3f;
+
+		if(PlayerPrefs.HasKey("ControlScheme"))
+			SetScheme(PlayerPrefs.GetInt("ControlScheme"));
+		else
+			SetScheme((int)ControlSchemes.Minimap);
+
 		SetMoveSpeed(moveSpeedSlider.value);
 		SetSensitivity(lookSpeedSlider.value);
 
@@ -96,9 +112,6 @@ public class controlSwitcher : MonoBehaviour {
 			break;
 		}
 #endif
-
-		PlayerPrefs.SetFloat("LookSensitivity", 0.1f);
-		PlayerPrefs.SetFloat("MoveSpeed", 0.2f);
 		PlayerPrefs.SetFloat("PlayerHeight", 0);
 	}
 
@@ -133,6 +146,7 @@ public class controlSwitcher : MonoBehaviour {
 			break;
 		}
 #endif
+		PlayerPrefs.SetInt("ControlScheme", (int)scheme);
 
 	}
 	
@@ -176,6 +190,7 @@ public class controlSwitcher : MonoBehaviour {
 			MouseMode();
 			break;
 		}
+		PlayerPrefs.SetInt("ControlScheme", (int)scheme);
 	}
 
 	public void OneJoyMode(){

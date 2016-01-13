@@ -109,13 +109,12 @@ public class oneJoyDragInterface : MonoBehaviour {
 
 	void PlayerMove (){
 
-		Vector3 delta = new Vector3(CrossPlatformInputManager.GetAxis("Horizontal"),
-		                            0,
-		                            CrossPlatformInputManager.GetAxis("Vertical")
-		                            ) * moveSpeed;
+		Vector3 delta = new Vector3(
+			CrossPlatformInputManager.GetAxis("Horizontal") * moveSpeed * 0.3f,
+            height - transform.position.y,
+            CrossPlatformInputManager.GetAxis("Vertical") * moveSpeed * 0.3f);
 		delta = Quaternion.AngleAxis(cameraMount.transform.eulerAngles.y, Vector3.up) * delta;
 		me.Move(delta);
-		transform.Translate(0, height - transform.position.y, 0);
 
 	}
 
