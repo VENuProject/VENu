@@ -84,7 +84,6 @@ function Start () {
             else {
                 cat = moreThan6MB;
             }
-            Debug.Log("Cat: " + cat.GetComponentInChildren(Text).text);
             //btnText = btnText.Substring(0, btnText.Length - 1);
 			//AddButton(btnText, file.Name);
 			AddButton(file.Name, file.Length / 1000000f, cat);
