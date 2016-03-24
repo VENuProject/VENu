@@ -2,7 +2,7 @@
     <!-- The following assemblies contain namespaces that should be fully preserved
          even when assembly stripping is used. Not excluding the assemblies below from
          stripping can result in crashes or various exceptions. -->
-    <assembly fullname="Qualcomm.Vuforia.UnityExtensions">
+    <assembly fullname="Vuforia.UnityExtensions">
         <namespace fullname="Vuforia" preserve="all"/>
     </assembly>
     <assembly fullname="System">

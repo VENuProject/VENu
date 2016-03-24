@@ -6,6 +6,7 @@
 	android:theme="@android:style/Theme.NoTitleBar"
     android:versionCode="1"
     android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="22" />
     <uses-feature android:name="android.hardware.camera" />
     <supports-screens
         android:smallScreens="true"
@@ -43,6 +44,10 @@
             Devices that require this are: ODG X6 
         -->
         <uses-library android:name="com.ti.s3d" android:required="false" />
+        <!--
+            To support the ODG R7 in stereo mode we must add the following library.
+        -->
+        <uses-library android:name="com.osterhoutgroup.api.ext" android:required="false" />
     </application>
 </manifest>
 

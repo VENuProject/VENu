@@ -2,6 +2,7 @@
 
 import UnityEngine.UI;
 import UnityEngine.Sprite;
+import UnityEngine.SceneManagement;
 //import UnityEngine.iOS;
 var fileName : String;
 public var levelToLoad : String;
@@ -34,7 +35,8 @@ public function OnClick(){
 	//choose the .json file to be loaded
 	PlayerPrefs.SetString("File To Load", fileName);
 	Debug.Log("Loading event " + PlayerPrefs.GetString("File To Load"));
-	Application.LoadLevel(2); //replace with appropriate level?
+	SceneManager.LoadScene(2);
+	// Application.LoadLevel(2); //replace with appropriate level?
 }
 
 public function SetData(file : String){

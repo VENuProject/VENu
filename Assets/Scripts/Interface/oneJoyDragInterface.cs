@@ -8,7 +8,7 @@ public class oneJoyDragInterface : MonoBehaviour {
 	public GameObject cameraMount;
 	public GameObject playerCamera;
 	public EventSystem eventSystem;
-	private bool isDragging = false;
+	// private bool isDragging = false; // Not used.
 	private ArrayList draggingFingers = new ArrayList();
 	private Vector3 startPos;
 	private Vector3 currentPos;

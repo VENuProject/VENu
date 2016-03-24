@@ -36,12 +36,12 @@ namespace UnitySampleAssets.Characters.FirstPerson
         ///////////////// non exposed privates /////////////////////////
         //private Camera _camera; AMCLEAN comment out
         private bool _jump;
-        private float _yRotation; //Not used.
+        // private float _yRotation; //Not used.
         private CameraRefocus _cameraRefocus;
         private Vector2 _input;
         private Vector3 _moveDir = Vector3.zero;
         private CharacterController _characterController;
-        private CollisionFlags _collisionFlags;
+        // private CollisionFlags _collisionFlags; // Not used.
         private bool _previouslyGrounded;
         private Vector3 _originalCameraPosition;
         private float _stepCycle = 0f;
@@ -129,7 +129,7 @@ namespace UnitySampleAssets.Characters.FirstPerson
                 _moveDir += Physics.gravity*_gravityMultiplier;
             }
 
-            _collisionFlags = _characterController.Move(_moveDir*Time.fixedDeltaTime);
+            // _collisionFlags = _characterController.Move(_moveDir*Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
@@ -250,7 +250,7 @@ namespace UnitySampleAssets.Characters.FirstPerson
 			transform.localEulerAngles += new Vector3(0, mouseInput.x * lookSpeedX, 0);
 
 #endif       
-			_yRotation = mouseInput.y;
+			// _yRotation = mouseInput.y;
             _cameraRefocus.GetFocusPoint();
 
 
