@@ -11,7 +11,7 @@ You'll need to install usually the latest version of Unity (see below). You'll a
 
 ## A word about Unity versions
 
-Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.3.1.
+Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.3.4.
 
 Unity 5.3.4 can be downloaded here: https://unity3d.com/get-unity/download/archive
 
