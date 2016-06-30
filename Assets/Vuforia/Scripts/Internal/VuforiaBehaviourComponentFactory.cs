@@ -1,7 +1,9 @@
 /*==============================================================================
+Copyright (c) 2016 PTC Inc. All Rights Reserved.
+
 Copyright (c) 2013-2014 Qualcomm Connected Experiences, Inc.
 All Rights Reserved.
-Qualcomm Confidential and Proprietary
+Confidential and Proprietary - Protected under copyright and other laws.
 ==============================================================================*/
 
 using UnityEngine;
@@ -64,6 +66,7 @@ namespace Vuforia
         {
             return gameObject.AddComponent<ObjectTargetBehaviour>();
         }
+
 
         #endregion // PUBLIC_METHODS
     }

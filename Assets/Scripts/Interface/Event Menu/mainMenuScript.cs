@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class mainMenuScript : MonoBehaviour {
 
@@ -65,6 +66,6 @@ public class mainMenuScript : MonoBehaviour {
 
 	public void ARMode(){
 		//load AR scene
-		Application.LoadLevel(3);
+		SceneManager.LoadScene(3);
 	}
 }

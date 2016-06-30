@@ -2,7 +2,7 @@
 using System.Collections;
 using System.IO;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 
 public class inGameMenuScript: MonoBehaviour {
 	
@@ -74,7 +74,7 @@ public class inGameMenuScript: MonoBehaviour {
 	}
 	
 	public void ToEventMenu() {
-		Application.LoadLevel(EventMenuScene);
+		SceneManager.LoadScene(EventMenuScene);
 	}
 	
 	public void LoadNext(){
@@ -99,7 +99,7 @@ public class inGameMenuScript: MonoBehaviour {
 		else{
 			PlayerPrefs.SetString("File To Load", filesInfo[(currentIndex + 1) % filesInfo.Length].Name);
 			Debug.Log("loading file " + PlayerPrefs.GetString("File To Load"));
-			Application.LoadLevel(Application.loadedLevel);
+			SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
 			//the file is loaded elsewhere. All that script needs is the name of the new file.
 		}
 	}
@@ -126,7 +126,8 @@ public class inGameMenuScript: MonoBehaviour {
 		else{
 			PlayerPrefs.SetString("File To Load", filesInfo[(currentIndex -1) % filesInfo.Length].Name);
 			Debug.Log("loading file " + PlayerPrefs.GetString("File To Load"));
-			Application.LoadLevel(Application.loadedLevel);
+			//SceneManager.LoadScene(Application.loadedLevel);
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 			//the file is loaded elsewhere. All that script needs is the name of the new file.
 		}
 	}

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class splashScreenDelay : MonoBehaviour {
 	public float delayTime = 5.0f;

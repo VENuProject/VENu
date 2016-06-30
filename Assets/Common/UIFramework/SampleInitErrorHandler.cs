@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// A class showing simple error messages.
@@ -115,7 +116,8 @@ public class SampleInitErrorHandler : MonoBehaviour
 
             if (GUI.Button(new Rect(165, 185, 100, 40), "Retry", mErrorOkButton))
             {
-                Application.LoadLevel(0);
+                // Application.LoadLevel(0);
+				SceneManager.LoadScene(0);
             }
         }
         else

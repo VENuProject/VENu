@@ -2,6 +2,7 @@
 
 import UnityEngine.UI;
 import UnityEngine.Sprite;
+import UnityEngine.SceneManagement;
 //import UnityEngine.iOS;
 var fileName : String;
 public var levelToLoad : String;
@@ -35,7 +36,7 @@ public function OnClick(){
 	PlayerPrefs.SetString("File To Load", fileName);
 	Debug.Log("Loading event " + PlayerPrefs.GetString("File To Load"));
 	var i = Application.loadedLevel;
-    Application.LoadLevel(i + 1);
+        Application.LoadLevel(i + 1);
 }
 
 public function SetData(file : String){

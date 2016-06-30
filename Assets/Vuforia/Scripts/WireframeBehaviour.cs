@@ -1,8 +1,12 @@
-/*==============================================================================
-Copyright (c) 2013-2014 Qualcomm Connected Experiences, Inc.
-All Rights Reserved.
-Confidential and Proprietary - Qualcomm Connected Experiences, Inc.
-==============================================================================*/
+/*===============================================================================
+Copyright (c) 2016 PTC Inc. All Rights Reserved.
+ 
+Copyright (c) 2013-2015 Qualcomm Connected Experiences, Inc. All Rights Reserved.
+  
+Confidential and Proprietary - Protected under copyright and other laws.
+Vuforia is a trademark of PTC Inc., registered in the United States and other 
+countries.
+===============================================================================*/
 
 using UnityEngine;
 
@@ -16,37 +20,37 @@ namespace Vuforia
     /// </summary>
     public class WireframeBehaviour : MonoBehaviour
     {
-        #region PRIVATE_MEMBERS
-
-        private Material mLineMaterial;
-
-        #endregion // PRIVATE_MEMBERS
-
-
         #region PUBLIC_MEMBERS
-
+        
+        public Material lineMaterial;
         public bool ShowLines = true;
         public Color LineColor = Color.green;
         
         #endregion // PUBLIC_MEMBERS
 
-
-        #region PRIVATE_METHODS
-
-        private void CreateLineMaterial() 
-        {
-            mLineMaterial = new Material("Shader \"Lines/Colored Blended\" {" +
-                "SubShader {" +
-                    "Pass { Color (" + LineColor.r + "," + LineColor.g + "," + LineColor.b + "," + LineColor.a + ") }" + 
-                "} }" );
-            mLineMaterial.hideFlags = HideFlags.HideAndDontSave;
-            mLineMaterial.shader.hideFlags = HideFlags.HideAndDontSave; 
-        }
-
-        #endregion // PRIVATE_METHODS
+        
+        #region PRIVATE_MEMBERS
+        
+        private Material mLineMaterial;
+        
+        #endregion // PRIVATE_MEMBERS
 
 
         #region UNITY_MONOBEHAVIOUR_METHODS
+        
+        void Start()
+        {
+            if (lineMaterial != null) 
+            {
+                // We clone the material so to have a unique instance
+                // for each WireframeBehaviour instance
+                mLineMaterial = new Material(lineMaterial);
+            } 
+            else 
+            {
+                Debug.LogWarning ("Missing line material for wireframe rendering!");
+            }
+        }
 
         void OnRenderObject ()
         {
@@ -67,18 +71,23 @@ namespace Vuforia
             var mf = GetComponent<MeshFilter>();
             if (!mf) return;
 
-            if (mLineMaterial == null)
-                CreateLineMaterial();
+
+            if (mLineMaterial == null) 
+            {
+                Debug.LogWarning ("Missing line material for wireframe rendering!");
+                return;
+            }
 
             var mesh = mf.sharedMesh;
             var vertices = mesh.vertices;
             var triangles = mesh.triangles;
     
             GL.PushMatrix();
-
             GL.MultMatrix(transform.localToWorldMatrix);
 
             mLineMaterial.SetPass(0);
+            mLineMaterial.SetColor ("_Color", LineColor);
+
             GL.Begin(GL.LINES); 
             for (int i=0; i<triangles.Length; i+=3) {
 
@@ -110,18 +119,20 @@ namespace Vuforia
                 Gizmos.color = LineColor;
 
                 var mesh = mf.sharedMesh;
-                var vertices = mesh.vertices;
-                var triangles = mesh.triangles;
-                for (int i = 0; i < triangles.Length; i += 3)
+                if (mesh != null)
                 {
+                    var vertices = mesh.vertices;
+                    var triangles = mesh.triangles;
+                    for (int i = 0; i < triangles.Length; i += 3)
+                    {
+                        var P0 = (vertices[triangles[i + 0]]);
+                        var P1 = (vertices[triangles[i + 1]]);
+                        var P2 = (vertices[triangles[i + 2]]);
 
-                    var P0 = (vertices[triangles[i + 0]]);
-                    var P1 = (vertices[triangles[i + 1]]);
-                    var P2 = (vertices[triangles[i + 2]]);
-
-                    Gizmos.DrawLine(P0, P1);
-                    Gizmos.DrawLine(P1, P2);
-                    Gizmos.DrawLine(P2, P0);
+                        Gizmos.DrawLine(P0, P1);
+                        Gizmos.DrawLine(P1, P2);
+                        Gizmos.DrawLine(P2, P0);
+                    }
                 }
             }
         }

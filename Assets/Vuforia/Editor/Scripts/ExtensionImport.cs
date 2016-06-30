@@ -1,7 +1,12 @@
 /*==============================================================================
+Copyright (c) 2015-2016 PTC Inc. All Rights Reserved.
+ 
 Copyright (c) 2015 Qualcomm Connected Experiences, Inc.
 All Rights Reserved.
-Confidential and Proprietary - Qualcomm Connected Experiences, Inc.
+Confidential and Proprietary - Protected under copyright and other laws.
+
+Vuforia is a trademark of PTC Inc., registered in the United States and other 
+countries.  
 ==============================================================================*/
 
 using UnityEngine;
@@ -17,7 +22,29 @@ namespace Vuforia.EditorClasses
         
         static ExtensionImport() 
         {
+            EditorApplication.update += UpdatePluginSettings;
             EditorApplication.update += UpdatePlayerSettings;
+        }
+
+        static void UpdatePluginSettings()
+        {
+            // Unregister callback (executed only once)
+            EditorApplication.update -= UpdatePluginSettings;
+
+            PluginImporter[] importers = PluginImporter.GetAllImporters();
+            foreach (var imp in importers)
+            {
+                string pluginPath = imp.assetPath;
+                bool isVuforiaWrapperPlugin = 
+                    pluginPath.EndsWith("QCARWrapper.dll") || pluginPath.EndsWith("VuforiaWrapper.dll") ||
+                    pluginPath.EndsWith("QCARWrapper.bundle") || pluginPath.EndsWith("VuforiaWrapper.bundle");
+                if (isVuforiaWrapperPlugin && imp.GetCompatibleWithAnyPlatform())
+                {
+                    Debug.Log("Setting platform to 'Editor' for plugin: " + pluginPath);
+                    imp.SetCompatibleWithAnyPlatform(false);
+                    imp.SetCompatibleWithEditor(true);
+                }
+            }
         }
         
         static void UpdatePlayerSettings()
@@ -26,12 +53,7 @@ namespace Vuforia.EditorClasses
             EditorApplication.update -= UpdatePlayerSettings;
 
             BuildTargetGroup androidBuildTarget = BuildTargetGroup.Android;
-
-#if (UNITY_5_2 || UNITY_5_1 || UNITY_5_0)
             BuildTargetGroup iOSBuildTarget = BuildTargetGroup.iOS;
-#else
-            BuildTargetGroup iOSBuildTarget = BuildTargetGroup.iOS;
-#endif
 
             string androidSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(androidBuildTarget);
             androidSymbols = androidSymbols ?? "";
@@ -43,7 +65,6 @@ namespace Vuforia.EditorClasses
                     PlayerSettings.Android.targetDevice = AndroidTargetDevice.ARMv7;
                 }
 
-#if (UNITY_5_2 || UNITY_5_1 || UNITY_5_0)
                 if (PlayerSettings.Android.androidTVCompatibility)
                 {
                     // Disable Android TV compatibility, as this is not compatible with
@@ -51,15 +72,13 @@ namespace Vuforia.EditorClasses
                     Debug.Log("Disabling Android TV compatibility.");
                     PlayerSettings.Android.androidTVCompatibility = false;
                 }
-#endif
 
-#if UNITY_5_2 || UNITY_5_1
+#if !UNITY_5_0 // UNITY_5_1 and newer
                 Debug.Log("Setting Android Graphics API to OpenGL ES 2.0.");
                 PlayerSettings.SetGraphicsAPIs(
                     BuildTarget.Android,
                     new UnityEngine.Rendering.GraphicsDeviceType[]{UnityEngine.Rendering.GraphicsDeviceType.OpenGLES2});
 #endif
-
                 // Here we set the scripting define symbols for Android
                 // so we can remember that the settings were set once.
                 PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.Android,
@@ -70,35 +89,22 @@ namespace Vuforia.EditorClasses
             iOSSymbols = iOSSymbols ?? "";
             if (!iOSSymbols.Contains(VUFORIA_IOS_SETTINGS))
             {
-#if UNITY_5_0 || UNITY_4_9 || UNITY_4_8 || UNITY_4_7 || (UNITY_4_6 && !UNITY_4_6_1 && !UNITY_4_6_2)
-                // check if Graphics API for iOS is set to Metal or Automatic
-                if ((PlayerSettings.targetIOSGraphics == TargetIOSGraphics.Automatic) ||
-                    (PlayerSettings.targetIOSGraphics == TargetIOSGraphics.Metal))
+#if INCLUDE_IL2CPP
+                int scriptingBackend = 0;
+                if (PlayerSettings.GetPropertyOptionalInt("ScriptingBackend", ref scriptingBackend, iOSBuildTarget))
                 {
-                    Debug.Log("Setting iOS Graphics API to OpenGL ES 2.0.");
-                    PlayerSettings.targetIOSGraphics = TargetIOSGraphics.OpenGLES_2_0;
-                    
-                    if (PlayerSettings.targetIOSGraphics != TargetIOSGraphics.OpenGLES_2_0)
+                    if (scriptingBackend != (int)ScriptingImplementation.IL2CPP)
                     {
-                        Debug.LogWarning("Failed to set iOS Graphics API to OpenGL ES 2.0. Please make sure to set this manually in the "+
-                                         "player settings, Vuforia does not support the Metal graphics API yet.");
+                        Debug.Log("Setting iOS scripting backend to IL2CPP to enable 64bit support.");
+                        PlayerSettings.SetPropertyInt("ScriptingBackend", (int)ScriptingImplementation.IL2CPP, iOSBuildTarget);
                     }
                 }
-#elif (UNITY_5_1 || UNITY_5_2)
-                Debug.Log("Setting iOS Graphics API to OpenGL ES 2.0.");
-                PlayerSettings.SetGraphicsAPIs(
-                    BuildTarget.iOS,
-                    new UnityEngine.Rendering.GraphicsDeviceType[]{UnityEngine.Rendering.GraphicsDeviceType.OpenGLES2});
-#endif
-
-#if INCLUDE_IL2CPP
-                int scriptingBackend = PlayerSettings.GetPropertyInt("ScriptingBackend", iOSBuildTarget);
-                if (scriptingBackend != (int) ScriptingImplementation.IL2CPP)
+                else
                 {
-                    Debug.Log("Setting iOS scripting backend to IL2CPP to enable 64bit support.");
-                    PlayerSettings.SetPropertyInt("ScriptingBackend", (int)ScriptingImplementation.IL2CPP, iOSBuildTarget);
+                    Debug.LogWarning("ScriptinBackend property not available for iOS; perhaps the iOS Build Support component was not installed");
                 }
-#endif
+#endif //INCLUDE_IL2CPP
+
                 // Here we set the scripting define symbols for IOS
                 // so we can remember that the settings were set once.
                 PlayerSettings.SetScriptingDefineSymbolsForGroup(iOSBuildTarget, 
