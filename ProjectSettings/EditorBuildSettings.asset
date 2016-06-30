@@ -5,6 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/Cardboard Scenes/useCardboard.unity
+  - enabled: 0
+    path: Assets/Scenes/Cardboard Scenes/splashScreenFermilabMicroBooNECardboard.unity
+  - enabled: 0
+    path: Assets/Scenes/Cardboard Scenes/splashScreenMicroBooNECardboard.unity
+  - enabled: 0
+    path: Assets/Scenes/Cardboard Scenes/splashScreenVENuCardboard.unity
   - enabled: 1
     path: Assets/Scenes/splashScreen.unity
   - enabled: 0
@@ -19,7 +27,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Mobile/mobileMainMenu.unity
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
+  - enabled: 0
+    path: Assets/Scenes/Cardboard Scenes/MainMenu3Cardboard 2.unity
   - enabled: 1
     path: Assets/Scenes/Display.unity
-  - enabled: 1
+  - enabled: 0
+    path: Assets/Scenes/Cardboard Scenes/DisplayVR.unity
+  - enabled: 0
     path: Assets/Scenes/AR.unity
