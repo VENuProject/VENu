@@ -320,6 +320,26 @@ Prefab:
       propertyPath: m_Type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CellSize.x
+      value: 67.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CellSize.y
+      value: -172.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Padding.m_Left
+      value: -228
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Padding.m_Right
+      value: -115
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Padding.m_Top
+      value: -151
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 196672}

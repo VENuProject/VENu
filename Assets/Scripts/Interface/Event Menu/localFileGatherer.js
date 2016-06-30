@@ -103,7 +103,7 @@ function Start () {
 	
 #else
 	
-	ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(75f, 75f);
+	ButtonsGroup.GetComponent(GridLayoutGroup).cellSize = Vector2(75f, 75f); 
 	ButtonsGroup.GetComponent(GridLayoutGroup).spacing = Vector2(8, 8);
 	
 #endif
@@ -131,5 +131,5 @@ function AddButton (file : String, size : float, cat : GameObject){
     newButton.SendMessage("SetImage", localFileImage);;
 	newButton.SendMessage("SetFileSize", size);
 	newButton.SetActive(true);
-	
+
 }

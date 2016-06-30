@@ -34,7 +34,8 @@ public function OnClick(){
 	//choose the .json file to be loaded
 	PlayerPrefs.SetString("File To Load", fileName);
 	Debug.Log("Loading event " + PlayerPrefs.GetString("File To Load"));
-	Application.LoadLevel(2); //replace with appropriate level?
+	var i = Application.loadedLevel;
+    Application.LoadLevel(i + 1);
 }
 
 public function SetData(file : String){

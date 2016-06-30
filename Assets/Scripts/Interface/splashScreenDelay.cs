@@ -12,13 +12,18 @@ public class splashScreenDelay : MonoBehaviour {
 		float fadeTime = GameObject.Find ("Splash Screen").GetComponent<fading>().BeginFade (1);
 		yield return new WaitForSeconds(fadeTime);
 
-		Application.LoadLevel (1);
+		//Application.LoadLevel (1);
+		int i = Application.loadedLevel;
+		Application.LoadLevel(i + 1);
 
 	}
 
 	void Update()
 	{
-		if (Input.GetMouseButtonDown (0))
-			Application.LoadLevel (1);
+		if (Input.GetMouseButtonDown (0)) {
+			//Application.LoadLevel (1);
+			int i = Application.loadedLevel;
+			Application.LoadLevel (i + 1);
+		}
 	}
 }
