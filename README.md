@@ -53,3 +53,14 @@ Remember that git creates a local repository in you local directory. The add and
     
 When people run the pull command above to update their version, they will see your changes and be able to use them. 
 
+## Standard vs. Cardboard version
+
+To run VENu in the standard configuration, select the following scenes in `File > Build Settings...`:
+* Scenes/SplashScreen
+* Scens/MainMenu
+* Scenes/Display
+
+To run the Cardboard version (mobile app) select:
+* Scenes/Cardboard Scenes/splashScreenFermilabMicroBooNECardboard
+* Scenes/Cardboard Scenes/MainMenu3Cardboard 2
+* Scenes/Cardboard Scenes/DisplayVR
