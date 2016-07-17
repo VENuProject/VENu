@@ -36,7 +36,7 @@ namespace UnitySampleAssets.Characters.FirstPerson
         ///////////////// non exposed privates /////////////////////////
         //private Camera _camera; AMCLEAN comment out
         private bool _jump;
-        // private float _yRotation; //Not used.
+        private float _yRotation; //Not used.
         private CameraRefocus _cameraRefocus;
         private Vector2 _input;
         private Vector3 _moveDir = Vector3.zero;

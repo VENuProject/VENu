@@ -108,7 +108,7 @@ public class localFileGathererCardboard extends MonoBehaviour {
 			jsonFilesPath = Application.streamingAssetsPath; //this works fine on iOS
 			#else
 			//Desktop (Mac OS or Windows)
-			path = "hello";
+			//path = "hello";
 			jsonFilesPath = Application.dataPath + "/StreamingAssets";
 			#endif
 
