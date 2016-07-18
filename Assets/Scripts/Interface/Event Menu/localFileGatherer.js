@@ -20,7 +20,7 @@ public var localFileImage : Sprite;
 
 function Start () {
 
-	if (Application.platform == RuntimePlatform.Android){
+	if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer){
 	
 //		var jsonFilesPath = "jar:file://" + Application.dataPath + "!/assets";
 //		    var www : WWW = new WWW(jsonFilesPath); //AMCLEAN add
@@ -28,20 +28,19 @@ function Start () {
 
 		//until I can get this working on android, hardcoded for now
 
+		Debug.Log("Gathering files for Android or WebGLPlayer.");
         var androidCategory : GameObject;
         androidCategory = Instantiate(CategoryPrefab);
         // androidCategory.GetComponentInChildren(Text).text = "Android Events";
-        androidCategory.GetComponent(Text).text = "Android Events";
+        //androidCategory.GetComponent(Text).text = "Android Events";
         androidCategory.transform.SetParent(categoriesGroup.transform, false);
 
 //		AddButton("prod" + "\n" + "bnblike" + "\n" + "proton" + "\n" + "uboone", "prod_bnblike_proton_uboone.json");
 //        AddButton("prod" + "\n" + "eminus" + "\n" + "0.1-2.0GeV" + "\n" + "isotropic", "prod_eminus_0.1-2.0GeV_isotropic.json");
 //        AddButton("prod" + "\n" + "eminus" + "\n" + "0.5-5.0GeV" + "\n" + "5degf" + "\n" + "uboone", "prod_eminus_0.5-5.0GeV_25degf_uboone.json");
 //        AddButton("prodgenie" + "\n" + "bnb" + "\n" + "intrinsic" + "\n" + "nue" + "\n" + "uboone", "prodgenie_bnb_intrinsic_nue_uboone.json");
-		AddButton("prod_bnblike_proton_uboone.json", 2, androidCategory);
-		AddButton("prod_eminus_0.1-2.0GeV_isotropic.json", 2, androidCategory);
-		AddButton("prod_eminus_0.5-5.0GeV_25degf_uboone.json", 2, androidCategory);
-		AddButton("prodgenie_bnb_intrinsic_nue_uboone.json", 2, androidCategory);
+		AddButton("prodgenie_bnb_nu_cosmic_uboone_10.json", 2, androidCategory);
+		AddButton("prodgenie_cosmics_0_0.json", 2, androidCategory);
 	}
 	else {
 	

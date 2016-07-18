@@ -54,6 +54,21 @@ function Start () {
     	    yield www;
     	    jsonString = www.text;
     	}
+    	if (Application.platform == RuntimePlatform.WebGLPlayer) {
+    	  Debug.Log("MARCO: inside here.");
+    	  var filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "MyFile");
+		  var result = "";
+		  if (filePath.Contains("://"))
+		  {
+			var www2 = new WWW (filePath);
+			yield www2;
+			result = www2.text;
+	      }
+		  else
+		    result = System.IO.File.ReadAllText(filePath);
+          jsonString = result;
+    	  Debug.Log("jsonString is " + jsonString);
+    	}
     	else {
     	    var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
     	    jsonString = sr.ReadToEnd();
