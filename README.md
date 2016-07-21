@@ -62,5 +62,5 @@ To run VENu in the standard configuration, select the following scenes in `File 
 
 To run the Cardboard version (mobile app) select:
 * Scenes/Cardboard Scenes/splashScreenFermilabMicroBooNECardboard
-* Scenes/Cardboard Scenes/MainMenu3Cardboard 2
+* Scenes/Cardboard Scenes/MainMenuCardboard
 * Scenes/Cardboard Scenes/DisplayVR
