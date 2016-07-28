@@ -11,7 +11,7 @@ import UnityEditor;
 
 
 var dot : GameObject;
-public var trackParent : GameObject;
+//public var trackParent : GameObject;
 
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -39,7 +39,7 @@ function Start () {
   var filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic*.json");
   Debug.Log("Found " + filesInfo.Length + " json prodgenie bnb+cosmics files");
   
-  for (var i : int = 0; i < 1/*filesInfo.Length*/; i++) {
+  for (var i : int = 0; i < filesInfo.Length; i++) {
     Debug.Log("File name " + filesInfo[i].Name + ".");
     var filePath = jsonFilesPath + "/" + filesInfo[i].Name;
     Debug.Log("filePath " + filePath + ".");
@@ -53,15 +53,23 @@ function Start () {
     var drawnPoints : int = 0;
     var trackAlgoName = "recob::Tracks_pandoraCosmicKHit__RecoStage2";
     var totalTracks : int = N["record"]["tracks"][trackAlgoName].Count;
+
+    /* Empty the trackParent object before continuing
+    for (var child : Transform in trackParent.transform) {
+        Debug.Log("child name is " + child.name);
+    	Destroy(child.gameObject);
+ 	}*/
+ 	var trackParent : GameObject = new GameObject();
     
     //Loop over tracks: Decide which points to draw, then draw points and connection lines.
+    Debug.Log("<color=purple>Number of tracks: </color> " + totalTracks);
     for (var trackIndex : int = 0; trackIndex < totalTracks; trackIndex++) {
       //Stores the endpoints of each track segment to be drawn
       var spacePointsArray : Array = new Array();
       
       //Loop over points in the track, define the first two points outside the loop as initial conditions
       var totalPoints : int = N["record"]["tracks"][trackAlgoName][trackIndex]["points"].Count;
-      Debug.Log("<color=purple>Number of points: </color> " + totalPoints);
+      //Debug.Log("<color=purple>Number of points: </color> " + totalPoints);
       
       var pt1 : Vector3 = Vector3(
                                   0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][0].AsFloat,
@@ -162,14 +170,14 @@ function Start () {
         bc.size.x = boxColliderOffset;
         bc.size.y = boxColliderOffset;
       }
-      
-      // Creating the prefab
-      var fileName = filesInfo[i].Name + "__" + trackObject.name;
-      var fileLocation = "Assets/Prefabs/Tracks/" + fileName + "_trackParent" + ".prefab";
-      emptyObj = PrefabUtility.CreateEmptyPrefab(fileLocation);
-      PrefabUtility.ReplacePrefab(trackParent , emptyObj, ReplacePrefabOptions.ConnectToPrefab);
-      Debug.Log("Prefab created: " + fileLocation);
     } // tracks loop
+    // Creating the prefab
+    var fileName = filesInfo[i].Name;
+    var fileLocation = "Assets/Resources/Tracks/" + fileName + ".prefab";
+    emptyObj = PrefabUtility.CreateEmptyPrefab(fileLocation);
+    PrefabUtility.ReplacePrefab(trackParent , emptyObj, ReplacePrefabOptions.ConnectToPrefab);
+    Debug.Log("Prefab created: " + fileLocation);
+    Destroy(trackParent);
   } // files loop
   #endif
 }
