@@ -48,11 +48,14 @@ function Start () {
         
     }
     else{
-    	if (Application.platform == RuntimePlatform.Android) {
+    	if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer) {
+    	    Debug.Log("Got to here at least 1.");
     	    var url="jar:file://" + Application.dataPath + "!/assets/" + fileName;
     	    var www : WWW = new WWW(url);
     	    yield www;
     	    jsonString = www.text;
+    	    Debug.Log("Got to here at least 2.");
+    	    Debug.Log("jsonString is " + jsonString);
     	}
     	else {
     	    var sr = new StreamReader(Application.streamingAssetsPath  + "/" + fileName);
