@@ -1,4 +1,14 @@
-﻿#pragma strict
+﻿// prefabMaker.cs
+//
+// created by Marco Del Tutto, marco.deltutto@physics.ox.ac.uk
+//
+// adapted from drawTracks.js by Thomas Wester
+//
+// Info: attach this script to the wirePlane prefab inside TPC10. 
+//       Toggle it off once done, so you don't generate prefabs everytime. 
+//       Prefabs will be saved in the Resources directory.
+
+#pragma strict
 
 import UnityEngine;
 import System.Collections;
@@ -9,9 +19,15 @@ import SimpleJSON;
 import UnityEditor;
 #endif
 
-
+@Tooltip("The red scaling dot.")
 var dot : GameObject;
-//public var trackParent : GameObject;
+@Tooltip("Select this if you want to make prefabs out of reconstructed tracks.")
+var makeTracks : boolean;
+@Tooltip("Select this if you want to make prefabs out of space points.")
+var makeSpacePoints : boolean;
+@Tooltip("Sets the maximum number of points used for the prefab, only if you are in makeSpacePoints option.")
+var maxPoints : float;
+
 
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -33,12 +49,17 @@ function Start () {
   #if UNITY_EDITOR
     
     
-  // Get the MC files
+  // ***********************
+  // Get the files
+  // ***********************
   var jsonFilesPath = Application.dataPath + "/StreamingAssets";
   var dir : DirectoryInfo = new DirectoryInfo(jsonFilesPath);
-  var filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic*.json");
+  var filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic_uboone_*.json");
   Debug.Log("Found " + filesInfo.Length + " json prodgenie bnb+cosmics files");
-  
+
+  // ***********************
+  // File loop
+  // ***********************
   for (var i : int = 0; i < filesInfo.Length; i++) {
     Debug.Log("File name " + filesInfo[i].Name + ".");
     var filePath = jsonFilesPath + "/" + filesInfo[i].Name;
@@ -48,10 +69,57 @@ function Start () {
     sr.Close();
     
     var N = JSONNode.Parse(jsonString);
+
+
+    // ***********************
+    // Working with spacePoints
+    // ***********************
+    var spacePointParent : GameObject = new GameObject();
+    if(makeSpacePoints) {
+
+      var spacePointAlgoName : String = "recob::SpacePoints_pandoraCosmic__DataApr2016RecoStage2";//"recob::SpacePoints_trackkalmanhit__RecoStage2";
+
+      //var spacePointsArray = new Array ();
+      var totalPts = N["record"]["spacepoints"][spacePointAlgoName].Count;
+      Debug.Log("totalPts is " + totalPts + ".");
+
+
+      //Calculate the proper iterator so that certain points can be skipped (for performance reasons)
+      var iter : float = totalPts / maxPoints;
+    
+      //If the event has fewer points than the maximum number allowed, draw all of them.
+      if (iter < 1.0) {
+          iter = 1.0;
+      }
+
+      for(var key : float = 0.0; key < totalPts; key += iter){
+	    var clone : GameObject;
+	    
+	    //Round the loop variable here (to get an index) to minimize rounding error in the loop.
+	    var roundKey : int = Mathf.Round(key);
+	    
+	 	clone = Instantiate(dot , transform.position, transform.rotation);
+    	clone.transform.position = transform.position + Vector3(
+    	    0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"]["x"].AsFloat,
+    	    0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"]["y"].AsFloat,
+           -0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"]["z"].AsFloat);
+    	clone.transform.localScale = Vector3(0.01,0.01,0.01);//Vector3(0.005,0.005,0.005);
+    	clone.gameObject.layer = 10;
+    	clone.transform.SetParent(spacePointParent.transform);
+	    //spacePointsArray.Push(clone);	
+      }
+    
+    } // if make spacePoints
+
+    // ***********************
+    // Working with tracks
+    // ***********************
+    var trackParent : GameObject = new GameObject();
+    if(makeTracks) {
     
     var threshold : double =  -1f;
     var drawnPoints : int = 0;
-    var trackAlgoName = "recob::Tracks_pandoraCosmicKHit__RecoStage2";
+    var trackAlgoName = "recob::Tracks_pandoraCosmic__DataApr2016RecoStage2";//"recob::Tracks_pandoraCosmicKHit__RecoStage2";
     var totalTracks : int = N["record"]["tracks"][trackAlgoName].Count;
 
     /* Empty the trackParent object before continuing
@@ -59,7 +127,7 @@ function Start () {
         Debug.Log("child name is " + child.name);
     	Destroy(child.gameObject);
  	}*/
- 	var trackParent : GameObject = new GameObject();
+
     
     //Loop over tracks: Decide which points to draw, then draw points and connection lines.
     Debug.Log("<color=purple>Number of tracks: </color> " + totalTracks);
@@ -72,13 +140,13 @@ function Start () {
       //Debug.Log("<color=purple>Number of points: </color> " + totalPoints);
       
       var pt1 : Vector3 = Vector3(
-                                  0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][0].AsFloat,
-                                  0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][1].AsFloat,
-                                  -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][2].AsFloat);
+                                  0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0]["x"].AsFloat,
+                                  0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0]["y"].AsFloat,
+                                  -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0]["z"].AsFloat);
       var pt2 : Vector3 = Vector3(
-                                  0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][0].AsFloat,
-                                  0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][1].AsFloat,
-                                  -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1][2].AsFloat);
+                                  0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1]["x"].AsFloat,
+                                  0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1]["y"].AsFloat,
+                                  -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][1]["z"].AsFloat);
       
       //Always include the first point
       spacePointsArray.Push(pt1);
@@ -87,9 +155,9 @@ function Start () {
       //Default value is -1f, so the collinearity will never be checked (i.e., all points are drawn for each track)
       for (var spacePointIndex : int = 2; spacePointIndex < totalPoints; spacePointIndex++) {
         var vec : Vector3 = Vector3(
-                                    0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][spacePointIndex][0].AsFloat,
-                                    0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][spacePointIndex][1].AsFloat,
-                                    -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][spacePointIndex][2].AsFloat);
+                                    0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][spacePointIndex]["x"].AsFloat,
+                                    0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][spacePointIndex]["y"].AsFloat,
+                                    -0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][spacePointIndex]["z"].AsFloat);
         
         //If the next point is collinear, move the current endpoint to the new point without drawing anything
         //Also always include the final point.
@@ -131,7 +199,7 @@ function Start () {
       var lr : LineRenderer = trackObject.AddComponent.<LineRenderer>();
       lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
       lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
-      lr.SetWidth(0.05, 0.05);
+      lr.SetWidth(0.5, 0.5); //m
       lr.SetColors(Color.cyan, Color.cyan);
       lr.gameObject.layer = 11;
       
@@ -139,7 +207,7 @@ function Start () {
       
       lr.SetVertexCount(arr.length);
       lr.SetPosition(0, transform.position + pt0);
-      PlacePoint(pt0, trackObject);
+      //m PlacePoint(pt0, trackObject);
       for (var ii : int = 1; ii < arr.length; ii++) {
         var ipt1 : Vector3 = arr[ii - 1];
         var ipt2 : Vector3 = arr[ii];
@@ -147,8 +215,8 @@ function Start () {
         lr.SetPosition(ii,  transform.position + ipt2);
         
         
-        PlacePoint(ipt2, trackObject);
-        
+        //m PlacePoint(ipt2, trackObject);
+        /*m
         //Make a game object for each segment to store on-click behavior and a box collider
         //Put this child object at the midpoint between the current two points
         var segmentObject = new GameObject();
@@ -169,15 +237,33 @@ function Start () {
         bc.size.z = Vector3.Distance(ipt1, ipt2); //z is forward vector
         bc.size.x = boxColliderOffset;
         bc.size.y = boxColliderOffset;
+        */
       }
     } // tracks loop
+
+   } // if make tracks
+
+
+
+
+    // ***********************
     // Creating the prefab
+    // ***********************
     var fileName = filesInfo[i].Name;
-    var fileLocation = "Assets/Resources/Tracks/" + fileName + ".prefab";
-    emptyObj = PrefabUtility.CreateEmptyPrefab(fileLocation);
-    PrefabUtility.ReplacePrefab(trackParent , emptyObj, ReplacePrefabOptions.ConnectToPrefab);
-    Debug.Log("Prefab created: " + fileLocation);
-    Destroy(trackParent);
+    if(makeTracks){
+      var fileLocation = "Assets/Resources/Tracks/" + fileName + ".prefab";
+      emptyObj = PrefabUtility.CreateEmptyPrefab(fileLocation);
+      PrefabUtility.ReplacePrefab(trackParent , emptyObj, ReplacePrefabOptions.ConnectToPrefab);
+      Debug.Log("Prefab created: " + fileLocation);
+      Destroy(trackParent);
+    }
+    if(makeSpacePoints){
+      fileLocation = "Assets/Resources/SpacePoints/" + fileName + ".prefab";
+      emptyObj = PrefabUtility.CreateEmptyPrefab(fileLocation);
+      PrefabUtility.ReplacePrefab(spacePointParent , emptyObj, ReplacePrefabOptions.ConnectToPrefab);
+      Debug.Log("Prefab created: " + fileLocation);
+      Destroy(spacePointParent);
+    }
   } // files loop
   #endif
 }
