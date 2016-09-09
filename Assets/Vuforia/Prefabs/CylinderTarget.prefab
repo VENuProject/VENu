@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mTrackableName: '--- EMPTY ---'
-  mPreviousScale: {x: 1, y: 1, z: 1}
   mPreserveChildSize: 0
   mInitializedInEditor: 0
   mDataSetPath: '--- EMPTY ---'
@@ -105,6 +104,9 @@ MonoBehaviour:
   mAutoSetOccluderFromTargetSize: 0
   mTopDiameterRatio: .5
   mBottomDiameterRatio: .5
+  mSideLength: 1
+  mTopDiameter: .5
+  mBottomDiameter: .5
 --- !u!114 &11400374
 MonoBehaviour:
   m_ObjectHideFlags: 1

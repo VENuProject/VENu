@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mTrackableName: 
-  mPreviousScale: {x: 1.5, y: 1.5, z: 1.5}
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mMeshFilterToUpdate: {fileID: 3300000}

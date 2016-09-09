@@ -105,7 +105,7 @@ namespace Vuforia
         {
             mScreenOrientation = Screen.orientation;
             SurfaceUtilities.SetSurfaceOrientation(mScreenOrientation);
-            // set the native orientation (only required on iOS)
+            // set the native orientation (only required on iOS and WSA)
             setSurfaceOrientationiOS((int) mScreenOrientation);
         }
 

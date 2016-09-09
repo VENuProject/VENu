@@ -27,6 +27,10 @@ namespace Vuforia
                 unityPlayer = new IOSUnityPlayer();
             else if (VuforiaRuntimeUtilities.IsPlayMode())
                 unityPlayer = new PlayModeUnityPlayer();
+            else if (VuforiaRuntimeUtilities.IsWSARuntime())
+            {
+                unityPlayer = new WSAUnityPlayer();
+            }
 
             SetUnityPlayerImplementation(unityPlayer);
 

@@ -39,7 +39,9 @@ namespace Vuforia
 
         public MarkerAbstractBehaviour AddMarkerBehaviour(GameObject gameObject)
         {
+#pragma warning disable 618
             return gameObject.AddComponent<MarkerBehaviour>();
+#pragma warning restore 618
         }
 
         public MultiTargetAbstractBehaviour AddMultiTargetBehaviour(GameObject gameObject)
@@ -67,6 +69,10 @@ namespace Vuforia
             return gameObject.AddComponent<ObjectTargetBehaviour>();
         }
 
+        public VuMarkAbstractBehaviour AddVuMarkBehaviour(GameObject gameObject)
+        {
+            return gameObject.AddComponent<VuMarkBehaviour>();
+        }
 
         #endregion // PUBLIC_METHODS
     }

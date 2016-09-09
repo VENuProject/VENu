@@ -59,7 +59,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -115,11 +115,11 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08e4618365b5df6439e08cd7109174d4, type: 3}
   m_Name: 
-  mTrackableName: 
-  mPreviousScale: {x: 1, y: 1, z: 1}
+  m_EditorClassIdentifier: 
+  mTrackableName: FrameMarker0
   mPreserveChildSize: 0
   mInitializedInEditor: 0
-  mMarkerID: -1
+  mMarkerID: 0
 --- !u!1002 &11400005
 EditorExtensionImpl:
   serializedVersion: 6
@@ -144,7 +144,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: mMarkerID
-      value: -1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: mTrackableName
+      value: FrameMarker0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

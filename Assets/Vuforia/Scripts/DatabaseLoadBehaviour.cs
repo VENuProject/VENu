@@ -33,8 +33,8 @@ namespace Vuforia
                 // Assumes just Vufroria datasets extracted to the files directory
                 AddExternalDatasetSearchDir(externalStorageDirectory + "/Android/data/" + packageName + "/files/");
 
-                // Assume entire StreamingAssets dir is extracted here and our datasets are in the "Vuforia/DeviceDatabases" directory
-                AddExternalDatasetSearchDir(externalStorageDirectory + "/Android/data/" + packageName + "/files/Vuforia/DeviceDatabases/");
+                // Assume entire StreamingAssets dir is extracted here and our datasets are in the "Vuforia" directory
+                AddExternalDatasetSearchDir(externalStorageDirectory + "/Android/data/" + packageName + "/files/Vuforia/");
 
                 // Assume entire StreamingAssets dir is extracted here and our datasets are in the "QCAR" directory
                 AddExternalDatasetSearchDir(externalStorageDirectory + "/Android/data/" + packageName + "/files/QCAR/");

@@ -19,6 +19,7 @@ namespace Vuforia.EditorClasses
     {
         private static readonly string VUFORIA_ANDROID_SETTINGS = "VUFORIA_ANDROID_SETTINGS";
         private static readonly string VUFORIA_IOS_SETTINGS = "VUFORIA_IOS_SETTINGS";
+        private static readonly string VUFORIA_WSA_SETTINGS = "VUFORIA_WSA_SETTINGS";
         
         static ExtensionImport() 
         {
@@ -54,6 +55,7 @@ namespace Vuforia.EditorClasses
 
             BuildTargetGroup androidBuildTarget = BuildTargetGroup.Android;
             BuildTargetGroup iOSBuildTarget = BuildTargetGroup.iOS;
+            BuildTargetGroup wsaBuildTarget = BuildTargetGroup.WSA;
 
             string androidSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(androidBuildTarget);
             androidSymbols = androidSymbols ?? "";
@@ -109,6 +111,27 @@ namespace Vuforia.EditorClasses
                 // so we can remember that the settings were set once.
                 PlayerSettings.SetScriptingDefineSymbolsForGroup(iOSBuildTarget, 
                                                                  iOSSymbols + ";" + VUFORIA_IOS_SETTINGS);
+            }
+
+            string wsaSymbols = PlayerSettings.GetScriptingDefineSymbolsForGroup(wsaBuildTarget);
+            wsaSymbols = wsaSymbols ?? "";
+            if (!wsaSymbols.Contains(VUFORIA_WSA_SETTINGS))
+            {
+                // The Windows SDK we want to use is "Universal 10"
+                EditorUserBuildSettings.wsaSDK = WSASDK.UWP;
+
+                // We want to use the Webcam (obviously); to acheive this, UWP forces us to also require access 
+                // to the microphone (which is not so obvious)
+                PlayerSettings.WSA.SetCapability(PlayerSettings.WSACapability.WebCam, true);
+                PlayerSettings.WSA.SetCapability(PlayerSettings.WSACapability.Microphone, true);
+
+                // Vuforia SDK for UWP now also requires InternetClient Access
+                PlayerSettings.WSA.SetCapability(PlayerSettings.WSACapability.InternetClient, true);
+
+                // Here we set the scripting define symbols for WSA
+                // so we can remember that the settings were set once.
+                PlayerSettings.SetScriptingDefineSymbolsForGroup(BuildTargetGroup.WSA,
+                                                                 wsaSymbols + ";" + VUFORIA_WSA_SETTINGS);
             }
         }
     }

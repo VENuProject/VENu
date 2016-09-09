@@ -119,16 +119,23 @@ public class VRIntegrationHelper : MonoBehaviour
         // so we use this to acquire this data.
         if (IsLeft && !mLeftCameraDataAcquired)
         {
-            mLeftCameraMatrixOriginal = mLeftCamera.projectionMatrix;
-            mLeftCameraPixelRect = mLeftCamera.pixelRect;
-            mLeftCameraDataAcquired = true;
+            // at start matrix can be undefined
+            if (!VuforiaRuntimeUtilities.MatrixIsNaN(mLeftCamera.projectionMatrix))
+            {
+                mLeftCameraMatrixOriginal = mLeftCamera.projectionMatrix;
+                mLeftCameraPixelRect = mLeftCamera.pixelRect;
+                mLeftCameraDataAcquired = true;
+            }
         }
         else if (!mRightCameraDataAcquired)
         {
-            mRightCameraMatrixOriginal = mRightCamera.projectionMatrix;
-            mRightCameraPixelRect = mRightCamera.pixelRect;
-            mRightCameraDataAcquired = true;
-
+            // at start matrix can be undefined
+            if (!VuforiaRuntimeUtilities.MatrixIsNaN(mRightCamera.projectionMatrix))
+            {
+                mRightCameraMatrixOriginal = mRightCamera.projectionMatrix;
+                mRightCameraPixelRect = mRightCamera.pixelRect;
+                mRightCameraDataAcquired = true;
+            }
         }
     }
 }

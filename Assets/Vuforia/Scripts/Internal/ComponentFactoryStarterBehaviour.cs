@@ -31,7 +31,11 @@ namespace Vuforia
                 {
                     if (attribute is FactorySetter)
                     {
+                        #if NETFX_CORE   
+                        Action factorySetMethod = methodInfo.CreateDelegate(typeof(Action), this) as Action;
+                        #else
                         Action factorySetMethod = Delegate.CreateDelegate(typeof(Action), this, methodInfo) as Action;
+                        #endif // NETFX_CORE
                         if (factorySetMethod != null)
                         {
                             factorySetMethod();

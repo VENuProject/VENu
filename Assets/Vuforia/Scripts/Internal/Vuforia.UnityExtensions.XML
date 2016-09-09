@@ -9,12 +9,6 @@
             This class handles stereo rendering
             </summary>
         </member>
-        <member name="T:Vuforia.IEditorDigitalEyewearBehaviour">
-            <summary>
-            The editor interface for the VuforiaBehaviour.
-            Supposed to be used from Vuforia authoring scripts only.
-            </summary>
-        </member>
         <member name="T:Vuforia.IVideoBackgroundEventHandler">
             <summary>
             Interface for handling events regarding the video background
@@ -272,6 +266,17 @@
             Create custom viewer parameters
             </summary>
             The viewer parameters have to be defined before selecting the viewer.
+        </member>
+        <member name="M:Vuforia.Device.DeleteRenderingPrimitives">
+            <summary>
+            Delete rendering primitives in order to get the latest rendering settings.
+            </summary>
+            This method has to be called when the configuration for the rendering primitives has changed.
+            The relevant configuration changes are:
+            - display size and/or orientation
+            - mode (AR or VR)
+            - video mode
+            - inserting the device into a viewer (indicated by Device::setViewerActive())
         </member>
         <member name="M:Vuforia.Device.SetViewerActive(System.Boolean)">
             <summary>
@@ -635,6 +640,14 @@
             Make sure there are valid rendering primitives when calling this method.
             </summary>
         </member>
+        <member name="M:Vuforia.DistortionRenderingBehaviour.CreateMeshGameObject">
+            <summary>
+            Create the game object with a mesh filter and mesh renderer.
+            The actual mesh is not created here.
+            </summary>
+            This function should only be called on start-up or when switching between single and dual texture.
+            If the mesh changes, it is sufficient to call CreateMesh.
+        </member>
         <member name="M:Vuforia.DistortionRenderingBehaviour.CreateRenderTexture">
             <summary>
             Create render texture(s) for left and right eye based on the native rendering primitives.
@@ -663,6 +676,13 @@
             Define which layer is used for the post-processing.
             This property cannot be changed after the behaviour has started
             </summary>
+        </member>
+        <member name="T:Vuforia.IEditDataSetBehaviour">
+            <summary>
+            Interface for editing some properties of data set trackables.
+            </summary>
+            These properties should be edited with care at runtime. It is 
+            necessary to define them right after Vuforia has started.
         </member>
         <member name="T:Vuforia.EyewearUserCalibrator">
              <summary>A class for creating custom user calibration procedures for see-through eyewear</summary>
@@ -888,6 +908,11 @@
             Calculates the horizontal field of view in degrees from a known vertical FoV and the aspect of the viewport
             </summary>
         </member>
+        <member name="M:Vuforia.CameraConfigurationUtility.CalculateVerticalFoVFromViewPortAspect(System.Single,System.Single)">
+            <summary>
+            Calculates the vertical field of view in degrees from a known horizontal FoV and the aspect of the viewport
+            </summary>
+        </member>
         <member name="M:Vuforia.CameraConfigurationUtility.SetFovForCustomProjection(UnityEngine.Camera)">
             <summary>
             Calculates the vertical FoV from the camera's projection matrix and assigns it to the camera.
@@ -974,6 +999,398 @@
         <member name="M:Vuforia.StereoViewerCameraConfiguration.UpdateProjection">
             <summary>
             For stereo, we need to update both camera matrices.
+            </summary>
+        </member>
+        <member name="T:Vuforia.VuMarkManagerImpl">
+            <summary>
+            This manager is responsible for handling incoming unmarshaled VuMark 
+            result data and spawning/updating abstract behaviors with their new 
+            position/orientation in the scene. 
+             
+            It keeps track of which VuMark instances are currently active and which
+            ones were lost this frame. 
+            
+            On scene startup it searches for behaviors with the template ID property
+            set on them.  when a VuMark is detected, we look for the behavior which
+            has the target name matching the template behavior and use that to spawn
+            a new abstract VuMark behavior for the VuMark instance.
+            </summary>
+        </member>
+        <member name="T:Vuforia.VuMarkManager">
+            <summary>
+            This class manages all VuMark-targets which are created at runtime
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.GetActiveVuMarks">
+            <summary>
+            Returns all currently tracked VuMark-targets
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.GetActiveBehaviours(Vuforia.VuMarkTarget)">
+            <summary>
+            Get the VuMark-behaviour that is associated with a currently tracked VuMark
+            </summary>
+            <param name="vuMark">trackable</param>
+            <returns>resulting VuMark behaviours, might be empty if specified VuMark is not associated to a behaviour</returns>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.GetActiveBehaviours">
+            <summary>
+            Returns all currently tracked VuMark behaviours
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.GetAllBehaviours">
+            <summary>
+            Returns all instantiated VuMark behaviours, even those that are currently
+            not associated with a VuMark-target and not tracked
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.RegisterVuMarkDetectedCallback(System.Action{Vuforia.VuMarkTarget})">
+            <summary>
+            Register a callback which is invoked whenever a VuMark-target is newly detected which was not tracked in the frame before
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.UnregisterVuMarkDetectedCallback(System.Action{Vuforia.VuMarkTarget})">
+            <summary>
+            Unregister callback for newly detected VuMark-targets
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.RegisterVuMarkLostCallback(System.Action{Vuforia.VuMarkTarget})">
+            <summary>
+            Register a callback which is invoked whenever all instances of a VuMark-target are lost and it is not tracked anymore
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.UnregisterVuMarkLostCallback(System.Action{Vuforia.VuMarkTarget})">
+            <summary>
+            Unregister callback for lost VuMark-targets
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.RegisterVuMarkBehaviourDetectedCallback(System.Action{Vuforia.VuMarkAbstractBehaviour})">
+            <summary>
+            Register a callback which is invoked whenever a VuMark-result is newly detected which was not tracked in the frame before
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManager.UnregisterVuMarkBehaviourDetectedCallback(System.Action{Vuforia.VuMarkAbstractBehaviour})">
+            <summary>
+            Unregister callback for newly detected VuMark-results
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.GetActiveVuMarks">
+            <summary>
+            Get all VuMark-targets which are currently tracked
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.GetActiveBehaviours(Vuforia.VuMarkTarget)">
+            <summary>
+            Get all VuMark-behaviours for a specific VuMark-target
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.GetActiveBehaviours">
+            <summary>
+            Get all VuMark-behaviours which are currently tracked
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.GetAllBehaviours">
+            <summary>
+            Get all instantiated VuMark-behaviours
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.RegisterVuMarkDetectedCallback(System.Action{Vuforia.VuMarkTarget})">
+            <summary>
+            Register a callback which is invoked whenever a VuMark-target is newly detected which was not tracked in the frame before
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.UnregisterVuMarkDetectedCallback(System.Action{Vuforia.VuMarkTarget})">
+            <summary>
+            Unregister callback for newly detected VuMark-targets
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.RegisterVuMarkLostCallback(System.Action{Vuforia.VuMarkTarget})">
+            <summary>
+            Register a callback which is invoked whenever all instances of a VuMark-target are lost and it is not tracked anymore
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.UnregisterVuMarkLostCallback(System.Action{Vuforia.VuMarkTarget})">
+            <summary>
+            Unregister callback for lost VuMark-targets
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.RegisterVuMarkBehaviourDetectedCallback(System.Action{Vuforia.VuMarkAbstractBehaviour})">
+            <summary>
+            Register a callback which is invoked whenever a VuMark-result is newly detected which was not tracked in the frame before
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.UnregisterVuMarkBehaviourDetectedCallback(System.Action{Vuforia.VuMarkAbstractBehaviour})">
+            <summary>
+            Unregister callback for newly detected VuMark-results
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.UpdateVuMarks(Vuforia.VuforiaManagerImpl.VuMarkTargetData[],Vuforia.VuforiaManagerImpl.VuMarkTargetResultData[])">
+            <summary>
+            Update VuMark-behaviours and their poses based on current vuMark-results
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.UpdateVuMarkPoses(UnityEngine.Transform,Vuforia.VuforiaManagerImpl.VuMarkTargetResultData[],System.Int32)">
+            <summary>
+            Update poses for all vumark results. This has to be called after UpdateVuMarks to ensure that all
+            behaviours are correctly setup
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.AddTemplateBehaviour(Vuforia.VuMarkAbstractBehaviour)">
+            <summary>
+            Add a behaviour which will be used as template for all instances of the associated VuMark-template.
+            The behaviour needs to be associated with a template.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.ContainsVuMarkTemplate(System.Int32)">
+            <summary>
+            Check if a behaviour with the specified template has been added
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.ClearBehaviours">
+            <summary>
+            clear list of behaviour-templates and delete all behaviour copies.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.DestroyBehaviourCopies">
+            <summary>
+            Destroy all behaviours which were automatically created as a copy from a template
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.UpdateNewVuMarks(Vuforia.VuforiaManagerImpl.VuMarkTargetData[])">
+            <summary>
+            Associate new VuMark-targets with existing or new behaviours.
+            Update list of new VuMark-targets.
+            </summary>
+            <param name="newVuMarks">list of new VuMarks from the latest state</param>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.UpdateLostVuMarks(System.Collections.Generic.HashSet{System.Int32})">
+            <summary>
+            Disable VuMark-behaviours whose targets are not tracked anymore.
+            Update list of lost VuMark-targets
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.CreateVuMarkTarget(Vuforia.VuforiaManagerImpl.VuMarkTargetData)">
+            <summary>
+            Create VuMark and add to list of active VuMarks.
+            No behaviour is created or associated with VuMark
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.CreateOrGetUnusedBehaviour(System.Int32)">
+            <summary>
+            Go through list of all behaviours of a specific template and see
+            if any is not used currently, i.e. no VuMark-target is assigned.
+            Create a new behaviour if there is none that could be reused.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.GetVuMarkTemplate(System.Int32)">
+            <summary>
+            Get VuMark-template from behaviour list
+            </summary>
+            <returns>Returns null if template id is not found</returns>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.CopyGameObject(Vuforia.VuMarkAbstractBehaviour)">
+            <summary>
+            Instantiate game object of behaviour.
+            The new game object is added to the scene.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.MarkBehaviourUntracked(Vuforia.VuMarkAbstractBehaviour)">
+            <summary>
+            Unregister VuMark-target, deactivate behaviour and update trackable as not found
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.AssociateTargetWithBehaviour(Vuforia.VuMarkTarget,Vuforia.VuMarkAbstractBehaviour)">
+            <summary>
+            Assign VuMark-target to behaviour and activate behaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.UpdateVuMarkResults(Vuforia.VuforiaManagerImpl.VuMarkTargetResultData[])">
+            <summary>
+            Update behaviours based on currently tracked VuMark results
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.GetVuMarkTarget(System.Int32)">
+            <summary>
+            Get VuMark-target by its id. 
+            This will only return a result if the target is currently tracked
+            </summary>
+            <returns>returns currently tracked target or null</returns>
+        </member>
+        <member name="M:Vuforia.VuMarkManagerImpl.GroupResultsByTargetId(Vuforia.VuforiaManagerImpl.VuMarkTargetResultData[])">
+            <summary>
+            Group results by their target id. All results with the same target-id are put into one group
+            </summary>
+            <param name="vuMarkResults">All results to be grouped. Output lists contain indices to this array</param>
+            <returns>Dictionary with grouped results. Keys are target-ids, Values are lists with
+            indices of input array</returns>
+        </member>
+        <member name="T:Vuforia.InstanceId">
+            <summary>
+            The InstanceId contains the id for a particular VuMark.
+            </summary>
+        </member>
+        <member name="P:Vuforia.InstanceId.DataType">
+            <summary>
+            The type of data the InstanceId contains.
+            </summary>
+        </member>
+        <member name="P:Vuforia.InstanceId.Buffer">
+            <summary>
+            The raw byte buffer ID data.
+            </summary>
+        </member>
+        <member name="P:Vuforia.InstanceId.HexStringValue">
+            <summary>
+            TEMP: Helper method for displaying the instance ID.
+            </summary>
+        </member>
+        <member name="P:Vuforia.InstanceId.StringValue">
+            <summary>
+            Returns the byte buffer interpreted as an ASCII string if the datatype
+            is marked as a STRING, an empty string otherwise.
+            </summary>
+        </member>
+        <member name="P:Vuforia.InstanceId.NumericValue">
+            <summary>
+            Returns the byte buffer as a 64bit unsigned long if the data type is
+            marked as a NUMBER. 0 is returned otherwise.
+            </summary>
+        </member>
+        <member name="P:Vuforia.InstanceIdImpl.HexStringValue">
+            <summary>
+            TEMP: Helper method for displaying the instance ID.
+            </summary>
+        </member>
+        <member name="T:Vuforia.VuMarkTarget">
+            <summary>
+            The VuMarkTarget contains all data for a VuMark which is available upon
+            detection. This data does not change while the VuMark is tracked.
+            </summary>
+        </member>
+        <member name="T:Vuforia.ObjectTarget">
+            <summary>
+            A trackable that represents a ObjectTarget object
+            </summary>
+        </member>
+        <member name="T:Vuforia.ExtendedTrackable">
+            <summary>
+            The base class for all trackable types that support extended tracking.
+            </summary>
+        </member>
+        <member name="T:Vuforia.Trackable">
+            <summary>
+            The base class behaviour for all trackable types in Vuforia.
+            </summary>
+        </member>
+        <member name="P:Vuforia.Trackable.Name">
+            <summary>
+            The name of the Trackable
+            </summary>
+        </member>
+        <member name="P:Vuforia.Trackable.ID">
+            <summary>
+            The runtime Id of the Trackable
+            </summary>
+        </member>
+        <member name="M:Vuforia.ExtendedTrackable.StartExtendedTracking">
+            <summary>
+            Start extended tracking. The Target can be tracked although it is not visible.
+            </summary>
+        </member>
+        <member name="M:Vuforia.ExtendedTrackable.StopExtendedTracking">
+            <summary>
+            Stop extended tracking. Target will only be tracked when it is visible.
+            </summary>
+        </member>
+        <member name="M:Vuforia.ObjectTarget.GetSize">
+            <summary>
+            Returns the size  of the target (in 3D scene units).
+            </summary>
+        </member>
+        <member name="M:Vuforia.ObjectTarget.SetSize(UnityEngine.Vector3)">
+            <summary>
+            Sets the size of the target (in 3D scene units).
+            This is only allowed when the dataset is not active!
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkTarget.InstanceId">
+            <summary>
+            Returns the instance ID for the detected VuMark
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkTarget.Template">
+            <summary>
+            Returns the template that this VuMark is based on.
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkTarget.InstanceImage">
+            <summary>
+            Returns the generated image of the detected VuMark.
+            </summary>
+        </member>
+        <member name="T:Vuforia.ObjectTargetImpl">
+            <summary>
+            A trackable that represents an ObjectTarget object
+            </summary>
+        </member>
+        <member name="M:Vuforia.ObjectTargetImpl.GetSize">
+            <summary>
+            Returns the size  of the target (in 3D scene units).
+            </summary>
+        </member>
+        <member name="M:Vuforia.ObjectTargetImpl.SetSize(UnityEngine.Vector3)">
+            <summary>
+            Sets the size of the target (in 3D scene units).
+            This is only allowed when the dataset is not active!
+            </summary>
+        </member>
+        <member name="T:Vuforia.VuMarkTemplate">
+            <summary>
+            The VuMarkTemplate contains all static data of a VuMark which
+            is available from the dataset.
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkTemplate.VuMarkUserData">
+            <summary>
+            Gets the user data associated with this template that comes from 
+            the dataset.  If there is no VuMark use data associated with this 
+            template, an empty string is returned.
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkTemplate.Origin">
+            <summary>
+            Returns the size-scaled origin of the VuMark
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkTemplate.TrackingFromRuntimeAppearance">
+            <summary>
+            Sets or gets whether the VuMark has a changing background per instance, signaling
+            to SDK how to track it. 
+            </summary>
+            Setting TrackingFromRuntimeAppearance to true indicates that the SDK 
+            should track this type of VuMark based on what is seen by the camera and 
+            not assume the template background image is useful for tracking because 
+            the background can change per instance. 
+            Setting TrackingFromRuntimeAppearance to false indicates that the SDK
+            should track this type of VuMark based on VuMark Template used to create 
+            the dataset. This is the default behavior.
+        </member>
+        <member name="F:Vuforia.VuMarkTemplateImpl.mUserData">
+            <summary>
+            Cached version of string data.  Starts off as null, and the first
+            time we try to retrieve it, we update the value.  If no user data
+            exists, this will be set to an empty string.
+            </summary>
+        </member>
+        <member name="F:Vuforia.VuMarkTemplateImpl.mOrigin">
+            <summary>
+            The origin of the VuMarkTemplate, scaled based on the target's size.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Vuforia.VuMarkTemplateImpl.mTrackingFromRuntimeAppearance" -->
+        <member name="P:Vuforia.VuMarkTemplateImpl.Origin">
+            <summary>
+            Returns the size-scaled origin of the VuMark
             </summary>
         </member>
         <member name="T:Vuforia.MixedRealityController">
@@ -1253,12 +1670,6 @@
             Used from ComponentFactoryStarterBehaviour.
             </summary>
         </member>
-        <member name="T:Vuforia.IEditorVuforiaBehaviour">
-            <summary>
-            The editor interface for the VuforiaBehaviour.
-            Supposed to be used from Vuforia authoring scripts only.
-            </summary>
-        </member>
         <member name="T:Vuforia.EyewearCalibrationProfileManagerImpl">
             <summary>
             Class that provides functionality specific to AR on Eyewear devices.
@@ -1356,14 +1767,20 @@
             This Behaviour renders the video background from the camera in Unity.
             </summary>
         </member>
-        <member name="M:Vuforia.BackgroundPlaneAbstractBehaviour.SetEditorValues(System.Int32)">
-            <summary>
-            This method is used to set the values of unity editor fields.
-            </summary>
-        </member>
         <member name="M:Vuforia.BackgroundPlaneAbstractBehaviour.CheckNumDivisions">
             <summary>
             This method is used to check if the value of NumDivisions is acceptable
+            </summary>
+        </member>
+        <member name="M:Vuforia.BackgroundPlaneAbstractBehaviour.OnValidate">
+            <summary>
+            This method is called whenever something is changed in the editor.
+            NumDivisions is set to a valid value.
+            </summary>
+        </member>
+        <member name="M:Vuforia.BackgroundPlaneAbstractBehaviour.SetBackgroundPlacedCallback(System.Action)">
+            <summary>
+            Sets a callback that is invoked after the video background has been placed in 3D
             </summary>
         </member>
         <member name="M:Vuforia.BackgroundPlaneAbstractBehaviour.OnBackgroundTextureChanged">
@@ -1391,12 +1808,6 @@
             <summary>
             The default rotation that is applied to the Background Plane to align it towards the camera, before applying any
             orientation or mirroring rotations on top of that.
-            </summary>
-        </member>
-        <member name="T:Vuforia.IEditorTrackableBehaviour">
-            <summary>
-            The editor interface for TrackableBehaviours
-            to be implemented explicitly by behaviours
             </summary>
         </member>
         <member name="T:Vuforia.IOSCamRecoveringHelper">
@@ -1618,52 +2029,6 @@
             Returns an instance of a ViewerDevice (thread safe)
             </summary>
         </member>
-        <member name="T:Vuforia.ObjectTarget">
-            <summary>
-            A trackable that represents a ObjectTarget object
-            </summary>
-        </member>
-        <member name="T:Vuforia.ExtendedTrackable">
-            <summary>
-            The base class for all trackable types that support extended tracking.
-            </summary>
-        </member>
-        <member name="T:Vuforia.Trackable">
-            <summary>
-            The base class behaviour for all trackable types in Vuforia.
-            </summary>
-        </member>
-        <member name="P:Vuforia.Trackable.Name">
-            <summary>
-            The name of the Trackable
-            </summary>
-        </member>
-        <member name="P:Vuforia.Trackable.ID">
-            <summary>
-            The runtime Id of the Trackable
-            </summary>
-        </member>
-        <member name="M:Vuforia.ExtendedTrackable.StartExtendedTracking">
-            <summary>
-            Start extended tracking. The Target can be tracked although it is not visible.
-            </summary>
-        </member>
-        <member name="M:Vuforia.ExtendedTrackable.StopExtendedTracking">
-            <summary>
-            Stop extended tracking. Target will only be tracked when it is visible.
-            </summary>
-        </member>
-        <member name="M:Vuforia.ObjectTarget.GetSize">
-            <summary>
-            Returns the size  of the target (in 3D scene units).
-            </summary>
-        </member>
-        <member name="M:Vuforia.ObjectTarget.SetSize(UnityEngine.Vector3)">
-            <summary>
-            Sets the size of the target (in 3D scene units).
-            This is only allowed when the dataset is not active!
-            </summary>
-        </member>
         <member name="T:Vuforia.ObjectTargetAbstractBehaviour">
             <summary>
             This class serves both as an augmentation definition for a ObjectTarget in the editor
@@ -1680,6 +2045,17 @@
             The base class for all TrackableBehaviours in Vuforia
             This class serves both as an augmentation definition for a Trackable in the editor
             as well as a tracked Trackable result at runtime
+            </summary>
+        </member>
+        <member name="F:Vuforia.TrackableBehaviour.mTrackableName">
+            <summary>
+            For dataset-trackables this value is retrieved from the dataset and it is
+            used for detecting that the specified trackable in the dataset is not valid anymore.
+            </summary>
+        </member>
+        <member name="F:Vuforia.TrackableBehaviour.mPreviousScale">
+            <summary>
+            This value is used to identify non-uniform scaling of the trackable.
             </summary>
         </member>
         <member name="M:Vuforia.TrackableBehaviour.RegisterTrackableEventHandler(Vuforia.ITrackableEventHandler)">
@@ -1706,17 +2082,61 @@
             </summary>
             <param name="newFrameIndex">Frame index of processed frame, multiple render frames can have the same frame index</param>
         </member>
+        <member name="M:Vuforia.TrackableBehaviour.CorrectScale">
+            <summary>
+            Corrects scaling for trackables where non-uniform scaling is not allowed
+            </summary>
+        </member>
+        <member name="M:Vuforia.TrackableBehaviour.UnregisterTrackable">
+            <summary>
+            This method disconnects the TrackableBehaviour from it's associated trackable.
+            Use it only if you know what you are doing - e.g. when you want to destroy a trackable, but reuse the TrackableBehaviour.
+            </summary>
+        </member>
         <member name="M:Vuforia.TrackableBehaviour.InternalUnregisterTrackable">
             <summary>
             This method disconnects the TrackableBehaviour from it's associated trackable.
             Use it only if you know what you are doing - e.g. when you want to destroy a trackable, but reuse the TrackableBehaviour.
             </summary>
         </member>
-        <member name="M:Vuforia.TrackableBehaviour.Vuforia#IEditorTrackableBehaviour#UnregisterTrackable">
+        <member name="M:Vuforia.TrackableBehaviour.CorrectScaleImpl">
             <summary>
-            This method disconnects the TrackableBehaviour from it's associated trackable.
-            Use it only if you know what you are doing - e.g. when you want to destroy a trackable, but reuse the TrackableBehaviour.
+            Overwrite this method when a specific scale should be enforced.
             </summary>
+        </member>
+        <member name="M:Vuforia.TrackableBehaviour.EnforceUniformScaling">
+            <summary>
+            Scales the Trackable uniformly
+            </summary>
+        </member>
+        <member name="M:Vuforia.TrackableBehaviour.SetScaleFromWidth(System.Single,System.Single)">
+            <summary>
+            Set scale-value of this game object based on the target width.
+            This method should be used only for 2D-targets
+            </summary>
+            <param name="width">target width</param>
+            <param name="aspectRatio">aspect ratio of target (height/width)</param>
+            <returns>uniform scale value of game object</returns>
+        </member>
+        <member name="M:Vuforia.TrackableBehaviour.SetScaleFromHeight(System.Single,System.Single)">
+            <summary>
+            Set scale-value of this game object based on the target height.
+            This method should be used only for 2D-targets
+            </summary>
+            <param name="height">target height</param>
+            <param name="aspectRatio">aspect ratio of target (height/width)</param>
+            <returns>uniform scale value of game object</returns>
+        </member>
+        <member name="M:Vuforia.TrackableBehaviour.SetScale(System.Single,System.Single,System.Single)">
+            <summary>
+            Set scale-value of this game object based on one dimension.
+            The largest dimension is computed based on the aspect ratios to the other
+            dimensions and used as scale value.
+            </summary>
+            <param name="length">Value of one dimension</param>
+            <param name="aspectRatio1">Aspect ratio compared to other dimension (computed as other_dimension/current_dimension)</param>
+            <param name="aspectRatio2">Aspect ratio compared to other dimension (computed as other_dimension/current_dimension)</param>
+            <returns>uniform scale of game object</returns>
         </member>
         <member name="P:Vuforia.TrackableBehaviour.CurrentStatus">
             <summary>
@@ -1752,6 +2172,12 @@
             The Trackable created at runtime that is augmented by this TrackableBehaviour
             </summary>
         </member>
+        <member name="M:Vuforia.DataSetTrackableBehaviour.OnValidate">
+            <summary>
+            This method is called whenever something is changed in the editor.
+            The minimum y-bound for smart terrain is always set to 0.
+            </summary>
+        </member>
         <member name="M:Vuforia.DataSetTrackableBehaviour.SetAsSmartTerrainInitializationTarget">
             <summary>
             This methods sets the current target as the initialization target on the SmartTerrainTracker
@@ -1766,82 +2192,35 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SetDataSetPath(System.String)">
+        <member name="M:Vuforia.DataSetTrackableBehaviour.InitializeTarget(Vuforia.Trackable,System.Boolean)">
             <summary>
-            sets the DataSetPath (only in editor mode)
+            Initialize the target at runtime. The values defined in the editor are applied to 
+            the trackable.
             </summary>
+            <param name="trackable">Trackable which is assigned to behaviour at runtime</param>
+            <param name="applyTargetScaleToBehaviour">Runtime trackable size is applied to behaviour.
+            set to true if behaviour is created at runtime, false for behaviours defined in the editor.</param>
+            <returns>true if the target has the correct type and has been successfully initialized</returns>
         </member>
-        <member name="M:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SetExtendedTracking(System.Boolean)">
-            <summary>
-            Defines whether extended tracking should be enabled for this target
-            </summary>
-        </member>
-        <member name="M:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SetReconstructionToInitialize(Vuforia.ReconstructionFromTargetAbstractBehaviour)">
-            <summary>
-            Defines whether this target should initilize smart terrain (and which) when detected.
-            Set null to not initialize any smart terrain.
-            </summary>
-        </member>
-        <member name="M:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SetSmartTerrainOccluderBoundsMin(UnityEngine.Vector3)">
-            <summary>
-            sets the minimum bounds of the occluder box for ST initialization
-            </summary>
-        </member>
-        <member name="M:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SetSmartTerrainOccluderBoundsMax(UnityEngine.Vector3)">
-            <summary>
-            sets the maximum bounds of the occluder box for ST initialization
-            </summary>
-        </member>
-        <member name="M:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SetSmartTerrainOccluderOffset(UnityEngine.Vector3)">
-            <summary>
-            sets the minimum bounds of the occluder box for ST initialization
-            </summary>
-        </member>
-        <member name="M:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SetSmartTerrainOccluderRotation(UnityEngine.Quaternion)">
-            <summary>
-            sets the maximum bounds of the occluder box for ST initialization
-            </summary>
-        </member>
-        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#DataSetName">
-            <summary>
-            The name of the data set the Trackable belongs to.
-            Please be aware that the data set name is not a unique identifier at runtime!
-            </summary>
-        </member>
-        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#DataSetPath">
+        <member name="P:Vuforia.DataSetTrackableBehaviour.DataSetPath">
             <summary>
             The path to the data set in the file system.
             Please be aware that the data set name is not a unique identifier at runtime!
             </summary>
         </member>
-        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#ExtendedTracking">
+        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditDataSetBehaviour#ExtendedTracking">
             <summary>
-            Returns wether extended tracking is enabled for this target
+            Define whether extended tracking is enabled for this target
             </summary>
         </member>
-        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#ReconstructionToInitialize">
+        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditDataSetBehaviour#InitializeSmartTerrain">
             <summary>
-            Returns which SmartTerrainBehaviour this target will initialize. Returns null if this is not an initialization target.
+            Define whether smart terrain should be initialized from this target
             </summary>
         </member>
-        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SmartTerrainOccluderBoundsMin">
+        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditDataSetBehaviour#ReconstructionToInitialize">
             <summary>
-            the minimum bounds of the occluder box for ST initialization
-            </summary>
-        </member>
-        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SmartTerrainOccluderBoundsMax">
-            <summary>
-            the minimum bounds of the occluder box for ST initialization
-            </summary>
-        </member>
-        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SmartTerrainOccluderOffset">
-            <summary>
-            the minimum bounds of the occluder box for ST initialization
-            </summary>
-        </member>
-        <member name="P:Vuforia.DataSetTrackableBehaviour.Vuforia#IEditorDataSetTrackableBehaviour#SmartTerrainOccluderRotation">
-            <summary>
-            the minimum bounds of the occluder box for ST initialization
+            Define which reconstruction is initialized from this target
             </summary>
         </member>
         <member name="M:Vuforia.ObjectTargetAbstractBehaviour.#ctor">
@@ -1900,30 +2279,19 @@
             </summary>
             <param name="height">height value</param>
         </member>
-        <member name="M:Vuforia.ObjectTargetAbstractBehaviour.Vuforia#IEditorObjectTargetBehaviour#SetAspectRatio(System.Single,System.Single)">
+        <member name="M:Vuforia.ObjectTargetAbstractBehaviour.InitializeTarget(Vuforia.Trackable,System.Boolean)">
             <summary>
-            Set the  Aspect Ratio (only in editor mode).
+            Initialize the target at runtime. The values defined in the editor are applied to 
+            the trackable.
             </summary>
-            <param name="aspectRatioXY">aspect ratio length/width</param>
-            <param name="aspectRatioXZ">aspect ratio length/height</param>
+            <param name="trackable">Object Target</param>
+            <param name="applyTargetScaleToBehaviour"></param>
         </member>
-        <member name="M:Vuforia.ObjectTargetAbstractBehaviour.Vuforia#IEditorObjectTargetBehaviour#InitializeObjectTarget(Vuforia.ObjectTarget)">
+        <member name="M:Vuforia.ObjectTargetAbstractBehaviour.OnValidate">
             <summary>
-            Initialize the object target
+            This method is called whenever something is changed in the editor.
+            Internal size-values are synchronized with the transform-values.
             </summary>
-            <param name="objectTarget">Object Target</param>
-        </member>
-        <member name="M:Vuforia.ObjectTargetAbstractBehaviour.Vuforia#IEditorObjectTargetBehaviour#SetShowBoundingBox(System.Boolean)">
-            <summary>
-            Active the visualization of the bounding box/alignment guide
-            </summary>
-            <param name="showBoundingBox">If true the bounding box will be displayed</param>
-        </member>
-        <member name="M:Vuforia.ObjectTargetAbstractBehaviour.Vuforia#IEditorObjectTargetBehaviour#SetPreviewImage(UnityEngine.Texture2D)">
-            <summary>
-            Set the preview image in the inspector
-            </summary>
-            <param name="previewImage">Texture2D used as image</param>
         </member>
         <member name="P:Vuforia.ObjectTargetAbstractBehaviour.ObjectTarget">
             <summary>
@@ -2031,6 +2399,63 @@
             If the value cannot be obtained for some reason, then Vector2.zero will be returned
             </summary>
         </member>
+        <member name="M:Vuforia.CameraDevice.GetCameraFields">
+            <summary>
+            Get available camera fields
+            Note: this may not be the complete set of camera fields available on this
+            device and some keys may not be supported on every device
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.SetField(System.String,System.String)">
+            <summary>
+            Write accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.SetField(System.String,System.Int64)">
+            <summary>
+            Write accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.SetField(System.String,System.Single)">
+            <summary>
+            Write accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.SetField(System.String,System.Boolean)">
+            <summary>
+            Write accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.SetField(System.String,Vuforia.CameraDevice.Int64Range)">
+            <summary>
+            Write accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.GetField(System.String,System.String@)">
+            <summary>
+            Read accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.GetField(System.String,System.Int64@)">
+            <summary>
+            Read accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.GetField(System.String,System.Single@)">
+            <summary>
+            Read accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.GetField(System.String,System.Boolean@)">
+            <summary>
+            Read accessors for camera fields
+            </summary>
+        </member>
+        <member name="M:Vuforia.CameraDevice.GetField(System.String,Vuforia.CameraDevice.Int64Range@)">
+            <summary>
+            Read accessors for camera fields
+            </summary>
+        </member>
         <member name="P:Vuforia.CameraDevice.Instance">
             <summary>
             Returns an instance of a CameraDevice (thread safe)
@@ -2057,6 +2482,62 @@
             <summary>
             This struct stores video mode data. This includes the width and height of
             the frame and the framerate of the camera.
+            </summary>
+        </member>
+        <member name="T:Vuforia.CameraDevice.CameraField">
+            <summary>
+            Camera fields are advanced properties of the camera
+            
+            Camera fields represent advanced camera properties and capture parameters such as
+            exposure compensation, ISO and others. A field may be read only (e.g. maximum
+            exposure compensation value) or read-write (e.g. exposure compensation value).
+            
+            Camera fields are accessed as key-value pairs, where the value may be one of
+            multiple basic types.
+            
+            Camera fields are highly platform dependent and the keys to identify a given
+            property and available values to set will vary across operating system,
+            operating system version, camera API version and the device model itself.
+            Furthermore the behavior of the camera driver wrt. these fields is highly
+            ragmented. Thus CameraFields should only be used for specific use case and devices.
+            
+            All of the Camera field APIs shall be called only after initializing the
+            CameraDevice.
+            
+            Camera Fields are currently only implemented for Android.
+            
+            Finally setting advanced camera parameters may adversely affect Vuforia
+            tracking performance as well as cause functional issues.
+            </summary>
+        </member>
+        <member name="F:Vuforia.CameraDevice.CameraField.Type">
+            <summary>
+            The data type of this field
+            </summary>
+        </member>
+        <member name="F:Vuforia.CameraDevice.CameraField.Key">
+            <summary>
+            The key to identify this field
+            </summary>
+        </member>
+        <member name="F:Vuforia.CameraDevice.CameraField.DataType.TypeInt64">
+            Null terminated array of characters (Ascii)
+        </member>
+        <member name="F:Vuforia.CameraDevice.CameraField.DataType.TypeFloat">
+            64 bit signed integer
+        </member>
+        <member name="F:Vuforia.CameraDevice.CameraField.DataType.TypeBool">
+            Single precision floating point
+        </member>
+        <member name="F:Vuforia.CameraDevice.CameraField.DataType.TypeInt64Range">
+            Boolean
+        </member>
+        <member name="F:Vuforia.CameraDevice.CameraField.DataType.TypeUnknown">
+            Array of two 32 bit signed integer
+        </member>
+        <member name="T:Vuforia.CameraDevice.Int64Range">
+            <summary>
+            A struct describing a range of 64 bit integers with a lower and upper bound
             </summary>
         </member>
         <member name="T:Vuforia.CloudRecoAbstractBehaviour">
@@ -2256,22 +2737,6 @@
         <member name="F:Vuforia.HideExcessAreaAbstractBehaviour.CLIPPING_MODE.NONE">
             <summary>
             no clipping
-            </summary>
-        </member>
-        <member name="T:Vuforia.ObjectTargetImpl">
-            <summary>
-            A trackable that represents an ObjectTarget object
-            </summary>
-        </member>
-        <member name="M:Vuforia.ObjectTargetImpl.GetSize">
-            <summary>
-            Returns the size  of the target (in 3D scene units).
-            </summary>
-        </member>
-        <member name="M:Vuforia.ObjectTargetImpl.SetSize(UnityEngine.Vector3)">
-            <summary>
-            Sets the size of the target (in 3D scene units).
-            This is only allowed when the dataset is not active!
             </summary>
         </member>
         <member name="T:Vuforia.UnityPlayer">
@@ -2558,6 +3023,93 @@
             The top of the phone is aligned with the top of the viewer.
             </summary>
         </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.CorrectScaleImpl">
+            <summary>
+            Scales the Trackable uniformly
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.InternalUnregisterTrackable">
+            <summary>
+            This method disconnects the TrackableBehaviour from it's associated trackable.
+            Use it only if you know what you are doing - e.g. when you want to destroy a trackable, but reuse the TrackableBehaviour.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.GetSize">
+            <summary>
+            Returns the size of this target in scene units
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.SetWidth(System.Single)">
+            <summary>
+            Set the width (x-dimension) of the target in scene units.
+            This will scale the target uniformly.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.SetHeight(System.Single)">
+            <summary>
+            Set the height (y-dimension) of the target in scene units.
+            This will scale the target uniformly.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.RegisterVuMarkTargetAssignedCallback(System.Action)">
+            <summary>
+            Register callback which is invoked whenever a new VuMark-target is assigned to this behaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.UnregisterVuMarkTargetAssignedCallback(System.Action)">
+            <summary>
+            Unregister callback
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.RegisterVuMarkTargetLostCallback(System.Action)">
+            <summary>
+            Register callback which is invoked whenever a VuMark-target is removed from the behaviour, i.e. it is not tracked anymore
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.UnregisterVuMarkTargetLostCallback(System.Action)">
+            <summary>
+            Unregister callback
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuMarkAbstractBehaviour.OnValidate">
+            <summary>
+            This method is called whenever something is changed in the editor.
+            Internal size-values are synchronized with the transform-values.
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkAbstractBehaviour.VuMarkTemplate">
+            <summary>
+            VuMark-template is available at runtime independent whether
+            this behaviour is currently tracked or not
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkAbstractBehaviour.VuMarkTarget">
+            <summary>
+            VuMark-target is only available while this behaviour is tracked
+            </summary>
+        </member>
+        <member name="P:Vuforia.VuMarkAbstractBehaviour.Origin">
+            <summary>
+            Get origin of pose. The origin is (0,0) if the instance image is centered
+            around the origin.
+            </summary>
+        </member>
+        <member name="F:Vuforia.InstanceIdType.BYTES">
+            <summary>
+            Generic byte data, stored in little-endian order in the buffer.
+            For example, and ID of 0x123456 would appear as { 0x56, 0x34, 0x12 }
+            </summary>
+        </member>
+        <member name="F:Vuforia.InstanceIdType.STRING">
+            <summary>
+            Printable ASCII string data.
+            </summary>
+        </member>
+        <member name="F:Vuforia.InstanceIdType.NUMERIC">
+            <summary>
+            Numeric data, no larger than a 64 bit unsigned long long.
+            </summary>
+        </member>
         <member name="T:Vuforia.ReconstructionFromTargetAbstractBehaviour">
             <summary>
             This Monobehaviour supplements the ReconstructionAbstractBehaviour with target initialization specific functionality
@@ -2660,33 +3212,6 @@
             Returns false by default.
             </summary>
         </member>
-        <member name="M:Vuforia.IEditorSurfaceBehaviour.InitializeSurface(Vuforia.Surface)">
-            <summary>
-            Initializes with a specific surface trackable
-            </summary>
-        </member>
-        <member name="M:Vuforia.IEditorSurfaceBehaviour.SetMeshFilterToUpdate(UnityEngine.MeshFilter)">
-            <summary>
-            Allows to set which mesh filter should be automatically updated with new mesh revisions
-            If set to null, nothing will be updated
-            </summary>
-        </member>
-        <member name="M:Vuforia.IEditorSurfaceBehaviour.SetMeshColliderToUpdate(UnityEngine.MeshCollider)">
-            <summary>
-            Allows to set which mesh collider should be automatically updated with new mesh revisions
-            If set to null, nothing will be updated
-            </summary>
-        </member>
-        <member name="P:Vuforia.IEditorSurfaceBehaviour.MeshFilterToUpdate">
-            <summary>
-            The mesh filter that will be updated automatically
-            </summary>
-        </member>
-        <member name="P:Vuforia.IEditorSurfaceBehaviour.MeshColliderToUpdate">
-            <summary>
-            The mesh collider that will be updated automatically
-            </summary>
-        </member>
         <member name="T:Vuforia.SmartTerrainTrackerAbstractBehaviour">
             <summary>
             This is the main behaviour class that manages the smart terrain tracker
@@ -2777,6 +3302,18 @@
             <summary>
             This method disconnects the TrackableBehaviour from it's associated trackable.
             Use it only if you know what you are doing - e.g. when you want to destroy a trackable, but reuse the TrackableBehaviour.
+            </summary>
+        </member>
+        <member name="M:Vuforia.CylinderTargetAbstractBehaviour.InitializeTarget(Vuforia.Trackable,System.Boolean)">
+            <summary>
+            Initialize the target at runtime. The values defined in the editor are applied to 
+            the trackable.
+            </summary>
+        </member>
+        <member name="M:Vuforia.CylinderTargetAbstractBehaviour.OnValidate">
+            <summary>
+            This method is called whenever something is changed in the editor.
+            Internal size-values are synchronized with the transform-values.
             </summary>
         </member>
         <member name="P:Vuforia.CylinderTargetAbstractBehaviour.CylinderTarget">
@@ -3211,63 +3748,6 @@
             Destroys all existing trackables
             </summary>
         </member>
-        <member name="M:Vuforia.IEditorReconstructionBehaviour.ScaleEditorMeshesByFactor(System.Single)">
-            <summary>
-            Scales the surface and prop meshes by a given factor (directly affects the mesh data).
-            Only used for authoring (to create a ST instance in the same size as the initialization target),
-            does not have any affect if called at runtime
-            </summary>
-        </member>
-        <member name="M:Vuforia.IEditorReconstructionBehaviour.ScaleEditorPropPositionsByFactor(System.Single)">
-            <summary>
-            Scales the prop authoring positions on the surface by a given factor.
-            Only used for authoring (to create a ST instance in the same size as the initialization target),
-            does not have any affect if called at runtime
-            </summary>
-        </member>
-        <member name="M:Vuforia.IEditorPropBehaviour.InitializeProp(Vuforia.Prop)">
-            <summary>
-            Initializes with a specific prop trackable
-            </summary>
-        </member>
-        <member name="M:Vuforia.IEditorPropBehaviour.SetMeshFilterToUpdate(UnityEngine.MeshFilter)">
-            <summary>
-            Allows to set which mesh filter should be automatically updated with new mesh revisions
-            If set to null, nothing will be updated
-            </summary>
-        </member>
-        <member name="M:Vuforia.IEditorPropBehaviour.SetMeshColliderToUpdate(UnityEngine.MeshCollider)">
-            <summary>
-            Allows to set which mesh collider should be automatically updated with new mesh revisions
-            If set to null, nothing will be updated
-            </summary>
-        </member>
-        <member name="M:Vuforia.IEditorPropBehaviour.SetBoxColliderToUpdate(UnityEngine.BoxCollider)">
-            <summary>
-            Allows to set which mesh collider should be automatically updated with new bounding box revisions
-            If set to null, nothing will be updated
-            </summary>
-        </member>
-        <member name="P:Vuforia.IEditorPropBehaviour.MeshFilterToUpdate">
-            <summary>
-            The mesh filter that will be updated automatically
-            </summary>
-        </member>
-        <member name="P:Vuforia.IEditorPropBehaviour.MeshColliderToUpdate">
-            <summary>
-            The mesh collider that will be updated automatically
-            </summary>
-        </member>
-        <member name="P:Vuforia.IEditorPropBehaviour.BoxColliderToUpdate">
-            <summary>
-            The box collider that will be updated automatically
-            </summary>
-        </member>
-        <member name="T:Vuforia.WordTemplateMode">
-            <summary>
-            Specifies if a word prefab is used as generic template or only for specific words
-            </summary>
-        </member>
         <member name="T:Vuforia.Image">
             <summary>
             An image - Used to expose the camera frame.
@@ -3485,6 +3965,8 @@
         <member name="T:Vuforia.Marker">
             <summary>
             A trackable behaviour for representing rectangular markers.
+            This class is deprecated. The same functionality
+            is provided by using a rectangular VuMark.
             </summary>
         </member>
         <member name="M:Vuforia.Marker.GetSize">
@@ -3505,6 +3987,8 @@
         <member name="T:Vuforia.MarkerTracker">
             <summary>
             This class handles marker creation and management at runtime
+            This class is deprecated. The same functionality
+            is provided by using a rectangular VuMark.
             </summary>
         </member>
         <member name="M:Vuforia.MarkerTracker.CreateMarker(System.Int32,System.String,System.Single)">
@@ -3636,6 +4120,13 @@
             World Center setting on the ARCamera
             </summary>
         </member>
+        <member name="P:Vuforia.VuforiaManager.VuMarkWorldCenter">
+            <summary>
+            Define a VuMark template as world center. The first detected VuMark-target with this template
+            is considered as world center.
+            If only a specific VuMark-behaviour should be used as world center, use the generic WorldCenter-property.
+            </summary>
+        </member>
         <member name="P:Vuforia.VuforiaManager.ARCameraTransform">
             <summary>
             A handle to the ARCamera Transform object or the External Tracking Frame of Reference
@@ -3675,6 +4166,49 @@
             Autorotation will be disabled during video background freezing.
             </summary>
         </member>
+        <member name="M:Vuforia.VuforiaManagerImpl.IsDetectedOrTracked(Vuforia.TrackableBehaviour.Status)">
+            <summary>
+            Test whether the status is detected, tracked, or extended_tracked
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaManagerImpl.UnmarshalTrackables(Vuforia.VuforiaManagerImpl.FrameState)">
+            <summary>
+            Unmarshal generic trackables and props from frame state
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaManagerImpl.UnmarshalWordTrackables(Vuforia.VuforiaManagerImpl.FrameState)">
+            <summary>
+            Unmarshal words and word results from frame state
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaManagerImpl.UnmarshalVuMarkTrackables(Vuforia.VuforiaManagerImpl.FrameState)">
+            <summary>
+            Ummarshal vumarks and vumark results from frame state
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaManagerImpl.UpdateTrackableFoundQueue">
+            <summary>
+            Update mTrakcableFoundQueue based on current list of trackable results
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaManagerImpl.UpdateTrackableFoundQueue(Vuforia.TrackableBehaviour.Status,Vuforia.VuforiaManagerImpl.IdPair)">
+            <summary>
+            Update mTrackableFoundQueue with a new trackable. Depending on it's state the id
+            is added or removed from the queue.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaManagerImpl.GetTrackableResultData(Vuforia.VuforiaManagerImpl.IdPair,System.Boolean)">
+            <summary>
+            Get a trackable result by its id.
+            VuMarks are optionally included, Words are not included
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaManagerImpl.GetVuMarkWorldCenter(System.Int32)">
+            <summary>
+            Get first VuMark-behaviour from trackable queue for given vumark template id.
+            </summary>
+            <returns>first behaviour or null if no result exists</returns>
+        </member>
         <member name="P:Vuforia.VuforiaManagerImpl.Initialized">
             <summary>
             returns true once the VuforiaManager has been initialized
@@ -3683,6 +4217,18 @@
         <member name="P:Vuforia.VuforiaManagerImpl.CurrentFrameIndex">
             <summary>
             The frame index of the current Vuforia state
+            </summary>
+        </member>
+        <member name="T:Vuforia.VuforiaManagerImpl.VuMarkTargetData">
+            <summary>
+            The basic data struct for an ImageTarget
+            </summary>
+        </member>
+        <member name="T:Vuforia.VuforiaManagerImpl.IdPair">
+            <summary>
+            We have to use two different types of ids in the queue for the world center.
+            We use this struct to distinguish between result-ids for VuMarks
+            and trackable-ids for all other trackables
             </summary>
         </member>
         <member name="T:Vuforia.VuforiaRenderer">
@@ -3706,7 +4252,8 @@
             and size).
             </summary>
         </member>
-        <member name="M:Vuforia.VuforiaRenderer.SetVideoBackgroundTexture(UnityEngine.Texture2D,System.Int32)">
+        <!-- Badly formed XML comment ignored for member "M:Vuforia.VuforiaRenderer.createNativeTexture(System.Int32,System.Int32,System.Int32)" -->
+        <member name="M:Vuforia.VuforiaRenderer.SetVideoBackgroundTexture(UnityEngine.Texture,System.Int32)">
             <summary>
             Tells Vuforia where the texture id to use for updating video background data.
             The native texture ID needs to be passed in as a separate parameter.
@@ -3715,7 +4262,7 @@
             (texture.GetNativeTexturePtr())
             </summary>
         </member>
-        <member name="M:Vuforia.VuforiaRenderer.SetVideoBackgroundTexturePtr(UnityEngine.Texture2D,System.IntPtr)">
+        <member name="M:Vuforia.VuforiaRenderer.SetVideoBackgroundTexturePtr(UnityEngine.Texture,System.IntPtr)">
             <summary>
             Tells Vuforia the texture pointer to use for updating video background data.
             The native texture pointer needs to be passed in as a separate parameter.
@@ -3765,7 +4312,7 @@
         <member name="M:Vuforia.VuforiaRenderer.GetRendererAPI">
             <summary>
             Query the native rendering API.
-            Currently supported: OpenGL ES 2.0 or Metal
+            Currently supported: OpenGL ES 2.0, Metal or DirectX3D11
             </summary>
             <returns></returns>
         </member>
@@ -3870,6 +4417,12 @@
             iOS Metal
             </summary>
         </member>
+        <member name="F:Vuforia.VuforiaRenderer.RendererAPI.DIRECTX3D11">
+            <summary>
+            Windows DirectX-3D 11
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Vuforia.VuforiaRendererImpl.createNativeTexture(System.Int32,System.Int32,System.Int32)" -->
         <member name="M:Vuforia.VuforiaRendererImpl.Pause(System.Boolean)">
             <summary>
             Turns pausing on or off.
@@ -4374,8 +4927,7 @@
         </member>
         <member name="M:Vuforia.WordList.LoadWordListFile(System.String)">
             <summary>
-            Loads the word list from a binary file at the default 
-            "Assets/StreamingAssets" directory.
+            Loads the word list from a binary file in the StreamingAssets directory
             </summary>
         </member>
         <member name="M:Vuforia.WordList.LoadWordListFile(System.String,Vuforia.VuforiaUnity.StorageType)">
@@ -4386,8 +4938,7 @@
         </member>
         <member name="M:Vuforia.WordList.AddWordsFromFile(System.String)">
             <summary>
-            Loads a set of custom words from a plain text file at the default 
-            "Assets/StreamingAssets" directory.
+            Loads a set of custom words from a plain text in the StreamingAssets directory
             </summary>
         </member>
         <member name="M:Vuforia.WordList.AddWordsFromFile(System.String,Vuforia.VuforiaUnity.StorageType)">
@@ -4440,8 +4991,7 @@
         </member>
         <member name="M:Vuforia.WordList.LoadFilterListFile(System.String)">
             <summary>
-            Loads the filter list from a plain text file at the default 
-            "Assets/StreamingAssets" directory.
+            Loads the filter list from a plain text file in the StreamingAssets directory
             </summary>
         </member>
         <member name="M:Vuforia.WordList.LoadFilterListFile(System.String,Vuforia.VuforiaUnity.StorageType)">
@@ -4477,8 +5027,7 @@
         </member>
         <member name="M:Vuforia.WordListImpl.LoadWordListFile(System.String)">
             <summary>
-            Loads the word list from a binary file at the default 
-            "Assets/StreamingAssets" directory.
+            Loads the word list from a binary file in the StreamingAssets directory 
             </summary>    
         </member>
         <member name="M:Vuforia.WordListImpl.LoadWordListFile(System.String,Vuforia.VuforiaUnity.StorageType)">
@@ -4489,8 +5038,7 @@
         </member>
         <member name="M:Vuforia.WordListImpl.AddWordsFromFile(System.String)">
             <summary>
-            Loads a set of custom words from a plain text file at the default 
-            "Assets/StreamingAssets" directory.
+            Loads a set of custom words from a plain text file in the StreamingAssets directory
             </summary>
         </member>
         <member name="M:Vuforia.WordListImpl.AddWordsFromFile(System.String,Vuforia.VuforiaUnity.StorageType)">
@@ -4543,8 +5091,7 @@
         </member>
         <member name="M:Vuforia.WordListImpl.LoadFilterListFile(System.String)">
             <summary>
-            Loads the filter list from a plain text file at the default 
-            "Assets/StreamingAssets" directory.
+            Loads the filter list from a plain text file in the StreamingAssets directory
             </summary>
         </member>
         <member name="M:Vuforia.WordListImpl.LoadFilterListFile(System.String,Vuforia.VuforiaUnity.StorageType)">
@@ -4715,37 +5262,31 @@
         <member name="P:Vuforia.KeepAliveAbstractBehaviour.KeepARCameraAlive">
             <summary>
             If the ARCamera should be kept alive on scene change
-            Changing this parameter at runtime is not supported.
             </summary>
         </member>
         <member name="P:Vuforia.KeepAliveAbstractBehaviour.KeepTrackableBehavioursAlive">
             <summary>
             If TrackableBehaviours should be kept alive on scene change
-            Changing this parameter at runtime is not supported.
             </summary>
         </member>
         <member name="P:Vuforia.KeepAliveAbstractBehaviour.KeepTextRecoBehaviourAlive">
             <summary>
             If the Text Reco Prefab should be kept alive on scene change
-            Changing this parameter at runtime is not supported.
             </summary>
         </member>
         <member name="P:Vuforia.KeepAliveAbstractBehaviour.KeepUDTBuildingBehaviourAlive">
             <summary>
-            If the Text Reco Prefab should be kept alive on scene change
-            Changing this parameter at runtime is not supported.
+            If the UDT Prefab should be kept alive on scene change
             </summary>
         </member>
         <member name="P:Vuforia.KeepAliveAbstractBehaviour.KeepSmartTerrainAlive">
             <summary>
             If the smart terrain object hierarchy should be kept alive on scene change
-            Changing this parameter at runtime is not supported.
             </summary>
         </member>
         <member name="P:Vuforia.KeepAliveAbstractBehaviour.KeepCloudRecoBehaviourAlive">
             <summary>
-            If the Text Reco Prefab should be kept alive on scene change
-            Changing this parameter at runtime is not supported.
+            If the CloudReco Prefab should be kept alive on scene change
             </summary>
         </member>
         <member name="P:Vuforia.KeepAliveAbstractBehaviour.Instance">
@@ -4756,6 +5297,11 @@
         <member name="T:Vuforia.ReconstructionAbstractBehaviour">
             <summary>
             This class represents a smart terrain reconstruction in Unity
+            </summary>
+        </member>
+        <member name="M:Vuforia.ReconstructionAbstractBehaviour.OnValidate">
+            <summary>
+            Validate input after the behaviour is updated in the editor
             </summary>
         </member>
         <member name="M:Vuforia.ReconstructionAbstractBehaviour.RegisterSmartTerrainEventHandler(Vuforia.ISmartTerrainEventHandler)">
@@ -4896,6 +5442,20 @@
             Marks SmartTerrainBehaviour and all PropBehaviours as "not found"
             </summary>
         </member>
+        <member name="M:Vuforia.ReconstructionAbstractBehaviour.ScaleEditorMeshesByFactor(System.Single)">
+            <summary>
+            Scales the surface and prop meshes by a given factor (directly affects the mesh data).
+            Only used for authoring (to create a ST instance in the same size as the initialization target),
+            does not have any affect if called at runtime
+            </summary>
+        </member>
+        <member name="M:Vuforia.ReconstructionAbstractBehaviour.ScaleEditorPropPositionsByFactor(System.Single)">
+            <summary>
+            Scales the prop authoring positions on the surface by a given factor.
+            Only used for authoring (to create a ST instance in the same size as the initialization target),
+            does not have any affect if called at runtime
+            </summary>
+        </member>
         <member name="M:Vuforia.ReconstructionAbstractBehaviour.InstantiatePropBehaviour(Vuforia.PropAbstractBehaviour)">
             <summary>
             create a new instance of the input prop behaviour
@@ -4916,6 +5476,11 @@
             <summary>
             Unregisters no longer existing Surfaces in SmartTerrainManager and StateManager (as TrackableBehaviours),
             deletes the game objects
+            </summary>
+        </member>
+        <member name="P:Vuforia.ReconstructionAbstractBehaviour.AutomaticStart">
+            <summary>
+            Return whether reconstruction should be automatically started at startup
             </summary>
         </member>
         <member name="T:Vuforia.PropAbstractBehaviour">
@@ -4948,12 +5513,12 @@
         </member>
         <member name="M:Vuforia.StateManager.GetActiveTrackableBehaviours">
             <summary>
-            Returns the TrackableBehaviours currently being tracked
+            Returns the TrackableBehaviours currently being tracked except Words and VuMarks
             </summary>
         </member>
         <member name="M:Vuforia.StateManager.GetTrackableBehaviours">
             <summary>
-            Returns all currently instantiated TrackableBehaviours
+            Returns all currently instantiated TrackableBehaviours except Words and VuMarks
             </summary>
         </member>
         <member name="M:Vuforia.StateManager.DestroyTrackableBehavioursForTrackable(Vuforia.Trackable,System.Boolean)">
@@ -4967,6 +5532,13 @@
             all currently tracked words from TextRecognition
             </summary>
         </member>
+        <member name="M:Vuforia.StateManager.GetVuMarkManager">
+            <summary>
+            Returns the VuMark manager instance that can be used to access
+            all available VuMark-templates and all currently tracked VuMarks.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Vuforia.StateManagerImpl">
             <summary>
             This class is used to manage the state of all TrackableBehaviours, create them,
@@ -4975,17 +5547,23 @@
         </member>
         <member name="M:Vuforia.StateManagerImpl.GetActiveTrackableBehaviours">
             <summary>
-            Returns the TrackableBehaviours currently being tracked
+            Returns the TrackableBehaviours currently being tracked except Words
             </summary>
         </member>
         <member name="M:Vuforia.StateManagerImpl.GetTrackableBehaviours">
             <summary>
-            Returns all currently instantiated TrackableBehaviours
+            Returns all currently instantiated TrackableBehaviours except Words
             </summary>
         </member>
         <member name="M:Vuforia.StateManagerImpl.GetWordManager">
             <summary>
             Returns the word manager which is used to access all currently tracked words
+            </summary>
+        </member>
+        <member name="M:Vuforia.StateManagerImpl.GetVuMarkManager">
+            <summary>
+            Returns the VuMark-manager which is used to access all available VuMark-templates 
+            and currently tracked VuMark-targets
             </summary>
         </member>
         <member name="M:Vuforia.StateManagerImpl.DestroyTrackableBehavioursForTrackable(Vuforia.Trackable,System.Boolean)">
@@ -5057,6 +5635,12 @@
             Sets the enabled flag for TrackableBehaviours for a given Trackable
             </summary>
         </member>
+        <member name="M:Vuforia.StateManagerImpl.UpdateTrackablePoses(UnityEngine.Transform,Vuforia.VuforiaManagerImpl.TrackableResultData[],Vuforia.VuforiaManagerImpl.VuMarkTargetResultData[],Vuforia.VuforiaManagerImpl.IdPair,System.Int32)">
+            <summary>
+            Method used to update poses of all active targets in the scene
+            except words
+            </summary>
+        </member>
         <member name="M:Vuforia.StateManagerImpl.GetDeviceTrackingManager">
             <summary>
             Returns the device tracking manager which is used to update the ARCamera position in the Unity scene
@@ -5111,16 +5695,6 @@
         <member name="M:Vuforia.TargetFinder.Stop">
             <summary>
             Stops cloud recognition
-            </summary>
-        </member>
-        <member name="M:Vuforia.TargetFinder.SetUIScanlineColor(UnityEngine.Color)">
-            <summary>
-            Sets the base color of the scanline in the scanning UI
-            </summary>
-        </member>
-        <member name="M:Vuforia.TargetFinder.SetUIPointColor(UnityEngine.Color)">
-            <summary>
-            Sets the base color of the points in the scanning UI
             </summary>
         </member>
         <member name="M:Vuforia.TargetFinder.IsRequesting">
@@ -5269,16 +5843,6 @@
         <member name="M:Vuforia.TargetFinderImpl.Stop">
             <summary>
             Stops cloud recognition
-            </summary>
-        </member>
-        <member name="M:Vuforia.TargetFinderImpl.SetUIScanlineColor(UnityEngine.Color)">
-            <summary>
-            Sets the base color of the scanline in the scanning UI
-            </summary>
-        </member>
-        <member name="M:Vuforia.TargetFinderImpl.SetUIPointColor(UnityEngine.Color)">
-            <summary>
-            Sets the base color of the points in the scanning UI
             </summary>
         </member>
         <member name="M:Vuforia.TargetFinderImpl.IsRequesting">
@@ -5600,14 +6164,25 @@
             This will scale the target uniformly.
             </summary>
         </member>
-        <member name="M:Vuforia.ImageTargetAbstractBehaviour.Vuforia#IEditorImageTargetBehaviour#AssociateExistingVirtualButtonBehaviour(Vuforia.VirtualButtonAbstractBehaviour)">
+        <member name="M:Vuforia.ImageTargetAbstractBehaviour.AssociateExistingVirtualButtonBehaviour(Vuforia.VirtualButtonAbstractBehaviour)">
             <summary>
             Associates existing virtual button behaviour with virtualbuttons and creates new VirtualButtons if necessary
+            </summary>
+        </member>
+        <member name="M:Vuforia.ImageTargetAbstractBehaviour.OnValidate">
+            <summary>
+            This method is called whenever something is changed in the editor.
+            Internal size-values are synchronized with the transform-values.
             </summary>
         </member>
         <member name="P:Vuforia.ImageTargetAbstractBehaviour.ImageTarget">
             <summary>
             The image target that this ImageTargetBehaviour augments
+            </summary>
+        </member>
+        <member name="P:Vuforia.ImageTargetAbstractBehaviour.ImageTargetType">
+            <summary>
+             Type of image target: can be a user created target or a static one from a dataset or cloud reco
             </summary>
         </member>
         <member name="T:Vuforia.MarkerAbstractBehaviour">
@@ -5647,6 +6222,11 @@
             <summary>
             This method disconnects the TrackableBehaviour from it's associated trackable.
             Use it only if you know what you are doing - e.g. when you want to destroy a trackable, but reuse the TrackableBehaviour.
+            </summary>
+        </member>
+        <member name="M:Vuforia.MultiTargetAbstractBehaviour.InitializeTarget(Vuforia.Trackable,System.Boolean)">
+            <summary>
+            Initialize the target at runtime. 
             </summary>
         </member>
         <member name="P:Vuforia.MultiTargetAbstractBehaviour.MultiTarget">
@@ -5706,6 +6286,11 @@
             <summary>
             Raises a flag that the rendering functionality needs to be reconfigured
             e.g. when the projection matrix of the camera was changed externally.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaUnity.GetVuforiaLibraryVersion">
+            <summary>
+            Returns the version of the Vuforia SDK
             </summary>
         </member>
         <member name="T:Vuforia.VuforiaUnity.InitError">
@@ -5827,13 +6412,12 @@
         </member>
         <member name="M:Vuforia.VuforiaAbstractBehaviour.SetWorldCenterMode(Vuforia.VuforiaAbstractBehaviour.WorldCenterMode)">
             <summary>
-            This method is used to set the world center mode in the Unity editor.
+            This method is used to set the world center mode.
             </summary>
         </member>
         <member name="M:Vuforia.VuforiaAbstractBehaviour.SetWorldCenter(Vuforia.TrackableBehaviour)">
             <summary>
-            This method is used to set the world center in the Unity editor in
-            "USER" mode.
+            This method is used to set the world center in "USER" mode.
             </summary>
         </member>
         <member name="M:Vuforia.VuforiaAbstractBehaviour.SetAppLicenseKey(System.String)">
@@ -6009,6 +6593,12 @@
             A utility class containing various helper methods
             </summary>
         </member>
+        <member name="M:Vuforia.VuforiaRuntimeUtilities.GetStoragePath(System.String,Vuforia.VuforiaUnity.StorageType)">
+            <summary>
+            Based on the storage type and current platform returns to the caller the correct path
+            for a given platform.
+            </summary>
+        </member>
         <member name="M:Vuforia.VuforiaRuntimeUtilities.StripFileNameFromPath(System.String)">
             <summary>
             Returns the file name without the path.
@@ -6016,7 +6606,8 @@
         </member>
         <member name="M:Vuforia.VuforiaRuntimeUtilities.StripStreamingAssetsFromPath(System.String)">
             <summary>
-            Returns the file path without 'Assets/StreamingAssets'.
+            Returns the file path without the first two elements of the path for
+            example it would remove '*/StreamingAssets'.
             </summary>
         </member>
         <member name="M:Vuforia.VuforiaRuntimeUtilities.StripExtensionFromPath(System.String)">
@@ -6032,6 +6623,11 @@
         <member name="M:Vuforia.VuforiaRuntimeUtilities.IsPlayMode">
             <summary>
             returns ONLY true if we are running in Play Mode
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaRuntimeUtilities.IsWSARuntime">
+            <summary>
+            returns ONLY true if we are in any one of the WSA modes
             </summary>
         </member>
         <member name="M:Vuforia.VuforiaRuntimeUtilities.IsVuforiaEnabled">
@@ -6075,6 +6671,11 @@
         <member name="M:Vuforia.VuforiaRuntimeUtilities.ResetSleepMode">
             <summary>
             Reset the sleep mode to the system settings.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VuforiaRuntimeUtilities.MatrixIsNaN(UnityEngine.Matrix4x4)">
+            <summary>
+            Check if a matrix is NaN. return true if any element is NaN, false otherwise.
             </summary>
         </member>
         <member name="M:Vuforia.VuforiaRuntimeUtilities.CheckNativePluginSupport">
@@ -6288,6 +6889,16 @@
             is only executed at the end of the frame, so it does not become null immediately.
             </summary>
         </member>
+        <member name="M:Vuforia.VideoBackgroundAbstractBehaviour.SetVuforiaFrustumSkewValues(UnityEngine.Vector2,UnityEngine.Vector2)">
+            <summary>
+            This method sets frustum skewing values that will be applied after the video background has been placed.
+            </summary>
+        </member>
+        <member name="M:Vuforia.VideoBackgroundAbstractBehaviour.RestoreVuforiaFrustumSkew">
+            <summary>
+            adds previously cached frustum skewing values on top of stereo depth skewing
+            </summary>
+        </member>
         <member name="M:Vuforia.VideoBackgroundAbstractBehaviour.RenderOnUpdate">
             <summary>
             Called from VuforiaBehaviour.Update after updating the Vuforia state.
@@ -6482,6 +7093,11 @@
         <member name="P:Vuforia.WebCamAbstractBehaviour.ImplementationClass">
             <summary>
             Reference to the internal implementation class
+            </summary>
+        </member>
+        <member name="T:Vuforia.WordTemplateMode">
+            <summary>
+            Specifies if a word prefab is used as generic template or only for specific words
             </summary>
         </member>
         <member name="T:Vuforia.WordAbstractBehaviour">

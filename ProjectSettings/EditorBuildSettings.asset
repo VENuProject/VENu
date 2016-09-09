@@ -10,10 +10,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Cardboard Scenes/splashScreenFermilabMicroBooNECardboard.unity
   - enabled: 0
-    path: Assets/Scenes/Cardboard Scenes/splashScreenMicroBooNECardboard.unity
-  - enabled: 0
-    path: Assets/Scenes/Cardboard Scenes/splashScreenVENuCardboard.unity
-  - enabled: 1
     path: Assets/Scenes/splashScreen.unity
   - enabled: 0
     path: Assets/Scenes/Standalone/standaloneMainMenu.unity
@@ -28,10 +24,26 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MainMenu.unity
   - enabled: 0
-    path: Assets/Scenes/Cardboard Scenes/MainMenu3Cardboard 2.unity
-  - enabled: 1
+    path: Assets/Scenes/Cardboard Scenes/MainMenuCardboard.unity
+  - enabled: 0
     path: Assets/Scenes/Display.unity
+  - enabled: 1
+    path: Assets/Scenes/AR.unity
   - enabled: 0
     path: Assets/Scenes/Cardboard Scenes/DisplayVR.unity
   - enabled: 0
-    path: Assets/Scenes/AR.unity
+    path: Assets/Scenes/VENuApp/splashScreenApp.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/MainMenuApp.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/DisplayApp.unity
+  - enabled: 0
+    path: Assets/Scenes/VENuApp/DisplayCardboardApp.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/DisplayVRtemp.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/LearnApp.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/CreditsApp.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/MyAR.unity

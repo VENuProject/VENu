@@ -4,19 +4,55 @@
         <name>Vuforia.UnityExtensions.Editor</name>
     </assembly>
     <members>
+        <member name="T:Vuforia.EditorClasses.AuthoringInfo">
+            <summary>
+            Reads authoringinfo.xml which contains additional for datasets needed
+            in the Unity editor.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.AuthoringInfo.ReadImageTarget(System.Xml.XmlTextReader)">
+            <summary>
+            Read ImageTarget-info from the current XML element and add it to ImageTarget-list
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.AuthoringInfo.ReadVuMark(System.Xml.XmlTextReader)">
+            <summary>
+            Read Vumark-info from the current XML element and add it to VuMark-list
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.AuthoringInfo.ReadCylinderTarget(System.Xml.XmlTextReader)">
+            <summary>
+            Read CylinderTarget-info from the current XML element and add it to CylinderTarget-list
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.AuthoringInfo.ReadObjectTarget(System.Xml.XmlTextReader)">
+            <summary>
+            Read ObjectTarget-info from the current XML element and add it to ObjectTarget-list
+            </summary>
+        </member>
         <member name="T:Vuforia.EditorClasses.DeviceTrackerEditor">
             <summary>
             Editor for the DeviceTrackerBehaviour
             </summary>
         </member>
+        <member name="M:Vuforia.EditorClasses.DeviceTrackerEditor.OnEnable">
+            <summary>
+            Setup serialized properties when the inspector is loaded
+            </summary>
+        </member>
         <member name="M:Vuforia.EditorClasses.DeviceTrackerEditor.OnInspectorGUI">
             <summary>
-            Draws the inspector for the smart terrain prefab
+            Draws the custom inspector for the monobehaviour
             </summary>
         </member>
         <member name="T:Vuforia.EditorClasses.DigitalEyewearEditor">
             <summary>
             Editor of the DigitalEyewearBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.DigitalEyewearEditor.OnEnable">
+            <summary>
+            Setup serialized properties when the inspector is loaded
             </summary>
         </member>
         <member name="M:Vuforia.EditorClasses.DigitalEyewearEditor.OnInspectorGUI">
@@ -44,6 +80,26 @@
             stereo and mono.
             </summary>
         </member>
+        <member name="P:Vuforia.EditorClasses.DigitalEyewearEditor.PrimaryCamera">
+            <summary>
+            Access primary camera of serialized property
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.DigitalEyewearEditor.SecondaryCamera">
+            <summary>
+            Access secondary camera of serialized property
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.DigitalEyewearEditor.CentralAnchorPoint">
+            <summary>
+            Access central anchor of serialized property
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.DigitalEyewearEditor.ParentAnchorPoint">
+            <summary>
+            Access parent anchor of serialized property
+            </summary>
+        </member>
         <member name="M:Vuforia.EditorClasses.ProjectParser.GetScenesInDirectory(System.String)">
             <summary>
             Returns a list of scene paths in the current Unity project
@@ -54,9 +110,330 @@
             returns the extension of a file, given a full path to that file.
             </summary>
         </member>
+        <member name="T:Vuforia.EditorClasses.SerializedCylinderTarget">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting a CylinderTargetAbstractBehaviour
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedTrackable">
+            <summary>
+            This class wraps a SerializedObject of a TrackableBehaviour and provides utility-methods.
+            </summary>
+            This class should be used when a trackable behaviour is modified in the editor
+            and the changes should be made persistent. By using the SerializedProperties for editing
+            Unity will automatically handle editor functionality, e.g. Undo/Redo
+            It is possible that the serialized object is editing multiple objects simultaneously.
+        </member>
+        <member name="F:Vuforia.EditorClasses.SerializedTrackable.mSerializedObject">
+            <summary>
+            The serialized object targets a TrackableBehaviour.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedTrackable.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all SerializedProperties of the trackable behaviour.
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedTrackable.Edit">
+            <summary>
+            Any code which modifies the SerializedObject should be enclosed
+            with a using-statement of this method. Calling Edit() updates the
+            SerializedObject.
+            </summary>
+            <returns>EditHandle applies all modified data when it is disposed</returns>
+            Example:
+            using(SerializedTrackable.Edit())
+            {
+            ... editor code
+            }
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedTrackable.GetGameObjects">
+            <summary>
+            Get all game objects of behaviours that are targeted by the serialized object
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedTrackable.SerializedObject">
+            <summary>
+            Get the internal SerializedObject-instance
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedDataSetTrackable.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all SerializedProperties of the trackable behaviour.
+            </summary>
+            <param name="target"></param>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedDataSetTrackable.GetDataSetName">
+            <summary>
+            The name of the data set the Trackable belongs to.
+            Please be aware that the data set name is not a unique identifier at runtime!
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedDataSetTrackable.ExtendedTracking">
+            <summary>
+            Defines whether extended tracking should be enabled for this target
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedDataSetTrackable.ReconstructionToInitialize">
+            <summary>
+            Defines whether this target should initilize smart terrain (and which) when detected.
+            Set null to not initialize any smart terrain.
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedDataSetTrackable.SmartTerrainOccluderBoundsMin">
+            <summary>
+            the minimum bounds of the occluder box for ST initialization
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedDataSetTrackable.SmartTerrainOccluderBoundsMax">
+            <summary>
+            the maximum bounds of the occluder box for ST initialization
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedCylinderTarget.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedCylinderTarget.GetBehaviours">
+            <summary>
+            Get all behaviours that are edited by the serialized object
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedImageTarget">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting an ImageTargetAbstractBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedImageTarget.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedImageTarget.GetBehaviours">
+            <summary>
+            Get all behaviours that are edited by the serialized object
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedMarker">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting a MarkerAbstractBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedMarker.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedMarker.GetBehaviours">
+            <summary>
+            Get all behaviours that are edited by the serialized object
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedMultiTarget">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting a MultiTargetAbstractBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedMultiTarget.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedMultiTarget.GetBehaviours">
+            <summary>
+            Get all behaviours that are edited by the serialized object
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedObjectExtension">
+            <summary>
+            Extension methods for SerializedObject.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectExtension.Edit(UnityEditor.SerializedObject)">
+            <summary>
+            Utility function for editing a SerializedObject. Any code which modifies the SerializedObject should
+            be enclosed with a using-statement of this method. Calling Edit() updates the SerializedObject.
+            </summary>
+            <returns>EditHandle applies all modified data when it is disposed</returns>
+            Example:
+            using(SerializedObject.Edit())
+            {
+            ... editor code
+            }
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectExtension.FixApproximatelyEqualFloatValues(UnityEditor.SerializedProperty)">
+            <summary>
+            Check whether all values of the serialized property are approximately equal.
+            If so, change the property to have a unique value for all targets.
+            </summary>
+            <param name="property">The property needs to have a floatValue</param>
+            <returns>true if the serialized property now contains one value.</returns>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectExtension.GetArrayItems(UnityEditor.SerializedProperty,System.String[]@)">
+            <summary>
+            Get all values of serialized array
+            </summary>
+            <param name="property">Property has to point to a string array</param>
+            <param name="result">copy of the serialized array. note that changing this array does not affect the serializedproperty</param>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectExtension.RemoveArrayItem(UnityEditor.SerializedProperty,System.String)">
+            <summary>
+            Remove first occurence of string-value in the serialized array
+            </summary>
+            <param name="property">Property has to point to a string array</param>
+            <param name="item">this value is removed from the array</param>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectExtension.AddArrayItem(UnityEditor.SerializedProperty,System.String)">
+            <summary>
+            Add a string-value to a serialized array or list
+            </summary>
+            <param name="property">Property has to point to a string array</param>
+            <param name="item">this value is added to the array</param>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectExtension.GetArraySizeAndAdvanceToFirstItem(UnityEditor.SerializedProperty)">
+            <summary>
+            get array size and move serializedproperty to first item of array
+            </summary>
+            <param name="property">Property has to point to an array. After the method it points to the first entry in the array</param>
+            <returns>array size</returns>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedObjectExtension.EditHandle">
+            <summary>
+            Utility class for editing a SerializedObject.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectExtension.EditHandle.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            Constructor updates the serialized object.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectExtension.EditHandle.Dispose">
+            <summary>
+            Applies all modified data of the serialized object
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedObjectTarget">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting an ObjectTargetAbstractBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectTarget.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedObjectTarget.GetBehaviours">
+            <summary>
+            Get all behaviours that are edited by the serialized object
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedObjectTarget.AspectRatioXY">
+            <summary>
+            Aspect ratio length/width
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedObjectTarget.AspectRatioXZ">
+            <summary>
+            Aspect ratio length/height
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedObjectTarget.ShowBoundingBox">
+            <summary>
+            Whether the visualization of the bounding box/alignment guide is enabled in the editor
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedObjectTarget.PreviewImage">
+            <summary>
+            Set or get the preview image in the inspector
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedProp">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting a PropAbstractBehaviour
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedSmartTerrainTrackable">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting a SmartTerrainTrackableBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedSmartTerrainTrackable.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedSmartTerrainTrackable.MeshFilterToUpdate">
+            <summary>
+            Allows to set which mesh filter should be automatically updated with new mesh revisions
+            If set to null, nothing will be updated
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedSmartTerrainTrackable.MeshColliderToUpdate">
+            <summary>
+            Allows to set which mesh collider should be automatically updated with new mesh revisions
+            If set to null, nothing will be updated
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedProp.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.SerializedProp.BoxColliderToUpdate">
+            <summary>
+            Allows to set which box collider should be automatically updated with new bounding box revisions
+            If set to null, nothing will be updated
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedVuMark">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting a VuMarkAbstractBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedVuMark.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedVuMark.GetBehaviours">
+            <summary>
+            Get all behaviours that are edited by the serialized object
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.SerializedWord">
+            <summary>
+            This class provides utility properties to a serialized object
+            targeting a WordAbstractBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedWord.#ctor(UnityEditor.SerializedObject)">
+            <summary>
+            The constructor gets all serialized properties of the target
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SerializedWord.GetBehaviours">
+            <summary>
+            Get all behaviours that are edited by the serialized object
+            </summary>
+        </member>
         <member name="T:Vuforia.EditorClasses.SmartTerrainTrackerEditor">
             <summary>
             Editor for the SmartTerrainTrackerBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.SmartTerrainTrackerEditor.OnEnable">
+            <summary>
+            Setup serialized properties when the inspector is loaded
             </summary>
         </member>
         <member name="M:Vuforia.EditorClasses.SmartTerrainTrackerEditor.OnInspectorGUI">
@@ -91,37 +468,37 @@
             Editor class for ObjectTargetBehaviours
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.UpdateAspectRatio(Vuforia.IEditorObjectTargetBehaviour,UnityEngine.Vector3)">
+        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.UpdateAspectRatio(Vuforia.EditorClasses.SerializedObjectTarget,UnityEngine.Vector3)">
             <summary>
             Recalculates the aspect ratio of the Object Target from a size vector.
             </summary>
-            <param name="otb">Local aspect ratio of this object target will be updated</param>
+            <param name="serializedObject">Local aspect ratio of this object target will be updated</param>
             <param name="size">Uniform scale of the target</param>
         </member>
-        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.UpdateScale(Vuforia.IEditorObjectTargetBehaviour,UnityEngine.Vector3)">
+        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.UpdateScale(Vuforia.EditorClasses.SerializedObjectTarget,UnityEngine.Vector3)">
             <summary>
             Define a new scale for the object target.
             If PreserveChildSize is true, all child objects will be scaled inversely in order to keep their original size.
             </summary>
-            <param name="otb">Local scale of this object target will be updated</param>
-            <param name="sizze">Uniform scale of the target</param>
+            <param name="serializedObject">Local scale of this object target will be updated</param>
+            <param name="size">Uniform scale of the target</param>
         </member>
-        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.UpdateBoundingBox(Vuforia.IEditorObjectTargetBehaviour,UnityEngine.Vector3,UnityEngine.Vector3)">
+        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.UpdateBoundingBox(Vuforia.EditorClasses.SerializedObjectTarget,UnityEngine.Vector3,UnityEngine.Vector3)">
             <summary>
             Recalculates the bbox of the Object Target from a min, max bbox
             </summary>
-            <param name="otb">Local bbox of this object target will be updated</param>
+            <param name="serializedObject">Local bbox of this object target will be updated</param>
             <param name="bboxMin">bbox minimum</param>
             <param name="bboxMax">bbox maximum</param>
         </member>
-        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.UpdatePreviewImage(Vuforia.IEditorObjectTargetBehaviour,System.String)">
+        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.UpdatePreviewImage(Vuforia.EditorClasses.SerializedObjectTarget,System.String)">
             <summary>
             Redefine the preview image of the Object Target from a targetID reference
             </summary>
-            <param name="otb">Preview imaeg of this object target will be updated</param>
+            <param name="serializedObject">Preview imaeg of this object target will be updated</param>
             <param name="targetId">target ID use to reference the preview i mage</param>
         </member>
-        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.EditorConfigureTarget(Vuforia.ObjectTargetAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.ObjectTargetEditor.EditorConfigureTarget(Vuforia.ObjectTargetAbstractBehaviour,Vuforia.EditorClasses.SerializedObjectTarget)">
             <summary>
             Configure the Object Target in this custom editor.
             </summary>
@@ -148,7 +525,7 @@
             Editor for Surfaces
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.SurfaceEditor.EditorConfigureTarget(Vuforia.SurfaceAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.SurfaceEditor.EditorConfigureTarget(Vuforia.SurfaceAbstractBehaviour,Vuforia.EditorClasses.SerializedSmartTerrainTrackable)">
             <summary>
             Configure the Smart Terrain Surface in this custom editor.
             </summary>
@@ -168,12 +545,12 @@
             Editor Extension that allows the configuration of initialization targets for smart terrain
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.SmartTerrainInitializationTargetEditorExtension.DrawInspectorForInitializationTarget(Vuforia.IEditorDataSetTrackableBehaviour,System.Boolean)">
+        <member name="M:Vuforia.EditorClasses.SmartTerrainInitializationTargetEditorExtension.DrawInspectorForInitializationTarget(Vuforia.EditorClasses.SerializedDataSetTrackable,System.Boolean)">
             <summary>
             Draws the section of the inspector that is used to configure a target as a smart terrain initialization target
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.SmartTerrainInitializationTargetEditorExtension.DrawSceneGUIForInitializationTarget(Vuforia.IEditorDataSetTrackableBehaviour,System.Boolean)">
+        <member name="M:Vuforia.EditorClasses.SmartTerrainInitializationTargetEditorExtension.DrawSceneGUIForInitializationTarget(Vuforia.EditorClasses.SerializedDataSetTrackable,System.Boolean)">
             <summary>
             draw translation or rotation handle for init target if set
             </summary>
@@ -197,6 +574,17 @@
             <summary>
             This class is used to store and access data that is read from a config.xml
             file.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.ConfigData.SetVuMarkTarget(Vuforia.EditorClasses.ConfigData.VuMarkData,System.String)">
+            <summary>
+            et attributes of the VuMark Target with the given name.
+            If the VuMark Target does not yet exist it is created automatically.
+            </summary>
+        </member>
+        <member name="P:Vuforia.EditorClasses.ConfigData.NumVuMarkTargets">
+            <summary>
+            Returns the number of VuMarks currently present in the config data.
             </summary>
         </member>
         <member name="T:Vuforia.EditorClasses.ConfigDataManager">
@@ -271,38 +659,43 @@
             Editor for the CylinderTargetBehaviour
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.UpdateAspectRatio(Vuforia.IEditorCylinderTargetBehaviour,Vuforia.EditorClasses.ConfigData.CylinderTargetData)">
+        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.UpdateAspectRatio(Vuforia.EditorClasses.SerializedCylinderTarget,Vuforia.EditorClasses.ConfigData.CylinderTargetData)">
             <summary>
             Define the ratio between sidelength, top diameter, and bottom diameter.
             Geometry and materials are updated according to the new parameters.
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.UpdateScale(Vuforia.IEditorCylinderTargetBehaviour,System.Single)">
+        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.UpdateScale(Vuforia.EditorClasses.SerializedCylinderTarget,System.Single)">
             <summary>
             Define a new scale for the cylinder target, which corresponds to the sidelength.
             If PreserveChildSize is true, all child objects will be scaled inversely in order to keep their original size.
             </summary>
-            <param name="ct">Local scale of this cylinder target will be updated</param>
+            <param name="serializedObject">Local scale of edited cylinder targets will be updated</param>
             <param name="scale">Uniform scale of the target, corresponds to the sidelength</param>
         </member>
-        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.UpdateGeometry(Vuforia.IEditorCylinderTargetBehaviour,System.Single,System.Single,System.Single,System.Boolean,System.Boolean)">
+        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.UpdateGeometry(UnityEngine.GameObject,System.Single,System.Single,System.Single,System.Boolean,System.Boolean)">
             <summary>
             Updates CylinderTarget. Deletes all parts and recreates them.
             Creates a mesh with vertices, normals, and texture coordinates. 
             Top and bottom geometry are represented as separate submeshes, 
             i.e. resulting mesh contains 1, 2, or 3 submeshes.
             </summary>
+            <param name="gameObject">Game Object which contains the CylinderTargetBehaviour</param>
         </member>
-        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.UpdateMaterials(Vuforia.IEditorCylinderTargetBehaviour,System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.UpdateMaterials(System.String,System.String,System.Boolean,System.Boolean,System.Boolean)">
             <summary>
-            Create and assign materials for cylinder targets. The newly created materials
+            Create and return materials for cylinder targets. The newly created materials
             are based on the default material.
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.EditorConfigureTarget(Vuforia.CylinderTargetAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.EditorConfigureTarget(Vuforia.CylinderTargetAbstractBehaviour,Vuforia.EditorClasses.SerializedCylinderTarget)">
             <summary>
             Configure the Cylinder Target in this custom editor.
             </summary>
+            This method configures the cylinder target behaviour when it is first opened in the editor
+            It assigns the default dataset and creates game objects for visualizing the cylinder.
+            The result is equal to the CylinderTarget-prefab, even when the script is manually added to a 
+            gameobject.
         </member>
         <member name="M:Vuforia.EditorClasses.CylinderTargetEditor.OnEnable">
             <summary>
@@ -330,7 +723,7 @@
             Draws the DataSetLoadBehaviour inspector
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.DatabaseLoadEditor.DrawDataSets(Vuforia.DatabaseLoadAbstractBehaviour,System.String[])">
+        <member name="M:Vuforia.EditorClasses.DatabaseLoadEditor.DrawDataSets(System.String[])">
             <summary>
             Draws check boxes for all data sets to choose to load them.
             returns true if the list has been modified by the developer in the UI.
@@ -351,7 +744,20 @@
             Editor for ImageTargetBehaviours
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.ImageTargetEditor.EditorConfigureTarget(Vuforia.ImageTargetAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.ImageTargetEditor.UpdateScale(Vuforia.EditorClasses.SerializedImageTarget,UnityEngine.Vector2)">
+            <summary>
+            Updates the scale values in the transform component of all edited image targets from a given size.
+            If PreserveChildSize is true, all child objects will be scaled inversely in order to keep their original size.
+            </summary>
+            <param name="serializedObject">Local scale of edited image targets will be updated</param>
+            <param name="size">Either x- or y-component is set as uniform scale, based on aspect ratio of target</param>
+        </member>
+        <member name="M:Vuforia.EditorClasses.ImageTargetEditor.UpdateMaterial(System.String,System.String,Vuforia.ImageTargetType)">
+            <summary>
+            Create and return material for image target.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.ImageTargetEditor.EditorConfigureTarget(Vuforia.ImageTargetAbstractBehaviour,Vuforia.EditorClasses.SerializedImageTarget)">
             <summary>
             Configure the Image Target in this custom editor.
             </summary>
@@ -395,7 +801,7 @@
             Editor for MarkerBehaviours
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.MarkerEditor.EditorConfigureTarget(Vuforia.MarkerAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.MarkerEditor.EditorConfigureTarget(Vuforia.MarkerAbstractBehaviour,Vuforia.EditorClasses.SerializedMarker)">
             <summary>
             Configure the Marker in this custom editor.
             </summary>
@@ -415,7 +821,7 @@
             Editor for MultiTargetBehaviours
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.MultiTargetEditor.EditorConfigureTarget(Vuforia.MultiTargetAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.MultiTargetEditor.EditorConfigureTarget(Vuforia.MultiTargetAbstractBehaviour,Vuforia.EditorClasses.SerializedMultiTarget)">
             <summary>
             Configure the Multi Target in this custom editor.
             </summary>
@@ -443,9 +849,14 @@
             Editor for the VideoBackgroundManager
             </summary>
         </member>
+        <member name="M:Vuforia.EditorClasses.VideoBackgroundManagerEditor.OnEnable">
+            <summary>
+            Setup serialized properties when the inspector is loaded
+            </summary>
+        </member>
         <member name="M:Vuforia.EditorClasses.VideoBackgroundManagerEditor.OnInspectorGUI">
             <summary>
-            Draws the inspector for the smart terrain prefab
+            Draws the custom inspector for the monobehaviour
             </summary>
         </member>
         <member name="T:Vuforia.EditorClasses.VuforiaHelpMenu">
@@ -466,6 +877,28 @@
             This method is called when "Release Notes" is chosen from the
             Unity "Help" menu.
             </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.VuforiaUtilities.DrawDatasetTrackableInspector(Vuforia.EditorClasses.SerializedDataSetTrackable,System.Boolean,System.Func{Vuforia.EditorClasses.ConfigData,System.String[]},System.String)">
+            <summary>
+            Draw popups for dataset and trackable name and update serialized object accordingly
+            </summary>
+            <param name="serializedObject">It is necessary to update the serialized object before and 
+            to apply the changes after calling this method</param>
+            <param name="resetTrackable">dataset-name and trackable might be reset to the first element in the lists</param>
+            <param name="getTrackableNamesFunc">Function to extract all trackable names for the current trackable type from a dataset</param>
+            <param name="trackableLabel">Label for popup to select trackable name</param>
+            <returns>true if the dataset or trackable has been change</returns>
+        </member>
+        <member name="M:Vuforia.EditorClasses.VuforiaUtilities.DrawMissingTargetsButton">
+            <summary>
+            Draw button for target manager page
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.VuforiaUtilities.DrawTrackableOptions(Vuforia.EditorClasses.SerializedDataSetTrackable,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            draw typical options for dataset trackables: preserve child size, extended tracking and smart terrain
+            </summary>
+            <param name="serializedObject">the method should be called with serializedObject.Edit()</param>
         </member>
         <member name="M:Vuforia.EditorClasses.SceneManager.ExtendedTrackingEnabledOnATarget">
             <summary>
@@ -489,7 +922,7 @@
             Editor for the ReconstructionAbstractBehaviour
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.ReconstructionEditor.EditorConfigureTarget(Vuforia.ReconstructionAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.ReconstructionEditor.EditorConfigureTarget(Vuforia.ReconstructionAbstractBehaviour,UnityEditor.SerializedObject)">
             <summary>
             Configure the Smart Terrain in this custom editor.
             </summary>
@@ -514,7 +947,7 @@
             Editor for Props
             </summary>
         </member>
-        <member name="M:Vuforia.EditorClasses.PropEditor.EditorConfigureTarget(Vuforia.PropAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.PropEditor.EditorConfigureTarget(Vuforia.PropAbstractBehaviour,Vuforia.EditorClasses.SerializedProp)">
             <summary>
             Configure the Smart Terrain Prop in this custom editor.
             </summary>
@@ -602,6 +1035,11 @@
         <member name="T:Vuforia.EditorClasses.TrackerEditor">
             <summary>
             Editor of the VuforiaBehaviour
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.TrackerEditor.OnEnable">
+            <summary>
+            Setup serialized properties when the inspector is loaded
             </summary>
         </member>
         <member name="M:Vuforia.EditorClasses.TrackerEditor.OnInspectorGUI">
@@ -694,6 +1132,16 @@
             Editor for the VirtualButtonBehaviour
             </summary>
         </member>
+        <member name="M:Vuforia.EditorClasses.VirtualButtonEditor.UpdateVirtualButtons(Vuforia.ImageTargetAbstractBehaviour,Vuforia.EditorClasses.ConfigData.VirtualButtonData[])">
+            <summary>
+            Update Virtual Buttons from configuration data.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.VirtualButtonEditor.AddVirtualButtons(Vuforia.ImageTargetAbstractBehaviour,Vuforia.EditorClasses.ConfigData.VirtualButtonData[])">
+            <summary>
+            Add Virtual Buttons that are specified in the configuration data.
+            </summary>
+        </member>
         <member name="M:Vuforia.EditorClasses.VirtualButtonEditor.EditorConfigureTarget(Vuforia.VirtualButtonAbstractBehaviour)">
             <summary>
             Configure the Virtual Button in this custom editor.
@@ -712,6 +1160,26 @@
         <member name="M:Vuforia.EditorClasses.VirtualButtonEditor.OnSceneGUI">
             <summary>
             Locks the y-scale of a Virtual Button at 1.
+            </summary>
+        </member>
+        <member name="T:Vuforia.EditorClasses.VuMarkEditor">
+            <summary>
+            Editor for ImageTargetBehaviours
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.VuMarkEditor.EditorConfigureTarget(Vuforia.VuMarkAbstractBehaviour,Vuforia.EditorClasses.SerializedVuMark)">
+            <summary>
+            Configure the Image Target in this custom editor.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.VuMarkEditor.OnEnable">
+            <summary>
+            Initializes the VuMark Target when vmb is drag-dropped into the scene.
+            </summary>
+        </member>
+        <member name="M:Vuforia.EditorClasses.VuMarkEditor.OnInspectorGUI">
+            <summary>
+            Lets the user choose a VuMark-Template from a drop down list. 
             </summary>
         </member>
         <member name="T:Vuforia.EditorClasses.WebCamEditor">
@@ -746,7 +1214,7 @@
             </summary>
             <returns>true if duplicate word-targets have been found</returns>
         </member>
-        <member name="M:Vuforia.EditorClasses.WordEditor.EditorConfigureTarget(Vuforia.WordAbstractBehaviour)">
+        <member name="M:Vuforia.EditorClasses.WordEditor.EditorConfigureTarget(Vuforia.WordAbstractBehaviour,Vuforia.EditorClasses.SerializedWord)">
             <summary>
             Configure the Word in this custom editor.
             </summary>
