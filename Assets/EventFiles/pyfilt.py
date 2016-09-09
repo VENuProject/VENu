@@ -5,6 +5,9 @@ from math import *
 
 inputfile=sys.argv[1]
 space=float(sys.argv[2])
+tracksstr=sys.argv[3]
+spstr=sys.argv[4]
+
 print "Opening", inputfile
 
 with open(inputfile) as f:
@@ -13,11 +16,11 @@ with open(inputfile) as f:
 outdict1={}
 outdict1['record']={}
 outdict1['record']['tracks']={}
-outdict1['record']['tracks']['recob::Tracks_pandoraCosmic__DataApr2016RecoStage2']=[]
-for trk in indict['record']['tracks']['recob::Tracks_pandoraCosmic__DataApr2016RecoStage2']:
-  outdict1['record']['tracks']['recob::Tracks_pandoraCosmic__DataApr2016RecoStage2'].append({'points':[]})
+outdict1['record']['tracks'][tracksstr]=[]
+for trk in indict['record']['tracks'][tracksstr]:
+  outdict1['record']['tracks'][tracksstr].append({'points':[]})
   for pt in trk['points']:
-    outdict1['record']['tracks']['recob::Tracks_pandoraCosmic__DataApr2016RecoStage2'][-1]['points'].append({'x':pt['x'], 'y':pt['y'], 'z':pt['z']})
+    outdict1['record']['tracks'][tracksstr][-1]['points'].append({'x':pt['x'], 'y':pt['y'], 'z':pt['z']})
 
 with open(inputfile+".tracks.json", "w") as f:
   f.write(json.dumps(outdict1))
@@ -25,10 +28,10 @@ with open(inputfile+".tracks.json", "w") as f:
 outdict2={}
 outdict2['record']={}
 outdict2['record']['spacepoints']={}
-outdict2['record']['spacepoints']['recob::SpacePoints_pandoraCosmic__DataApr2016RecoStage2']=[]
+outdict2['record']['spacepoints'][spstr]=[]
 first=True
 storedsps=0
-for sp in indict['record']['spacepoints']['recob::SpacePoints_pandoraCosmic__DataApr2016RecoStage2']:
+for sp in indict['record']['spacepoints'][spstr]:
   d=0
   if not first:
     b=sp['xyz']
@@ -36,7 +39,7 @@ for sp in indict['record']['spacepoints']['recob::SpacePoints_pandoraCosmic__Dat
     #print d
   
   if first or d>space:
-    outdict2['record']['spacepoints']['recob::SpacePoints_pandoraCosmic__DataApr2016RecoStage2'].append({'xyz':sp['xyz']})
+    outdict2['record']['spacepoints'][spstr].append({'xyz':sp['xyz']})
     a=sp['xyz']
     storedsps+=1
     
