@@ -119,7 +119,8 @@ function Start () {
     
     var threshold : double =  -1f;
     var drawnPoints : int = 0;
-    var trackAlgoName = "recob::Tracks_pandoraCosmic__DataApr2016RecoStage2";//"recob::Tracks_pandoraCosmicKHit__RecoStage2";
+    //var trackAlgoName = "recob::Tracks_pandoraCosmic__DataApr2016RecoStage2";
+    var trackAlgoName = "recob::Tracks_pandoraCosmicKHit__RecoStage2";
     var totalTracks : int = N["record"]["tracks"][trackAlgoName].Count;
 
     /* Empty the trackParent object before continuing

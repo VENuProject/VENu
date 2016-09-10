@@ -27,7 +27,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Cardboard Scenes/MainMenuCardboard.unity
   - enabled: 0
     path: Assets/Scenes/Display.unity
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AR.unity
   - enabled: 0
     path: Assets/Scenes/Cardboard Scenes/DisplayVR.unity
