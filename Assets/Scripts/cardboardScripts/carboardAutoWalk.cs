@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿// cardboardAutoWalk.cs
+//
+// created by Marco Del Tutto, marco.deltutto@physics.ox.ac.uk
+
+using UnityEngine;
 using System.Collections;
 
 public class carboardAutoWalk : MonoBehaviour {

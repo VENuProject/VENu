@@ -39,7 +39,7 @@ public class localFileGathererCardboard extends MonoBehaviour {
         buttonCounter = 0;
 
         // Marco: just removing this piece
-        if (Application.platform == RuntimePlatform.Android){
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.WebGLPlayer){
         //if (false) { 
             //		var jsonFilesPath = "jar:file://" + Application.dataPath + "!/assets";
             //		    var www : WWW = new WWW(jsonFilesPath); //AMCLEAN add
@@ -64,7 +64,7 @@ public class localFileGathererCardboard extends MonoBehaviour {
             */
 
 
-
+            Debug.Log("Gathering files for Android or WebGLPlayer.");
             var lessThan2MB_2 : GameObject;
             lessThan2MB_2 = Instantiate(CategoryPrefab);
             // lessThan2MB.GetComponent(Text).text = "Small Events";
