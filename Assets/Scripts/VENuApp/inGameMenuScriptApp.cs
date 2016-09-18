@@ -5,13 +5,16 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class inGameMenuScriptApp: MonoBehaviour {
 	
 	public string EventMenuScene;
+	public string GameMenuScene;
 	
 	//for animation
 	private enum menuState {isIn, slidingOut, isOut, slidingIn};
@@ -32,6 +35,8 @@ public class inGameMenuScriptApp: MonoBehaviour {
 
 	void Awake() {
 
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+
 		evtContainer = GameObject.Find("EventsPrefab");
 		Debug.Log ("This should be EventsPrefab: " + evtContainer.name);
 		foreach (Transform child in evtContainer.transform)
@@ -47,7 +52,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 		prefabsToLoad[currentPrefab].SetActive(true);
 
 	}
-	
+		
 	void Start () {
 		
 		me = GetComponent<RectTransform>();
@@ -105,6 +110,11 @@ public class inGameMenuScriptApp: MonoBehaviour {
 	public void ToEventMenu() {
 		SceneManager.LoadScene(EventMenuScene);
 	}
+
+	public void ToGameMenu() {
+		SceneManager.LoadScene(GameMenuScene);
+	}
+
 
 	public void LoadNext(){
 

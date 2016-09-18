@@ -7,6 +7,8 @@ using System.Collections;
 
 public class carboardAutoWalk : MonoBehaviour {
 
+	public bool stopIt;
+
 	private const int RIGHT_ANGLE = 90; 
 
 	// This variable determinates if the player will move or not 
@@ -42,10 +44,16 @@ public class carboardAutoWalk : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (stopIt) {
+			isWalking = false;
+			stopIt = false;
+		}
+
 		// Walk when the Cardboard Trigger is used 
 		if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Cardboard.SDK.Triggered) 
 		{
-			isWalking = true;
+			isWalking = true; 
 		} 
 		else if (walkWhenTriggered && !walkWhenLookDown && isWalking && Cardboard.SDK.Triggered) 
 		{

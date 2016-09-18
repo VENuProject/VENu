@@ -18,6 +18,7 @@ public class mainMenuScript : MonoBehaviour {
 	void Start(){
 		//Default: Local event type. This is changed when 'Online Events' button is pressed.
 		PlayerPrefs.SetString("EventSource", "local");
+
 #if MOBILE_INPUT
 		ARButton.SetActive(true);
 #else

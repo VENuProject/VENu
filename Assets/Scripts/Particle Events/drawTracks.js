@@ -27,7 +27,6 @@ function PlacePoint(pt1 : Vector3) {
     clone.transform.position = transform.position + pt1;
     clone.transform.localScale = Vector3(0.005,0.005,0.005);
     clone.transform.SetParent(trackParent.transform);
-    Debug.Log("<color=purple>Place dot called </color>");
 }
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -42,15 +41,14 @@ function Collinear(pt1 : Vector3, pt2 : Vector3, pt3: Vector3) {
 }
 
 function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
+
     //Stores the final number of points in the array
-    Debug.Log("<color=purple>Got to here at least 4 </color>");
     var drawnPoints : int = 0;
     Debug.Log("<color=purple>BEFORE trackAlgoName: </color> " + trackAlgoName);
     trackAlgoName = "recob::Tracks_pandoraCosmicKHit__RecoStage2";
     Debug.Log("<color=purple>AFTER MANUAL SET UP trackAlgoName: </color> " + trackAlgoName);
     var totalTracks : int = N["record"]["tracks"][trackAlgoName].Count;
-    Debug.Log("<color=purple>Number of tracks: </color> " + totalTracks);
-    
+
     //Loop over tracks: Decide which points to draw, then draw points and connection lines.
     for (var trackIndex : int = 0; trackIndex < totalTracks; trackIndex++) {   
         //Stores the endpoints of each track segment to be drawn
@@ -58,7 +56,7 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
           
         //Loop over points in the track, define the first two points outside the loop as initial conditions
         var totalPoints : int = N["record"]["tracks"][trackAlgoName][trackIndex]["points"].Count;
-        Debug.Log("<color=purple>Number of points: </color> " + totalPoints);
+        //Debug.Log("<color=purple>Number of points: </color> " + totalPoints);
 
         var pt1 : Vector3 = Vector3(
             0.1*N["record"]["tracks"][trackAlgoName][trackIndex]["points"][0][0].AsFloat,
@@ -83,12 +81,10 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
             //If the next point is collinear, move the current endpoint to the new point without drawing anything
             //Also always include the final point.
             if (Collinear(pt1, pt2, vec) <= threshold && spacePointIndex != totalPoints - 1) {
-                Debug.Log("<color=purple>if (Collinear(pt1, pt2, vec) <= threshold && spacePointIndex != totalPoints - 1) {</color>");
                 pt2 = vec;
             }
             else {
                 if (spacePointIndex + 1 < totalPoints) {
-                    Debug.Log("<color=purple>if (spacePointIndex + 1 < totalPoints) {</color>");
                     spacePointsArray.Push(pt2);
                 }
                 pt1 = pt2;
@@ -100,18 +96,14 @@ function filterJSON(N : JSONNode, threshold : double, trackAlgoName : String) {
         //this last point to get added twice because of the above loop. Not a huge problem though.
         spacePointsArray.Push(pt2);
 
-        Debug.Log("<color=purple>Just before calling drawTracksFromArray.</color>");
         drawTracksFromArray(trackIndex, spacePointsArray);
-        Debug.Log("<color=purple>Just after called drawTracksFromArray.</color>");
         drawnPoints += spacePointsArray.length;
     }
-    Debug.Log("<color=purple>Got to here at least 5 </color>");
     //P("Drawn Points: " + drawnPoints); //For debugging. Shows the number of endpoints.
 }
 
 function drawTracksFromArray(index : int, arr : Array) {
     //Create a gameobject to hold box collider children and a line renderer
-    Debug.Log("<color=purple>Got to here at least 6 </color>");
     var trackObject = new GameObject();
     trackObject.transform.position = Vector3.zero; 
     trackObject.transform.rotation = Quaternion.identity;
@@ -131,6 +123,7 @@ function drawTracksFromArray(index : int, arr : Array) {
     
     lr.SetVertexCount(arr.length);
     lr.SetPosition(0, transform.position + pt0);
+
     PlacePoint(pt0);
     for (var i : int = 1; i < arr.length; i++) {
         var pt1 : Vector3 = arr[i - 1];
@@ -159,7 +152,6 @@ function drawTracksFromArray(index : int, arr : Array) {
         bc.size.x = boxColliderOffset;
         bc.size.y = boxColliderOffset;
     }
-    Debug.Log("<color=purple>Got to here at least 7 </color>");
 }
 
 function Awake() {
@@ -186,9 +178,7 @@ public function drawTracks(node : JSONNode){
     //Changing the second argument to a positive value forces tracks to only draw points deemed "uncollinear"
     //This was used when we tried to reduce the number of points drawn in tracks, but it really pales in 
     //in comparison to the number of spacepoints drawn, so we are just drawing all of the points in each track.
-    Debug.Log("<color=purple>Got to here at least 3 </color>");
     filterJSON(node, -1f, trackAlgoName);
-    Debug.Log("<color=purple>Got to here at least 8 </color>");
 }
 
 function OnGUI() {

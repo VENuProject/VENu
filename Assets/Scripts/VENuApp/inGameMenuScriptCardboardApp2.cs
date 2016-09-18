@@ -108,7 +108,33 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		//evtContainer.SetActive(true);
 		prefabsToLoad[currentPrefab].SetActive(true);
 
+		//Trying to stop the player now
+		GameObject cardboard_RFPS = GameObject.Find("cardboard_RFPS");
+		Debug.Log ("the name is " + cardboard_RFPS.name);
+		//cardboard_RFPS.GetComponent<cardboardAutoWalk> ().stopIt;
+		Component[] components = new Component[100];
+		components = cardboard_RFPS.GetComponents<Component>();
+		foreach (Component comp in components) {
+			Debug.Log("The component name is " + comp.GetType());
 
+		}
+		cardboard_RFPS.GetComponent<carboardAutoWalk>().stopIt = true;
+
+		/*
+		foreach (Transform child in cardboard_RFPS.transform)
+		{
+			Debug.Log ("The name of the child is " + child.name);
+			if (child.name == "FloorCanvas") {
+				foreach (Transform child2 in child.transform)
+				{
+					Debug.Log ("The name of the child is " + child.name);
+					if (child2.name == "Panel") {
+						//child2.gameObject.GetComponent<inGameMenuScriptCardboardApp2>().
+					}
+				}
+			}
+		}
+*/
 	
 	}
 	
@@ -125,6 +151,35 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 		// Load the event
 		prefabsToLoad[currentPrefab].SetActive(true);
-		
+
+		//Trying to stop the player now
+		GameObject cardboard_RFPS = GameObject.Find("cardboard_RFPS");
+		Debug.Log ("the name is " + cardboard_RFPS.name);
+		//cardboard_RFPS.GetComponent<cardboardAutoWalk> ().stopIt;
+		Component[] components = new Component[100];
+		components = cardboard_RFPS.GetComponents<Component>();
+		foreach (Component comp in components) {
+			Debug.Log("The component name is " + comp.GetType());
+
+		}
+		cardboard_RFPS.GetComponent<carboardAutoWalk>().stopIt = true;
+
+	}
+
+	public void stopPlayer() {
+
+		//Trying to stop the player now
+		GameObject cardboard_RFPS = GameObject.Find("cardboard_RFPS");
+		Debug.Log ("the name is " + cardboard_RFPS.name);
+		//cardboard_RFPS.GetComponent<cardboardAutoWalk> ().stopIt;
+		Component[] components = new Component[100];
+		components = cardboard_RFPS.GetComponents<Component>();
+		foreach (Component comp in components) {
+			Debug.Log("The component name is " + comp.GetType());
+
+		}
+		cardboard_RFPS.GetComponent<carboardAutoWalk>().stopIt = true;
+
+
 	}
 }

@@ -849,6 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bee7995fcb8a4acfa6b5cf8e4b93f97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waitSec: 0
 --- !u!1 &1193639469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1201,7 @@ MonoBehaviour:
     and Cardboard version</b></color></size>\nMarco Del Tutto - University of Oxford\n\n<size=50><color=green><b>Vuforia
     version</b></color></size>\n???\n\n<size=50><color=green><b>Thanks to...</b></color></size>\nSam
     Zeller - Fermilab \nTia Miceli - New Mexico State University \nSteve Pate - New
-    Mexico State University\n\nVENu is founded by STFC and the University of Oxford\n\n\n\n"
+    Mexico State University\n\nVENu is funded by STFC and the University of Oxford\n\n\n\n"
 --- !u!222 &1899024585
 CanvasRenderer:
   m_ObjectHideFlags: 0

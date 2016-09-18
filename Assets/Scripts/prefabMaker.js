@@ -27,7 +27,8 @@ var makeTracks : boolean;
 var makeSpacePoints : boolean;
 @Tooltip("Sets the maximum number of points used for the prefab, only if you are in makeSpacePoints option.")
 var maxPoints : float;
-
+@Tooltip("Select this only if you want to make pandoraCosmicKHit and pandoraNuKHit for the VENu Game.")
+var makeGameTracks : boolean;
 
 
 //Returns the magnitude of "uncollinearity" (0 is perfectly collinear)
@@ -52,9 +53,12 @@ function Start () {
   // ***********************
   // Get the files
   // ***********************
-  var jsonFilesPath = Application.dataPath + "/StreamingAssets";
+  //var jsonFilesPath = Application.dataPath + "/StreamingAssets";
+  var jsonFilesPath = Application.dataPath + "/../EventFiles";
   var dir : DirectoryInfo = new DirectoryInfo(jsonFilesPath);
-  var filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic_uboone_*.json");
+  //var filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic_uboone_*.json");
+  //var filesInfo = dir.GetFiles("prodgenie_bnb_nu_uboone_new_2.json");
+  if (makeGameTracks) var filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic_uboone_game_*.json");
   Debug.Log("Found " + filesInfo.Length + " json prodgenie bnb+cosmics files");
 
   // ***********************
@@ -119,8 +123,10 @@ function Start () {
     
     var threshold : double =  -1f;
     var drawnPoints : int = 0;
-    //var trackAlgoName = "recob::Tracks_pandoraCosmic__DataApr2016RecoStage2";
-    var trackAlgoName = "recob::Tracks_pandoraCosmicKHit__RecoStage2";
+    //var trackAlgoName = "recob::Tracks_pandoraCosmic__DataApr2016RecoStage2"; // Data
+    //var trackAlgoName = "recob::Tracks_pandoraCosmicKHit__RecoStage2";        // MC bnb+cosmic 
+    //var trackAlgoName = "recob::Tracks_pandoraCosmicKHit__McRecoStage2";        // MC bnb nu
+    if (makeGameTracks) var trackAlgoName = "recob::Tracks_pandoraCosmic__McRecoAprStage2";        // new MC bnb+cosmic
     var totalTracks : int = N["record"]["tracks"][trackAlgoName].Count;
 
     /* Empty the trackParent object before continuing
@@ -200,7 +206,7 @@ function Start () {
       var lr : LineRenderer = trackObject.AddComponent.<LineRenderer>();
       lr.useWorldSpace = true; //Don't set 0,0 to the parent GameObject's position
       lr.material = new Material(Shader.Find("Mobile/Particles/Additive"));
-      lr.SetWidth(0.5, 0.5); //m
+      lr.SetWidth(0.3, 0.3); //m
       lr.SetColors(Color.cyan, Color.cyan);
       lr.gameObject.layer = 11;
       
