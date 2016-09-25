@@ -8,6 +8,8 @@ using System.Collections;
 public class carboardAutoWalk : MonoBehaviour {
 
 	public bool stopIt;
+	private bool dontShowIcon = false;
+	private Collider floorMenuCollider;
 
 	private const int RIGHT_ANGLE = 90; 
 
@@ -37,28 +39,51 @@ public class carboardAutoWalk : MonoBehaviour {
 	[Tooltip("This is the fixed y-coordinate.")]
 	public float yOffset;
 
+	[Tooltip("How many seconds to wait before the walking or stoping icons go off.")]
+	public float waitSec;
+
 	// Use this for initialization
 	void Start () {
 		head = Camera.main.GetComponent<StereoController>().Head;
+
+		// Get the floor panel cube (for the collider)
+		GameObject rfps = GameObject.Find ("cardboard_RFPS");
+		foreach (Transform child in rfps.transform) {
+			if (child.name == "FloorCanvas") {
+				foreach (Transform child2 in child.transform) {
+					if (child2.name == "CubeCollider") {
+						floorMenuCollider = child2.GetComponent<Collider> ();
+					}
+				}
+			}
+		}
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (stopIt) {
-			isWalking = false;
-			stopIt = false;
-		}
+		// Understand if it's pointing to the floor menu
+		RaycastHit hit;
+		bool lookingAtMenu = floorMenuCollider.Raycast(head.Gaze, out hit, Mathf.Infinity);
+
 
 		// Walk when the Cardboard Trigger is used 
-		if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Cardboard.SDK.Triggered) 
+		if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Cardboard.SDK.Triggered && !lookingAtMenu) 
 		{
 			isWalking = true; 
+
+			// Make the walking icon appear for n seconds.
+			WalkingIconOn();
 		} 
-		else if (walkWhenTriggered && !walkWhenLookDown && isWalking && Cardboard.SDK.Triggered) 
+		else if (walkWhenTriggered && !walkWhenLookDown && isWalking && Cardboard.SDK.Triggered && !lookingAtMenu) 
 		{
 			isWalking = false;
+
+			// Make the stopping icon appear for n seconds.
+			StoppingIconOn();
 		}
+
 
 		// Walk when player looks below the threshold angle 
 		if (walkWhenLookDown && !walkWhenTriggered && !isWalking &&  
@@ -92,6 +117,8 @@ public class carboardAutoWalk : MonoBehaviour {
 
 		if (isWalking) 
 		{
+
+			// Move the user
 			Vector3 direction = new Vector3(head.transform.forward.x, 0, head.transform.forward.z).normalized * speed * Time.deltaTime;
 			Quaternion rotation = Quaternion.Euler(new Vector3(0, -transform.rotation.eulerAngles.y, 0));
 			transform.Translate(rotation * direction);
@@ -101,5 +128,72 @@ public class carboardAutoWalk : MonoBehaviour {
 		{
 			transform.position = new Vector3(transform.position.x, yOffset, transform.position.z);
 		}
+			
+	}
+
+
+
+
+
+
+	void WalkingIconOn() {
+
+		GameObject rfps = GameObject.Find ("cardboard_RFPS");
+		foreach (Transform child in rfps.transform) {
+			if (child.name == "CardboardMain") {
+				foreach (Transform child2 in child.gameObject.transform) {
+					if (child2.name == "Head") {
+						foreach (Transform child3 in child2.gameObject.transform) {
+							if (child3.name == "Main Camera") {
+								foreach (Transform child4 in child3.gameObject.transform) {
+									if (child4.name == "FrontCanvas") {
+										foreach (Transform child5 in child4.gameObject.transform) {
+											if (child5.name == "PanelWalk") {
+												child5.gameObject.SetActive (true);
+												StartCoroutine (WaitAndStop (child5.gameObject));
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	void StoppingIconOn() {
+
+		GameObject rfps = GameObject.Find ("cardboard_RFPS");
+		foreach (Transform child in rfps.transform) {
+			if (child.name == "CardboardMain") {
+				foreach (Transform child2 in child.gameObject.transform) {
+					if (child2.name == "Head") {
+						foreach (Transform child3 in child2.gameObject.transform) {
+							if (child3.name == "Main Camera") {
+								foreach (Transform child4 in child3.gameObject.transform) {
+									if (child4.name == "FrontCanvas") {
+										foreach (Transform child5 in child4.gameObject.transform) {
+											if (child5.name == "PanelStop") {
+												child5.gameObject.SetActive (true);
+												StartCoroutine (WaitAndStop (child5.gameObject));
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	IEnumerator WaitAndStop(GameObject panel) {
+
+		yield return new WaitForSeconds(waitSec);
+		panel.SetActive (false);
+
 	}
 }

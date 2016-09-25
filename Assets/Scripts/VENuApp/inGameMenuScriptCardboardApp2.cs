@@ -20,6 +20,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 	GameObject evtContainer;
 
 	public string EventMenuScene;
+	public float waitSec;
 
 	private bool showData, showSimulation, isGame;
 
@@ -122,8 +123,6 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		//	print(go+" is an object") ;
 
 
-
-
 	}
 	
 	void Update () {
@@ -158,33 +157,10 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
-		//Trying to stop the player now
+		//Trying to stop the player now (this is not used anymore --Marco)
 		GameObject cardboard_RFPS = GameObject.Find("cardboard_RFPS");
-		Debug.Log ("the name is " + cardboard_RFPS.name);
-		//cardboard_RFPS.GetComponent<cardboardAutoWalk> ().stopIt;
-		Component[] components = new Component[100];
-		components = cardboard_RFPS.GetComponents<Component>();
-		foreach (Component comp in components) {
-			Debug.Log("The component name is " + comp.GetType());
-
-		}
 		cardboard_RFPS.GetComponent<carboardAutoWalk>().stopIt = true;
 
-		/*
-		foreach (Transform child in cardboard_RFPS.transform)
-		{
-			Debug.Log ("The name of the child is " + child.name);
-			if (child.name == "FloorCanvas") {
-				foreach (Transform child2 in child.transform)
-				{
-					Debug.Log ("The name of the child is " + child.name);
-					if (child2.name == "Panel") {
-						//child2.gameObject.GetComponent<inGameMenuScriptCardboardApp2>().
-					}
-				}
-			}
-		}
-*/
 	
 	}
 	
@@ -204,16 +180,8 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
-		//Trying to stop the player now
+		//Trying to stop the player now (this is not used anymore --Marco)
 		GameObject cardboard_RFPS = GameObject.Find("cardboard_RFPS");
-		Debug.Log ("the name is " + cardboard_RFPS.name);
-		//cardboard_RFPS.GetComponent<cardboardAutoWalk> ().stopIt;
-		Component[] components = new Component[100];
-		components = cardboard_RFPS.GetComponents<Component>();
-		foreach (Component comp in components) {
-			Debug.Log("The component name is " + comp.GetType());
-
-		}
 		cardboard_RFPS.GetComponent<carboardAutoWalk>().stopIt = true;
 
 	}
@@ -232,6 +200,43 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		}
 		cardboard_RFPS.GetComponent<carboardAutoWalk>().stopIt = true;
 
+
+	}
+
+
+	public void OkIconOn() {
+
+		GameObject rfps = GameObject.Find ("cardboard_RFPS");
+		foreach (Transform child in rfps.transform) {
+			if (child.name == "CardboardMain") {
+				foreach (Transform child2 in child.gameObject.transform) {
+					if (child2.name == "Head") {
+						foreach (Transform child3 in child2.gameObject.transform) {
+							if (child3.name == "Main Camera") {
+								foreach (Transform child4 in child3.gameObject.transform) {
+									if (child4.name == "FrontCanvas") {
+										foreach (Transform child5 in child4.gameObject.transform) {
+											if (child5.name == "PanelOk") {
+												child5.gameObject.SetActive (true);
+												StartCoroutine (WaitAndStop (child5.gameObject));
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+
+	}
+
+	IEnumerator WaitAndStop(GameObject panel) {
+
+		yield return new WaitForSeconds(waitSec);
+		panel.SetActive (false);
 
 	}
 }
