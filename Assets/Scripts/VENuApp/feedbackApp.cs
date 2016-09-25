@@ -3,6 +3,8 @@ using System.Collections;
 
 public class feedbackApp : MonoBehaviour {
 
+	public int secondsToWait;
+
 	// Use this for initialization
 	void Start () {
 		SendEmail ();
@@ -19,7 +21,7 @@ public class feedbackApp : MonoBehaviour {
 	}
 
 	IEnumerator SendEmailMain() {
-		yield return new WaitForSeconds(2);
+		yield return new WaitForSeconds(secondsToWait);
 		string email = "marco.deltutto@physics.ox.ac.uk";
 		string subject = MyEscapeURL("VENu Feedback");
 		string body = MyEscapeURL("Please write your feedback here.\r\nThank you,\nThe VENu Team");

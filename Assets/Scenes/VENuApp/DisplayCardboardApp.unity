@@ -340,6 +340,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 268196448}
+--- !u!1 &367590686 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100004, guid: b8b03d395f5734e98af91ccf44f9bf47, type: 2}
+  m_PrefabInternal: {fileID: 201152765}
+--- !u!114 &367590687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367590686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1388318fa570c41e2bb817e5646a711a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuScene: MainMenuApp
 --- !u!20 &417014347 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2000004, guid: b8b03d395f5734e98af91ccf44f9bf47,
@@ -1506,14 +1522,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1497858423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 560256ae8bcc04ae3b225d6fb7bdaba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dot: {fileID: 123130, guid: ba30595e73f83dd449ff841b89cdf9c1, type: 2}
-  makeTracks: 1
-  makeSpacePoints: 0
+  makeTracks: 0
+  makeSpacePoints: 1
   maxPoints: 10000
   makeGameTracks: 0
 --- !u!1 &1514766823

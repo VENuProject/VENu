@@ -16,9 +16,12 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 	int nPrefabs = 0;
 	int currentPrefab = 0;
 	GameObject[] prefabsToLoad = new GameObject[100];
+	string[] namePrefabsToLoad = new string[100];
 	GameObject evtContainer;
 
 	public string EventMenuScene;
+
+	private bool showData, showSimulation, isGame;
 
 
 	void Awake() {
@@ -40,9 +43,53 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		*/
 
 
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+		showSimulation = showData = isGame = false;
+
+		// Understand if we need to show Simulation or Data events
+		if (PlayerPrefs.HasKey ("ShowSimulationOrData")) {
+			if (PlayerPrefs.GetInt ("ShowSimulationOrData") == 0) {  // 0: simulation, 1: data
+				showSimulation = true;
+			} else
+				showData = true;
+		} else
+			Debug.Log ("Can't find key ShowSimulationOrData in inGameMenuScriptApp.cs.");
 
 
+		if (SceneManager.GetActiveScene().name == "GameTutorialApp" || SceneManager.GetActiveScene().name == "GamePlayApp")
+			isGame = true;
 
+		if (showSimulation || isGame) {
+
+			namePrefabsToLoad [0] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_5.json"; nPrefabs++;
+			namePrefabsToLoad [1] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_16.json"; nPrefabs++;
+			namePrefabsToLoad [2] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_13.json"; nPrefabs++;
+			namePrefabsToLoad [3] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_12.json"; nPrefabs++; 
+			namePrefabsToLoad [4] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_10.json"; nPrefabs++;
+		}
+
+		if (showData) {
+			Debug.Log ("Showing data.");
+			namePrefabsToLoad [0] = "SpacePoints/data_ccpi0_r5975e4262.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [1] = "SpacePoints/data_ccnumu_r5153e2919.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [2] = "SpacePoints/data_ccnumu_r5153e2929.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [3] = "SpacePoints/data_ccnumu_r5155e6623.json.spacepoints_3cm.json"; nPrefabs++; 
+			namePrefabsToLoad [4] = "SpacePoints/data_ccnumu_r5189e665.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [5] = "SpacePoints/data_ccnumu_r5192e1218.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [6] = "SpacePoints/data_ccnumu_r5208_e5108.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [7] = "SpacePoints/data_ccnumu_r5607_e2873.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [8] = "SpacePoints/data_ccnumu_r5820_e585.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [9] = "SpacePoints/data_ccnumu_r5823_e6135.json.spacepoints_3cm.json"; nPrefabs++;
+
+		}
+
+		// Start the scene loading the first event prefab. 
+		// Then go on with the other prefabs as soon as the user clicks on next or previous event.
+		prefabsToLoad [currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [0]));
+		prefabsToLoad[currentPrefab].SetActive(true);
+
+			
 	}
 
 	void Start () {
@@ -50,6 +97,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		// ****************************
 		// Listing prefabs looking in the Resources folder - You must know what prefab to load!
 		// ****************************
+		/*
 		prefabsToLoad[0] = (GameObject)Instantiate(Resources.Load("Tracks/prodgenie_bnb_nu_cosmic_uboone_5.json")); nPrefabs++; prefabsToLoad[0].SetActive(false);
 		prefabsToLoad[1] = (GameObject)Instantiate(Resources.Load("Tracks/prodgenie_bnb_nu_cosmic_uboone_10.json")); nPrefabs++; prefabsToLoad[1].SetActive(false);
 		prefabsToLoad[2] = (GameObject)Instantiate(Resources.Load("Tracks/prodgenie_bnb_nu_cosmic_uboone_12.json")); nPrefabs++; prefabsToLoad[2].SetActive(false);
@@ -61,7 +109,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		// Then go on with the other prefabs as soon as the user clicks on next or previous event.
 		// ****************************
 		prefabsToLoad[currentPrefab].SetActive(true);
-
+		*/
 		// Start the scene loading the first event prefab. 
 		// Then go on with the other prefabs as soon as the user clicks on next or previous event.
 		//eventPrefabs[0] = (GameObject)Instantiate(Resources.Load("Tracks/prodgenie_bnb_nu_cosmic_uboone_10.json__track22_trackParent"));
@@ -93,6 +141,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 		// Remove current event
 		prefabsToLoad[currentPrefab].SetActive(false);
+		Object.Destroy (prefabsToLoad[currentPrefab]);
 
 
 		// Verify this is not the last event available, in that case, re-start from beginning
@@ -106,6 +155,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 		// Load the event
 		//evtContainer.SetActive(true);
+		prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
 		//Trying to stop the player now
@@ -142,6 +192,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 		// Remove current event
 		prefabsToLoad[currentPrefab].SetActive(false);
+		Object.Destroy (prefabsToLoad[currentPrefab]);
 
 		// Verify this is not the first event available, in that case, go to the last one
 		if (currentPrefab == 0)
@@ -150,6 +201,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 			currentPrefab--;
 
 		// Load the event
+		prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
 		//Trying to stop the player now

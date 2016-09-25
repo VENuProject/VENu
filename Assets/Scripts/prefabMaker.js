@@ -58,8 +58,9 @@ function Start () {
   var dir : DirectoryInfo = new DirectoryInfo(jsonFilesPath);
   //var filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic_uboone_*.json");
   //var filesInfo = dir.GetFiles("prodgenie_bnb_nu_uboone_new_2.json");
-  if (makeGameTracks) var filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic_uboone_game_*.json");
-  Debug.Log("Found " + filesInfo.Length + " json prodgenie bnb+cosmics files");
+  var filesInfo = dir.GetFiles("data_ccpi0_*.json.spacepoints_3cm.json");
+  if (makeGameTracks) filesInfo = dir.GetFiles("prodgenie_bnb_nu_cosmic_uboone_game_*.json");
+  Debug.Log("Found " + filesInfo.Length + " json files.");
 
   // ***********************
   // File loop
@@ -104,9 +105,9 @@ function Start () {
 	    
 	 	clone = Instantiate(dot , transform.position, transform.rotation);
     	clone.transform.position = transform.position + Vector3(
-    	    0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"]["x"].AsFloat,
-    	    0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"]["y"].AsFloat,
-           -0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"]["z"].AsFloat);
+    	    0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"][0].AsFloat,
+    	    0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"][1].AsFloat,
+           -0.1*N["record"]["spacepoints"][spacePointAlgoName][roundKey]["xyz"][2].AsFloat);
     	clone.transform.localScale = Vector3(0.01,0.01,0.01);//Vector3(0.005,0.005,0.005);
     	clone.gameObject.layer = 10;
     	clone.transform.SetParent(spacePointParent.transform);

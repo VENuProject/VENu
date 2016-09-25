@@ -85,6 +85,73 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5067443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 5067444}
+  - 222: {fileID: 5067446}
+  - 114: {fileID: 5067445}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5067444
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 5067443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1453842803}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000011444092, y: -580.3}
+  m_SizeDelta: {x: 644, y: 378.7}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &5067445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 5067443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: ec033abc8fffd40239b42bce8ce2297f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &5067446
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 5067443}
 --- !u!1 &41091723
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +213,213 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &73003058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 73003059}
+  - 222: {fileID: 73003061}
+  - 114: {fileID: 73003060}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &73003059
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73003058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 914002656}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000011444092, y: -619.3}
+  m_SizeDelta: {x: 661, y: 322.5}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &73003060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73003058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: f2cc99d55f06443e685cfc3e9471753c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &73003061
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 73003058}
+--- !u!1 &142490053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 142490054}
+  - 222: {fileID: 142490056}
+  - 114: {fileID: 142490055}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &142490054
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 142490053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 951479990}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &142490055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 142490053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 6
+    m_MaxSize: 64
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: What is a LArTPC?
+--- !u!222 &142490056
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 142490053}
+--- !u!1 &187729245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 187729246}
+  - 222: {fileID: 187729248}
+  - 114: {fileID: 187729247}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &187729246
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 187729245}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1804856697}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000011444092, y: -668.66}
+  m_SizeDelta: {x: 579.3, y: 495.7}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &187729247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 187729245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: f11f134fcb2e54f65946a7b6c33a575f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &187729248
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 187729245}
 --- !u!1 &260160985
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +690,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -464,7 +738,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.81831187
+      value: 0.5454545
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -490,23 +764,38 @@ Prefab:
       propertyPath: m_Text
       value: "<size=70><color=green><b>What are neutrinos?</b></color></size>\n\nNeutrinos,
         meaning \u2018little neutral ones\u2019, are everywhere, all around us. These
-        tiny elementary particles travel through space at close to the speed of light
-        and have no charge. They were once thought to have no mass either, but scientists
-        now suggest that they do have a mass; it is estimated to be less than a billionth
-        of the mass of a hydrogen atom, but the research continues\n\nThere are three
-        different kinds, or flavors, of neutrinos: the electron neutrino \u03BDe,
-        the muon neutrino \u03BD\u03BC and the tau neutrino \u03BD\u03C4, named after
-        their partner lepton in the Standard Model (see image).\nThey have all been
-        confirmed experimentally. A fourth, \u2018sterile\u2019 type has been proposed,
-        which is immune to the weak force of the standard model. Were sterile neutrinos
-        to be found, a new realm of physics beyond the standard model would open up.\n\nEven
-        the three confirmed types of neutrinos are special: they oscillate from one
-        flavour to another \u2013 electron, muon and tau neutrinos change from one
-        to another.\n"
+        tiny elementary particles travel through space at almost the speed of light
+        and have no electric charge. They were once thought to have no mass either,
+        but scientists now suggest that they do. The neutrino mass is estimated to
+        be less than a billionth of the mass of a hydrogen atom. Research continues
+        to find out how big this mass actually is.\n\nThere are three different kinds,
+        or \"flavours\", of neutrinos: the electron neutrino, the muon neutrino and
+        the tau neutrino, named after their partner lepton in the Standard Model (see
+        image).\n\n\n\n\n\n\n\n\n\n\n\n\n\n Neutrinos interact only via the weak force,
+        which is one of the four fundamental forces of nature.\nTheir existence has
+        been confirmed experimentally. A fourth, \u2018sterile\u2019 type has been
+        proposed, which would be immune to the weak force of the Standard Model. Were
+        sterile neutrinos to be found, a new realm of physics beyond the Standard
+        Model would open up.\n\n But even the three confirmed types of neutrinos are
+        special: they \"oscillate\" \u2013 electron, muon and tau neutrinos change
+        from one flavour to another. \n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 2112
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &436135594 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 424241386}
 --- !u!1001 &440554863
 Prefab:
   m_ObjectHideFlags: 0
@@ -544,7 +833,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -588,7 +877,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.81831187
+      value: 0.33518
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -605,16 +894,15 @@ Prefab:
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
       value: "<size=70><color=green><b>Neutrino interactions</b></color></size>\n\nScientists
-        can only can only detect the presence of a neutrino in the experiment if it
-        interacts with the detector. There are actually two different ways a neutrino
-        can interact:\n\n1. The first one is called \u201Ccharged-current\u201D interaction,
-        where the neutrino converts into the equivalent charged lepton. So a muon-neutrino
-        will produce a muon particle and an electron-neutrino a electron particle.\n\n2.
-        The second one is called \u201Cneutral-current\u201D interaction, where the
-        neutrino remains a neutrino, but transfers energy to whatever it interacted
-        with (in our case the MicroBooNE detector). These interactions are hard to
-        reveal because there are no muon or electron particles present that can \u201Ctag\u201D
-        the interaction.\n"
+        can only detect the presence of a neutrino in the experiment if it interacts
+        with the detector. \n\n\n\n\n\n\n\n\n\nThere are two different ways a neutrino
+        can interact:\n\n<b>Charged-current</b>, short CC, interactions: the neutrino
+        converts into its charged lepton partner. So a muon-neutrino will produce
+        a muon particle and an electron-neutrino an electron particle.\n\n<b>Neutral-current</b>,
+        short NC, interactions: the neutrino remains a neutrino, but transfers energy
+        to whatever it interacted with (in our case the MicroBooNE detector). These
+        interactions are hard to reveal because there are no muon or electron particles
+        produced that can \u201Ctag\u201D the interaction."
       objectReference: {fileID: 0}
     - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_IsActive
@@ -628,12 +916,25 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 1444
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &440554864 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 440554863}
+--- !u!224 &480211769 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
     type: 2}
   m_PrefabInternal: {fileID: 440554863}
 --- !u!1 &482493566
@@ -714,6 +1015,73 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 482493566}
+--- !u!1 &482589469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 482589470}
+  - 222: {fileID: 482589472}
+  - 114: {fileID: 482589471}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &482589470
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482589469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1923030819}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000011444092, y: -707.3}
+  m_SizeDelta: {x: 665, y: 450.7}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &482589471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482589469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 3c8d9d48b7d2145778fdaf94f86bcbe9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &482589472
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 482589469}
 --- !u!1 &590130858
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,6 +1155,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 590130858}
+--- !u!1 &596327060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 596327061}
+  - 222: {fileID: 596327063}
+  - 114: {fileID: 596327062}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &596327061
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596327060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 436135594}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -887.5999}
+  m_SizeDelta: {x: 674.2, y: 493.18}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &596327062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596327060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 88e2bfa66c2e048b6b15ff74f419b617, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &596327063
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596327060}
 --- !u!1 &601510614
 GameObject:
   m_ObjectHideFlags: 0
@@ -966,7 +1401,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1010,7 +1445,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.81831187
+      value: 0.5993824
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -1027,35 +1462,25 @@ Prefab:
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
       value: "<size=70><color=green><b>Where do neutrinos come from?</b></color></size>\n\nNeutrinos
-        first originated some 14 billion years ago, 10 to the -43 seconds after the
-        Big Bang. A mere second later, they were already rapidly moving away from
-        the rest of the hot and dense primary particle soup; scientists are still
-        seeking to detect neutrinos that survive from the Big Bang.\nSo far, only
-        two sources of extraterrestrial neutrinos have been observed: the Sun and
-        supernovae.\n\nNeutrinos are also emitted by the Sun. The number of solar
-        neutrinos that reach us on the earth is measured by something called \u201Cflux\u201D.
-        The solar neutrino flux for us on Earth is about 65 billion neutrinos, passing
-        through just one square centimeter of area on earth, every second.  That\u2019s
-        a lot of neutrinos.\_ And almost all of them pass right on through the earth
+        were first produced in the universe some 14 billion years ago, 10 to the -43
+        seconds after the Big Bang. A mere second later, they were already rapidly
+        moving away from the rest of the hot and dense primary particle soup; scientists
+        are still seeking to detect these neutrinos that survive from the Big Bang.\nSo
+        far, only two sources of extraterrestrial neutrinos have been observed: the
+        sun and supernovae.\n\n\n\n\n\n\n\n\n\n\n\n\nThe number of neutrinos emitted
+        by the sun that reach us on the Earth is measured by the \u201Cflux\u201D.
+        The solar neutrino flux for us on Earth is about 65 billion neutrinos passing
+        through just one square centimetre of area on Earth, every second.  That\u2019s
+        a lot of neutrinos!\_ And almost all of them pass right through the Earth
         and out the other side (but more on that \u201Calmost\u201D later).\_That
         means that every second, trillions of neutrinos are passing through your body,
-        since you\u2019re also transparent to these guys.\_ \nSo how much mass is
-        streaming through us at all times?\nNot very much \u2013 there may be a trillion
-        trillion of them, but they don\u2019t add up to much mass \u2013 about 10
-        to the -13 kilograms will stream through your body over the course of your
-        life.\_ It has been estimated that about 100 billion people have ever lived
-        on planet earth, if you added up all humans from the dawn of our species.\_
-        That means that the sum total mass of all neutrinos that have passed through
-        every single person who ever lived, over everyone\u2019s total lifetime, is\u2026
-        about 0.15 grams.\n\n\nAstronomers, however, are not the only scientists interested
-        in neutrino detectors. On Earth, both natural and artificial neutrino sources
-        exist: radioactive materials from inside Earth can undergo beta decay, producing
-        geo-neutrinos. In addition, nuclear fission reactors produce neutrinos, and
-        dedicated particle accelerators are being used as neutrino sources for research.\n<size=70><color=green><b>What
-        is MicroBooNE?</b></color></size>\n\nMicroBooNE is an experiment at Fermilab
-        (near Chicago) meant to study neutrino physics. A neutrino beam is produced
-        inside the Fermilab laboratory and the MicroBooNE detector is there trying
-        to detect some of these neutrinos and shed light on some of their mysteries.\n"
+        since you too are transparent to them.\_ \n\nThough we don't have to look
+        as far as outer space to find neutrinos. On Earth, both natural and artificial
+        neutrino sources exist: radioactive material from inside the Earth's core
+        can undergo beta decay, producing geo-neutrinos. Additionally, neutrinos are
+        a byproduct of the fission reactions in nuclear reactors. And finally, to
+        study the properties of these special particles, dedicated particle accelerators
+        are used to produce neutrinos which can then be detected in a neutrino detector.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_IsActive
@@ -1068,6 +1493,14 @@ Prefab:
     - target: {fileID: 11482674, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 2396.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
@@ -1102,12 +1535,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1193760827}
-  - {fileID: 1518490346}
-  - {fileID: 1652608505}
-  - {fileID: 1704796319}
-  - {fileID: 2077216187}
   - {fileID: 1357455607}
+  - {fileID: 1518490346}
+  - {fileID: 1704796319}
+  - {fileID: 1652608505}
+  - {fileID: 2077216187}
   - {fileID: 1149474314}
+  - {fileID: 951479990}
   m_Father: {fileID: 1627975516}
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 1}
@@ -1181,6 +1615,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 693499266}
+--- !u!224 &706476898 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1437925965}
 --- !u!1 &758448999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,7 +1885,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1494,7 +1933,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.81831187
+      value: 0.046673298
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -1516,6 +1955,26 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Text
+      value: '<size=70><color=green><b>What is MicroBooNE?</b></color></size>
+
+
+        MicroBooNE is an experiment at Fermilab (near Chicago in the USA) designed
+        to study neutrino physics. A neutrino beam is produced inside the Fermilab
+        laboratory and is directed towards the MicroBooNE detector which tries to
+        detect these neutrinos and shed light on some of their mysteries.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 1007
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
   m_IsPrefabParent: 0
@@ -1524,6 +1983,73 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
     type: 2}
   m_PrefabInternal: {fileID: 860021069}
+--- !u!1 &870030874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 870030875}
+  - 222: {fileID: 870030877}
+  - 114: {fileID: 870030876}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &870030875
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870030874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 480211769}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000011444092, y: -257.1}
+  m_SizeDelta: {x: 638, y: 304.2}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &870030876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870030874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: d435fb6d59b194ab3a33ba5c32b27849, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &870030877
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 870030874}
 --- !u!1 &882561670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,6 +2120,151 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 882561670}
+--- !u!224 &914002656 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1377196568}
+--- !u!1 &951479989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 951479990}
+  - 222: {fileID: 951479994}
+  - 114: {fileID: 951479993}
+  - 114: {fileID: 951479992}
+  - 114: {fileID: 951479991}
+  m_Layer: 5
+  m_Name: ButtonTPC
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &951479990
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951479989}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 142490054}
+  m_Father: {fileID: 693499267}
+  m_RootOrder: 7
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &951479991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951479989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1679637790, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: 150
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: -1
+--- !u!114 &951479992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951479989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 951479993}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1976222717}
+        m_MethodName: goToCanvasTPC
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &951479993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951479989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 0
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &951479994
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 951479989}
 --- !u!224 &1118469803 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
@@ -2093,13 +2764,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 860021070}
-  - {fileID: 1211524776}
-  - {fileID: 440554864}
-  - {fileID: 1437925966}
-  - {fileID: 1548020078}
-  - {fileID: 829499149}
   - {fileID: 1118469803}
+  - {fileID: 829499149}
+  - {fileID: 1548020078}
+  - {fileID: 1437925966}
+  - {fileID: 440554864}
+  - {fileID: 860021070}
+  - {fileID: 1377196569}
+  - {fileID: 1211524776}
   - {fileID: 1204848963}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2276,7 +2948,7 @@ RectTransform:
   m_Children:
   - {fileID: 633106834}
   m_Father: {fileID: 1169450838}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2309,6 +2981,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitSec: 0
+  showSimulation: 0
+  showData: 0
 --- !u!114 &1204848966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2404,7 +3078,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -2448,7 +3122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.81831187
+      value: 0.4833154
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -2465,20 +3139,19 @@ Prefab:
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
       value: "<size=70><color=green><b>Cosmic rays</b></color></size>\n\nCosmic rays
-        are energetic, subatomic particles that arrive from outside the Earth's atmosphere.
-        Upon impact with the Earth's atmosphere, cosmic rays can produce showers of
-        secondary particles that sometimes reach the surface. \n\nMost cosmic rays
-        are atomic nuclei: most are hydrogen nuclei, some are helium nuclei, and the
-        rest heavier elements. When they arrive in the Earth atmosphere, the interact
-        with it and give rise to particles like neutrinos, pions and muons. Many of
-        these muons arrive all the way down to the Earth surface. For instance, they
-        then produce tracks in the MicroBooNE detector. It can happen that some of
-        these tracks are misidentified for neutrino events. That\u2019s why scientists
-        work very hard developing techniques that try to reject cosmic particles!\n\nBut
-        where are those particles coming from? A significant fraction of primary cosmic
-        rays originate from the supernovae of massive stars. Others are produced by
-        ordinary stars like the Sun. For example,\_during a solar flare many particles
-        are ejected from the Sun."
+        are energetic, subatomic particles from outside the Earth's atmosphere. Upon
+        impact with the Earth's atmosphere, cosmic rays can produce showers of secondary
+        particles that sometimes reach the surface.  A significant fraction of primary
+        cosmic rays originate from the supernovae of massive stars. Others are produced
+        by ordinary stars like the Sun. For example,\_during a solar flare many such
+        particles are ejected from the Sun.\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost cosmic
+        rays are atomic nuclei: primarily hydrogen, some helium, and a few heavier
+        elements. Travelling through the Earth's atmosphere, they interact with the
+        air and produce cascades of particles like neutrinos, pions and muons. Many
+        of these muons arrive at the Earth's surface, and also at the MicroBooNE detector!
+        There they produce tracks and it can happen that some of them are misidentified
+        as neutrino events. Scientists have to work very hard to develop techniques
+        that allow the rejection of cosmic particles!\n"
       objectReference: {fileID: 0}
     - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_IsActive
@@ -2491,6 +3164,14 @@ Prefab:
     - target: {fileID: 11482674, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 1858
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
@@ -2656,7 +3337,7 @@ RectTransform:
   m_Children:
   - {fileID: 1157389359}
   m_Father: {fileID: 693499267}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2765,6 +3446,154 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1357455606}
+--- !u!1001 &1377196568
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1169450838}
+    m_Modifications:
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Name
+      value: LearnCanvasTPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0.49579835
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11401340, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482674, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Text
+      value: "<size=70><color=green><b>What is a LArTPC?</b></color></size>\n\nThe
+        MicroBooNE detector is a Liquid Argon Time Projection Chamber. It consists
+        of 170 tonnes of liquid Argon, which need to be kept at 87 Kelvin (-186 \u02DAC
+        or -303 \u02DAF) in a big cryostat. Submerged in the argon, a cathode powered
+        to up to -100 kV is creating an electric field across a field shaping cage.
+        Opposite the cathode, very fine wires are strung just 3 mm apart in three
+        planes -- over 8,000 wires in total! \n\n\n\n\n\n\n\n\n\nWhen a neutrino interacts
+        with an argon nucleus in the TPC, it produces charged particles. These charged
+        particles ionise the surrounding argon atoms, which means that some of the
+        electrons in the argon atoms separate from the argon nuclei. The electrons,
+        being negatively charged, then drift in the electric field towards the wire
+        planes. The movement of the charge induces a signal in the wires, which is
+        read out using special electronics. Putting all these signals together, scientists
+        are able to reconstruct where the charged particles from the interaction went,
+        and calculate some of their properties, such as their energy and momentum.
+        This helps in identifying which type of particles are involved and whether
+        what is observed stems from a neutrino interaction. \n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 1904
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+  m_IsPrefabParent: 0
+--- !u!224 &1377196569 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1377196568}
+--- !u!224 &1391453924 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1548020077}
 --- !u!1001 &1437925965
 Prefab:
   m_ObjectHideFlags: 0
@@ -2846,7 +3675,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.81831187
+      value: 0.5630405
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -2863,19 +3692,24 @@ Prefab:
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
       value: "<size=70><color=green><b>What is a cross-section?</b></color></size>\n\nParticle
-        physics often use the word cross-section, but what does it mean? Roughly,
-        the cross-section gives you the idea of how often a particle will interact
-        with your detector.\n\nIn a completely classical setting, where a particle
-        is nothing more than a hard object, the cross section is the area of the conventional
-        geometric cross section, and expresses the probability of hitting the object
-        with a ray. Physicists call it with greek letter \u201Csigma\u201D and measure
-        it in units of area.\n\nNeutrino cross-section is very very very very small.
-        This implies that their probably of interact is very very very very small.
-        And since the only way to study them is to detect them, they make physicists
-        life very hard! They are so elusive that a light-year of lead, nine and one-half
-        trillion kilometres (six trillion miles) would only stop half of the neutrinos
-        flying through it! That\u2019s why scientists need to produce a very intense
-        neutrino beam, to compensate their elusiveness."
+        physicists often use the word \"cross-section\", but what does it mean? Put
+        simply, the cross-section gives you an idea of how often a particle will interact
+        with the particles in your detector.\n\n\n\n\n\n\n\n\n\n\n\nIn a classical
+        analogy, where a particle is modelled as a hard sphere, the cross section
+        is the conventional geometric cross sectional area, and expresses the probability
+        of hitting the object with a ray. Physicists denote it with the greek letter
+        \u201Csigma\u201D and measure it in units of area. In the world of point-like
+        particles, the cross-section \"area\" is determined by the particles' ability
+        and likelihood to interact with others.\n\nSince neutrinos only interact via
+        the weak force (they have no electric or colour charge), the neutrino cross-section
+        is very very very very small. This implies that the probably of witnessing
+        an interaction induced by a neutrino is very very very very small. Unfortunately
+        the only way to study neutrinos is to detect them, making physicists' lives
+        very hard! The particles are so elusive that one light-year of lead (which
+        equals nine and a half trillion kilometres, or six trillion miles) would only
+        stop half of the neutrinos flying through! That is why scientists need to
+        produce a very intense neutrino beam to find at least some that interact in
+        the detector."
       objectReference: {fileID: 0}
     - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_IsActive
@@ -2888,6 +3722,14 @@ Prefab:
     - target: {fileID: 11482674, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 2197
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
@@ -2970,6 +3812,11 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444352357}
+--- !u!224 &1453842803 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 860021069}
 --- !u!1 &1501019606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,7 +3988,7 @@ RectTransform:
   m_Children:
   - {fileID: 1444352358}
   m_Father: {fileID: 693499267}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3405,7 +4252,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -3449,7 +4296,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.81831187
+      value: 0.54161507
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -3466,21 +4313,24 @@ Prefab:
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
       value: "<size=70><color=green><b>How to make a neutrino beam</b></color></size>\n\nScientists
-        make high-intensity neutrino beams by starting with batches of protons from
-        a bottle of hydrogen gas. They accelerate each batch to nearly the speed of
-        light and smash it into a target, usually made of graphite or beryllium. The
+        make high-intensity neutrino beams by starting with bunches of protons from
+        a bottle of hydrogen gas. They accelerate each bunch to nearly the speed of
+        light and smash it onto a target, usually made of graphite or beryllium. The
         protons shatter the target\u2019s atomic nuclei and produce new particles,
         including short-lived pions and kaons. Pions and kaons very often decay producing
-        neutrinos.\n\nA collimated neutrino beam can be obtained focusing the pions
-        and kaons. This is accomplished thanks to focusing horns, which produce strong,
-        carefully aligned magnetic fields that redirect pions and kaons so that they
-        all travel in the same direction.\n\nOther than neutrinos, also muon particles
-        are produced with the pions/kaons decay. These muons are then stopped thanks
-        to blocks of aluminium, steel and concrete. The blocks stop and absorb all
-        particles except the ghost-like neutrinos, which pass through unchanged.\n\nScientists
-        have been creating neutrino beams with proton accelerators for more than 50
-        years. In 1961, an experiment at Brookhaven National Laboratory led to the
-        Nobel Prize-winning discovery of the muon neutrino.\_"
+        neutrinos.\n\n\n\n\n\nBecause neutrinos are electrically neutral, it is impossible
+        to steer them towards the detector. So to make a collimated neutrino beam,
+        the pions and kaons are focussed before they decay. This is accomplished with
+        focusing horns, which produce strong, carefully aligned magnetic fields that
+        redirect pions and kaons so that they all travel in the same direction. This
+        ensures that the decay neutrinos also travel in the desired direction.\n\nAlong
+        with the neutrinos, muon particles are produced in the pion/kaon decays. These
+        muons are then stopped in thick blocks of aluminium, steel and concrete. The
+        blocks, or \"dumps\", stop and absorb all particles except the ghost-like
+        neutrinos, which pass through unaffected.\n\nScientists have been creating
+        neutrino beams with proton accelerators for more than 50 years. In 1961, an
+        experiment at Brookhaven National Laboratory led to the Nobel Prize-winning
+        discovery of the muon neutrino.\_\n"
       objectReference: {fileID: 0}
     - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_IsActive
@@ -3513,6 +4363,14 @@ Prefab:
     - target: {fileID: 11482674, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 2093.95
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
@@ -3646,7 +4504,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1510751855}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.8159558
+  m_Size: 0.7127275
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3995,7 +4853,7 @@ RectTransform:
   m_Children:
   - {fileID: 1754413236}
   m_Father: {fileID: 693499267}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4438,6 +5296,83 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1754413235}
+--- !u!224 &1804856697 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 1211524775}
+--- !u!224 &1923030819 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27,
+    type: 2}
+  m_PrefabInternal: {fileID: 670592140}
+--- !u!1 &1946900444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1946900445}
+  - 222: {fileID: 1946900447}
+  - 114: {fileID: 1946900446}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1946900445
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1946900444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1391453924}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000011444092, y: -693.9}
+  m_SizeDelta: {x: 650.6, y: 173.7}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1946900446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1946900444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: f546ccfbc40ab41fca74ed09b598db1d, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &1946900447
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1946900444}
 --- !u!1 &1976222716
 GameObject:
   m_ObjectHideFlags: 0
@@ -4483,6 +5418,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitSec: 0
+  showSimulation: 0
+  showData: 0
 --- !u!114 &1976222719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4632,6 +5569,73 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049402810}
+--- !u!1 &2071276699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2071276700}
+  - 222: {fileID: 2071276702}
+  - 114: {fileID: 2071276701}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2071276700
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071276699}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 706476898}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000011444092, y: -477.9}
+  m_SizeDelta: {x: 667.6, y: 386.3}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &2071276701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071276699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: c82330f54688b4816badb000dc702a58, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &2071276702
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2071276699}
 --- !u!1 &2077216186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4663,7 +5667,7 @@ RectTransform:
   m_Children:
   - {fileID: 1647882140}
   m_Father: {fileID: 693499267}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}

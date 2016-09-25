@@ -22,6 +22,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 	private float inPos;
 	private float outPos;
 	private float startTime;
+	private bool showData, showSimulation, isGame;
 	private RectTransform me;
 	const float slideSpeed = 3;
 	public RectTransform buttonsGroup;
@@ -30,6 +31,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 	int nPrefabs = 0;
 	int currentPrefab = 0;
 	GameObject[] prefabsToLoad = new GameObject[100];
+	string[] namePrefabsToLoad = new string[100];
 	GameObject evtContainer;
 
 
@@ -37,18 +39,125 @@ public class inGameMenuScriptApp: MonoBehaviour {
 
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
 
-		evtContainer = GameObject.Find("EventsPrefab");
-		Debug.Log ("This should be EventsPrefab: " + evtContainer.name);
-		foreach (Transform child in evtContainer.transform)
-		{
-			Debug.Log ("The name of the child is " + child.name);
-			prefabsToLoad [nPrefabs] = child.gameObject;
-			nPrefabs++;
+		showSimulation = showData = isGame = false;
+
+		// Understand if we need to show Simulation or Data events
+		if (PlayerPrefs.HasKey ("ShowSimulationOrData")) {
+			if (PlayerPrefs.GetInt ("ShowSimulationOrData") == 0) {  // 0: simulation, 1: data
+				showSimulation = true;
+			} else
+				showData = true;
+		} else
+			Debug.Log ("Can't find key ShowSimulationOrData in inGameMenuScriptApp.cs.");
+
+
+		if (SceneManager.GetActiveScene ().name == "GameTutorialApp" || SceneManager.GetActiveScene ().name == "GamePlayApp") {
+			isGame = true;
+			showSimulation = showData = false;
 		}
-		Debug.Log ("Event prefabs found: " + nPrefabs+1);
+
+
+		if (isGame) {
+			
+			evtContainer = GameObject.Find ("EventsPrefab_simulation");
+
+			Debug.Log ("This should be EventsPrefab_...: " + evtContainer.name);
+			foreach (Transform child in evtContainer.transform) {
+				Debug.Log ("The name of the child is " + child.name);
+				prefabsToLoad [nPrefabs] = child.gameObject;
+				nPrefabs++;
+			}
+			Debug.Log ("Event prefabs found: " + nPrefabs + 1);
+
+
+			/*
+			if(SceneManager.GetActiveScene ().name == "GameTutorialApp") {
+				namePrefabsToLoad [0] = "Tracks/prodgenie_bnb_nu_uboone_new_1.json_testGame"; nPrefabs++;
+				namePrefabsToLoad [1] = "Tracks/prodgenie_bnb_nu_uboone_new_2.json_testGame"; nPrefabs++;
+				namePrefabsToLoad [2] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_10.json"; nPrefabs++;
+				namePrefabsToLoad [3] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_12.json"; nPrefabs++; 
+			}
+			if(SceneManager.GetActiveScene ().name == "GamePlayApp") {
+				namePrefabsToLoad [0] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_2.json"; nPrefabs++;
+				namePrefabsToLoad [1] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_6.json"; nPrefabs++;
+				namePrefabsToLoad [2] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_7.json"; nPrefabs++;
+				namePrefabsToLoad [3] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_8.json"; nPrefabs++; 
+				namePrefabsToLoad [4] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_9.json"; nPrefabs++; 
+				namePrefabsToLoad [5] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_10.json"; nPrefabs++; 
+				namePrefabsToLoad [6] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_12.json"; nPrefabs++; 
+			}*/
+
+		}
+
+
+		if (showSimulation) {/*
+			evtContainer = GameObject.Find ("EventsPrefab_simulation");
+
+			Debug.Log ("This should be EventsPrefab_...: " + evtContainer.name);
+			foreach (Transform child in evtContainer.transform) {
+				Debug.Log ("The name of the child is " + child.name);
+				prefabsToLoad [nPrefabs] = child.gameObject;
+				nPrefabs++;
+			}
+			Debug.Log ("Event prefabs found: " + nPrefabs + 1);*/
+
+			namePrefabsToLoad [0] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_5.json"; nPrefabs++;
+			namePrefabsToLoad [1] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_16.json"; nPrefabs++;
+			namePrefabsToLoad [2] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_13.json"; nPrefabs++;
+			namePrefabsToLoad [3] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_12.json"; nPrefabs++; 
+			namePrefabsToLoad [4] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_10.json"; nPrefabs++;
+		}
+
+		if (showData) {
+			namePrefabsToLoad [0] = "SpacePoints/data_ccpi0_r5975e4262.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [1] = "SpacePoints/data_ccnumu_r5153e2919.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [2] = "SpacePoints/data_ccnumu_r5153e2929.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [3] = "SpacePoints/data_ccnumu_r5155e6623.json.spacepoints_3cm.json"; nPrefabs++; 
+			namePrefabsToLoad [4] = "SpacePoints/data_ccnumu_r5189e665.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [5] = "SpacePoints/data_ccnumu_r5192e1218.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [6] = "SpacePoints/data_ccnumu_r5208_e5108.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [7] = "SpacePoints/data_ccnumu_r5607_e2873.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [8] = "SpacePoints/data_ccnumu_r5820_e585.json.spacepoints_3cm.json"; nPrefabs++;
+			namePrefabsToLoad [9] = "SpacePoints/data_ccnumu_r5823_e6135.json.spacepoints_3cm.json"; nPrefabs++;
+
+			/*prefabsToLoad [0] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccpi0_r5975e4262.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [0].SetActive (false);
+			prefabsToLoad [1] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5153e2919.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [1].SetActive (false);
+			prefabsToLoad [2] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5153e2929.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [2].SetActive (false);
+			prefabsToLoad [3] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5155e6623.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [3].SetActive (false);
+			prefabsToLoad [4] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5189e665.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [4].SetActive (false);
+			prefabsToLoad [5] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5192e1218.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [5].SetActive (false);
+			prefabsToLoad [6] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5208_e5108.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [6].SetActive (false);
+			prefabsToLoad [7] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5607_e2873.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [7].SetActive (false);
+			prefabsToLoad [8] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5820_e585.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [8].SetActive (false);
+			prefabsToLoad [9] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5823_e6135.json.spacepoints_3cm.json"));
+			nPrefabs++;
+			prefabsToLoad [9].SetActive (false);*/
+
+		}
+
+
 
 		// Start the scene loading the first event prefab. 
 		// Then go on with the other prefabs as soon as the user clicks on next or previous event.
+		if (!isGame) prefabsToLoad [currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [0]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
 	}
@@ -120,6 +229,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 
 		// Remove current event
 		prefabsToLoad[currentPrefab].SetActive(false);
+		if (!isGame) Object.Destroy (prefabsToLoad[currentPrefab]);
 
 
 		// Verify this is not the last event available, in that case, re-start from beginning
@@ -132,8 +242,10 @@ public class inGameMenuScriptApp: MonoBehaviour {
 		Debug.Log ("nPrefabs is " + nPrefabs);
 
 		// Load the event
-		evtContainer.SetActive(true);
+		//if (showSimulation) evtContainer.SetActive(true);
+		if (!isGame) prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
+		//Resources.UnloadUnusedAssets ();
 
 
 
@@ -143,6 +255,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 
 		// Remove current event
 		prefabsToLoad[currentPrefab].SetActive(false);
+		if (!isGame) Object.Destroy (prefabsToLoad[currentPrefab]);
 
 		// Verify this is not the first event available, in that case, go to the last one
 		if (currentPrefab == 0)
@@ -151,7 +264,9 @@ public class inGameMenuScriptApp: MonoBehaviour {
 			currentPrefab--;
 
 		// Load the event
+		if (!isGame) prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
+		//Resources.UnloadUnusedAssets ();
 
 	}
 

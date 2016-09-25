@@ -17,7 +17,7 @@ var tutorialExplanationPanels =  Array ();
 function Start () {
 
   var scene = SceneManager.GetActiveScene();
-  if (scene.name == "GamePlayApp") Screen.orientation = ScreenOrientation.LandscapeLeft;
+  if (scene.name == "GamePlayApp" || scene.name == "GameTutorialApp") Screen.orientation = ScreenOrientation.LandscapeLeft;
   else Screen.orientation = ScreenOrientation.Portrait;
   Debug.Log("The active scene name is " + scene.name);
 
@@ -101,6 +101,14 @@ function goToTutorialExplanation(panel : int){
 
   Screen.orientation = ScreenOrientation.LandscapeLeft;
 
+  var canvas = GameObject.Find("MainCanvas");
+  for (var child : Transform in canvas.transform)
+  {
+    if(child.gameObject.name == "MainPanel"){
+      child.gameObject.SetActive(false);
+    }
+  }
+
   for (var i : int = 0; i < 5; i++){
     var temp : GameObject = tutorialExplanationPanels[i];
     if (i != panel) temp.SetActive(false);
@@ -114,8 +122,17 @@ function abortTutorial() {
   for (var i : int = 0; i < 5; i++){
     var temp : GameObject = tutorialExplanationPanels[i];
     temp.SetActive(false);
-
   }
+
+  var canvas = GameObject.Find("MainCanvas");
+  for (var child : Transform in canvas.transform)
+  {
+    if(child.gameObject.name == "MainPanel"){
+      child.gameObject.SetActive(true);
+    }
+  }
+  Screen.orientation = ScreenOrientation.Portrait;
+
 }
 
 
@@ -139,7 +156,15 @@ function goToRealGameMain() {
 
 function goToRealGame() {
 
-    StartCoroutine(goToRealGameMain()); //need to start a coroutine to use WaitForSeconds.
+  var canvas = GameObject.Find("MainCanvas");
+  for (var child : Transform in canvas.transform)
+  {
+    if(child.gameObject.name == "MainPanel"){
+      child.gameObject.SetActive(false);
+    }
+  }
+
+  StartCoroutine(goToRealGameMain()); //need to start a coroutine to use WaitForSeconds.
 }
 
 
@@ -150,6 +175,9 @@ function removePanel(){
   for (var child : Transform in canvas.transform)
   {
     if(child.gameObject.name == "PanelNext"){
+      child.gameObject.SetActive(false);
+    }
+    if(child.gameObject.name == "PanelNextWithCosmics"){
       child.gameObject.SetActive(false);
     }
   }
