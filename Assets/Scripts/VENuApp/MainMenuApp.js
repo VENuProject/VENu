@@ -8,6 +8,10 @@
 @Tooltip("How many seconds the Cardboard instruction screen should last.")
 public var waitSec : int;
 
+var showSimulation : boolean;
+var showData : boolean;
+
+
 function Start () {
 
   Screen.orientation = ScreenOrientation.Portrait;
@@ -28,13 +32,42 @@ function Update () {
 
 }
 
-function goToEventDisplay() {
+function doShowSimulation() {
+
+  showSimulation = true;
+  showData = false;
+
+}
+
+function doShowData() {
+
+  showSimulation = false;
+  showData = true;
+
+}
+
+function changeToLandscapeLeft() {
 
   Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+}
+
+function goToEventDisplay() {
+
+  //Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+  if (showSimulation) PlayerPrefs.SetInt ("ShowSimulationOrData", 0);
+  if (showData)       PlayerPrefs.SetInt ("ShowSimulationOrData", 1);
+
   var canvas = GameObject.Find("MenuCanvas");
   for (var child : Transform in canvas.transform)
   {
-    if(child.gameObject.name == "LoadDisplayPanel"){
+    if(child.gameObject.name == "LoadDisplayPanel" && showSimulation){
+      //Screen.orientation = ScreenOrientation.LandscapeLeft;
+      child.gameObject.SetActive(true);
+    }
+    if(child.gameObject.name == "LoadDisplayPanel_RealData" && showData){
+      //Screen.orientation = ScreenOrientation.LandscapeLeft;
       child.gameObject.SetActive(true);
     }
   }
@@ -58,6 +91,9 @@ function goToCardboardEventDisplayMain() {
 }
 
 function goToCardboardEventDisplay() {
+  if (showSimulation) PlayerPrefs.SetInt ("ShowSimulationOrData", 0);
+  if (showData)       PlayerPrefs.SetInt ("ShowSimulationOrData", 1);
+
      StartCoroutine(goToCardboardEventDisplayMain()); //need to start a coroutine to use WaitForSeconds.
      Debug.Log ("Starten!");
  }

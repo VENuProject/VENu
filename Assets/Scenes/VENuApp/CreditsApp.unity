@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 5
   m_Viewport: {fileID: 0}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1306113292}
@@ -850,6 +850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitSec: 0
+  showSimulation: 0
+  showData: 0
 --- !u!1 &1193639469
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,8 +979,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -12.000008, y: 0}
-  m_SizeDelta: {x: 1214.27, y: 10}
+  m_AnchoredPosition: {x: -12.000008, y: -237.15}
+  m_SizeDelta: {x: 973.2, y: 10}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1306113292
 MonoBehaviour:
@@ -1019,7 +1021,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 177345584}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.18274796
+  m_Size: 0.18274795
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1090,7 +1092,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1301.7}
+  m_AnchoredPosition: {x: 0, y: -1438.4}
   m_SizeDelta: {x: 524.1, y: 226.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1881947732
@@ -1193,15 +1195,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "<size=50><color=green><b>Development</b></color></size>\nAlistair McLean
-    - New Mexico State University \nThomas Wester - University of Chicago \nOwen Crawford
-    - Bradley University \nBen Carls - Fermilab \nMatt Bass - University of Oxford\nMarco
-    Del Tutto - Univeristy of Oxford\nAriana Hackenburg - Yale University \nGene Kim
-    - Illinois Math and Science Academy \nSean Ngo - Illinois Math and Science Academy\n\n<size=50><color=green><b>App
-    and Cardboard version</b></color></size>\nMarco Del Tutto - University of Oxford\n\n<size=50><color=green><b>Vuforia
-    version</b></color></size>\n???\n\n<size=50><color=green><b>Thanks to...</b></color></size>\nSam
-    Zeller - Fermilab \nTia Miceli - New Mexico State University \nSteve Pate - New
-    Mexico State University\n\nVENu is funded by STFC and the University of Oxford\n\n\n\n"
+  m_Text: "\n<size=50><color=green><b>Mobile App, Cardboard Version and Game</b></color></size>\nMarco
+    Del Tutto - University of Oxford\n\n<size=50><color=green><b>Core Development</b></color></size>\nAlistair
+    McLean - New Mexico State University \nThomas Wester - University of Chicago \nOwen
+    Crawford - Bradley University \nBen Carls - Fermilab \nMatt Bass - University
+    of Oxford\nMarco Del Tutto - University of Oxford\nAriana Hackenburg - Yale University
+    \nGene Kim - Illinois Math and Science Academy \nSean Ngo - Illinois Math and
+    Science Academy\n\n<size=50><color=green><b>Learn Sections</b></color></size>\nMarco
+    Del Tutto - University of Oxford\nAnn Laube - University of Oxford\n\n<size=50><color=green><b>Special
+    Thanks to</b></color></size>\nSam Zeller - Fermilab \nTia Miceli - New Mexico
+    State University \nSteve Pate - New Mexico State University\n\nVENu is funded
+    by STFC and the University of Oxford\n\n\n\n"
 --- !u!222 &1899024585
 CanvasRenderer:
   m_ObjectHideFlags: 0

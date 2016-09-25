@@ -147,12 +147,17 @@ function createBackToTutorialButton(canvas: GameObject, panel : GameObject) {
           button.GetComponentInChildren.<Text>().font      = Resources.GetBuiltinResource(typeof(Font), "Arial.ttf") as Font;
           button.GetComponentInChildren.<Text>().alignment = TextAnchor.MiddleCenter;
 
+          button.GetComponent(Image).color = Color(0.26F, 0.91F, 0.37F, 1.0F); //green
+
           button.GetComponent(Button).onClick.AddListener( function() {goBackToTutorial();}  );
 
 }
 
 function goToLearnMenu () {
 
+  // No matter what you're doing, you asked to go to the menu
+  PlayerPrefs.SetInt("LearnFromTutorial",0);
+  // Start again
   Start();
 
 }
@@ -273,6 +278,21 @@ function goToCanvasMicroBooNE() {
   for (var child : Transform in learncanvas.transform)
   {
     if(child.gameObject.name == "LearnCanvasMicroBooNE"){
+      child.gameObject.SetActive(true);
+    }
+  }  
+}
+
+function goToCanvasTPC() {
+
+  // Deactivate the button list...
+  DeactivateMenu();
+
+  // ...and activate the scrollable text
+  var learncanvas = GameObject.Find("LearnCanvases");
+  for (var child : Transform in learncanvas.transform)
+  {
+    if(child.gameObject.name == "LearnCanvasTPC"){
       child.gameObject.SetActive(true);
     }
   }  
