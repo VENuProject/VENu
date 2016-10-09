@@ -8,11 +8,17 @@ using UnityEngine.SceneManagement;
 
 public class gameApp : MonoBehaviour {
 
+	[Tooltip("Rate the -Continue your serach...- will flash. In seconds.")]
+	public float flashingRate = 5.0F;
+
 	private GameObject canvas;
 	private GameObject evtPrefab;
 	private bool goToNext;
 	private bool goToMainMenu;
 	private bool goToNextWithCosmics;
+
+	private float thisTime;
+	private float previousTime;
 
 
 	// Use this for initialization
@@ -20,12 +26,35 @@ public class gameApp : MonoBehaviour {
 
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
 
+		previousTime = Time.time;
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		/*
+		thisTime = Time.time;
+
+		if (thisTime - previousTime > flashingRate) {
+
+			canvas = GameObject.Find ("GameCanvas");
+			foreach (Transform child in canvas.transform) {
+				if (child.name == "PanelContinueSearch")
+					StartCoroutine(FlashIt(child.gameObject)); //need to start a coroutine to use WaitForSeconds.
+						
+			}
+			previousTime = thisTime;
+		}
+		*/
 	
 	}
+	/*
+	IEnumerator FlashIt(GameObject panel) {
+		panel.SetActive (false);
+		yield return new WaitForSeconds(0.3F);
+		panel.SetActive (true);
+
+	}*/
 
 	void OnMouseDown(){
 		goToNext = false;
@@ -47,9 +76,9 @@ public class gameApp : MonoBehaviour {
 				// For the real game
 				if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_2.json") goToNext = true;
 				if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_6.json") goToNext = true;
-				if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_7.json") goToNext = true;
+				if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_7.json") goToMainMenu = true;
 				if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_8.json") goToNext = true;
-				if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_9.json") goToMainMenu = true;
+				if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_9.json") goToNext = true;
 
 			}
 		}
@@ -61,8 +90,10 @@ public class gameApp : MonoBehaviour {
 		foreach (Transform child in canvas.transform)
 		{
 			Debug.Log ("The name of the child is " + child.name);
+			if (child.name == "PanelContinueSearch")
+				child.gameObject.SetActive (false);
 			if (child.name == "PanelNext" && goToNext)
-				child.gameObject.SetActive (true);
+				child.gameObject.SetActive (true);	
 			if (child.name == "PanelGoToMainMenu" && goToMainMenu)
 				child.gameObject.SetActive (true);
 			if (child.name == "PanelNextWithCosmics" && goToNextWithCosmics)

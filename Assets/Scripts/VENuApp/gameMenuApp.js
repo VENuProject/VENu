@@ -70,9 +70,18 @@ function Start () {
 
 }
 
-function Update () {
 
+function Update () {
+ 
 }
+
+
+function WaitAndStop(panel : GameObject) {
+        panel.SetActive (true);
+		yield WaitForSeconds(waitSec);
+		panel.SetActive (false);
+
+	}
 
 function goToTutorialMain () {
 
@@ -179,6 +188,9 @@ function removePanel(){
     }
     if(child.gameObject.name == "PanelNextWithCosmics"){
       child.gameObject.SetActive(false);
+    }
+    if(child.gameObject.name == "PanelContinueSearch"){
+      child.gameObject.SetActive(true);
     }
   }
 
