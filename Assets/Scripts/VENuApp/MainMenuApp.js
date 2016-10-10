@@ -16,15 +16,16 @@ function Start () {
 
   Screen.orientation = ScreenOrientation.Portrait;
 
-  var canvas = GameObject.Find("MenuCanvas");
-  for (var child : Transform in canvas.transform)
-  {
-    if(child.gameObject.name == "MenuPanel")          child.gameObject.SetActive(true);
-    if(child.gameObject.name == "LoadCardboardPanel") child.gameObject.SetActive(false);
-    if(child.gameObject.name == "DisplayPanel")       child.gameObject.SetActive(false);
-
+  var scene = SceneManager.GetActiveScene();
+  if (scene.name == "MainMenuApp"){
+    var canvas = GameObject.Find("MenuCanvas");
+    for (var child : Transform in canvas.transform)
+    {
+      if(child.gameObject.name == "MenuPanel")          child.gameObject.SetActive(true);
+      if(child.gameObject.name == "LoadCardboardPanel") child.gameObject.SetActive(false);
+      if(child.gameObject.name == "DisplayPanel")       child.gameObject.SetActive(false);
+    }
   }
-
 
 }
 

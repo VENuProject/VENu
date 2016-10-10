@@ -24,31 +24,33 @@ function Start () {
   // Get the tutorial panels and put them in GameObjects, we will activate these panels later
   var canvas = GameObject.Find("MainCanvas");
   if (canvas != null) {
-  for (var child : Transform in canvas.transform)
-  {
-    if(child.gameObject.name == "TutorialPanel_NuBeam"){
-      tutorialExplanationPanels.Push(child.gameObject);
-    }
-    if(child.gameObject.name == "TutorialPanel_NuCrossSection"){
-      tutorialExplanationPanels.Push(child.gameObject);
-    }
-    if(child.gameObject.name == "TutorialPanel_NuInteraction"){
-      tutorialExplanationPanels.Push(child.gameObject);
-    }
-    if(child.gameObject.name == "TutorialPanel_NuEventShape"){
-      tutorialExplanationPanels.Push(child.gameObject);
-    }
-    if(child.gameObject.name == "TutorialPanel_Cosmics"){
-      tutorialExplanationPanels.Push(child.gameObject);
+    for (var child : Transform in canvas.transform)
+    {
+      if(child.gameObject.name == "TutorialPanel_NuBeam"){
+        tutorialExplanationPanels.Push(child.gameObject);
+      }
+      if(child.gameObject.name == "TutorialPanel_NuCrossSection"){
+        tutorialExplanationPanels.Push(child.gameObject);
+      }
+      if(child.gameObject.name == "TutorialPanel_NuInteraction"){
+        tutorialExplanationPanels.Push(child.gameObject);
+      }
+      if(child.gameObject.name == "TutorialPanel_NuEventShape"){
+        tutorialExplanationPanels.Push(child.gameObject);
+      }
+      if(child.gameObject.name == "TutorialPanel_Cosmics"){
+        tutorialExplanationPanels.Push(child.gameObject);
+      }
     }
   }
-}
 
+  if (scene.name == "GameMenuApp"){
    Debug.Log("tutorialExplanationPanels[0]" + tutorialExplanationPanels[0]);
    Debug.Log("tutorialExplanationPanels[1]" + tutorialExplanationPanels[1]);
    Debug.Log("tutorialExplanationPanels[2]" + tutorialExplanationPanels[2]);
    Debug.Log("tutorialExplanationPanels[3]" + tutorialExplanationPanels[3]);
    Debug.Log("tutorialExplanationPanels[4]" + tutorialExplanationPanels[4]);
+  }
 
    // *******************
    // We need to check if the user coming back to tutorial because he previously started it and then decide to learn something
