@@ -106,6 +106,12 @@ function goToTutorial() {
 
 }
 
+function goToTutorialDirectly() {
+
+  goToTutorialMain();
+
+}
+
 function goToTutorialExplanation(panel : int){
 
   Screen.orientation = ScreenOrientation.LandscapeLeft;
@@ -174,6 +180,12 @@ function goToRealGame() {
   }
 
   StartCoroutine(goToRealGameMain()); //need to start a coroutine to use WaitForSeconds.
+}
+
+function goToRealGameDirectly() {
+
+  goToRealGameMain();
+
 }
 
 
