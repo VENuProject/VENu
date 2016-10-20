@@ -404,8 +404,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1924730360}
-        m_MethodName: toggleTracks
+      - m_Target: {fileID: 115896000}
+        m_MethodName: ToggleTracks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -406,7 +406,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f11f134fcb2e54f65946a7b6c33a575f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fd7e1367d53634bebbc7ab606987b3da, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -877,7 +877,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.33518
+      value: 0.33518004
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -895,7 +895,7 @@ Prefab:
       propertyPath: m_Text
       value: "<size=70><color=green><b>Neutrino interactions</b></color></size>\n\nScientists
         can only detect the presence of a neutrino in the experiment if it interacts
-        with the detector. \n\n\n\n\n\n\n\n\n\nThere are two different ways a neutrino
+        with the detector. \n\n\n\n\n\n\n\n\n\n\nThere are two different ways a neutrino
         can interact:\n\n<b>Charged-current</b>, short CC, interactions: the neutrino
         converts into its charged lepton partner. So a muon-neutrino will produce
         a muon particle and an electron-neutrino an electron particle.\n\n<b>Neutral-current</b>,
@@ -2014,8 +2014,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: -257.1}
-  m_SizeDelta: {x: 638, y: 304.2}
+  m_AnchoredPosition: {x: -0.000011444092, y: -265.8}
+  m_SizeDelta: {x: 694.6, y: 354.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &870030876
 MonoBehaviour:
@@ -2036,7 +2036,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: d435fb6d59b194ab3a33ba5c32b27849, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bde1990457f4e414baccdd02ad8982e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -5600,7 +5600,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: -477.9}
+  m_AnchoredPosition: {x: -0.000011444092, y: -462.99}
   m_SizeDelta: {x: 667.6, y: 386.3}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2071276701
