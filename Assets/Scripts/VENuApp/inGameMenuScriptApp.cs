@@ -157,7 +157,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 
 		// Start the scene loading the first event prefab. 
 		// Then go on with the other prefabs as soon as the user clicks on next or previous event.
-		if (!isGame) prefabsToLoad [currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [0]));
+		if (!isGame) prefabsToLoad [currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
 	}
@@ -271,8 +271,18 @@ public class inGameMenuScriptApp: MonoBehaviour {
 	}
 
 
+	public void ToggleTracks() {
 
+		Debug.Log ("I'm here.  " + prefabsToLoad [currentPrefab].activeInHierarchy + "   " + namePrefabsToLoad [currentPrefab]+"(Clone)");
 
+		//GameObject tracks = GameObject.Find("*.json(Clone)");
+
+	
+	//	tracks.SetActive (false);
+		if(prefabsToLoad [currentPrefab].activeInHierarchy) prefabsToLoad [currentPrefab].SetActive (false);
+		if(!prefabsToLoad [currentPrefab].activeInHierarchy) prefabsToLoad [currentPrefab].SetActive (true);
+
+	}
 	/*
 
 

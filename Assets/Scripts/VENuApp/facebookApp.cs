@@ -56,7 +56,7 @@ public class facebookApp : MonoBehaviour {
 		FB.ShareLink(
 			contentURL:         new System.Uri ("http://www2.physics.ox.ac.uk"),
 			contentTitle:       "I just fund all the neutrino events in VENu!",
-			contentDescription: "bla bla",
+			contentDescription: "VENu helped me learn about neutrino physics.",
 			//photoURL:           new System.Uri ("http://www2.physics.ox.ac.uk"),
 			callback:           ShareCallback
 		);

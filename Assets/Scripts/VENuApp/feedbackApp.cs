@@ -22,7 +22,7 @@ public class feedbackApp : MonoBehaviour {
 
 	IEnumerator SendEmailMain() {
 		yield return new WaitForSeconds(secondsToWait);
-		string email = "marco.deltutto@physics.ox.ac.uk";
+		string email = "venu.developers@physics.ox.ac.uk";
 		string subject = MyEscapeURL("VENu Feedback");
 		string body = MyEscapeURL("Please write your feedback here.\r\nThank you,\nThe VENu Team");
 		Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
