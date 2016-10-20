@@ -17,7 +17,7 @@ function Start () {
   Screen.orientation = ScreenOrientation.Portrait;
 
   var scene = SceneManager.GetActiveScene();
-  if (scene.name == "MainMenuApp"){
+  if (scene.name == "MainMenuApp"){	
     var canvas = GameObject.Find("MenuCanvas");
     for (var child : Transform in canvas.transform)
     {
@@ -165,5 +165,11 @@ function goToGame() {
 
 }
 
+
+function quit() {
+
+  Application.Quit();
+
+}
 
 
