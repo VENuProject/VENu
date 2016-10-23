@@ -53,10 +53,9 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		} else
 			Debug.Log ("Can't find key ShowSimulationOrData in inGameMenuScriptApp.cs.");
 
-		if (SceneManager.GetActiveScene ().name == "DisplayCardboardApp_GAME_TEST") {
+		if (SceneManager.GetActiveScene ().name == "GameTutorialCardboardApp") {
 			isGame = true;
 			showSimulation = showData = false;
-			Debug.Log ("yeeeeee");
 		}
 			
 
@@ -85,7 +84,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		}
 
 		if (isGame) {
-
+			Debug.Log ("It is game.");
 			evtContainer = GameObject.Find ("EventsPrefab_simulation");
 			Debug.Log ("This should be EventsPrefab_...: " + evtContainer.name);
 			foreach (Transform child in evtContainer.transform) {

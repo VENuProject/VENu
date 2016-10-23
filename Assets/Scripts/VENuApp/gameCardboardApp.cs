@@ -1,11 +1,11 @@
-﻿// cardboardGame.cs
+﻿// gameCardboardApp.cs
 //
 // created by Marco Del Tutto, marco.deltutto@physics.ox.ac.uk
 
 using UnityEngine;
 using System.Collections;
 
-public class Test : MonoBehaviour {
+public class gameCardboardApp : MonoBehaviour {
 
 	CardboardHead head = null;
 
@@ -20,11 +20,12 @@ public class Test : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		Debug.Log ("Here we are");
+
 		head = Camera.main.GetComponent<StereoController>().Head;
-	
+
 		// Get Panels
 		GameObject canvas = GameObject.Find("cardboard_RFPS");
-		//Debug.Log ("the name is " + canvas.name);
 		foreach (Transform child in canvas.transform)
 		{
 			if (child.gameObject.name == "CardboardMain") {
@@ -35,15 +36,14 @@ public class Test : MonoBehaviour {
 								foreach (Transform child4 in child3.gameObject.transform) {
 									if (child4.gameObject.name == "GameCanvas") {
 										foreach (Transform child5 in child4.gameObject.transform) {
-											//Debug.Log ("The name of the child is " + child5.name);
 											if (child5.name == "PanelContinueSearch")
-												continueSearchPanel = child5.gameObject;//.SetActive (false);
+												continueSearchPanel = child5.gameObject;
 											if (child5.name == "PanelNext")
-												goNextPanel = child5.gameObject;//.SetActive (true);	
+												goNextPanel = child5.gameObject;	
 											if (child5.name == "PanelGoToMainMenu")
-												congratsPanel = child5.gameObject;//.SetActive (true);
+												congratsPanel = child5.gameObject;
 											if (child5.name == "PanelNextWithCosmics")
-												withCosmicPanel = child5.gameObject;//.SetActive (true);}
+												withCosmicPanel = child5.gameObject;
 										}
 									}
 								}
@@ -54,27 +54,28 @@ public class Test : MonoBehaviour {
 			}
 
 
-			//Debug.Log ("The name of the child is " + child.name);
 			if (child.name == "PanelContinueSearch")
-				continueSearchPanel = child.gameObject;//.SetActive (false);
+				continueSearchPanel = child.gameObject;
 			if (child.name == "PanelNext")
-				goNextPanel = child.gameObject;//.SetActive (true);	
+				goNextPanel = child.gameObject;	
 			if (child.name == "PanelGoToMainMenu")
-				congratsPanel = child.gameObject;//.SetActive (true);
+				congratsPanel = child.gameObject;
 			if (child.name == "PanelNextWithCosmics")
-				withCosmicPanel = child.gameObject;//.SetActive (true);
+				withCosmicPanel = child.gameObject;
 		}
 
+		continueSearchPanel.SetActive (true);
 
-	
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 
 		if(Input.GetMouseButtonDown (0) && neutrinoEventFound) {
 
-			goNextPanel.SetActive (false);
+			removePanel ();
+			continueSearchPanel.SetActive (true);
 			neutrinoEventFound = false;
 
 
