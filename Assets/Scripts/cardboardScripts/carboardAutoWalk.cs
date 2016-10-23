@@ -59,6 +59,29 @@ public class carboardAutoWalk : MonoBehaviour {
 		}
 
 	}
+
+	bool CheckIfLookingAtTrack(){
+
+		bool lookingAtTrack = false;
+
+		// Get the floor panel cube (for the collider)
+		GameObject rfps = GameObject.Find ("EventsPrefab_simulation");
+		foreach (Transform child in rfps.transform) {
+			//if (child.name == "prodgenie_bnb_nu_uboone_new_1.json_testGame") {
+			if (child.gameObject.activeInHierarchy) {
+
+				foreach (Transform child2 in child.transform) {
+					if (child2.name == "Cube" || child2.name == "ClickableCube") {
+						Collider coll = child2.GetComponent<Collider> ();
+						RaycastHit hit;
+						lookingAtTrack = coll.Raycast(head.Gaze, out hit, Mathf.Infinity);
+
+					}
+				}
+			}
+		}
+		return lookingAtTrack;
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -66,7 +89,9 @@ public class carboardAutoWalk : MonoBehaviour {
 		// Understand if it's pointing to the floor menu
 		RaycastHit hit;
 		bool lookingAtMenu = floorMenuCollider.Raycast(head.Gaze, out hit, Mathf.Infinity);
-
+		bool lookingAtTrack = CheckIfLookingAtTrack ();
+		if (lookingAtTrack)
+			lookingAtMenu = true; // act like if you were looking at the menu for now
 
 		// Walk when the Cardboard Trigger is used 
 		if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Cardboard.SDK.Triggered && !lookingAtMenu) 

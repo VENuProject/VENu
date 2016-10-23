@@ -12,7 +12,6 @@ using UnityEngine.SceneManagement;
 
 public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 	
-	//private GameObject[] eventPrefabs = new GameObject[10];
 	int nPrefabs = 0;
 	int currentPrefab = 0;
 	GameObject[] prefabsToLoad = new GameObject[100];
@@ -26,8 +25,6 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 
 	void Awake() {
-
-
 
 		// ****************************
 		// Listing prefabs looking in the scene - This takes ages to load the scene!
@@ -43,7 +40,6 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		Debug.Log ("Event prefabs found: " + nPrefabs+1);
 		*/
 
-
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
 
 		showSimulation = showData = isGame = false;
@@ -57,12 +53,15 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		} else
 			Debug.Log ("Can't find key ShowSimulationOrData in inGameMenuScriptApp.cs.");
 
-
-		if (SceneManager.GetActiveScene().name == "GameTutorialApp" || SceneManager.GetActiveScene().name == "GamePlayApp")
+		if (SceneManager.GetActiveScene ().name == "DisplayCardboardApp_GAME_TEST") {
 			isGame = true;
+			showSimulation = showData = false;
+			Debug.Log ("yeeeeee");
+		}
+			
 
-		if (showSimulation || isGame) {
-
+		if (showSimulation) {
+			Debug.Log ("Showing simulation.");
 			namePrefabsToLoad [0] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_5.json"; nPrefabs++;
 			namePrefabsToLoad [1] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_16.json"; nPrefabs++;
 			namePrefabsToLoad [2] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_13.json"; nPrefabs++;
@@ -85,9 +84,22 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 		}
 
+		if (isGame) {
+
+			evtContainer = GameObject.Find ("EventsPrefab_simulation");
+			Debug.Log ("This should be EventsPrefab_...: " + evtContainer.name);
+			foreach (Transform child in evtContainer.transform) {
+				Debug.Log ("The name of the child is " + child.name);
+				prefabsToLoad [nPrefabs] = child.gameObject;
+				nPrefabs++;
+			}
+			Debug.Log ("Event prefabs found: " + (nPrefabs + 1));
+
+		}
+
 		// Start the scene loading the first event prefab. 
 		// Then go on with the other prefabs as soon as the user clicks on next or previous event.
-		prefabsToLoad [currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [0]));
+		if (!isGame)prefabsToLoad [currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [0]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
 			
@@ -122,12 +134,9 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		//foreach(GameObject go in allObjects)
 		//	print(go+" is an object") ;
 
-
 	}
 	
 	void Update () {
-		
-
 		
 	}
 
@@ -140,7 +149,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 		// Remove current event
 		prefabsToLoad[currentPrefab].SetActive(false);
-		Object.Destroy (prefabsToLoad[currentPrefab]);
+		if (!isGame) Object.Destroy (prefabsToLoad[currentPrefab]);
 
 
 		// Verify this is not the last event available, in that case, re-start from beginning
@@ -154,7 +163,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 		// Load the event
 		//evtContainer.SetActive(true);
-		prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
+		if (!isGame) prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
 		//Trying to stop the player now (this is not used anymore --Marco)
@@ -168,7 +177,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 		// Remove current event
 		prefabsToLoad[currentPrefab].SetActive(false);
-		Object.Destroy (prefabsToLoad[currentPrefab]);
+		if (!isGame) Object.Destroy (prefabsToLoad[currentPrefab]);
 
 		// Verify this is not the first event available, in that case, go to the last one
 		if (currentPrefab == 0)
@@ -177,7 +186,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 			currentPrefab--;
 
 		// Load the event
-		prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
+		if (!isGame) prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 
 		//Trying to stop the player now (this is not used anymore --Marco)
@@ -229,8 +238,6 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 				}
 			}
 		}
-
-
 	}
 
 	IEnumerator WaitAndStop(GameObject panel) {
