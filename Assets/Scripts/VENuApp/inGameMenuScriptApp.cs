@@ -273,14 +273,10 @@ public class inGameMenuScriptApp: MonoBehaviour {
 
 	public void ToggleTracks() {
 
-		Debug.Log ("I'm here.  " + prefabsToLoad [currentPrefab].activeInHierarchy + "   " + namePrefabsToLoad [currentPrefab]+"(Clone)");
+		Debug.Log ("I'm here.  " + prefabsToLoad [currentPrefab].activeInHierarchy + "   " + namePrefabsToLoad [currentPrefab]);
 
-		//GameObject tracks = GameObject.Find("*.json(Clone)");
-
-	
-	//	tracks.SetActive (false);
 		if(prefabsToLoad [currentPrefab].activeInHierarchy) prefabsToLoad [currentPrefab].SetActive (false);
-		if(!prefabsToLoad [currentPrefab].activeInHierarchy) prefabsToLoad [currentPrefab].SetActive (true);
+		else if(!prefabsToLoad [currentPrefab].activeInHierarchy) prefabsToLoad [currentPrefab].SetActive (true);
 
 	}
 	/*

@@ -16,6 +16,8 @@ var tutorialExplanationPanels =  Array ();
 
 function Start () {
 
+  PlayerPrefs.SetInt ("PlayWithCardboard", 0); // FIXME (would like to remember preference troughout the game)
+
   var scene = SceneManager.GetActiveScene();
   if (scene.name == "GamePlayApp" || scene.name == "GameTutorialApp") Screen.orientation = ScreenOrientation.LandscapeLeft;
   else Screen.orientation = ScreenOrientation.Portrait;
@@ -98,7 +100,17 @@ Screen.orientation = ScreenOrientation.LandscapeLeft;
   }
   yield WaitForSeconds (waitSec);
 
-  Application.LoadLevel("GameTutorialApp");
+  // Check if the user wants to play with cardbord or not, then start the appropriate scene
+
+  // If the user didn't decide, then start normal game
+  if (!PlayerPrefs.HasKey ("PlayWithCardboard"))
+    PlayerPrefs.SetInt ("PlayWithCardboard", 0);
+
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0)
+    Application.LoadLevel("GameTutorialApp");
+
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1)
+    Application.LoadLevel("GameTutorialCardboardApp");
 
 }
 
@@ -166,8 +178,18 @@ function goToRealGameMain() {
   }
   yield WaitForSeconds (waitSec);
 
-  Application.LoadLevel("GamePlayApp");
+  // Check if the user wants to play with cardbord or not, then start the appropriate scene
 
+  // If the user didn't decide, then start normal game
+  if (!PlayerPrefs.HasKey ("PlayWithCardboard"))
+    PlayerPrefs.SetInt ("PlayWithCardboard", 0);
+
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0)
+    Application.LoadLevel("GamePlayApp");
+
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1)
+    Application.LoadLevel("GamePlayCardboardApp");
+   
 }
 
 
@@ -240,5 +262,23 @@ function goToLearnCosmics() {
   PlayerPrefs.SetInt("LearnFromTutorial", 1); // 0=false;  1=true
   PlayerPrefs.SetString("LearnFromTutorialSubject", "Cosmics");
   Application.LoadLevel("LearnApp");
+
+}
+
+function setGameCardboardOnOff() {
+
+  // If this is the first time the user is clicking, then play w/ cardboard
+  if (!PlayerPrefs.HasKey ("PlayWithCardboard")){
+    PlayerPrefs.SetInt ("PlayWithCardboard", 1);
+  }
+
+  // Otherwise check what is the current key and change it
+  else if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1){
+    PlayerPrefs.SetInt ("PlayWithCardboard", 0);
+  }
+
+  else if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0){
+    PlayerPrefs.SetInt ("PlayWithCardboard", 1);
+  }
 
 }

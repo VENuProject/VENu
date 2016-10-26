@@ -53,7 +53,8 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		} else
 			Debug.Log ("Can't find key ShowSimulationOrData in inGameMenuScriptApp.cs.");
 
-		if (SceneManager.GetActiveScene ().name == "GameTutorialCardboardApp") {
+		if (SceneManager.GetActiveScene ().name == "GameTutorialCardboardApp" || 
+			SceneManager.GetActiveScene ().name == "GamePlayCardboardApp") {
 			isGame = true;
 			showSimulation = showData = false;
 		}
