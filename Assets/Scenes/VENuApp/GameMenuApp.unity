@@ -2321,7 +2321,7 @@ MonoBehaviour:
   m_Text: '<size=60><color=grey><b>Tutorial</b></color></size>
 
 
-    To win you need to click on the neutrino induced tracks in the detector.
+    To win you need to <b>double</b> click on the neutrino induced tracks in the detector.
 
 
     Let''s start with only neutrino-like events.'
@@ -4962,7 +4962,7 @@ MonoBehaviour:
   m_Text: '<size=60><color=grey><b>Game</b></color></size>
 
 
-    To win you need to click on the neutrino induced tracks in the detector.
+    To win you need to <b>double</b> click on the neutrino induced tracks in the detector.
 
 
     Do not confuse them with cosmic rays!'
