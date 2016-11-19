@@ -132,8 +132,7 @@ public class gameApp : MonoBehaviour {
 					child.gameObject.SetActive (true);
 				if (child.name == "PanelNextWithCosmics" && goToNextWithCosmics)
 					child.gameObject.SetActive (true);
-				if (child.name == "PanelGoToCardboardGame" && goToCardboardGame) 
-					child.gameObject.SetActive (true);
+				
 			}
 
 		}
