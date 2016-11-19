@@ -89,13 +89,17 @@ function WaitAndStop(panel : GameObject) {
 
 function goToTutorialMain () {
 
-Screen.orientation = ScreenOrientation.LandscapeLeft;
+  Screen.orientation = ScreenOrientation.LandscapeLeft;
 
   var canvas = GameObject.Find("MainCanvas");
+  var cardInit : GameObject;
   for (var child : Transform in canvas.transform)
   {
     if(child.gameObject.name == "StartTutorialPanel"){
       child.gameObject.SetActive(true);
+    }
+    if(child.gameObject.name == "LoadCardboardPanel"){
+      cardInit = child.gameObject;
     }
   }
   yield WaitForSeconds (waitSec);
@@ -109,8 +113,12 @@ Screen.orientation = ScreenOrientation.LandscapeLeft;
   if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0)
     Application.LoadLevel("GameTutorialApp");
 
-  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1)
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1){
+    cardInit.SetActive(true);
+    yield WaitForSeconds (waitSec);
+    //cardInit.SetActive(false);
     Application.LoadLevel("GameTutorialCardboardApp");
+  }
 
 }
 
@@ -122,8 +130,15 @@ function goToTutorial() {
 
 function goToTutorialDirectly() {
 
-  goToTutorialMain();
+  // If the user didn't decide, then start normal game
+  if (!PlayerPrefs.HasKey ("PlayWithCardboard"))
+    PlayerPrefs.SetInt ("PlayWithCardboard", 0);
 
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0)
+    Application.LoadLevel("GameTutorialApp");
+
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1)
+    Application.LoadLevel("GameTutorialCardboardApp");
 }
 
 function goToTutorialExplanation(panel : int){
@@ -170,10 +185,14 @@ function goToRealGameMain() {
   Screen.orientation = ScreenOrientation.LandscapeLeft;
 
   var canvas = GameObject.Find("MainCanvas");
+  var cardInit : GameObject;
   for (var child : Transform in canvas.transform)
   {
     if(child.gameObject.name == "StartGamePanel"){
       child.gameObject.SetActive(true);
+    }
+    if(child.gameObject.name == "LoadCardboardPanel"){
+      cardInit = child.gameObject;
     }
   }
   yield WaitForSeconds (waitSec);
@@ -187,8 +206,13 @@ function goToRealGameMain() {
   if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0)
     Application.LoadLevel("GamePlayApp");
 
-  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1)
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1){
+    cardInit.SetActive(true);
+    yield WaitForSeconds (waitSec);
+    //cardInit.SetActive(false);
     Application.LoadLevel("GamePlayCardboardApp");
+
+  }
    
 }
 
@@ -208,8 +232,15 @@ function goToRealGame() {
 
 function goToRealGameDirectly() {
 
-  goToRealGameMain();
+  // If the user didn't decide, then start normal game
+  if (!PlayerPrefs.HasKey ("PlayWithCardboard"))
+    PlayerPrefs.SetInt ("PlayWithCardboard", 0);
 
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0)
+    Application.LoadLevel("GamePlayApp");
+
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1)
+    Application.LoadLevel("GamePlayCardboardApp");
 }
 
 

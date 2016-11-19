@@ -20,6 +20,7 @@ public class gameApp : MonoBehaviour {
 	private bool goToNext;
 	private bool goToMainMenu;
 	private bool goToNextWithCosmics;
+	private bool goToCardboardGame;
 
 	//private float thisTime;
 	//private float previousTime;
@@ -97,8 +98,10 @@ public class gameApp : MonoBehaviour {
 						goToNextWithCosmics = true;
 					if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_10.json")
 						goToNext = true;
-					if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_12.json")
+					if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_12.json") {
 						goToMainMenu = true;
+						goToCardboardGame = true;
+					}
 
 					// For the real game
 					if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_2.json")
@@ -128,6 +131,8 @@ public class gameApp : MonoBehaviour {
 				if (child.name == "PanelGoToMainMenu" && goToMainMenu)
 					child.gameObject.SetActive (true);
 				if (child.name == "PanelNextWithCosmics" && goToNextWithCosmics)
+					child.gameObject.SetActive (true);
+				if (child.name == "PanelGoToCardboardGame" && goToCardboardGame) 
 					child.gameObject.SetActive (true);
 			}
 

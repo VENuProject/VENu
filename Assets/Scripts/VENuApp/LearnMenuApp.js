@@ -268,6 +268,21 @@ function goToCanvasCosmics() {
   }  
 }
 
+function goToCanvasFermilab() {
+
+  // Deactivate the button list...
+  DeactivateMenu();
+
+  // ...and activate the scrollable text
+  var learncanvas = GameObject.Find("LearnCanvases");
+  for (var child : Transform in learncanvas.transform)
+  {
+    if(child.gameObject.name == "LearnCanvasFermilab"){
+      child.gameObject.SetActive(true);
+    }
+  }  
+}
+
 function goToCanvasMicroBooNE() {
 
   // Deactivate the button list...

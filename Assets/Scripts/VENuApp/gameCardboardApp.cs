@@ -15,6 +15,7 @@ public class gameCardboardApp : MonoBehaviour {
 	private GameObject congratsPanel;
 	private GameObject continueSearchPanel;
 	private GameObject withCosmicPanel;
+	private GameObject cardboardGame;
 
 
 	// Use this for initialization
@@ -44,6 +45,8 @@ public class gameCardboardApp : MonoBehaviour {
 												congratsPanel = child5.gameObject;
 											if (child5.name == "PanelNextWithCosmics")
 												withCosmicPanel = child5.gameObject;
+											if (child5.name == "PanelGoToCardboardGame") 
+												cardboardGame = child5.gameObject;
 										}
 									}
 								}
@@ -105,7 +108,7 @@ public class gameCardboardApp : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown (0) && lookingAtNuTrack) {
 
-			bool goToNext = false, goToNextWithCosmics = false, goToMainMenu = false;
+			bool goToNext = false, goToNextWithCosmics = false, goToMainMenu = false, goToCardboardGame = false;
 
 			// First undertstand what to do now
 			// Check what is the active prefab and decide to go back to main menu or not.
@@ -116,7 +119,10 @@ public class gameCardboardApp : MonoBehaviour {
 					if (child.name == "prodgenie_bnb_nu_uboone_new_1.json_testGame") goToNext = true;
 					if (child.name == "prodgenie_bnb_nu_uboone_new_2.json_testGame") goToNextWithCosmics = true;
 					if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_10.json") goToNext = true;
-					if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_12.json") goToMainMenu = true;
+					if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_12.json") {
+						goToMainMenu = true;
+						goToCardboardGame = true;
+					}
 
 					// For the real game
 					if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_2.json") goToNext = true;
@@ -133,6 +139,10 @@ public class gameCardboardApp : MonoBehaviour {
 			if (goToNext) goNextPanel.SetActive (true);
 			if (goToNextWithCosmics) withCosmicPanel.SetActive (true);
 			if (goToMainMenu) congratsPanel.SetActive (true);
+			if (goToCardboardGame) {
+				goToCardboardRealGame ();
+				Debug.Log ("HERE");
+			}
 
 		}
 
@@ -153,6 +163,19 @@ public class gameCardboardApp : MonoBehaviour {
 		}
 	}
 
+
+	void goToCardboardRealGame() {
+
+		StartCoroutine (goToCardboardRealGameMain());
+
+	}
+
+	IEnumerator goToCardboardRealGameMain() {
+		yield return new WaitForSeconds(1.0F);
+		cardboardGame.SetActive (true);
+		yield return new WaitForSeconds(1.5F);
+		Application.LoadLevel("GamePlayCardboardApp");
+	}
 
 
 
