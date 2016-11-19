@@ -117,6 +117,7 @@ function goToTutorialMain () {
     cardInit.SetActive(true);
     yield WaitForSeconds (waitSec);
     //cardInit.SetActive(false);
+    Screen.orientation = ScreenOrientation.LandscapeLeft;
     Application.LoadLevel("GameTutorialCardboardApp");
   }
 
@@ -210,6 +211,7 @@ function goToRealGameMain() {
     cardInit.SetActive(true);
     yield WaitForSeconds (waitSec);
     //cardInit.SetActive(false);
+    Screen.orientation = ScreenOrientation.LandscapeLeft;
     Application.LoadLevel("GamePlayCardboardApp");
 
   }

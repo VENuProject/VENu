@@ -23,6 +23,8 @@ public class gameCardboardApp : MonoBehaviour {
 
 		Debug.Log ("Here we are");
 
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
+
 		head = Camera.main.GetComponent<StereoController>().Head;
 
 		// Get Panels
@@ -74,6 +76,8 @@ public class gameCardboardApp : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 
 		if(Input.GetMouseButtonDown (0) && neutrinoEventFound) {
 
@@ -171,7 +175,8 @@ public class gameCardboardApp : MonoBehaviour {
 	}
 
 	IEnumerator goToCardboardRealGameMain() {
-		yield return new WaitForSeconds(1.0F);
+		yield return new WaitForSeconds(1.5F);
+		congratsPanel.SetActive (false);
 		cardboardGame.SetActive (true);
 		yield return new WaitForSeconds(1.5F);
 		Application.LoadLevel("GamePlayCardboardApp");
