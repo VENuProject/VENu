@@ -7,8 +7,9 @@ using System.Collections;
 
 public class moveOnClick : MonoBehaviour {
 
-	bool tutorialActive = false;
-	bool gameActive     = false;
+	bool tutorialActive    = false;
+	bool gameActive        = false;
+	bool playWithCardboard = false;
 
 
 
@@ -25,6 +26,12 @@ public class moveOnClick : MonoBehaviour {
 			if(child.gameObject.name == "StartGamePanel"){
 				gameActive = child.gameObject.activeInHierarchy;
 			}
+			if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0) {
+				playWithCardboard = false;
+			}
+			if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1) {
+				playWithCardboard = true;
+			}
 		}
 
 	}
@@ -32,10 +39,13 @@ public class moveOnClick : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		// If the user click, don't wait for the 5 seconds but carry on.
+		// If the user clicks, don't wait for the 5 seconds but carry on.
 		if(Input.GetMouseButtonDown(0)) {
-			if (tutorialActive) Application.LoadLevel("GameTutorialApp");
-			if (gameActive)     Application.LoadLevel("GamePlayApp");
+			if (tutorialActive && !playWithCardboard) Application.LoadLevel("GameTutorialApp");
+			if (tutorialActive && playWithCardboard)  Application.LoadLevel("GameTutorialCardboardApp");
+
+			if (gameActive && !playWithCardboard)     Application.LoadLevel("GamePlayApp");
+			if (gameActive && playWithCardboard)      Application.LoadLevel("GamePlayCardboardApp");
 
 		}
 	}

@@ -23,6 +23,9 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 
 	private bool showData, showSimulation, isGame;
 
+	private GameObject nextEventButton;
+	private Selectable button;
+
 
 	void Awake() {
 
@@ -134,6 +137,23 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		//foreach(GameObject go in allObjects)
 		//	print(go+" is an object") ;
 
+		// Get the Next Event button and the selectable
+		GameObject canvas = GameObject.Find("cardboard_RFPS");
+		foreach (Transform child in canvas.transform) {
+			if (child.gameObject.name == "FloorCanvas") {
+				foreach (Transform child2 in child.gameObject.transform) {
+					if (child2.gameObject.name == "Panel") {
+						foreach (Transform child3 in child2.gameObject.transform) {
+							if (child3.gameObject.name == "Next Event Button") {
+								nextEventButton = child3.gameObject;
+								button = nextEventButton.GetComponent<Selectable>();
+							}
+						}
+					}
+				}
+			}
+		}
+
 	}
 	
 	void Update () {
@@ -170,6 +190,13 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		GameObject cardboard_RFPS = GameObject.Find("cardboard_RFPS");
 		cardboard_RFPS.GetComponent<carboardAutoWalk>().stopIt = true;
 
+		if (isGame) {
+			// If plaiyng with cardboard
+			// Also set the Next Event button to not clickable
+			// It will become clickable when the user finds the right track
+
+			button.interactable = false;
+		}
 	
 	}
 	

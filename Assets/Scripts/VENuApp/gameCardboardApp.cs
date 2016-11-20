@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class gameCardboardApp : MonoBehaviour {
 
@@ -16,6 +17,10 @@ public class gameCardboardApp : MonoBehaviour {
 	private GameObject continueSearchPanel;
 	private GameObject withCosmicPanel;
 	private GameObject cardboardGame;
+
+	private Selectable buttonN; // next evt
+	private Selectable buttonP; // previous evt
+	private Selectable buttonT; // toggle VR
 
 
 	// Use this for initialization
@@ -68,9 +73,39 @@ public class gameCardboardApp : MonoBehaviour {
 			if (child.name == "PanelNextWithCosmics")
 				withCosmicPanel = child.gameObject;
 		}
+			
 
+
+		// Get the Next Event button and the selectable
+		foreach (Transform child in canvas.transform) {
+			if (child.gameObject.name == "FloorCanvas") {
+				foreach (Transform child2 in child.gameObject.transform) {
+					if (child2.gameObject.name == "Panel") {
+						foreach (Transform child3 in child2.gameObject.transform) {
+							if (child3.gameObject.name == "Next Event Button") {
+								buttonN = child3.gameObject.GetComponent<Selectable>();
+							}
+							if (child3.gameObject.name == "Previous Event Button") {
+								buttonP = child3.gameObject.GetComponent<Selectable>();
+							}
+							if (child3.gameObject.name == "Toggle VR Button") {
+								buttonT = child3.gameObject.GetComponent<Selectable>();
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// Now prepare everything to start
+		//   Activate the "Continue your search..." flashing written
 		continueSearchPanel.SetActive (true);
-
+		//   Set the "Next Event" button to not clickable
+		buttonN.interactable = false;
+		//   Set the "Previous Event" button to not clickable
+		buttonP.interactable = false;
+		//   Set the "Toggle VR" button to not clickable
+		buttonT.interactable = false;
 
 	}
 
@@ -147,6 +182,9 @@ public class gameCardboardApp : MonoBehaviour {
 				goToCardboardRealGame ();
 				Debug.Log ("HERE");
 			}
+
+			// Activate the "Next Event" button
+			buttonN.interactable = true;
 
 		}
 
