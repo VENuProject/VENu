@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class carboardAutoWalk : MonoBehaviour {
 
@@ -89,9 +90,14 @@ public class carboardAutoWalk : MonoBehaviour {
 		// Understand if it's pointing to the floor menu
 		RaycastHit hit;
 		bool lookingAtMenu = floorMenuCollider.Raycast(head.Gaze, out hit, Mathf.Infinity);
-		bool lookingAtTrack = CheckIfLookingAtTrack ();
-		if (lookingAtTrack)
-			lookingAtMenu = true; // act like if you were looking at the menu for now
+
+		bool lookingAtTrack = false;
+		if (SceneManager.GetActiveScene ().name == "GameTutorialCardboardApp" 
+			|| SceneManager.GetActiveScene ().name == "GamePlayCardboardApp") {
+			lookingAtTrack = CheckIfLookingAtTrack ();
+			if (lookingAtTrack)
+				lookingAtMenu = true; // act like if you were looking at the menu for now
+		}
 
 		// Walk when the Cardboard Trigger is used 
 		if (walkWhenTriggered && !walkWhenLookDown && !isWalking && Cardboard.SDK.Triggered && !lookingAtMenu) 
