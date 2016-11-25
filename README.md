@@ -2,18 +2,15 @@
 
 This is the repository for the MicroBooNE VR project. 
 
-The author of this README.md (Ben) stresses that this is one of the first GitHub repositories he has setup. Some of the instructions may not quite work. Please let him know if something's wrong!
-
-
 ## Requirements
 
 You'll need to install usually the latest version of Unity (see below). You'll also need the computer graphics program Blender. 
 
 ## A word about Unity versions
 
-Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.3.4.
+Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.4.3f1.
 
-Unity 5.3.4 can be downloaded here: https://unity3d.com/get-unity/download/archive
+Unity 5.4.3f1 can be downloaded here: https://unity3d.com/get-unity/download/archive
 
 Additional notes: Unity relies on a system of linked scripts and gameobjects. Some of these will save and be uploaded to git without a problem, but do not be surprised if you pull the repository, open it in Unity and find "missing referenced script/object" warnings. You will have to drag the appropriate script or prefab back to the corresponding field in the editor. Again, this is a side effect of using git with Unity--certain settings aren't always saved, so be careful!
 
@@ -21,7 +18,7 @@ Additional notes: Unity relies on a system of linked scripts and gameobjects. So
 
 These instructions will demonstrate how you can check the code out and run it with Unity. You do not need a GitHub account to do this. To checkout the project on a Mac, do the following:
 
-    git clone https://github.com/bcarls/VENu
+    git clone https://github.com/mibass/VENu
 
 This will create a directory with the Unity project in it. To periodically update, perform the following:
 
@@ -47,13 +44,19 @@ If you happen to delete files and would like to commit the change, do this inste
     git add --all
     git commit -m "This is a test commit"
 
-Remember that git creates a local repository in you local directory. The add and commit commands above only send changes to that local repository. If you want the changes moved to the master branch at the origin repository (what's at https://github.com/bcarls/VENu), you need to perform the following:
+Remember that git creates a local repository in you local directory. The add and commit commands above only send changes to that local repository. If you want the changes moved to the master branch at the origin repository (what's at https://github.com/mibass/VENu), you need to perform the following:
 
     git push origin master
     
 When people run the pull command above to update their version, they will see your changes and be able to use them. 
 
+## Mobile version
+
+To run the mobile version of VENu (for iOS and Android) select the scens in VENuApp in `File > Build Settings...`.
+
 ## Standard vs. Cardboard version
+
+This is outdated.
 
 To run VENu in the standard configuration, select the following scenes in `File > Build Settings...`:
 * Scenes/SplashScreen
