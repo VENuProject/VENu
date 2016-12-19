@@ -27,6 +27,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 	const float slideSpeed = 3;
 	public RectTransform buttonsGroup;
 	public GameObject slideButton;
+	private GameObject nuBeam;
 
 	int nPrefabs = 0;
 	int currentPrefab = 0;
@@ -182,6 +183,9 @@ public class inGameMenuScriptApp: MonoBehaviour {
 		inPos = -(me.rect.width / 2);
 		outPos = (me.rect.width / 2);
 		me.anchoredPosition = new Vector2(inPos, 0);
+
+		// Get the nu beam for later
+		nuBeam = GameObject.Find ("NuBeamParticleSystem");
 		
 	}
 	
@@ -277,6 +281,13 @@ public class inGameMenuScriptApp: MonoBehaviour {
 
 		if(prefabsToLoad [currentPrefab].activeInHierarchy) prefabsToLoad [currentPrefab].SetActive (false);
 		else if(!prefabsToLoad [currentPrefab].activeInHierarchy) prefabsToLoad [currentPrefab].SetActive (true);
+
+	}
+
+	public void ToggleBeam() {
+
+		if (nuBeam.activeInHierarchy) nuBeam.SetActive (false);
+		else nuBeam.SetActive (true);
 
 	}
 	/*
