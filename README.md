@@ -8,9 +8,9 @@ You'll need to install usually the latest version of Unity (see below). You'll a
 
 ## A word about Unity versions
 
-Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.4.3f1.
+Git and Unity don't really get along all that well. In order to make them better bedfellows, it's recommended that everyone working uses the same version of Unity. The repository currently uses version 5.5.0f3.
 
-Unity 5.4.3f1 can be downloaded here: https://unity3d.com/get-unity/download/archive
+Unity can be downloaded here: https://unity3d.com/get-unity/download/archive
 
 Additional notes: Unity relies on a system of linked scripts and gameobjects. Some of these will save and be uploaded to git without a problem, but do not be surprised if you pull the repository, open it in Unity and find "missing referenced script/object" warnings. You will have to drag the appropriate script or prefab back to the corresponding field in the editor. Again, this is a side effect of using git with Unity--certain settings aren't always saved, so be careful!
 
