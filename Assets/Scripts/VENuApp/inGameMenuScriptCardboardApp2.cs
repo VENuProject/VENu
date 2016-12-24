@@ -61,6 +61,7 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 			SceneManager.GetActiveScene ().name == "GamePlayLevel2CardboardApp"    ) {
 			isGame = true;
 			showSimulation = showData = false;
+			Debug.Log ("HERE WE ARE");
 		}
 			
 

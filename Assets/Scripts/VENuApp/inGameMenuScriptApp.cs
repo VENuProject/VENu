@@ -52,7 +52,9 @@ public class inGameMenuScriptApp: MonoBehaviour {
 			Debug.Log ("Can't find key ShowSimulationOrData in inGameMenuScriptApp.cs.");
 
 
-		if (SceneManager.GetActiveScene ().name == "GameTutorialApp" || SceneManager.GetActiveScene ().name == "GamePlayApp") {
+		if (SceneManager.GetActiveScene ().name == "GameTutorialApp"   || 
+			SceneManager.GetActiveScene ().name == "GamePlayLevel1App" ||
+			SceneManager.GetActiveScene ().name == "GamePlayLevel2App"   ) {
 			isGame = true;
 			showSimulation = showData = false;
 		}

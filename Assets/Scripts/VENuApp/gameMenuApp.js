@@ -189,7 +189,10 @@ function goToRealGameMain(level: int) {
   var cardInit : GameObject;
   for (var child : Transform in canvas.transform)
   {
-    if(child.gameObject.name == "StartGamePanel"){
+    if(child.gameObject.name == "StartGameLevel1Panel" && level == 1 ){
+      child.gameObject.SetActive(true);
+    }
+    if(child.gameObject.name == "StartGameLevel2Panel" && level == 2 ){
       child.gameObject.SetActive(true);
     }
     if(child.gameObject.name == "LoadCardboardPanel"){
