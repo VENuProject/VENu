@@ -181,7 +181,7 @@ function abortTutorial() {
 }
 
 
-function goToRealGameMain() {
+function goToRealGameMain(level: int) {
 
   Screen.orientation = ScreenOrientation.LandscapeLeft;
 
@@ -204,22 +204,24 @@ function goToRealGameMain() {
   if (!PlayerPrefs.HasKey ("PlayWithCardboard"))
     PlayerPrefs.SetInt ("PlayWithCardboard", 0);
 
-  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0)
-    Application.LoadLevel("GamePlayApp");
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0) {
+    if (level == 1) Application.LoadLevel("GamePlayLevel1App");
+    if (level == 2) Application.LoadLevel("GamePlayLevel2App");
+  }
 
   if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1){
     cardInit.SetActive(true);
     yield WaitForSeconds (waitSec);
     //cardInit.SetActive(false);
     Screen.orientation = ScreenOrientation.LandscapeLeft;
-    Application.LoadLevel("GamePlayCardboardApp");
-
+    if (level == 1) Application.LoadLevel("GamePlayLevel1CardboardApp");
+    if (level == 2) Application.LoadLevel("GamePlayLevel2CardboardApp");
   }
    
 }
 
 
-function goToRealGame() {
+function goToRealGame(level: int) {
 
   var canvas = GameObject.Find("MainCanvas");
   for (var child : Transform in canvas.transform)
@@ -229,7 +231,7 @@ function goToRealGame() {
     }
   }
 
-  StartCoroutine(goToRealGameMain()); //need to start a coroutine to use WaitForSeconds.
+  StartCoroutine(goToRealGameMain(level)); //need to start a coroutine to use WaitForSeconds.
 }
 
 function goToRealGameDirectly() {

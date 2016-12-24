@@ -56,8 +56,9 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		} else
 			Debug.Log ("Can't find key ShowSimulationOrData in inGameMenuScriptApp.cs.");
 
-		if (SceneManager.GetActiveScene ().name == "GameTutorialCardboardApp" || 
-			SceneManager.GetActiveScene ().name == "GamePlayCardboardApp") {
+		if (SceneManager.GetActiveScene ().name == "GameTutorialCardboardApp"   || 
+			SceneManager.GetActiveScene ().name == "GamePlayLevel1CardboardApp" ||
+			SceneManager.GetActiveScene ().name == "GamePlayLevel2CardboardApp"    ) {
 			isGame = true;
 			showSimulation = showData = false;
 		}
@@ -88,16 +89,14 @@ public class inGameMenuScriptCardboardApp2: MonoBehaviour {
 		}
 
 		if (isGame) {
-			Debug.Log ("It is game.");
+			// Go in the EventsPrefab_simulation directory and get the prefabs (those are the tracks for the game)
+			Debug.Log ("Showing game.");
 			evtContainer = GameObject.Find ("EventsPrefab_simulation");
-			Debug.Log ("This should be EventsPrefab_...: " + evtContainer.name);
 			foreach (Transform child in evtContainer.transform) {
-				Debug.Log ("The name of the child is " + child.name);
 				prefabsToLoad [nPrefabs] = child.gameObject;
 				nPrefabs++;
 			}
 			Debug.Log ("Event prefabs found: " + (nPrefabs + 1));
-
 		}
 
 		// Start the scene loading the first event prefab. 
