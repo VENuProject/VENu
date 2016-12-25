@@ -52,8 +52,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VENuApp/GameMenuApp.unity
   - enabled: 1
-    path: Assets/Scenes/VENuApp/GamePlayApp.unity
-  - enabled: 1
     path: Assets/Scenes/VENuApp/GameTutorialCardboardApp.unity
   - enabled: 1
-    path: Assets/Scenes/VENuApp/GamePlayCardboardApp.unity
+    path: Assets/Scenes/VENuApp/GamePlayLevel1App.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/GamePlayLevel1CardboardApp.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/GamePlayLevel2App.unity
+  - enabled: 1
+    path: Assets/Scenes/VENuApp/GamePlayLevel2CardboardApp.unity
