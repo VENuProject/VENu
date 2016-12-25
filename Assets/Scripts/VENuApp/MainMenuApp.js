@@ -76,6 +76,28 @@ function goToEventDisplay() {
 
 }
 
+function goToCardboardHelp() {
+
+var canvas = GameObject.Find("MenuCanvas");
+  for (var child : Transform in canvas.transform) {
+    if(child.gameObject.name == "CardboardExplanationPanel"){
+      child.gameObject.SetActive(true);
+    }
+  }
+
+}
+
+function deactivateCardboardHelp() {
+
+var canvas = GameObject.Find("MenuCanvas");
+  for (var child : Transform in canvas.transform) {
+    if(child.gameObject.name == "CardboardExplanationPanel"){
+      child.gameObject.SetActive(false);
+    }
+  }
+
+}
+
 function goToCardboardEventDisplayMain() { 
 
   Screen.orientation = ScreenOrientation.LandscapeLeft;
