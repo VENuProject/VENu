@@ -362,8 +362,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1163327659}
-        m_MethodName: 
+      - m_Target: {fileID: 1163327666}
+        m_MethodName: deactivateCongratsAndEndGamePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2919,8 +2919,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 986415393}
   m_HandleRect: {fileID: 986415392}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.5
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6853,7 +6853,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Insert your smartphone inside your Google Cardboard
+  m_Text: Insert your smartphone inside your VR viewer
 --- !u!222 &1560163637
 CanvasRenderer:
   m_ObjectHideFlags: 0

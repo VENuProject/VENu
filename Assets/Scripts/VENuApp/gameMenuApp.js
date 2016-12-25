@@ -84,6 +84,7 @@ function Start () {
       var canvasm = GameObject.Find("MainCanvas");
       for (var child : Transform in canvasm.transform){
         if(child.gameObject.name == "CongratsAndEndGame"){
+          Screen.orientation = ScreenOrientation.LandscapeLeft;
           child.gameObject.SetActive(true);
 
         }
@@ -382,6 +383,7 @@ function deactivateCongratsAndEndGamePanel () {
   {
     if(child.gameObject.name == "CongratsAndEndGame"){
       child.gameObject.SetActive(false);
+      Screen.orientation = ScreenOrientation.Portrait;
     }
   }
 
