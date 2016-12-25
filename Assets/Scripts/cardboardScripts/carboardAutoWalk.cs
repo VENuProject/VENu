@@ -12,6 +12,8 @@ public class carboardAutoWalk : MonoBehaviour {
 	private bool dontShowIcon = false;
 	private Collider floorMenuCollider;
 
+	private GameObject centralPointer;
+
 	private const int RIGHT_ANGLE = 90; 
 
 	// This variable determinates if the player will move or not 
@@ -54,6 +56,25 @@ public class carboardAutoWalk : MonoBehaviour {
 				foreach (Transform child2 in child.transform) {
 					if (child2.name == "CubeCollider") {
 						floorMenuCollider = child2.GetComponent<Collider> ();
+					}
+				}
+			}
+		}
+
+		// Get the Cardboard Central Pointer
+		foreach (Transform child in rfps.transform) {
+			if (child.name == "CardboardMain") {
+				foreach (Transform child2 in child.transform) {
+					if (child2.name == "Head") {
+						foreach (Transform child3 in child2.transform) {
+							if (child3.name == "Main Camera") {
+								foreach (Transform child4 in child3.transform) {
+									if (child4.name == "Cardboard Central Pointer") {
+										centralPointer = child4.gameObject;
+									}
+								}
+							}
+						}	
 					}
 				}
 			}
@@ -170,6 +191,9 @@ public class carboardAutoWalk : MonoBehaviour {
 
 	void WalkingIconOn() {
 
+		// Remove central pointer
+		centralPointer.SetActive(false);
+
 		GameObject rfps = GameObject.Find ("cardboard_RFPS");
 		foreach (Transform child in rfps.transform) {
 			if (child.name == "CardboardMain") {
@@ -193,9 +217,13 @@ public class carboardAutoWalk : MonoBehaviour {
 				}
 			}
 		}
+
 	}
 
 	void StoppingIconOn() {
+
+		// Remove central pointer
+		centralPointer.SetActive(false);
 
 		GameObject rfps = GameObject.Find ("cardboard_RFPS");
 		foreach (Transform child in rfps.transform) {
@@ -226,6 +254,9 @@ public class carboardAutoWalk : MonoBehaviour {
 
 		yield return new WaitForSeconds(waitSec);
 		panel.SetActive (false);
+
+		// Reactivate central pointer
+		centralPointer.SetActive(true);
 
 	}
 }
