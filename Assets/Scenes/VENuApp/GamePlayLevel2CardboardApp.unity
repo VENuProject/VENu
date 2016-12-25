@@ -3597,6 +3597,7 @@ GameObject:
   - component: {fileID: 1555873564}
   - component: {fileID: 1555873563}
   - component: {fileID: 1555873562}
+  - component: {fileID: 1555873565}
   m_Layer: 5
   m_Name: FloorCanvas
   m_TagString: Untagged
@@ -3680,6 +3681,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1555873565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1555873560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac20a363362e4af5a1d2d51966ab8a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _debug: 0
 --- !u!1 &1602341002
 GameObject:
   m_ObjectHideFlags: 0
