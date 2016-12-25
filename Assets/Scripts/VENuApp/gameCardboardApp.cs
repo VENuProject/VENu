@@ -185,6 +185,7 @@ public class gameCardboardApp : MonoBehaviour {
 						}
 
 						// For the real game
+						// Level 1
 						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_2.json")
 							goToNext = true;
 						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_6.json")
@@ -195,7 +196,17 @@ public class gameCardboardApp : MonoBehaviour {
 							goToNext = true;
 						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_9.json")
 							goToNext = true;
-
+						// Level 2
+						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_14.json")
+							goToNext = true;
+						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_15.json")
+							goToNext = true;
+						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_17.json")
+							goToNext = true;
+						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_19.json")
+							goToNext = true;
+						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_21.json")
+							goToMainMenu = true;
 					}
 				}
 

@@ -92,8 +92,9 @@ public class carboardAutoWalk : MonoBehaviour {
 		bool lookingAtMenu = floorMenuCollider.Raycast(head.Gaze, out hit, Mathf.Infinity);
 
 		bool lookingAtTrack = false;
-		if (SceneManager.GetActiveScene ().name == "GameTutorialCardboardApp" 
-			|| SceneManager.GetActiveScene ().name == "GamePlayCardboardApp") {
+		if (SceneManager.GetActiveScene ().name == "GameTutorialCardboardApp"   ||
+			SceneManager.GetActiveScene ().name == "GamePlayLevel1CardboardApp" ||
+			SceneManager.GetActiveScene ().name == "GamePlayLevel2CardboardApp"   ) {
 			lookingAtTrack = CheckIfLookingAtTrack ();
 			if (lookingAtTrack)
 				lookingAtMenu = true; // act like if you were looking at the menu for now
