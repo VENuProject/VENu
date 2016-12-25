@@ -1400,7 +1400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &430353176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2254,8 +2254,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 986415393}
   m_HandleRect: {fileID: 986415392}
   m_Direction: 0
-  m_Value: 0.5
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2508,6 +2508,9 @@ MonoBehaviour:
 
 
     To win you need to <b>double</b> click on the neutrino induced tracks in the detector.
+
+
+    Neutrino events are shown in white.
 
 
     Let''s start with only neutrino-like events.'

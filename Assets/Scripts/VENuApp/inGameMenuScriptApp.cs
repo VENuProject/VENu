@@ -294,6 +294,20 @@ public class inGameMenuScriptApp: MonoBehaviour {
 		else nuBeam.SetActive (true);
 
 	}
+
+	public void deactivateHelpPanel() {
+
+		GameObject helpCanvas = GameObject.Find ("HelpCanvas");
+
+		foreach (Transform child in helpCanvas.transform) {
+			if (child.name == "HelpPanel") {
+				child.gameObject.SetActive (false);
+			}
+		}
+
+	}
+
+
 	/*
 
 
