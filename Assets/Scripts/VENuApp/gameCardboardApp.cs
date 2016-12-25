@@ -167,7 +167,7 @@ public class gameCardboardApp : MonoBehaviour {
 				numberOfClicks = 0;
 
 
-				bool goToNext = false, goToNextWithCosmics = false, goToMainMenu = false, goToCardboardGame = false;
+				bool goToNext = false, goToNextWithCosmics = false, goToMainMenu = false, goToCardboardGame = false, goToLevel2 = false, gameIsFinished = false;
 
 				// First undertstand what to do now
 				// Check what is the active prefab and decide to go back to main menu or not.
@@ -192,8 +192,10 @@ public class gameCardboardApp : MonoBehaviour {
 							goToNext = true;
 						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_6.json")
 							goToNext = true;
-						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_7.json")
+						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_7.json") {
 							goToMainMenu = true;
+							goToLevel2 = true;
+						}
 						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_8.json")
 							goToNext = true;
 						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_9.json")
@@ -207,26 +209,37 @@ public class gameCardboardApp : MonoBehaviour {
 							goToNext = true;
 						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_19.json")
 							goToNext = true;
-						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_21.json")
+						if (child.name == "prodgenie_bnb_nu_cosmic_uboone_game_final_21.json") {
 							goToMainMenu = true;
+							gameIsFinished = true;
+						}
 					}
 				}
 
 				neutrinoEventFound = true;
 				continueSearchPanel.SetActive (false);
-				if (goToNext)
+				if (goToNext) {
 					goNextPanel.SetActive (true);
-				if (goToNextWithCosmics)
+					// Activate the "Next Event" button
+					buttonN.interactable = true;
+				}
+				if (goToNextWithCosmics) {
 					withCosmicPanel.SetActive (true);
+					// Activate the "Next Event" button
+					buttonN.interactable = true;
+				}
 				if (goToMainMenu)
 					congratsPanel.SetActive (true);
 				if (goToCardboardGame) {
 					goToCardboardRealGame ();
-					Debug.Log ("HERE");
 				}
-
-				// Activate the "Next Event" button
-				buttonN.interactable = true;
+				if (goToLevel2) {
+					goToLevel2Game ();
+				}
+				if (gameIsFinished) {
+					congratsAndEndGame ();
+				}
+					
 
 			}
 			previousClickTime = Time.time;
@@ -249,21 +262,43 @@ public class gameCardboardApp : MonoBehaviour {
 		}
 	}
 
+	void congratsAndEndGame() {
+		StartCoroutine (congratsAndEndGameMain ());
+	}
+	IEnumerator congratsAndEndGameMain() {
+	    yield return new WaitForSeconds(2.0F);
+		PlayerPrefs.SetInt ("CongratsAndEndGameMain", 1);
+		Application.LoadLevel("GameMenuApp");
+	}
+
 
 	void goToCardboardRealGame() {
 
 		StartCoroutine (goToCardboardRealGameMain());
 
 	}
-
 	IEnumerator goToCardboardRealGameMain() {
 		yield return new WaitForSeconds(1.5F);
 		congratsPanel.SetActive (false);
 		cardboardGame.SetActive (true);
 		yield return new WaitForSeconds(1.5F);
-		Application.LoadLevel("GamePlayCardboardApp");
+		Application.LoadLevel("GamePlayLevel1CardboardApp");
 	}
 
+
+
+	void goToLevel2Game() {
+
+		StartCoroutine (goToLevel2GameMain());
+
+	}
+	IEnumerator goToLevel2GameMain() {
+		yield return new WaitForSeconds(1.5F);
+		congratsPanel.SetActive (false);
+		cardboardGame.SetActive (true);
+		yield return new WaitForSeconds(1.5F);
+		Application.LoadLevel("GamePlayLevel2CardboardApp");
+	}
 
 
 	void removePanel(){

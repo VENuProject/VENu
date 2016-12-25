@@ -7121,7 +7121,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 5}
-  m_SizeDelta: {x: 465.25, y: 203.6}
+  m_SizeDelta: {x: 616.9, y: 405.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973172697
 MonoBehaviour:
@@ -7155,7 +7155,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Congratulations! \nYou found all the neutrino events!"
+  m_Text: "Congratulations! \nYou found all the neutrino events!\n\nRemove your phone
+    from the VR viewer."
 --- !u!222 &1973172698
 CanvasRenderer:
   m_ObjectHideFlags: 0

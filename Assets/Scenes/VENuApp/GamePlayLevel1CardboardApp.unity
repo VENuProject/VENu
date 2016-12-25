@@ -613,7 +613,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &440135155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2103,8 +2103,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Congratulations! \nYou have completed \nthe tutorial!\n<color=maroon><b>Now
-    moving \nto the real game.</b></color>\n"
+  m_Text: "Congratulations! \nYou have completed \nlevel 1!\n<color=maroon><b>Now
+    moving \nto level 2.</b></color>\n"
 --- !u!222 &1206331218
 CanvasRenderer:
   m_ObjectHideFlags: 0

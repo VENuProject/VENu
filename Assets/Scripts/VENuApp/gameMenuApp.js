@@ -77,6 +77,24 @@ function Start () {
     }
   }
 
+  if (PlayerPrefs.HasKey("CongratsAndEndGameMain")) {
+    if(PlayerPrefs.GetInt("CongratsAndEndGameMain") == 1) {
+
+      PlayerPrefs.SetInt("CongratsAndEndGameMain", 0);
+      var canvasm = GameObject.Find("MainCanvas");
+      for (var child : Transform in canvasm.transform){
+        if(child.gameObject.name == "CongratsAndEndGame"){
+          child.gameObject.SetActive(true);
+
+        }
+      }
+    }
+  }
+
+
+
+
+
 }
 
 
@@ -356,3 +374,18 @@ function setGameCardboardOnOff() {
   }
 
 }
+
+function deactivateCongratsAndEndGamePanel () {
+
+  var canvasm = GameObject.Find("MainCanvas");
+  for (var child : Transform in canvasm.transform)
+  {
+    if(child.gameObject.name == "CongratsAndEndGame"){
+      child.gameObject.SetActive(false);
+    }
+  }
+
+}
+
+
+
