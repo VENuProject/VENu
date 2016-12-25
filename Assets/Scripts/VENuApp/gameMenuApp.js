@@ -19,7 +19,12 @@ function Start () {
   PlayerPrefs.SetInt ("PlayWithCardboard", 0); // FIXME (would like to remember preference troughout the game)
 
   var scene = SceneManager.GetActiveScene();
-  if (scene.name == "GamePlayApp" || scene.name == "GameTutorialApp") Screen.orientation = ScreenOrientation.LandscapeLeft;
+  if (scene.name == "GamePlayLevel1App"          || 
+      scene.name == "GamePlayLevel2App"          ||
+      scene.name == "GamePlayLevel1CardboardApp" ||
+      scene.name == "GamePlayLevel2CardboardApp" ||
+      scene.name == "GameTutorialApp") 
+      Screen.orientation = ScreenOrientation.LandscapeLeft;
   else Screen.orientation = ScreenOrientation.Portrait;
   Debug.Log("The active scene name is " + scene.name);
 
@@ -208,6 +213,7 @@ function goToRealGameMain(level: int) {
     PlayerPrefs.SetInt ("PlayWithCardboard", 0);
 
   if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0) {
+    Screen.orientation = ScreenOrientation.LandscapeLeft;
     if (level == 1) Application.LoadLevel("GamePlayLevel1App");
     if (level == 2) Application.LoadLevel("GamePlayLevel2App");
   }

@@ -166,6 +166,8 @@ public class inGameMenuScriptApp: MonoBehaviour {
 	}
 		
 	void Start () {
+
+		Screen.orientation = ScreenOrientation.LandscapeLeft;
 		
 		me = GetComponent<RectTransform>();
 		
