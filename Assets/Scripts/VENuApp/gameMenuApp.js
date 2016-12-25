@@ -134,6 +134,36 @@ function goToTutorial() {
 
 }
 
+function prepareTutorial() {
+
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 0) {
+
+    goToTutorial();
+
+  }
+
+  if (PlayerPrefs.GetInt ("PlayWithCardboard") == 1) {
+
+    var canvas = GameObject.Find("MainCanvas");
+      for (var child : Transform in canvas.transform) {
+        if(child.gameObject.name == "CardboardExplanationPanel"){
+          child.gameObject.SetActive(true);
+        }
+      }
+   }
+}
+
+function deactivateCardbordHelp() {
+
+var canvas = GameObject.Find("MainCanvas");
+  for (var child : Transform in canvas.transform) {
+    if(child.gameObject.name == "CardboardExplanationPanel"){
+      child.gameObject.SetActive(false);
+    }
+  }
+
+}
+
 function goToTutorialDirectly() {
 
   // If the user didn't decide, then start normal game

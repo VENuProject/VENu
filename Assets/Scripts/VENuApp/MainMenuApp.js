@@ -78,6 +78,8 @@ function goToEventDisplay() {
 
 function goToCardboardHelp() {
 
+Screen.orientation = ScreenOrientation.LandscapeLeft;
+
 var canvas = GameObject.Find("MenuCanvas");
   for (var child : Transform in canvas.transform) {
     if(child.gameObject.name == "CardboardExplanationPanel"){

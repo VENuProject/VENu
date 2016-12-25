@@ -11,12 +11,26 @@ public class floorMenuCardboard : MonoBehaviour {
 	[Tooltip("Debug mode")]
 	public bool _debug;
 
+	private Collider floorMenuCollider;
+
 	CardboardHead head = null;
 
 	// Use this for initialization
 	void Start () {
 
 		head = Camera.main.GetComponent<StereoController>().Head;
+
+		// Get the floor panel cube (for the collider)
+		GameObject rfps = GameObject.Find ("cardboard_RFPS");
+		foreach (Transform child in rfps.transform) {
+			if (child.name == "FloorCanvas") {
+				foreach (Transform child2 in child.transform) {
+					if (child2.name == "CubeCollider") {
+						floorMenuCollider = child2.GetComponent<Collider> ();
+					}
+				}
+			}
+		}
 		
 	}
 	
@@ -33,11 +47,19 @@ public class floorMenuCardboard : MonoBehaviour {
 			Debug.Log ("**********");
 		}
 
-		transform.eulerAngles = new Vector3(
-			transform.eulerAngles.x,
-			head.transform.eulerAngles.y,
-			transform.eulerAngles.z
-		);
+		// Understand if it's pointing to the floor menu
+		RaycastHit hit;
+		bool lookingAtMenu = floorMenuCollider.Raycast(head.Gaze, out hit, Mathf.Infinity);
+
+		// If we are not looking at the menu, than rotate the floor menu accordingly
+		if (!lookingAtMenu) {
+
+			transform.eulerAngles = new Vector3 (
+				transform.eulerAngles.x,
+				head.transform.eulerAngles.y,
+				transform.eulerAngles.z
+			);
+		}
 			
 	}
 }
