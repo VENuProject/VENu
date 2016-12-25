@@ -153,6 +153,8 @@ public class gameCardboardApp : MonoBehaviour {
 
 		if (Input.GetMouseButtonDown (0) && lookingAtNuTrack) {
 
+			Debug.Log ("HERE");
+
 			numberOfClicks++;
 
 			thisClickTime = Time.time;
@@ -173,7 +175,7 @@ public class gameCardboardApp : MonoBehaviour {
 					Debug.Log ("The name of the child is " + child.name);
 					if (child.gameObject.activeInHierarchy) {
 						// For the turorial
-						if (child.name == "prodgenie_bnb_nu_uboone_new_1.json_testGame")
+						if (child.name == "prodgenie_bnb_nu_uboone_game_1.json")
 							goToNext = true;
 						if (child.name == "prodgenie_bnb_nu_uboone_new_2.json_testGame")
 							goToNextWithCosmics = true;
