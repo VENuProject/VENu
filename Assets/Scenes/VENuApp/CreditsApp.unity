@@ -1217,19 +1217,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\n<size=50><color=green><b>Mobile App, Cardboard Version and Game</b></color></size>\nMarco
-    Del Tutto - University of Oxford\n\n<size=50><color=green><b>Core Development</b></color></size>\nAlistair
-    McLean - New Mexico State University \nMarco Del Tutto - University of Oxford\nMatt
-    Bass - University of Oxford\nBen Carls - Fermilab\nOwen Crawford - Bradley University\nAriana
-    Hackenburg - Yale University\nGene Kim - Illinois Math and Science Academy  \nTia
-    Miceli - New Mexico State University\nSean Ngo - Illinois Math and Science Academy\nSteve
-    Pate - New Mexico State University\nJen Raaf - Fermilab\nThomas Wester - University
-    of Chicago\nSam Zeller - Fermilab\n\n<size=50><color=green><b>Learn Sections</b></color></size>\nMarco
-    Del Tutto - University of Oxford\nAnn Laube - University of Oxford\n\n<size=50><color=green><b>Graphics
-    and Design</b></color></size>\nMarco Del Tutto - University of Oxford\n\n<size=50><color=green><b>Special
-    Thanks to</b></color></size>\nSam Zeller - Fermilab \nRoxanne Guenette - University
-    of Oxford\n\n\nMain Menu Background image: MicroBooNE run 3493, event 41075, recorded
-    on October 23, 2015.\n\n\n\n"
+  m_Text: "\n<size=50><color=green><b>Mobile App, Cardboard Version and Game</b></color></size>\nMarco
+    Del Tutto <color=grey>University of Oxford</color>\n\n<size=50><color=green><b>Core
+    Development</b></color></size>\nAlistair McLean <color=grey>New Mexico State University</color>\nMarco
+    Del Tutto <color=grey>University of Oxford</color>\nMatt Bass <color=grey>University
+    of Oxford</color>\nBen Carls <color=grey>Fermilab</color>\nOwen Crawford <color=grey>Bradley
+    University</color>\nAriana Hackenburg <color=grey>Yale University</color>\nGene
+    Kim <color=grey>Illinois Math and Science Academy</color> \nTia Miceli <color=grey>New
+    Mexico State University</color>\nSean Ngo <color=grey>Illinois Math and Science
+    Academy</color>\nSteve Pate <color=grey>New Mexico State University</color>\nJen
+    Raaf <color=grey>Fermilab</color>\nThomas Wester <color=grey>University of Chicago</color>\nSam
+    Zeller <color=grey>Fermilab</color>\n\n<size=50><color=green><b>Learn Sections</b></color></size>\nMarco
+    Del Tutto <color=grey>University of Oxford</color>\nAnn Laube <color=grey>University
+    of Oxford</color>\n\n<size=50><color=green><b>Graphics and Design</b></color></size>\nMarco
+    Del Tutto <color=grey>University of Oxford</color>\n\n<size=50><color=green><b>Special
+    Thanks to</b></color></size>\nSam Zeller <color=grey>Fermilab</color>\nRoxanne
+    Guenette <color=grey>University of Oxford</color>\n\n\n<color=grey>Main Menu Background
+    image: MicroBooNE run 3493, event 41075, recorded on October 23, 2015</color>\n"
 --- !u!222 &1899024585
 CanvasRenderer:
   m_ObjectHideFlags: 0

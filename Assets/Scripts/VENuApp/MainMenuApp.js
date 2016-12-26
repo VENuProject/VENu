@@ -16,6 +16,8 @@ function Start () {
 
   Screen.orientation = ScreenOrientation.Portrait;
 
+  PlayerPrefs.DeleteAll(); // Reset all player preferences
+
   var scene = SceneManager.GetActiveScene();
   if (scene.name == "MainMenuApp"){	
     var canvas = GameObject.Find("MenuCanvas");
