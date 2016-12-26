@@ -33,6 +33,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 	int currentPrefab = 0;
 	GameObject[] prefabsToLoad = new GameObject[100];
 	string[] namePrefabsToLoad = new string[100];
+	string[] runInfoPrefabsToLoad = new string[100];
 	GameObject evtContainer;
 
 
@@ -72,45 +73,16 @@ public class inGameMenuScriptApp: MonoBehaviour {
 			}
 			Debug.Log ("Event prefabs found: " + nPrefabs + 1);
 
-
-			/*
-			if(SceneManager.GetActiveScene ().name == "GameTutorialApp") {
-				namePrefabsToLoad [0] = "Tracks/prodgenie_bnb_nu_uboone_new_1.json_testGame"; nPrefabs++;
-				namePrefabsToLoad [1] = "Tracks/prodgenie_bnb_nu_uboone_new_2.json_testGame"; nPrefabs++;
-				namePrefabsToLoad [2] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_10.json"; nPrefabs++;
-				namePrefabsToLoad [3] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_12.json"; nPrefabs++; 
-			}
-			if(SceneManager.GetActiveScene ().name == "GamePlayApp") {
-				namePrefabsToLoad [0] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_2.json"; nPrefabs++;
-				namePrefabsToLoad [1] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_6.json"; nPrefabs++;
-				namePrefabsToLoad [2] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_7.json"; nPrefabs++;
-				namePrefabsToLoad [3] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_8.json"; nPrefabs++; 
-				namePrefabsToLoad [4] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_9.json"; nPrefabs++; 
-				namePrefabsToLoad [5] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_10.json"; nPrefabs++; 
-				namePrefabsToLoad [6] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_game_final_12.json"; nPrefabs++; 
-			}*/
-
 		}
 
-
-		if (showSimulation) {/*
-			evtContainer = GameObject.Find ("EventsPrefab_simulation");
-
-			Debug.Log ("This should be EventsPrefab_...: " + evtContainer.name);
-			foreach (Transform child in evtContainer.transform) {
-				Debug.Log ("The name of the child is " + child.name);
-				prefabsToLoad [nPrefabs] = child.gameObject;
-				nPrefabs++;
-			}
-			Debug.Log ("Event prefabs found: " + nPrefabs + 1);*/
-
+		if (showSimulation) {
 			namePrefabsToLoad [0] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_5.json"; nPrefabs++;
 			namePrefabsToLoad [1] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_16.json"; nPrefabs++;
 			namePrefabsToLoad [2] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_13.json"; nPrefabs++;
 			namePrefabsToLoad [3] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_12.json"; nPrefabs++; 
 			namePrefabsToLoad [4] = "Tracks/prodgenie_bnb_nu_cosmic_uboone_10.json"; nPrefabs++;
 		}
-
+		showData = true;
 		if (showData) {
 			namePrefabsToLoad [0] = "SpacePoints/data_ccpi0_r5975e4262.json.spacepoints_3cm.json"; nPrefabs++;
 			namePrefabsToLoad [1] = "SpacePoints/data_ccnumu_r5153e2919.json.spacepoints_3cm.json"; nPrefabs++;
@@ -123,39 +95,17 @@ public class inGameMenuScriptApp: MonoBehaviour {
 			namePrefabsToLoad [8] = "SpacePoints/data_ccnumu_r5820_e585.json.spacepoints_3cm.json"; nPrefabs++;
 			namePrefabsToLoad [9] = "SpacePoints/data_ccnumu_r5823_e6135.json.spacepoints_3cm.json"; nPrefabs++;
 
-			/*prefabsToLoad [0] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccpi0_r5975e4262.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [0].SetActive (false);
-			prefabsToLoad [1] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5153e2919.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [1].SetActive (false);
-			prefabsToLoad [2] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5153e2929.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [2].SetActive (false);
-			prefabsToLoad [3] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5155e6623.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [3].SetActive (false);
-			prefabsToLoad [4] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5189e665.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [4].SetActive (false);
-			prefabsToLoad [5] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5192e1218.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [5].SetActive (false);
-			prefabsToLoad [6] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5208_e5108.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [6].SetActive (false);
-			prefabsToLoad [7] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5607_e2873.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [7].SetActive (false);
-			prefabsToLoad [8] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5820_e585.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [8].SetActive (false);
-			prefabsToLoad [9] = (GameObject)Instantiate (Resources.Load ("SpacePoints/data_ccnumu_r5823_e6135.json.spacepoints_3cm.json"));
-			nPrefabs++;
-			prefabsToLoad [9].SetActive (false);*/
-
+			runInfoPrefabsToLoad [0] = "MicroBooNE Run 5975, Event 4262";
+			runInfoPrefabsToLoad [1] = "MicroBooNE Run 5153, Event 2919";
+			runInfoPrefabsToLoad [2] = "MicroBooNE Run 5153, Event 2929";
+			runInfoPrefabsToLoad [3] = "MicroBooNE Run 5155, Event 6623";
+			runInfoPrefabsToLoad [4] = "MicroBooNE Run 5189, Event 665";
+			runInfoPrefabsToLoad [5] = "MicroBooNE Run 5192, Event 1218";
+			runInfoPrefabsToLoad [6] = "MicroBooNE Run 5208, Event 5108";
+			runInfoPrefabsToLoad [7] = "MicroBooNE Run 5607, Event 2873";
+			runInfoPrefabsToLoad [8] = "MicroBooNE Run 5820, Event 585";
+			runInfoPrefabsToLoad [9] = "MicroBooNE Run 5823, Event 6135";
 		}
-
 
 
 		// Start the scene loading the first event prefab. 
@@ -255,7 +205,10 @@ public class inGameMenuScriptApp: MonoBehaviour {
 		prefabsToLoad[currentPrefab].SetActive(true);
 		//Resources.UnloadUnusedAssets ();
 
-
+		// If we are loading real data, then also display the run, event infos
+		if (showData) {
+			displayRunInfo (currentPrefab);
+		}
 
 	}
 
@@ -275,6 +228,34 @@ public class inGameMenuScriptApp: MonoBehaviour {
 		if (!isGame) prefabsToLoad[currentPrefab] = (GameObject)Instantiate (Resources.Load (namePrefabsToLoad [currentPrefab]));
 		prefabsToLoad[currentPrefab].SetActive(true);
 		//Resources.UnloadUnusedAssets ();
+
+		// If we are loading real data, then also display the run, event infos
+		if (showData) {
+			displayRunInfo (currentPrefab);
+		}
+
+	}
+
+	public void displayRunInfo(int currentPrefab) {
+
+		//yield return new WaitForSeconds(1.0F);
+
+		GameObject thisTextObj = GameObject.Find ("RunInfoCanvas"); // this assignment is just temporary
+
+		GameObject runInfoCanvas = GameObject.Find ("RunInfoCanvas");
+		foreach (Transform child in runInfoCanvas.transform) {
+			if (child.name == "Panel") {
+				child.gameObject.SetActive (true);
+				foreach (Transform child2 in child.transform) {
+					if (child2.name == "Text") {
+						thisTextObj = child2.gameObject;
+					}
+				}
+			}
+		}
+
+		thisTextObj.GetComponentInChildren<Text>().text = runInfoPrefabsToLoad[currentPrefab];
+
 
 	}
 
@@ -305,6 +286,8 @@ public class inGameMenuScriptApp: MonoBehaviour {
 			}
 		}
 
+		// Also display run info for the first event
+		displayRunInfo(0);
 	}
 
 
