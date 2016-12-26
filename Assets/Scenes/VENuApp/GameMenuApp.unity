@@ -1657,8 +1657,8 @@ MonoBehaviour:
   m_Text: '<size=60><color=grey><b>4/5</b></color></size>
 
 
-    A neutrino event will look like a long straigth track (a muon!) and some other
-    small tracks (protons, pions and maybe others!)'
+    A typical muon-neutrino event will look like a long straigth track (a muon!) and
+    some other small tracks (protons, pions or others!)'
 --- !u!222 &380803640
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2919,8 +2919,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 986415393}
   m_HandleRect: {fileID: 986415392}
   m_Direction: 0
-  m_Value: 0.5
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -4335,7 +4335,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -132.8}
-  m_SizeDelta: {x: 695.63, y: 287.75}
+  m_SizeDelta: {x: 695.63, y: 262.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &951975769
 MonoBehaviour:
@@ -4559,11 +4559,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '<size=60><color=grey><b>3/5</b></color></size>
-
-
-    When neutrinos interact with the liquid argon, new particles are produced. Especially,
-    muon-neutrinos quite always give rise to muon particles.'
+  m_Text: "<size=60><color=grey><b>3/5</b></color></size>\n\nWhen neutrinos interact
+    with the liquid argon, new particles are produced. \nIn particular, muon-neutrinos
+    quite always give rise to muon particles."
 --- !u!222 &957615352
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4972,8 +4970,8 @@ MonoBehaviour:
   m_Text: '<size=60><color=grey><b>2/5</b></color></size>
 
 
-    When neutrinos reach the MicroBooNE detector they have a very small probability
-    to interact, but some of them will!'
+    Some of the neutrinos that reach the MicroBooNE detector interact with the argon
+    atoms inside it.'
 --- !u!222 &1059931774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5181,7 +5179,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -93.3}
+  m_AnchoredPosition: {x: 0, y: -116}
   m_SizeDelta: {x: 603.1, y: 246.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126467336
@@ -5494,7 +5492,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Learn about
 
-    cross-sections'
+    cross sections'
 --- !u!222 &1186770143
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7194,7 +7192,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -86.7}
-  m_SizeDelta: {x: 712.4, y: 308.5}
+  m_SizeDelta: {x: 415.9, y: 305.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1636567269
 MonoBehaviour:
@@ -8693,8 +8691,8 @@ MonoBehaviour:
   m_Text: '<size=60><color=grey><b>5/5</b></color></size>
 
 
-    Unfortunately, cosmic particles coming from the outer space can create tracks
-    in the detector making difficult to spot the neutrino induced tracks.'
+    Unfortunately, particles coming from the outer space can create tracks in the
+    detector making difficult to spot the neutrino induced tracks.'
 --- !u!222 &2141956364
 CanvasRenderer:
   m_ObjectHideFlags: 0
