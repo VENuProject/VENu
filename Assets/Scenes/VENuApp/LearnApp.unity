@@ -123,8 +123,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: -580.3}
-  m_SizeDelta: {x: 644, y: 378.7}
+  m_AnchoredPosition: {x: -0.000011444092, y: -192}
+  m_SizeDelta: {x: 644, y: 464.8}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &5067445
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: ec033abc8fffd40239b42bce8ce2297f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b9b31b9a0038d484087e4205004a1e3f, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -253,7 +253,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: -619.3}
+  m_AnchoredPosition: {x: -0.000011444092, y: -123.7}
   m_SizeDelta: {x: 661, y: 322.5}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &73003060
@@ -395,7 +395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: -668.66}
+  m_AnchoredPosition: {x: -0.000011444092, y: -121.5}
   m_SizeDelta: {x: 579.3, y: 495.7}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &187729247
@@ -1269,7 +1269,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1313,7 +1313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.33517998
+      value: 0.41522253
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -1329,16 +1329,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
-      value: "<size=70><color=green><b>Neutrino interactions</b></color></size>\n\nScientists
+      value: "<size=70><color=green><b>Neutrino\ninteractions</b></color></size>\n\n\n\n\n\n\n\n\n\n\n\nScientists
         can only detect the presence of a neutrino in the experiment if it interacts
-        with the detector. \n\n\n\n\n\n\n\n\n\n\nThere are two different ways a neutrino
-        can interact:\n\n<b>Charged-current</b>, short CC, interactions: the neutrino
-        converts into its charged lepton partner. So a muon-neutrino will produce
-        a muon particle and an electron-neutrino an electron particle.\n\n<b>Neutral-current</b>,
-        short NC, interactions: the neutrino remains a neutrino, but transfers energy
-        to whatever it interacted with (in our case the MicroBooNE detector). These
-        interactions are hard to reveal because there are no muon or electron particles
-        produced that can \u201Ctag\u201D the interaction."
+        with the detector. \n\nThere are two different ways a neutrino can interact:\n\n<b>Charged-current</b>,
+        short CC, interactions: the neutrino converts into its charged lepton partner.
+        So a muon-neutrino will produce a muon particle and an electron-neutrino an
+        electron particle.\n\n<b>Neutral-current</b>, short NC, interactions: the
+        neutrino remains a neutrino, but transfers energy to whatever it interacted
+        with (in our case the MicroBooNE detector). These interactions are hard to
+        reveal because there are no muon or electron particles produced that can \u201Ctag\u201D
+        the interaction."
       objectReference: {fileID: 0}
     - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_IsActive
@@ -1358,7 +1358,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 1444
+      value: 1641.65
       objectReference: {fileID: 0}
     - target: {fileID: 22426686, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1375,6 +1375,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22491342, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
@@ -2374,7 +2378,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.046673298
+      value: 0.4311111
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -2401,10 +2405,27 @@ Prefab:
       value: '<size=70><color=green><b>What is MicroBooNE?</b></color></size>
 
 
-        MicroBooNE is an experiment at Fermilab (near Chicago in the USA) designed
-        to study neutrino physics. A neutrino beam is produced inside the Fermilab
-        laboratory and is directed towards the MicroBooNE detector which tries to
-        detect these neutrinos and shed light on some of their mysteries.
+
+
+
+
+
+
+
+
+
+
+
+
+        MicroBooNE is an experiment at Fermilab designed to study neutrino physics.
+        It is currently operating a large 170 ton Liquid Argon Time Projection Chamber
+        (LArTPC) that is located on the Booster neutrino beam line at Fermilab. The
+        experiment first started collecting neutrino data in October 2015. MicroBooNE
+        will measure low energy neutrino cross sections and investigate the low energy
+        excess events observed by the MiniBooNE experiment. The detector also serves
+        as a next step in a phased program towards the construction of massive kiloton
+        scale LArTPC detectors for future long-baseline neutrino physics (DUNE) and
+        is the first detector in the short-baseline neutrino program at Fermilab.
 
 '
       objectReference: {fileID: 0}
@@ -2414,7 +2435,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 1007
+      value: 1687.5
       objectReference: {fileID: 0}
     - target: {fileID: 22426686, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -2431,6 +2452,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22491342, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
@@ -2472,7 +2497,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: -265.8}
+  m_AnchoredPosition: {x: -0.000011444092, y: -179.07}
   m_SizeDelta: {x: 694.6, y: 354.6}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &870030876
@@ -3233,8 +3258,8 @@ Transform:
   - {fileID: 1118469803}
   - {fileID: 829499149}
   - {fileID: 1703610687}
-  - {fileID: 1437925966}
   - {fileID: 440554864}
+  - {fileID: 1437925966}
   - {fileID: 423667453}
   - {fileID: 860021070}
   - {fileID: 1377196569}
@@ -3593,7 +3618,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.4833154
+      value: 0.50199723
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -3609,17 +3634,17 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
-      value: "<size=70><color=green><b>Cosmic rays</b></color></size>\n\nCosmic rays
-        are energetic, subatomic particles from outside the Earth's atmosphere. Upon
-        impact with the Earth's atmosphere, cosmic rays can produce showers of secondary
-        particles that sometimes reach the surface.  A significant fraction of primary
-        cosmic rays originate from the supernovae of massive stars. Others are produced
-        by ordinary stars like the Sun. For example,\_during a solar flare many such
-        particles are ejected from the Sun.\n\n\n\n\n\n\n\n\n\n\n\n\n\nMost cosmic
-        rays are atomic nuclei: primarily hydrogen, some helium, and a few heavier
-        elements. Travelling through the Earth's atmosphere, they interact with the
-        air and produce cascades of particles like neutrinos, pions and muons. Many
-        of these muons arrive at the Earth's surface, and also at the MicroBooNE detector!
+      value: "<size=70><color=green><b>Cosmic rays</b></color></size>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCosmic
+        rays are energetic, subatomic particles from outside the Earth's atmosphere.
+        Upon impact with the Earth's atmosphere, cosmic rays can produce showers of
+        secondary particles that sometimes reach the surface.  A significant fraction
+        of primary cosmic rays originate from the supernovae of massive stars. Others
+        are produced by ordinary stars like the Sun. For example,\_during a solar
+        flare many such particles are ejected from the Sun.\n\nMost cosmic rays are
+        atomic nuclei: primarily hydrogen, some helium, and a few heavier elements.
+        Travelling through the Earth's atmosphere, they interact with the air and
+        produce cascades of particles like neutrinos, pions and muons. Many of these
+        muons arrive at the Earth's surface, and also at the MicroBooNE detector!
         There they produce tracks and it can happen that some of them are misidentified
         as neutrino events. Scientists have to work very hard to develop techniques
         that allow the rejection of cosmic particles!\n"
@@ -3642,7 +3667,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 1858
+      value: 1927.7
       objectReference: {fileID: 0}
     - target: {fileID: 22426686, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -3659,6 +3684,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22491342, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
@@ -4020,7 +4049,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.49579835
+      value: 0.52047956
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -4044,23 +4073,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
-      value: "<size=70><color=green><b>What is a LArTPC?</b></color></size>\n\nThe
+      value: "<size=70><color=green><b>What is a LArTPC?</b></color></size>\n\n\n\n\n\n\n\n\n\n\nThe
         MicroBooNE detector is a Liquid Argon Time Projection Chamber. It consists
         of 170 tonnes of liquid Argon, which need to be kept at 87 Kelvin (-186 \u02DAC
         or -303 \u02DAF) in a big cryostat. Submerged in the argon, a cathode powered
         to up to -100 kV is creating an electric field across a field shaping cage.
         Opposite the cathode, very fine wires are strung just 3 mm apart in three
-        planes -- over 8,000 wires in total! \n\n\n\n\n\n\n\n\n\nWhen a neutrino interacts
-        with an argon nucleus in the TPC, it produces charged particles. These charged
-        particles ionise the surrounding argon atoms, which means that some of the
-        electrons in the argon atoms separate from the argon nuclei. The electrons,
-        being negatively charged, then drift in the electric field towards the wire
-        planes. The movement of the charge induces a signal in the wires, which is
-        read out using special electronics. Putting all these signals together, scientists
-        are able to reconstruct where the charged particles from the interaction went,
-        and calculate some of their properties, such as their energy and momentum.
-        This helps in identifying which type of particles are involved and whether
-        what is observed stems from a neutrino interaction. \n"
+        planes -- over 8,000 wires in total! \n\nWhen a neutrino interacts with an
+        argon nucleus in the TPC, it produces charged particles. These charged particles
+        ionise the surrounding argon atoms, which means that some of the electrons
+        in the argon atoms separate from the argon nuclei. The electrons, being negatively
+        charged, then drift in the electric field towards the wire planes. The movement
+        of the charge induces a signal in the wires, which is read out using special
+        electronics. Putting all these signals together, scientists are able to reconstruct
+        where the charged particles from the interaction went, and calculate some
+        of their properties, such as their energy and momentum. This helps in identifying
+        which type of particles are involved and whether what is observed stems from
+        a neutrino interaction. \n"
       objectReference: {fileID: 0}
     - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Enabled
@@ -4068,7 +4097,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 1904
+      value: 2002
       objectReference: {fileID: 0}
     - target: {fileID: 22426686, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -4085,6 +4114,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22491342, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
@@ -4131,7 +4164,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22492990, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
