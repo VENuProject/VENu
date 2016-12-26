@@ -287,7 +287,7 @@ public class inGameMenuScriptApp: MonoBehaviour {
 		}
 
 		// Also display run info for the first event
-		displayRunInfo(0);
+		if (showData) displayRunInfo(0);
 	}
 
 
