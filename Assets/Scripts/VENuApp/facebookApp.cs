@@ -54,7 +54,7 @@ public class facebookApp : MonoBehaviour {
 
 		// Facebook Sharing
 		FB.ShareLink(
-			contentURL:         new System.Uri ("http://www2.physics.ox.ac.uk"),
+			contentURL:         new System.Uri ("https://www.facebook.com/venuneutrinos"),
 			contentTitle:       "I just fund all the neutrino events in VENu!",
 			contentDescription: "VENu helped me learn about neutrino physics.",
 			//photoURL:           new System.Uri ("http://www2.physics.ox.ac.uk"),
