@@ -1191,14 +1191,14 @@ Prefab:
         be less than a billionth of the mass of a hydrogen atom. Research continues
         to find out how big this mass actually is.\n\nThere are three different kinds,
         or \"flavours\", of neutrinos: the electron neutrino, the muon neutrino and
-        the tau neutrino, named after their partner lepton in the Standard Model (see
-        image).\n\nNeutrinos interact only via the weak force, which is one of the
-        four fundamental forces of nature.\nTheir existence has been confirmed experimentally.
-        A fourth, \u2018sterile\u2019 type has been proposed, which would be immune
-        to the weak force of the Standard Model. Were sterile neutrinos to be found,
-        a new realm of physics beyond the Standard Model would open up.\n\n But even
-        the three confirmed types of neutrinos are special: they \"oscillate\" \u2013
-        electron, muon and tau neutrinos change from one flavour to another. \n"
+        the tau neutrino, named after their partner lepton in the Standard Model.\n\nNeutrinos
+        interact only via the weak force, which is one of the four fundamental forces
+        of nature.\nTheir existence has been confirmed experimentally. A fourth, \u2018sterile\u2019
+        type has been proposed, which would be immune to the weak force of the Standard
+        Model. Were sterile neutrinos to be found, a new realm of physics beyond the
+        Standard Model would open up.\n\nBut even the three confirmed types of neutrinos
+        are special: they \"oscillate\" \u2013 electron, muon and tau neutrinos change
+        from one flavour to another. \n"
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Pivot.y
@@ -4208,7 +4208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.5630405
+      value: 0.58459544
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -4258,11 +4258,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11487034, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 2197
+      value: 2311
       objectReference: {fileID: 0}
     - target: {fileID: 22426686, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -4279,6 +4279,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22491342, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
