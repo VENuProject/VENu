@@ -1187,8 +1187,8 @@ Prefab:
         meaning \u2018little neutral ones\u2019, are everywhere, all around us. These
         tiny elementary particles travel through space at almost the speed of light
         and have no electric charge. They were once thought to have no mass either,
-        but scientists now suggest that they do. The neutrino mass is estimated to
-        be less than a billionth of the mass of a hydrogen atom. Research continues
+        but scientists recently proved that they do. The neutrino mass is estimated
+        to be less than a billionth of the mass of a hydrogen atom. Research continues
         to find out how big this mass actually is.\n\nThere are three different kinds,
         or \"flavours\", of neutrinos: the electron neutrino, the muon neutrino and
         the tau neutrino, named after their partner lepton in the Standard Model.\n\nNeutrinos
@@ -5589,7 +5589,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.61321515
+      value: 0.6104348
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -5620,10 +5620,7 @@ Prefab:
         with the neutrinos, muon particles are produced in the pion/kaon decays. These
         muons are then stopped in thick blocks of aluminium, steel and concrete. The
         blocks, or \"dumps\", stop and absorb all particles except the ghost-like
-        neutrinos, which pass through unaffected.\n\nScientists have been creating
-        neutrino beams with proton accelerators for more than 50 years. In 1961, an
-        experiment at Brookhaven National Laboratory led to the Nobel Prize-winning
-        discovery of the muon neutrino.\_\n"
+        neutrinos, which pass through unaffected.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_IsActive
@@ -5643,7 +5640,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 2482
+      value: 2127
       objectReference: {fileID: 0}
     - target: {fileID: 22450244, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Pivot.y
@@ -5679,7 +5676,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11491418, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11491418, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Size
@@ -5691,7 +5688,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -2482
+      value: -2224.8955
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
