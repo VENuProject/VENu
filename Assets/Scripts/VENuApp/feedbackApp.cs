@@ -3,11 +3,28 @@ using System.Collections;
 
 public class feedbackApp : MonoBehaviour {
 
+	[Tooltip("Seconds to wait before action is taken")]
 	public int secondsToWait;
+
+	[Tooltip("Will open a blank email to be sent to the team")]
+	public bool openEmail;
+
+	[Tooltip("Will open the contact form in a web-page")]
+	public bool openContactForm;
 
 	// Use this for initialization
 	void Start () {
-		SendEmail ();
+
+		if (openEmail && openContactForm) {
+			Debug.LogError ("Only one choice between openEmail and openContactForm is permitted.");
+			return;
+		}
+
+		if (openEmail)
+			SendEmail ();
+
+		if (openContactForm)
+			OpenContactForm ();
 	
 	}
 	
@@ -30,5 +47,17 @@ public class feedbackApp : MonoBehaviour {
 
 	string MyEscapeURL(string url) {
 		return WWW.EscapeURL(url).Replace("+","%20");
+	}
+
+
+	void OpenContactForm () {
+		StartCoroutine (OpenContactFormMain());
+	}
+
+	IEnumerator OpenContactFormMain(){
+		yield return new WaitForSeconds(secondsToWait);
+		Debug.Log ("Opening URL...");
+		Application.OpenURL("http://venu.physics.ox.ac.uk");
+		Debug.Log ("URL opend");
 	}
 }
