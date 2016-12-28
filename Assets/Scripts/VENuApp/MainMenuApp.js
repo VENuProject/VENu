@@ -57,7 +57,7 @@ function changeToLandscapeLeft() {
 
 function goToEventDisplay() {
 
-  //Screen.orientation = ScreenOrientation.LandscapeLeft;
+  Screen.orientation = ScreenOrientation.LandscapeLeft;
 
   if (showSimulation) PlayerPrefs.SetInt ("ShowSimulationOrData", 0);
   if (showData)       PlayerPrefs.SetInt ("ShowSimulationOrData", 1);
