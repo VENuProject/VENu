@@ -43,6 +43,7 @@ public class controlSwitcher : MonoBehaviour {
 
 	void Start () {
 
+		/*
 		if (PlayerPrefs.HasKey ("LookSensitivity")) {
 			Debug.Log ("Getting LookSensitivity from PlayerPrefs, which is: " + PlayerPrefs.GetFloat ("LookSensitivity"));
 			lookSpeedSlider.value = PlayerPrefs.GetFloat ("LookSensitivity");
@@ -50,6 +51,8 @@ public class controlSwitcher : MonoBehaviour {
 		else
 			lookSpeedSlider.value = 0.05f; // was 0.4
 //			PlayerPrefs.SetFloat("LookSensitivity", 0.2f);
+        */
+		lookSpeedSlider.value = 0.05f;
 
 		if(PlayerPrefs.HasKey("MoveSpeed"))
 			moveSpeedSlider.value = PlayerPrefs.GetFloat("MoveSpeed");
