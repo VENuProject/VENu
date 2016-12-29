@@ -44,6 +44,13 @@ public class feedbackApp : MonoBehaviour {
 		string body = MyEscapeURL("Please write your feedback here.\r\nThank you,\nThe VENu Team");
 		Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
 	}
+		
+	public void SendEmailDirectly(){
+		string email = "venu.developers@physics.ox.ac.uk";
+		string subject = MyEscapeURL("VENu Feedback");
+		string body = MyEscapeURL("Please write your feedback here.\r\nThank you,\nThe VENu Team");
+		Application.OpenURL("mailto:" + email + "?subject=" + subject + "&body=" + body);
+	}
 
 	string MyEscapeURL(string url) {
 		return WWW.EscapeURL(url).Replace("+","%20");
@@ -57,7 +64,7 @@ public class feedbackApp : MonoBehaviour {
 	IEnumerator OpenContactFormMain(){
 		yield return new WaitForSeconds(secondsToWait);
 		Debug.Log ("Opening URL...");
-		Application.OpenURL("http://venu.physics.ox.ac.uk");
+		Application.OpenURL("http://venu.physics.ox.ac.uk/contact.html");
 		Debug.Log ("URL opend");
 	}
 }
