@@ -23,6 +23,7 @@ function Start () {
       scene.name == "GamePlayLevel2App"          ||
       scene.name == "GamePlayLevel1CardboardApp" ||
       scene.name == "GamePlayLevel2CardboardApp" ||
+      scene.name == "GamePlayTutorialCardboardApp" ||
       scene.name == "GameTutorialApp") 
       Screen.orientation = ScreenOrientation.LandscapeLeft;
   else Screen.orientation = ScreenOrientation.Portrait;
@@ -94,7 +95,38 @@ function Start () {
 
 
 
+  // If the user is playing the game the =n we don't want him able to go
+  // to the next or previous event!
+  if (scene.name == "GamePlayLevel1App"          || 
+      scene.name == "GamePlayLevel2App"          ||
+      scene.name == "GameTutorialApp") {
 
+    var menuc = GameObject.Find("MenuCanvas");
+    for (var child : Transform in menuc.transform){
+      if(child.gameObject.name == "InGameMenu"){
+        for (var child2 : Transform in child.transform){
+          if(child2.gameObject.name == "Panel"){
+            for (var child3 : Transform in child2.transform){
+              if(child3.gameObject.name == "ButtonsPanel"){
+                for (var child4 : Transform in child3.transform){
+                  if(child4.gameObject.name == "MenuButtons"){
+                    for (var child5 : Transform in child4.transform){
+                      if(child5.gameObject.name == "NextEventButton"){
+                        child5.gameObject.GetComponent(Selectable).interactable = false;
+                      }
+                      if(child5.gameObject.name == "PrevEventButton"){
+                        child5.gameObject.GetComponent(Selectable).interactable = false;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 
 }
 

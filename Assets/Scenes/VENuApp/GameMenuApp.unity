@@ -711,7 +711,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 400, y: -150}
-  m_SizeDelta: {x: 339, y: 238.2}
+  m_SizeDelta: {x: 349.1, y: 247.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &162462921
 MonoBehaviour:
@@ -1657,7 +1657,7 @@ MonoBehaviour:
   m_Text: '<size=60><color=grey><b>4/5</b></color></size>
 
 
-    A typical muon-neutrino event will look like a long straigth track (a muon!) and
+    A typical muon-neutrino event will look like a long straight track (a muon!) and
     some other small tracks (protons, pions or others!)'
 --- !u!222 &380803640
 CanvasRenderer:
@@ -8692,7 +8692,7 @@ MonoBehaviour:
 
 
     Unfortunately, particles coming from the outer space can create tracks in the
-    detector making difficult to spot the neutrino induced tracks.'
+    detector, making difficult to spot the neutrino induced tracks.'
 --- !u!222 &2141956364
 CanvasRenderer:
   m_ObjectHideFlags: 0

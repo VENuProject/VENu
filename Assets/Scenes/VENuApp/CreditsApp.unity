@@ -1252,7 +1252,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 177345584}
   m_Direction: 0
   m_Value: 1
-  m_Size: 0.48015913
+  m_Size: 0.4801591
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1445,7 +1445,7 @@ MonoBehaviour:
     Del Tutto <color=grey>University of Oxford</color>\n\n<size=50><color=green><b>Special
     Thanks to</b></color></size>\nSam Zeller <color=grey>Fermilab</color>\nRoxanne
     Guenette <color=grey>University of Oxford</color>\n\n<size=30><color=grey>Thanks
-    to Matthew Arnold School (Oxford, UK) for their help in testing the app.</color></size>\n\n<size=30><color=grey>Main
+    to Matthew Arnold School (Oxford, UK) for their help in testing the app</color></size>\n\n<size=30><color=grey>Main
     Menu Background Image: MicroBooNE run 3493, event 41075, recorded on October 23,
     2015</color></size>\n"
 --- !u!222 &1899024585
