@@ -344,6 +344,12 @@ function goToCardboardEventDisplayMain() {
   Application.LoadLevel("DisplayCardboardApp");
 }
 
+function visitFermilabLink() {
+
+  Application.OpenURL("http://www.fnal.gov/pub/visiting/");
+
+}
+
 
 
 
