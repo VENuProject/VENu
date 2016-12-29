@@ -4208,7 +4208,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.58459544
+      value: 0.5857069
       objectReference: {fileID: 0}
     - target: {fileID: 22400776, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchorMax.x
@@ -4224,25 +4224,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11427594, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_Text
-      value: "<size=70><color=green><b>What is a cross-section?</b></color></size>\n\nParticle
+      value: "<size=70><color=green><b>What is a cross-section?</b></color></size>\n\n\n\n\n\n\n\n\n\n\n\n\nParticle
         physicists often use the word \"cross-section\", but what does it mean? Put
         simply, the cross-section gives you an idea of how often a particle will interact
-        with the particles in your detector.\n\n\n\n\n\n\n\n\n\n\n\nIn a classical
-        analogy, where a particle is modelled as a hard sphere, the cross section
-        is the conventional geometric cross sectional area, and expresses the probability
-        of hitting the object with a ray. Physicists denote it with the greek letter
-        \u201Csigma\u201D and measure it in units of area. In the world of point-like
-        particles, the cross-section \"area\" is determined by the particles' ability
-        and likelihood to interact with others.\n\nSince neutrinos only interact via
-        the weak force (they have no electric or colour charge), the neutrino cross-section
-        is very very very very small. This implies that the probably of witnessing
-        an interaction induced by a neutrino is very very very very small. Unfortunately
-        the only way to study neutrinos is to detect them, making physicists' lives
-        very hard! The particles are so elusive that one light-year of lead (which
-        equals nine and a half trillion kilometres, or six trillion miles) would only
-        stop half of the neutrinos flying through! That is why scientists need to
-        produce a very intense neutrino beam to find at least some that interact in
-        the detector."
+        with the particles in your detector.\n\nIn a classical analogy, where a particle
+        is modelled as a hard sphere, the cross section is the conventional geometric
+        cross sectional area, and expresses the probability of hitting the object
+        with a ray. Physicists denote it with the greek letter \u201Csigma\u201D and
+        measure it in units of area. In the world of point-like particles, the cross-section
+        \"area\" is determined by the particles' ability and likelihood to interact
+        with others.\n\nSince neutrinos only interact via the weak force (they have
+        no electric or colour charge), the neutrino cross-section is very very very
+        very small. This implies that the probably of witnessing an interaction induced
+        by a neutrino is very very very very small. Unfortunately the only way to
+        study neutrinos is to detect them, making physicists' lives very hard! The
+        particles are so elusive that one light-year of lead (which equals nine and
+        a half trillion kilometres, or six trillion miles) would only stop half of
+        the neutrinos flying through! That is why scientists need to produce a very
+        intense neutrino beam to find at least some that interact in the detector."
       objectReference: {fileID: 0}
     - target: {fileID: 167180, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_IsActive
@@ -4262,7 +4261,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22441376, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 2311
+      value: 2317.2
       objectReference: {fileID: 0}
     - target: {fileID: 22426686, guid: 9dcadfcd93eb74a70b006db3c78a7b27, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -6357,7 +6356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000011444092, y: -462.99}
+  m_AnchoredPosition: {x: -0.000011444092, y: -182}
   m_SizeDelta: {x: 667.6, y: 386.3}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2071276701
