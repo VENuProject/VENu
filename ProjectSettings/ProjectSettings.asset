@@ -6,7 +6,7 @@ PlayerSettings:
   serializedVersion: 10
   productGUID: 0086036c33305704294abb2f69fd081d
   AndroidProfiler: 0
-  defaultScreenOrientation: 3
+  defaultScreenOrientation: 0
   targetDevice: 0
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -198,8 +198,8 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: AndroidKeystore/user.keystore
+  AndroidKeyaliasName: venuoxfordphysics
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   androidEnableBanner: 1
