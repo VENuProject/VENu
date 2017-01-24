@@ -1,4 +1,4 @@
-# VENu
+![VENu Logo](http://venu.physics.ox.ac.uk/downloads/venuLogoWrittenAndImage.png)
 
 This is the repository for the MicroBooNE VR project. 
 
