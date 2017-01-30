@@ -62,10 +62,13 @@
   </application>
   <!-- Set target sdk version to Lollipop to prevent issues with Marshmallow's runtime permissions. -->
   <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="23" />
-  <uses-feature android:glEsVersion="0x00020000" />
-  <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
-  <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true" />
-  <uses-feature android:name="android.hardware.camera" />
+
+  <uses-feature android:name="android.hardware.camera" android:required="false" />
+  <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+  <uses-feature android:glEsVersion="0x00020000" android:required="false" />
+  <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
+  <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false" />
+
   <uses-permission android:name="android.permission.NFC" />
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
