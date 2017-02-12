@@ -39,6 +39,9 @@ public class inGameMenuScriptApp: MonoBehaviour {
 
 	void Awake() {
 
+		Debug.Log ("Calling inGameMenuScriptApp.");
+		print(gameObject.name);
+
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
 
 		showSimulation = showData = isGame = false;

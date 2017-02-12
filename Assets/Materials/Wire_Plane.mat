@@ -15,24 +15,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
-      data:
-        first:
-          name: _MainTex
-        second:
-          m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
+    - first:
+        name: _MainTex
+      second:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
-      data:
-        first:
-          name: _Shininess
-        second: .078125
+    - first:
+        name: _Shininess
+      second: 0.078125
     m_Colors:
-      data:
-        first:
-          name: _Color
-        second: {r: .772058845, g: .541537404, b: .0454152226, a: .36500001}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: 1, g: .972413898, b: 0, a: 0}
+    - first:
+        name: _Color
+      second: {r: 0.77205884, g: 0.5415374, b: 0.045415223, a: 0.365}
+    - first:
+        name: _SpecColor
+      second: {r: 1, g: 0.9724139, b: 0, a: 0}
